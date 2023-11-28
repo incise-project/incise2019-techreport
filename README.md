@@ -1,30 +1,34 @@
 # InCiSE 2019 Technical Report
 
-This repository contains source code needed to produce the HTML version of the
+This repository contains source code needed to produce an HTML version of the
 2019 Technical Report of the InCiSE project. You can read the rendered HTML
 book [here](https://incise-project.github.io/incise2019-technical-report). You
-can also download the original PDF publication.
+can also download the
+[original PDF publication](https://incise-project.github.io/incise2019-technical-report/InCiSE-2019--Technical-Report.pdf).
 
 ## About
 
-From 2016 to 2019, the International Civil Service Effectiveness (InCiSE)
-project was a collaboration between
-the [Blavatnik School of Government](https://www.bsg.ox.ac.uk) and
-the [Institute for Government](http://instituteforgovernment.org.uk). It was
-supported by the UK Civil Service (through 
-the [Cabinet Office](https://www.gov.uk/cabinetoffice))
-and funded by the [Open Society Foundations](https://www.opensocietyfoundations.org).
+From 2016 to 2019, the
+[International Civil Service Effectiveness (InCiSE) project](https://www.bsg.ox.ac.uk/incise)
+was a collaboration between the
+[Blavatnik School of Government](https://www.bsg.ox.ac.uk) and the
+[Institute for Government](http://instituteforgovernment.org.uk).
+It was supported by the UK Civil Service (through the
+[Cabinet Office](https://www.gov.uk/cabinetoffice)) and funded by the
+[Open Society Foundations](https://www.opensocietyfoundations.org).
 
 The Blavatnik School of Government is re-establishing the project, aiming to
-publish a new edition of the InCiSE Index in 2024.
+publish a new edition of the InCiSE Index in 2024. To support this, the School
+is republishing the 2019 project outputs (this Technical Report, the Results
+Report and interactive visualisations) to help foster engagement with
+stakeholders as work progresses a new edition of the InCiSE index.
 
-To support this, the School is republishing the 2019 project outputs
-(this Technical Report, the Results Report and interactive visualisations) to
-help foster engagement with stakeholders as work progresses a new edition of
-the InCiSE index.
-
-Some typographic errors have been corrected as part of the re-publication of
-this report.
+Please note, some typographic errors have been corrected as part of the
+re-publication of this report. There have also been some changes to the tables
+and figures when compared to the original report, these are largely for layout
+purposes (except in the case of one chart where external source data
+availability has changed). Footnotes have been added to charts and tables to
+indicate these changes.
 
 ## Citation
 
@@ -46,11 +50,8 @@ Note computations are processed locally and
 [frozen](https://quarto.org/docs/publishing/github-pages.html#freezing-computations)
 by Quarto.
 
-### PDF file
-
-The PDF publication available in this repo is not rendered via Quarto. It is a
-copy of the originally published PDF report, some typographic amendments and
-layout changes have been made in the Quarto version.
+The PDF publication available in this repo has not rendered via Quarto. It is a
+copy of the originally published PDF report.
 
 ### Tables and figures
 

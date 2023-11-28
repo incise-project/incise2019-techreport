@@ -1,15 +1,14 @@
 
 ## Preface {.unnumbered}
 
-### About this version
-
-From 2016 to 2019, the International Civil Service Effectiveness (InCiSE)
-project was a collaboration between
-the [Blavatnik School of Government](https://www.bsg.ox.ac.uk) and
-the [Institute for Government](http://instituteforgovernment.org.uk). It was
-supported by the UK Civil Service (through 
-the [Cabinet Office](https://www.gov.uk/cabinetoffice))
-and funded by the [Open Society Foundations](https://www.opensocietyfoundations.org).
+From 2016 to 2019, the
+[International Civil Service Effectiveness (InCiSE) project](https://www.bsg.ox.ac.uk/incise)
+was a collaboration between the
+[Blavatnik School of Government](https://www.bsg.ox.ac.uk) and the
+[Institute for Government](http://instituteforgovernment.org.uk).
+It was supported by the UK Civil Service (through the
+[Cabinet Office](https://www.gov.uk/cabinetoffice)) and funded by the
+[Open Society Foundations](https://www.opensocietyfoundations.org).
 
 The Blavatnik School of Government is re-establishing the project, aiming to
 publish a new edition of the InCiSE Index in 2024. To support this, the School
@@ -17,16 +16,12 @@ is republishing the 2019 project outputs (this Technical Report, the Results
 Report and interactive visualisations) to help foster engagement with
 stakeholders as work progresses a new edition of the InCiSE index.
 
-Some typographic errors have been corrected as part of the re-publication of
-this report.
-
-### Citation
-
-Please refer to and cite the original PDF publication:
-
-> InCiSE Partners (2019) The International Civil Service Effectiveness (InCiSE)
-> Index: Technical Report 2019, Oxford: Blavatnik School of Government,
-> University of Oxford, https://www.bsg.ox.ac.uk/incise
+Please note, some typographic errors have been corrected as part of the
+re-publication of this report. There have also been some changes to the tables
+and figures when compared to the original report, these are largely for layout
+purposes (except in the case of one chart where external source data
+availability has changed). Footnotes have been added to charts and tables to
+indicate these changes.
 
 ### Preface to the original report
 
@@ -49,7 +44,15 @@ restrictions to ensure compliance with their data limitations. Details of data
 sources can be found in the References section at the end of this report.
 Every effort has been made to adhere to third party data regulations.
 
-### Acknoweldgements {.unnumbered}
+### Citation
+
+Please refer to and cite the original PDF publication:
+
+> InCiSE Partners (2019) The International Civil Service Effectiveness (InCiSE)
+> Index: Technical Report 2019, Oxford: Blavatnik School of Government,
+> University of Oxford, https://www.bsg.ox.ac.uk/incise
+
+### Acknoweldgements
 
 Our thanks go to those who have given their time to shape this second
 publication of the InCiSE Index. This has included substantial contributions
