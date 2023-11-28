@@ -1,0 +1,3417 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>InCiSE 2019: Technical Report - Appendix B — Sensitivity analysis – detailed results</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./A_composite-metrics.html" rel="prev">
+<link href="./incise2019-techreport-cover.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A_composite-metrics.html">Appendices</a></li><li class="breadcrumb-item"><a href="./B_sensitivity-detailed.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Sensitivity analysis – detailed results</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">InCiSE 2019: Technical Report</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/incise-project/incise2019-techreport/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./InCiSE-2019--Technical-Report.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./contents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Contents, figures and tables</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./readers-guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reader’s guide</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1_introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2_index-methodology.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Methodology of the InCiSE index</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3_indicators-methodology.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Methodology of the InCiSE indicators</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./4_changes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary of changes from the 2017 pilot edition of the InCiSE Index</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5_sensitivity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Sensitivity analysis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6_future-development.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Future development</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A_composite-metrics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Composite metrics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./B_sensitivity-detailed.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Sensitivity analysis – detailed results</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-sensitivity-detailed" class="quarto-section-identifier">Appendix B — Sensitivity analysis – detailed results</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>This Annex provides detailed results from the sensitivity analysis described in <a href="5_sensitivity.html"><span>Chapter&nbsp;5</span></a>. Each table includes the index score and rank for each of the 38 countries included in the 2019 InCiSE Index results for each of the sensitivity tests carried out alongside the results of the 2019 index results.</p>
+<p><a href="#tbl-sens-country">Table&nbsp;<span>B.1</span></a> shows the results of the sensitivity tests varying country coverage (<a href="5_sensitivity.html#sec-sens-country"><span>Section&nbsp;5.1</span></a>):</p>
+<ul>
+<li>Using a data quality assessment threshold of 0.55 to determine country inclusion;</li>
+<li>Using a data quality assessment threshold of 0.6 to determine country inclusion;</li>
+<li>Using a threshold of 75% of the available data to determine country inclusion;</li>
+<li>Using only the countries included in the 2017 Pilot edition of the index.</li>
+</ul>
+<p><a href="#tbl-sens-date">Table&nbsp;<span>B.2</span></a> shows the results of the sensitivity tests varying the reference date (<a href="5_sensitivity.html#sec-sens-date"><span>Section&nbsp;5.2</span></a>):</p>
+<ul>
+<li>Excluding the capabilities indicator;</li>
+<li>Excluding the capabilities indicator and adjusting the weighting accordingly;</li>
+<li>Using only data with a reference year of 2015 or later;</li>
+<li>Using only data with a reference year of 2016 or later.</li>
+</ul>
+<p><a href="#tbl-sens-weight">Table&nbsp;<span>B.3</span></a> shows the results of the sensitivity tests using alternative weighting (<a href="5_sensitivity.html#sec-sens-weight"><span>Section&nbsp;5.3</span></a>):</p>
+<ul>
+<li>Using a 50:50 split for the equal-share and data-quality based weighting;</li>
+<li>Using only equal indicator weights(i.e.&nbsp;all indicator weights equal 1/12);</li>
+<li>Using only indicator weights based on the data quality assessment results;</li>
+<li>Not applying any within-indicator weights;</li>
+<li>Calculating the index as a sum of all metrics.</li>
+</ul>
+<p><a href="#tbl-sens-base">Table&nbsp;<span>B.4</span></a> shows the results of the sensitivity tests adjusting the base data (<a href="5_sensitivity.html#sec-sens-base"><span>Section&nbsp;5.4</span></a>):</p>
+<ul>
+<li>Ranking the metrics before imputation;</li>
+<li>Rescaling the metrics before imputation;</li>
+<li>Standardising the metrics before imputation.</li>
+</ul>
+<p><a href="#tbl-sens-impute">Table&nbsp;<span>B.5</span></a> shows the results of the sensitivity tests using alternative imputation methods (<a href="5_sensitivity.html#sec-sens-impute"><span>Section&nbsp;5.5</span></a>):</p>
+<ul>
+<li>Using an ‘all-in-one’ approach for imputation of missing data;</li>
+<li>Using the ‘midas touch’ method for imputation of missing data;</li>
+<li>Using the ‘random forests’ method for imputation of missing data;</li>
+<li>Replacing missing data with the mean of observed values.</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-sens-country" class="anchored">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Table&nbsp;B.1: Sensitivity tests varying country coverage</caption>
+<colgroup>
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header gt_col_headings gt_spanner_row">
+<th rowspan="2" id="Country" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Country</th>
+<th colspan="5" id="Index score" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><span class="gt_column_spanner">Index score</span></th>
+<th colspan="5" id="Country rank" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><span class="gt_column_spanner">Country rank</span></th>
+</tr>
+<tr class="odd gt_col_headings">
+<th id="2019 results" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">2019 results</th>
+<th id="DQA ≥ 0.55" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">DQA ≥ 0.55</th>
+<th id="DQA ≥ 0.6" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">DQA ≥ 0.6</th>
+<th id="75% of data" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">75% of data</th>
+<th id="2017 group" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">2017 group</th>
+<th id="2019 results" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">2019 results</th>
+<th id="DQA ≥ 0.55" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">DQA ≥ 0.55</th>
+<th id="DQA ≥ 0.6" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">DQA ≥ 0.6</th>
+<th id="75% of data" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">75% of data</th>
+<th id="2017 group" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">2017 group</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">========</td>
+<td class="gt_row gt_center" headers="incise_2019">===========</td>
+<td class="gt_row gt_center" headers="sens_55">=======</td>
+<td class="gt_row gt_center" headers="sens_60">=======</td>
+<td class="gt_row gt_center" headers="sens_75">=======</td>
+<td class="gt_row gt_center" headers="sens_2017">=========</td>
+<td class="gt_row gt_center" headers="rank_2019">=========</td>
+<td class="gt_row gt_center" headers="rank_55">=======</td>
+<td class="gt_row gt_center" headers="rank_60">=======</td>
+<td class="gt_row gt_center" headers="rank_75">=======</td>
+<td class="gt_row gt_center" headers="rank_2017">=========</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">GBR</td>
+<td class="gt_row gt_center" headers="incise_2019">1.000</td>
+<td class="gt_row gt_center" headers="sens_55">1.000</td>
+<td class="gt_row gt_center" headers="sens_60">1.000</td>
+<td class="gt_row gt_center" headers="sens_75">1.000</td>
+<td class="gt_row gt_center" headers="sens_2017">1.000</td>
+<td class="gt_row gt_center" headers="rank_2019">1</td>
+<td class="gt_row gt_center" headers="rank_55">1</td>
+<td class="gt_row gt_center" headers="rank_60">1</td>
+<td class="gt_row gt_center" headers="rank_75">1</td>
+<td class="gt_row gt_center" headers="rank_2017">1</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">NZL</td>
+<td class="gt_row gt_center" headers="incise_2019">0.980</td>
+<td class="gt_row gt_center" headers="sens_55">0.987</td>
+<td class="gt_row gt_center" headers="sens_60">0.987</td>
+<td class="gt_row gt_center" headers="sens_75">0.992</td>
+<td class="gt_row gt_center" headers="sens_2017">0.985</td>
+<td class="gt_row gt_center" headers="rank_2019">2</td>
+<td class="gt_row gt_center" headers="rank_55">2</td>
+<td class="gt_row gt_center" headers="rank_60">2</td>
+<td class="gt_row gt_center" headers="rank_75">2</td>
+<td class="gt_row gt_center" headers="rank_2017">2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">CAN</td>
+<td class="gt_row gt_center" headers="incise_2019">0.916</td>
+<td class="gt_row gt_center" headers="sens_55">0.907</td>
+<td class="gt_row gt_center" headers="sens_60">0.902</td>
+<td class="gt_row gt_center" headers="sens_75">0.906</td>
+<td class="gt_row gt_center" headers="sens_2017">0.898</td>
+<td class="gt_row gt_center" headers="rank_2019">3</td>
+<td class="gt_row gt_center" headers="rank_55">3</td>
+<td class="gt_row gt_center" headers="rank_60">3</td>
+<td class="gt_row gt_center" headers="rank_75">3</td>
+<td class="gt_row gt_center" headers="rank_2017">3</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">FIN</td>
+<td class="gt_row gt_center" headers="incise_2019">0.883</td>
+<td class="gt_row gt_center" headers="sens_55">0.887</td>
+<td class="gt_row gt_center" headers="sens_60">0.881</td>
+<td class="gt_row gt_center" headers="sens_75">0.886</td>
+<td class="gt_row gt_center" headers="sens_2017">0.879</td>
+<td class="gt_row gt_center" headers="rank_2019">4</td>
+<td class="gt_row gt_center" headers="rank_55">4</td>
+<td class="gt_row gt_center" headers="rank_60">4</td>
+<td class="gt_row gt_center" headers="rank_75">4</td>
+<td class="gt_row gt_center" headers="rank_2017">4</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">AUS</td>
+<td class="gt_row gt_center" headers="incise_2019">0.863</td>
+<td class="gt_row gt_center" headers="sens_55">0.859</td>
+<td class="gt_row gt_center" headers="sens_60">0.858</td>
+<td class="gt_row gt_center" headers="sens_75"><br>
+</td>
+<td class="gt_row gt_center" headers="sens_2017">0.859</td>
+<td class="gt_row gt_center" headers="rank_2019">5</td>
+<td class="gt_row gt_center" headers="rank_55">5</td>
+<td class="gt_row gt_center" headers="rank_60">5</td>
+<td class="gt_row gt_center" headers="rank_75"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_2017">5</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">DNK</td>
+<td class="gt_row gt_center" headers="incise_2019">0.832</td>
+<td class="gt_row gt_center" headers="sens_55">0.854</td>
+<td class="gt_row gt_center" headers="sens_60">0.847</td>
+<td class="gt_row gt_center" headers="sens_75">0.850</td>
+<td class="gt_row gt_center" headers="sens_2017">0.843</td>
+<td class="gt_row gt_center" headers="rank_2019">6</td>
+<td class="gt_row gt_center" headers="rank_55">6</td>
+<td class="gt_row gt_center" headers="rank_60">6</td>
+<td class="gt_row gt_center" headers="rank_75">5</td>
+<td class="gt_row gt_center" headers="rank_2017">6</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">NOR</td>
+<td class="gt_row gt_center" headers="incise_2019">0.830</td>
+<td class="gt_row gt_center" headers="sens_55">0.832</td>
+<td class="gt_row gt_center" headers="sens_60">0.830</td>
+<td class="gt_row gt_center" headers="sens_75">0.831</td>
+<td class="gt_row gt_center" headers="sens_2017">0.828</td>
+<td class="gt_row gt_center" headers="rank_2019">7</td>
+<td class="gt_row gt_center" headers="rank_55">7</td>
+<td class="gt_row gt_center" headers="rank_60">7</td>
+<td class="gt_row gt_center" headers="rank_75">6</td>
+<td class="gt_row gt_center" headers="rank_2017">7</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">NLD</td>
+<td class="gt_row gt_center" headers="incise_2019">0.794</td>
+<td class="gt_row gt_center" headers="sens_55">0.792</td>
+<td class="gt_row gt_center" headers="sens_60">0.790</td>
+<td class="gt_row gt_center" headers="sens_75">0.790</td>
+<td class="gt_row gt_center" headers="sens_2017">0.786</td>
+<td class="gt_row gt_center" headers="rank_2019">8</td>
+<td class="gt_row gt_center" headers="rank_55">8</td>
+<td class="gt_row gt_center" headers="rank_60">8</td>
+<td class="gt_row gt_center" headers="rank_75">7</td>
+<td class="gt_row gt_center" headers="rank_2017">8</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">KOR</td>
+<td class="gt_row gt_center" headers="incise_2019">0.785</td>
+<td class="gt_row gt_center" headers="sens_55">0.781</td>
+<td class="gt_row gt_center" headers="sens_60">0.779</td>
+<td class="gt_row gt_center" headers="sens_75">0.777</td>
+<td class="gt_row gt_center" headers="sens_2017">0.773</td>
+<td class="gt_row gt_center" headers="rank_2019">9</td>
+<td class="gt_row gt_center" headers="rank_55">9</td>
+<td class="gt_row gt_center" headers="rank_60">9</td>
+<td class="gt_row gt_center" headers="rank_75">8</td>
+<td class="gt_row gt_center" headers="rank_2017">10</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">SWE</td>
+<td class="gt_row gt_center" headers="incise_2019">0.785</td>
+<td class="gt_row gt_center" headers="sens_55">0.773</td>
+<td class="gt_row gt_center" headers="sens_60">0.775</td>
+<td class="gt_row gt_center" headers="sens_75">0.775</td>
+<td class="gt_row gt_center" headers="sens_2017">0.775</td>
+<td class="gt_row gt_center" headers="rank_2019">10</td>
+<td class="gt_row gt_center" headers="rank_55">10</td>
+<td class="gt_row gt_center" headers="rank_60">10</td>
+<td class="gt_row gt_center" headers="rank_75">9</td>
+<td class="gt_row gt_center" headers="rank_2017">9</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">USA</td>
+<td class="gt_row gt_center" headers="incise_2019">0.765</td>
+<td class="gt_row gt_center" headers="sens_55">0.759</td>
+<td class="gt_row gt_center" headers="sens_60"><br>
+</td>
+<td class="gt_row gt_center" headers="sens_75"><br>
+</td>
+<td class="gt_row gt_center" headers="sens_2017">0.758</td>
+<td class="gt_row gt_center" headers="rank_2019">11</td>
+<td class="gt_row gt_center" headers="rank_55">11</td>
+<td class="gt_row gt_center" headers="rank_60"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_75"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_2017">11</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">EST</td>
+<td class="gt_row gt_center" headers="incise_2019">0.674</td>
+<td class="gt_row gt_center" headers="sens_55">0.675</td>
+<td class="gt_row gt_center" headers="sens_60">0.674</td>
+<td class="gt_row gt_center" headers="sens_75">0.672</td>
+<td class="gt_row gt_center" headers="sens_2017">0.671</td>
+<td class="gt_row gt_center" headers="rank_2019">12</td>
+<td class="gt_row gt_center" headers="rank_55">12</td>
+<td class="gt_row gt_center" headers="rank_60">11</td>
+<td class="gt_row gt_center" headers="rank_75">10</td>
+<td class="gt_row gt_center" headers="rank_2017">12</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">CHE</td>
+<td class="gt_row gt_center" headers="incise_2019">0.650</td>
+<td class="gt_row gt_center" headers="sens_55">0.639</td>
+<td class="gt_row gt_center" headers="sens_60">0.635</td>
+<td class="gt_row gt_center" headers="sens_75">0.641</td>
+<td class="gt_row gt_center" headers="sens_2017">0.635</td>
+<td class="gt_row gt_center" headers="rank_2019">13</td>
+<td class="gt_row gt_center" headers="rank_55">13</td>
+<td class="gt_row gt_center" headers="rank_60">12</td>
+<td class="gt_row gt_center" headers="rank_75">11</td>
+<td class="gt_row gt_center" headers="rank_2017">13</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">IRL</td>
+<td class="gt_row gt_center" headers="incise_2019">0.625</td>
+<td class="gt_row gt_center" headers="sens_55">0.623</td>
+<td class="gt_row gt_center" headers="sens_60">0.617</td>
+<td class="gt_row gt_center" headers="sens_75">0.619</td>
+<td class="gt_row gt_center" headers="sens_2017">0.611</td>
+<td class="gt_row gt_center" headers="rank_2019">14</td>
+<td class="gt_row gt_center" headers="rank_55">16</td>
+<td class="gt_row gt_center" headers="rank_60">15</td>
+<td class="gt_row gt_center" headers="rank_75">14</td>
+<td class="gt_row gt_center" headers="rank_2017">16</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">FRA</td>
+<td class="gt_row gt_center" headers="incise_2019">0.619</td>
+<td class="gt_row gt_center" headers="sens_55">0.626</td>
+<td class="gt_row gt_center" headers="sens_60">0.627</td>
+<td class="gt_row gt_center" headers="sens_75">0.627</td>
+<td class="gt_row gt_center" headers="sens_2017">0.628</td>
+<td class="gt_row gt_center" headers="rank_2019">15</td>
+<td class="gt_row gt_center" headers="rank_55">15</td>
+<td class="gt_row gt_center" headers="rank_60">13</td>
+<td class="gt_row gt_center" headers="rank_75">12</td>
+<td class="gt_row gt_center" headers="rank_2017">14</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">AUT</td>
+<td class="gt_row gt_center" headers="incise_2019">0.617</td>
+<td class="gt_row gt_center" headers="sens_55">0.626</td>
+<td class="gt_row gt_center" headers="sens_60">0.621</td>
+<td class="gt_row gt_center" headers="sens_75">0.624</td>
+<td class="gt_row gt_center" headers="sens_2017">0.620</td>
+<td class="gt_row gt_center" headers="rank_2019">16</td>
+<td class="gt_row gt_center" headers="rank_55">14</td>
+<td class="gt_row gt_center" headers="rank_60">14</td>
+<td class="gt_row gt_center" headers="rank_75">13</td>
+<td class="gt_row gt_center" headers="rank_2017">15</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">ESP</td>
+<td class="gt_row gt_center" headers="incise_2019">0.599</td>
+<td class="gt_row gt_center" headers="sens_55">0.596</td>
+<td class="gt_row gt_center" headers="sens_60">0.589</td>
+<td class="gt_row gt_center" headers="sens_75">0.586</td>
+<td class="gt_row gt_center" headers="sens_2017">0.590</td>
+<td class="gt_row gt_center" headers="rank_2019">17</td>
+<td class="gt_row gt_center" headers="rank_55">17</td>
+<td class="gt_row gt_center" headers="rank_60">16</td>
+<td class="gt_row gt_center" headers="rank_75">15</td>
+<td class="gt_row gt_center" headers="rank_2017">17</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">MEX</td>
+<td class="gt_row gt_center" headers="incise_2019">0.507</td>
+<td class="gt_row gt_center" headers="sens_55">0.500</td>
+<td class="gt_row gt_center" headers="sens_60">0.504</td>
+<td class="gt_row gt_center" headers="sens_75"><br>
+</td>
+<td class="gt_row gt_center" headers="sens_2017">0.505</td>
+<td class="gt_row gt_center" headers="rank_2019">18</td>
+<td class="gt_row gt_center" headers="rank_55">19</td>
+<td class="gt_row gt_center" headers="rank_60">17</td>
+<td class="gt_row gt_center" headers="rank_75"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_2017">18</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">DEU</td>
+<td class="gt_row gt_center" headers="incise_2019">0.505</td>
+<td class="gt_row gt_center" headers="sens_55">0.502</td>
+<td class="gt_row gt_center" headers="sens_60">0.503</td>
+<td class="gt_row gt_center" headers="sens_75">0.504</td>
+<td class="gt_row gt_center" headers="sens_2017">0.502</td>
+<td class="gt_row gt_center" headers="rank_2019">19</td>
+<td class="gt_row gt_center" headers="rank_55">18</td>
+<td class="gt_row gt_center" headers="rank_60">18</td>
+<td class="gt_row gt_center" headers="rank_75">16</td>
+<td class="gt_row gt_center" headers="rank_2017">19</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">LTU</td>
+<td class="gt_row gt_center" headers="incise_2019">0.487</td>
+<td class="gt_row gt_center" headers="sens_55">0.490</td>
+<td class="gt_row gt_center" headers="sens_60">0.483</td>
+<td class="gt_row gt_center" headers="sens_75">0.484</td>
+<td class="gt_row gt_center" headers="sens_2017"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_2019">20</td>
+<td class="gt_row gt_center" headers="rank_55">20</td>
+<td class="gt_row gt_center" headers="rank_60">19</td>
+<td class="gt_row gt_center" headers="rank_75">18</td>
+<td class="gt_row gt_center" headers="rank_2017"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">BEL</td>
+<td class="gt_row gt_center" headers="incise_2019">0.485</td>
+<td class="gt_row gt_center" headers="sens_55">0.483</td>
+<td class="gt_row gt_center" headers="sens_60">0.475</td>
+<td class="gt_row gt_center" headers="sens_75">0.482</td>
+<td class="gt_row gt_center" headers="sens_2017">0.473</td>
+<td class="gt_row gt_center" headers="rank_2019">21</td>
+<td class="gt_row gt_center" headers="rank_55">22</td>
+<td class="gt_row gt_center" headers="rank_60">21</td>
+<td class="gt_row gt_center" headers="rank_75">19</td>
+<td class="gt_row gt_center" headers="rank_2017">21</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">JPN</td>
+<td class="gt_row gt_center" headers="incise_2019">0.472</td>
+<td class="gt_row gt_center" headers="sens_55">0.485</td>
+<td class="gt_row gt_center" headers="sens_60">0.481</td>
+<td class="gt_row gt_center" headers="sens_75">0.488</td>
+<td class="gt_row gt_center" headers="sens_2017">0.479</td>
+<td class="gt_row gt_center" headers="rank_2019">22</td>
+<td class="gt_row gt_center" headers="rank_55">21</td>
+<td class="gt_row gt_center" headers="rank_60">20</td>
+<td class="gt_row gt_center" headers="rank_75">17</td>
+<td class="gt_row gt_center" headers="rank_2017">20</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">LVA</td>
+<td class="gt_row gt_center" headers="incise_2019">0.466</td>
+<td class="gt_row gt_center" headers="sens_55">0.471</td>
+<td class="gt_row gt_center" headers="sens_60">0.463</td>
+<td class="gt_row gt_center" headers="sens_75">0.462</td>
+<td class="gt_row gt_center" headers="sens_2017"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_2019">23</td>
+<td class="gt_row gt_center" headers="rank_55">23</td>
+<td class="gt_row gt_center" headers="rank_60">22</td>
+<td class="gt_row gt_center" headers="rank_75">20</td>
+<td class="gt_row gt_center" headers="rank_2017"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">CHL</td>
+<td class="gt_row gt_center" headers="incise_2019">0.454</td>
+<td class="gt_row gt_center" headers="sens_55">0.451</td>
+<td class="gt_row gt_center" headers="sens_60">0.450</td>
+<td class="gt_row gt_center" headers="sens_75">0.452</td>
+<td class="gt_row gt_center" headers="sens_2017">0.446</td>
+<td class="gt_row gt_center" headers="rank_2019">24</td>
+<td class="gt_row gt_center" headers="rank_55">24</td>
+<td class="gt_row gt_center" headers="rank_60">23</td>
+<td class="gt_row gt_center" headers="rank_75">21</td>
+<td class="gt_row gt_center" headers="rank_2017">22</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">ITA</td>
+<td class="gt_row gt_center" headers="incise_2019">0.419</td>
+<td class="gt_row gt_center" headers="sens_55">0.431</td>
+<td class="gt_row gt_center" headers="sens_60">0.428</td>
+<td class="gt_row gt_center" headers="sens_75">0.424</td>
+<td class="gt_row gt_center" headers="sens_2017">0.427</td>
+<td class="gt_row gt_center" headers="rank_2019">25</td>
+<td class="gt_row gt_center" headers="rank_55">25</td>
+<td class="gt_row gt_center" headers="rank_60">24</td>
+<td class="gt_row gt_center" headers="rank_75">22</td>
+<td class="gt_row gt_center" headers="rank_2017">23</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">SVN</td>
+<td class="gt_row gt_center" headers="incise_2019">0.369</td>
+<td class="gt_row gt_center" headers="sens_55">0.359</td>
+<td class="gt_row gt_center" headers="sens_60">0.358</td>
+<td class="gt_row gt_center" headers="sens_75">0.360</td>
+<td class="gt_row gt_center" headers="sens_2017">0.359</td>
+<td class="gt_row gt_center" headers="rank_2019">26</td>
+<td class="gt_row gt_center" headers="rank_55">26</td>
+<td class="gt_row gt_center" headers="rank_60">25</td>
+<td class="gt_row gt_center" headers="rank_75">23</td>
+<td class="gt_row gt_center" headers="rank_2017">24</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">ISR</td>
+<td class="gt_row gt_center" headers="incise_2019">0.315</td>
+<td class="gt_row gt_center" headers="sens_55">0.322</td>
+<td class="gt_row gt_center" headers="sens_60"><br>
+</td>
+<td class="gt_row gt_center" headers="sens_75"><br>
+</td>
+<td class="gt_row gt_center" headers="sens_2017"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_2019">27</td>
+<td class="gt_row gt_center" headers="rank_55">27</td>
+<td class="gt_row gt_center" headers="rank_60"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_75"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_2017"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">POL</td>
+<td class="gt_row gt_center" headers="incise_2019">0.282</td>
+<td class="gt_row gt_center" headers="sens_55">0.277</td>
+<td class="gt_row gt_center" headers="sens_60">0.274</td>
+<td class="gt_row gt_center" headers="sens_75">0.281</td>
+<td class="gt_row gt_center" headers="sens_2017">0.274</td>
+<td class="gt_row gt_center" headers="rank_2019">28</td>
+<td class="gt_row gt_center" headers="rank_55">28</td>
+<td class="gt_row gt_center" headers="rank_60">26</td>
+<td class="gt_row gt_center" headers="rank_75">24</td>
+<td class="gt_row gt_center" headers="rank_2017">25</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">PRT</td>
+<td class="gt_row gt_center" headers="incise_2019">0.259</td>
+<td class="gt_row gt_center" headers="sens_55">0.260</td>
+<td class="gt_row gt_center" headers="sens_60">0.260</td>
+<td class="gt_row gt_center" headers="sens_75">0.259</td>
+<td class="gt_row gt_center" headers="sens_2017">0.258</td>
+<td class="gt_row gt_center" headers="rank_2019">29</td>
+<td class="gt_row gt_center" headers="rank_55">29</td>
+<td class="gt_row gt_center" headers="rank_60">27</td>
+<td class="gt_row gt_center" headers="rank_75">25</td>
+<td class="gt_row gt_center" headers="rank_2017">27</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">CZE</td>
+<td class="gt_row gt_center" headers="incise_2019">0.245</td>
+<td class="gt_row gt_center" headers="sens_55">0.260</td>
+<td class="gt_row gt_center" headers="sens_60">0.260</td>
+<td class="gt_row gt_center" headers="sens_75">0.257</td>
+<td class="gt_row gt_center" headers="sens_2017">0.259</td>
+<td class="gt_row gt_center" headers="rank_2019">30</td>
+<td class="gt_row gt_center" headers="rank_55">30</td>
+<td class="gt_row gt_center" headers="rank_60">28</td>
+<td class="gt_row gt_center" headers="rank_75">26</td>
+<td class="gt_row gt_center" headers="rank_2017">26</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">ISL</td>
+<td class="gt_row gt_center" headers="incise_2019">0.228</td>
+<td class="gt_row gt_center" headers="sens_55">0.233</td>
+<td class="gt_row gt_center" headers="sens_60"><br>
+</td>
+<td class="gt_row gt_center" headers="sens_75"><br>
+</td>
+<td class="gt_row gt_center" headers="sens_2017"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_2019">31</td>
+<td class="gt_row gt_center" headers="rank_55">31</td>
+<td class="gt_row gt_center" headers="rank_60"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_75"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_2017"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">TUR</td>
+<td class="gt_row gt_center" headers="incise_2019">0.189</td>
+<td class="gt_row gt_center" headers="sens_55">0.181</td>
+<td class="gt_row gt_center" headers="sens_60">0.184</td>
+<td class="gt_row gt_center" headers="sens_75">0.176</td>
+<td class="gt_row gt_center" headers="sens_2017">0.182</td>
+<td class="gt_row gt_center" headers="rank_2019">32</td>
+<td class="gt_row gt_center" headers="rank_55">32</td>
+<td class="gt_row gt_center" headers="rank_60">29</td>
+<td class="gt_row gt_center" headers="rank_75">27</td>
+<td class="gt_row gt_center" headers="rank_2017">28</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">SVK</td>
+<td class="gt_row gt_center" headers="incise_2019">0.172</td>
+<td class="gt_row gt_center" headers="sens_55">0.178</td>
+<td class="gt_row gt_center" headers="sens_60">0.175</td>
+<td class="gt_row gt_center" headers="sens_75">0.171</td>
+<td class="gt_row gt_center" headers="sens_2017">0.175</td>
+<td class="gt_row gt_center" headers="rank_2019">33</td>
+<td class="gt_row gt_center" headers="rank_55">33</td>
+<td class="gt_row gt_center" headers="rank_60">30</td>
+<td class="gt_row gt_center" headers="rank_75">28</td>
+<td class="gt_row gt_center" headers="rank_2017">29</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">BGR</td>
+<td class="gt_row gt_center" headers="incise_2019">0.147</td>
+<td class="gt_row gt_center" headers="sens_55"><br>
+</td>
+<td class="gt_row gt_center" headers="sens_60"><br>
+</td>
+<td class="gt_row gt_center" headers="sens_75"><br>
+</td>
+<td class="gt_row gt_center" headers="sens_2017"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_2019">34</td>
+<td class="gt_row gt_center" headers="rank_55"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_60"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_75"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_2017"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">HRV</td>
+<td class="gt_row gt_center" headers="incise_2019">0.140</td>
+<td class="gt_row gt_center" headers="sens_55"><br>
+</td>
+<td class="gt_row gt_center" headers="sens_60"><br>
+</td>
+<td class="gt_row gt_center" headers="sens_75"><br>
+</td>
+<td class="gt_row gt_center" headers="sens_2017"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_2019">35</td>
+<td class="gt_row gt_center" headers="rank_55"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_60"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_75"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_2017"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">ROU</td>
+<td class="gt_row gt_center" headers="incise_2019">0.127</td>
+<td class="gt_row gt_center" headers="sens_55"><br>
+</td>
+<td class="gt_row gt_center" headers="sens_60"><br>
+</td>
+<td class="gt_row gt_center" headers="sens_75"><br>
+</td>
+<td class="gt_row gt_center" headers="sens_2017"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_2019">36</td>
+<td class="gt_row gt_center" headers="rank_55"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_60"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_75"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_2017"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">GRC</td>
+<td class="gt_row gt_center" headers="incise_2019">0.107</td>
+<td class="gt_row gt_center" headers="sens_55">0.103</td>
+<td class="gt_row gt_center" headers="sens_60">0.098</td>
+<td class="gt_row gt_center" headers="sens_75">0.092</td>
+<td class="gt_row gt_center" headers="sens_2017">0.098</td>
+<td class="gt_row gt_center" headers="rank_2019">37</td>
+<td class="gt_row gt_center" headers="rank_55">34</td>
+<td class="gt_row gt_center" headers="rank_60">31</td>
+<td class="gt_row gt_center" headers="rank_75">29</td>
+<td class="gt_row gt_center" headers="rank_2017">30</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">HUN</td>
+<td class="gt_row gt_center" headers="incise_2019">0.000</td>
+<td class="gt_row gt_center" headers="sens_55">0.000</td>
+<td class="gt_row gt_center" headers="sens_60">0.000</td>
+<td class="gt_row gt_center" headers="sens_75">0.000</td>
+<td class="gt_row gt_center" headers="sens_2017">0.000</td>
+<td class="gt_row gt_center" headers="rank_2019">38</td>
+<td class="gt_row gt_center" headers="rank_55">35</td>
+<td class="gt_row gt_center" headers="rank_60">32</td>
+<td class="gt_row gt_center" headers="rank_75">30</td>
+<td class="gt_row gt_center" headers="rank_2017">31</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">MAE</td>
+<td class="gt_row gt_center" headers="incise_2019">—</td>
+<td class="gt_row gt_center" headers="sens_55">0.006</td>
+<td class="gt_row gt_center" headers="sens_60">0.006</td>
+<td class="gt_row gt_center" headers="sens_75">0.007</td>
+<td class="gt_row gt_center" headers="sens_2017">0.007</td>
+<td class="gt_row gt_center" headers="rank_2019"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_55"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_60"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_75"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_2017"><br>
+</td>
+</tr>
+</tbody><tfoot class="gt_footnotes">
+<tr class="even">
+<td colspan="11" class="gt_footnote">Table B.1 in the original PDF publication</td>
+</tr>
+</tfoot>
+
+</table>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-sens-date" class="anchored">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Table&nbsp;B.2: Sensitivity tests varying reference year</caption>
+<colgroup>
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header gt_col_headings gt_spanner_row">
+<th rowspan="2" id="Country" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Country</th>
+<th colspan="5" id="Index score" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><span class="gt_column_spanner">Index score</span></th>
+<th colspan="5" id="Country rank" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><span class="gt_column_spanner">Country rank</span></th>
+</tr>
+<tr class="odd gt_col_headings">
+<th id="2019 results" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">2019 results</th>
+<th id="Excl. CAP" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Excl. CAP</th>
+<th id="Excl. CAP &amp;amp; reweight" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Excl. CAP &amp; reweight</th>
+<th id="2015-2018 data" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">2015-2018 data</th>
+<th id="2016-2018 data" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">2016-2018 data</th>
+<th id="2019 results" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">2019 results</th>
+<th id="Excl. CAP" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Excl. CAP</th>
+<th id="Excl. CAP &amp;amp; reweight" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Excl. CAP &amp; reweight</th>
+<th id="2015-2018 data" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">2015-2018 data</th>
+<th id="2016-2018 data" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">2016-2018 data</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">========</td>
+<td class="gt_row gt_center" headers="incise_2019">===========</td>
+<td class="gt_row gt_center" headers="sens_cap1">=========</td>
+<td class="gt_row gt_center" headers="sens_cap2">=========</td>
+<td class="gt_row gt_center" headers="sens_2015">=========</td>
+<td class="gt_row gt_center" headers="sens_2016">=========</td>
+<td class="gt_row gt_center" headers="rank_2019">=========</td>
+<td class="gt_row gt_center" headers="rank_cap1">=========</td>
+<td class="gt_row gt_center" headers="rank_cap2">=========</td>
+<td class="gt_row gt_center" headers="rank_2015">=========</td>
+<td class="gt_row gt_center" headers="rank_2016">=========</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">GBR</td>
+<td class="gt_row gt_center" headers="incise_2019">1.000</td>
+<td class="gt_row gt_center" headers="sens_cap1">1.000</td>
+<td class="gt_row gt_center" headers="sens_cap2">1.000</td>
+<td class="gt_row gt_center" headers="sens_2015">1.000</td>
+<td class="gt_row gt_center" headers="sens_2016">1.000</td>
+<td class="gt_row gt_center" headers="rank_2019">1</td>
+<td class="gt_row gt_center" headers="rank_cap1">1</td>
+<td class="gt_row gt_center" headers="rank_cap2">1</td>
+<td class="gt_row gt_center" headers="rank_2015">1</td>
+<td class="gt_row gt_center" headers="rank_2016">1</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">NZL</td>
+<td class="gt_row gt_center" headers="incise_2019">0.980</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.955</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.955</td>
+<td class="gt_row gt_center" headers="sens_2015">0.949</td>
+<td class="gt_row gt_center" headers="sens_2016">0.912</td>
+<td class="gt_row gt_center" headers="rank_2019">2</td>
+<td class="gt_row gt_center" headers="rank_cap1">2</td>
+<td class="gt_row gt_center" headers="rank_cap2">2</td>
+<td class="gt_row gt_center" headers="rank_2015">2</td>
+<td class="gt_row gt_center" headers="rank_2016">2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">CAN</td>
+<td class="gt_row gt_center" headers="incise_2019">0.916</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.906</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.906</td>
+<td class="gt_row gt_center" headers="sens_2015">0.895</td>
+<td class="gt_row gt_center" headers="sens_2016">0.834</td>
+<td class="gt_row gt_center" headers="rank_2019">3</td>
+<td class="gt_row gt_center" headers="rank_cap1">3</td>
+<td class="gt_row gt_center" headers="rank_cap2">3</td>
+<td class="gt_row gt_center" headers="rank_2015">3</td>
+<td class="gt_row gt_center" headers="rank_2016">3</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">FIN</td>
+<td class="gt_row gt_center" headers="incise_2019">0.883</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.873</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.873</td>
+<td class="gt_row gt_center" headers="sens_2015">0.881</td>
+<td class="gt_row gt_center" headers="sens_2016">0.830</td>
+<td class="gt_row gt_center" headers="rank_2019">4</td>
+<td class="gt_row gt_center" headers="rank_cap1">5</td>
+<td class="gt_row gt_center" headers="rank_cap2">5</td>
+<td class="gt_row gt_center" headers="rank_2015">4</td>
+<td class="gt_row gt_center" headers="rank_2016">4</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">AUS</td>
+<td class="gt_row gt_center" headers="incise_2019">0.863</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.875</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.875</td>
+<td class="gt_row gt_center" headers="sens_2015">0.869</td>
+<td class="gt_row gt_center" headers="sens_2016">0.810</td>
+<td class="gt_row gt_center" headers="rank_2019">5</td>
+<td class="gt_row gt_center" headers="rank_cap1">4</td>
+<td class="gt_row gt_center" headers="rank_cap2">4</td>
+<td class="gt_row gt_center" headers="rank_2015">5</td>
+<td class="gt_row gt_center" headers="rank_2016">5</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">DNK</td>
+<td class="gt_row gt_center" headers="incise_2019">0.832</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.817</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.817</td>
+<td class="gt_row gt_center" headers="sens_2015">0.789</td>
+<td class="gt_row gt_center" headers="sens_2016">0.775</td>
+<td class="gt_row gt_center" headers="rank_2019">6</td>
+<td class="gt_row gt_center" headers="rank_cap1">7</td>
+<td class="gt_row gt_center" headers="rank_cap2">7</td>
+<td class="gt_row gt_center" headers="rank_2015">9</td>
+<td class="gt_row gt_center" headers="rank_2016">8</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">NOR</td>
+<td class="gt_row gt_center" headers="incise_2019">0.830</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.836</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.836</td>
+<td class="gt_row gt_center" headers="sens_2015">0.843</td>
+<td class="gt_row gt_center" headers="sens_2016">0.791</td>
+<td class="gt_row gt_center" headers="rank_2019">7</td>
+<td class="gt_row gt_center" headers="rank_cap1">6</td>
+<td class="gt_row gt_center" headers="rank_cap2">6</td>
+<td class="gt_row gt_center" headers="rank_2015">6</td>
+<td class="gt_row gt_center" headers="rank_2016">6</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">NLD</td>
+<td class="gt_row gt_center" headers="incise_2019">0.794</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.802</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.802</td>
+<td class="gt_row gt_center" headers="sens_2015">0.790</td>
+<td class="gt_row gt_center" headers="sens_2016">0.758</td>
+<td class="gt_row gt_center" headers="rank_2019">8</td>
+<td class="gt_row gt_center" headers="rank_cap1">8</td>
+<td class="gt_row gt_center" headers="rank_cap2">8</td>
+<td class="gt_row gt_center" headers="rank_2015">8</td>
+<td class="gt_row gt_center" headers="rank_2016">9</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">KOR</td>
+<td class="gt_row gt_center" headers="incise_2019">0.785</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.799</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.799</td>
+<td class="gt_row gt_center" headers="sens_2015">0.784</td>
+<td class="gt_row gt_center" headers="sens_2016">0.711</td>
+<td class="gt_row gt_center" headers="rank_2019">9</td>
+<td class="gt_row gt_center" headers="rank_cap1">9</td>
+<td class="gt_row gt_center" headers="rank_cap2">9</td>
+<td class="gt_row gt_center" headers="rank_2015">10</td>
+<td class="gt_row gt_center" headers="rank_2016">11</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">SWE</td>
+<td class="gt_row gt_center" headers="incise_2019">0.785</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.791</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.791</td>
+<td class="gt_row gt_center" headers="sens_2015">0.802</td>
+<td class="gt_row gt_center" headers="sens_2016">0.787</td>
+<td class="gt_row gt_center" headers="rank_2019">10</td>
+<td class="gt_row gt_center" headers="rank_cap1">10</td>
+<td class="gt_row gt_center" headers="rank_cap2">10</td>
+<td class="gt_row gt_center" headers="rank_2015">7</td>
+<td class="gt_row gt_center" headers="rank_2016">7</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">USA</td>
+<td class="gt_row gt_center" headers="incise_2019">0.765</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.740</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.741</td>
+<td class="gt_row gt_center" headers="sens_2015">0.735</td>
+<td class="gt_row gt_center" headers="sens_2016">0.731</td>
+<td class="gt_row gt_center" headers="rank_2019">11</td>
+<td class="gt_row gt_center" headers="rank_cap1">11</td>
+<td class="gt_row gt_center" headers="rank_cap2">11</td>
+<td class="gt_row gt_center" headers="rank_2015">11</td>
+<td class="gt_row gt_center" headers="rank_2016">10</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">EST</td>
+<td class="gt_row gt_center" headers="incise_2019">0.674</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.664</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.665</td>
+<td class="gt_row gt_center" headers="sens_2015">0.639</td>
+<td class="gt_row gt_center" headers="sens_2016">0.594</td>
+<td class="gt_row gt_center" headers="rank_2019">12</td>
+<td class="gt_row gt_center" headers="rank_cap1">12</td>
+<td class="gt_row gt_center" headers="rank_cap2">12</td>
+<td class="gt_row gt_center" headers="rank_2015">12</td>
+<td class="gt_row gt_center" headers="rank_2016">17</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">CHE</td>
+<td class="gt_row gt_center" headers="incise_2019">0.650</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.653</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.653</td>
+<td class="gt_row gt_center" headers="sens_2015">0.639</td>
+<td class="gt_row gt_center" headers="sens_2016">0.597</td>
+<td class="gt_row gt_center" headers="rank_2019">13</td>
+<td class="gt_row gt_center" headers="rank_cap1">14</td>
+<td class="gt_row gt_center" headers="rank_cap2">14</td>
+<td class="gt_row gt_center" headers="rank_2015">13</td>
+<td class="gt_row gt_center" headers="rank_2016">14</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">IRL</td>
+<td class="gt_row gt_center" headers="incise_2019">0.625</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.622</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.623</td>
+<td class="gt_row gt_center" headers="sens_2015">0.619</td>
+<td class="gt_row gt_center" headers="sens_2016">0.594</td>
+<td class="gt_row gt_center" headers="rank_2019">14</td>
+<td class="gt_row gt_center" headers="rank_cap1">16</td>
+<td class="gt_row gt_center" headers="rank_cap2">16</td>
+<td class="gt_row gt_center" headers="rank_2015">15</td>
+<td class="gt_row gt_center" headers="rank_2016">15</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">FRA</td>
+<td class="gt_row gt_center" headers="incise_2019">0.619</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.655</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.656</td>
+<td class="gt_row gt_center" headers="sens_2015">0.628</td>
+<td class="gt_row gt_center" headers="sens_2016">0.636</td>
+<td class="gt_row gt_center" headers="rank_2019">15</td>
+<td class="gt_row gt_center" headers="rank_cap1">13</td>
+<td class="gt_row gt_center" headers="rank_cap2">13</td>
+<td class="gt_row gt_center" headers="rank_2015">14</td>
+<td class="gt_row gt_center" headers="rank_2016">12</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">AUT</td>
+<td class="gt_row gt_center" headers="incise_2019">0.617</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.635</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.636</td>
+<td class="gt_row gt_center" headers="sens_2015">0.606</td>
+<td class="gt_row gt_center" headers="sens_2016">0.594</td>
+<td class="gt_row gt_center" headers="rank_2019">16</td>
+<td class="gt_row gt_center" headers="rank_cap1">15</td>
+<td class="gt_row gt_center" headers="rank_cap2">15</td>
+<td class="gt_row gt_center" headers="rank_2015">16</td>
+<td class="gt_row gt_center" headers="rank_2016">16</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">ESP</td>
+<td class="gt_row gt_center" headers="incise_2019">0.599</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.608</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.609</td>
+<td class="gt_row gt_center" headers="sens_2015">0.593</td>
+<td class="gt_row gt_center" headers="sens_2016">0.602</td>
+<td class="gt_row gt_center" headers="rank_2019">17</td>
+<td class="gt_row gt_center" headers="rank_cap1">17</td>
+<td class="gt_row gt_center" headers="rank_cap2">17</td>
+<td class="gt_row gt_center" headers="rank_2015">17</td>
+<td class="gt_row gt_center" headers="rank_2016">13</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">MEX</td>
+<td class="gt_row gt_center" headers="incise_2019">0.507</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.519</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.519</td>
+<td class="gt_row gt_center" headers="sens_2015">0.519</td>
+<td class="gt_row gt_center" headers="sens_2016">0.523</td>
+<td class="gt_row gt_center" headers="rank_2019">18</td>
+<td class="gt_row gt_center" headers="rank_cap1">20</td>
+<td class="gt_row gt_center" headers="rank_cap2">20</td>
+<td class="gt_row gt_center" headers="rank_2015">19</td>
+<td class="gt_row gt_center" headers="rank_2016">19</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">DEU</td>
+<td class="gt_row gt_center" headers="incise_2019">0.505</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.521</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.521</td>
+<td class="gt_row gt_center" headers="sens_2015">0.506</td>
+<td class="gt_row gt_center" headers="sens_2016">0.536</td>
+<td class="gt_row gt_center" headers="rank_2019">19</td>
+<td class="gt_row gt_center" headers="rank_cap1">19</td>
+<td class="gt_row gt_center" headers="rank_cap2">19</td>
+<td class="gt_row gt_center" headers="rank_2015">21</td>
+<td class="gt_row gt_center" headers="rank_2016">18</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">LTU</td>
+<td class="gt_row gt_center" headers="incise_2019">0.487</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.534</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.534</td>
+<td class="gt_row gt_center" headers="sens_2015">0.518</td>
+<td class="gt_row gt_center" headers="sens_2016">0.484</td>
+<td class="gt_row gt_center" headers="rank_2019">20</td>
+<td class="gt_row gt_center" headers="rank_cap1">18</td>
+<td class="gt_row gt_center" headers="rank_cap2">18</td>
+<td class="gt_row gt_center" headers="rank_2015">20</td>
+<td class="gt_row gt_center" headers="rank_2016">20</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">BEL</td>
+<td class="gt_row gt_center" headers="incise_2019">0.485</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.506</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.506</td>
+<td class="gt_row gt_center" headers="sens_2015">0.526</td>
+<td class="gt_row gt_center" headers="sens_2016">0.434</td>
+<td class="gt_row gt_center" headers="rank_2019">21</td>
+<td class="gt_row gt_center" headers="rank_cap1">21</td>
+<td class="gt_row gt_center" headers="rank_cap2">21</td>
+<td class="gt_row gt_center" headers="rank_2015">18</td>
+<td class="gt_row gt_center" headers="rank_2016">22</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">JPN</td>
+<td class="gt_row gt_center" headers="incise_2019">0.472</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.495</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.495</td>
+<td class="gt_row gt_center" headers="sens_2015">0.482</td>
+<td class="gt_row gt_center" headers="sens_2016">0.444</td>
+<td class="gt_row gt_center" headers="rank_2019">22</td>
+<td class="gt_row gt_center" headers="rank_cap1">22</td>
+<td class="gt_row gt_center" headers="rank_cap2">22</td>
+<td class="gt_row gt_center" headers="rank_2015">22</td>
+<td class="gt_row gt_center" headers="rank_2016">21</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">LVA</td>
+<td class="gt_row gt_center" headers="incise_2019">0.466</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.474</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.474</td>
+<td class="gt_row gt_center" headers="sens_2015">0.454</td>
+<td class="gt_row gt_center" headers="sens_2016">0.349</td>
+<td class="gt_row gt_center" headers="rank_2019">23</td>
+<td class="gt_row gt_center" headers="rank_cap1">23</td>
+<td class="gt_row gt_center" headers="rank_cap2">23</td>
+<td class="gt_row gt_center" headers="rank_2015">24</td>
+<td class="gt_row gt_center" headers="rank_2016">26</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">CHL</td>
+<td class="gt_row gt_center" headers="incise_2019">0.454</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.463</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.463</td>
+<td class="gt_row gt_center" headers="sens_2015">0.473</td>
+<td class="gt_row gt_center" headers="sens_2016">0.396</td>
+<td class="gt_row gt_center" headers="rank_2019">24</td>
+<td class="gt_row gt_center" headers="rank_cap1">24</td>
+<td class="gt_row gt_center" headers="rank_cap2">24</td>
+<td class="gt_row gt_center" headers="rank_2015">23</td>
+<td class="gt_row gt_center" headers="rank_2016">25</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">ITA</td>
+<td class="gt_row gt_center" headers="incise_2019">0.419</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.451</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.452</td>
+<td class="gt_row gt_center" headers="sens_2015">0.442</td>
+<td class="gt_row gt_center" headers="sens_2016">0.427</td>
+<td class="gt_row gt_center" headers="rank_2019">25</td>
+<td class="gt_row gt_center" headers="rank_cap1">25</td>
+<td class="gt_row gt_center" headers="rank_cap2">25</td>
+<td class="gt_row gt_center" headers="rank_2015">25</td>
+<td class="gt_row gt_center" headers="rank_2016">23</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">SVN</td>
+<td class="gt_row gt_center" headers="incise_2019">0.369</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.363</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.363</td>
+<td class="gt_row gt_center" headers="sens_2015">0.351</td>
+<td class="gt_row gt_center" headers="sens_2016">0.271</td>
+<td class="gt_row gt_center" headers="rank_2019">26</td>
+<td class="gt_row gt_center" headers="rank_cap1">26</td>
+<td class="gt_row gt_center" headers="rank_cap2">26</td>
+<td class="gt_row gt_center" headers="rank_2015">26</td>
+<td class="gt_row gt_center" headers="rank_2016">28</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">ISR</td>
+<td class="gt_row gt_center" headers="incise_2019">0.315</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.332</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.333</td>
+<td class="gt_row gt_center" headers="sens_2015">0.326</td>
+<td class="gt_row gt_center" headers="sens_2016">0.401</td>
+<td class="gt_row gt_center" headers="rank_2019">27</td>
+<td class="gt_row gt_center" headers="rank_cap1">27</td>
+<td class="gt_row gt_center" headers="rank_cap2">27</td>
+<td class="gt_row gt_center" headers="rank_2015">27</td>
+<td class="gt_row gt_center" headers="rank_2016">24</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">POL</td>
+<td class="gt_row gt_center" headers="incise_2019">0.282</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.268</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.269</td>
+<td class="gt_row gt_center" headers="sens_2015">0.237</td>
+<td class="gt_row gt_center" headers="sens_2016">0.083</td>
+<td class="gt_row gt_center" headers="rank_2019">28</td>
+<td class="gt_row gt_center" headers="rank_cap1">28</td>
+<td class="gt_row gt_center" headers="rank_cap2">28</td>
+<td class="gt_row gt_center" headers="rank_2015">30</td>
+<td class="gt_row gt_center" headers="rank_2016">36</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">PRT</td>
+<td class="gt_row gt_center" headers="incise_2019">0.259</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.256</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.256</td>
+<td class="gt_row gt_center" headers="sens_2015">0.238</td>
+<td class="gt_row gt_center" headers="sens_2016">0.220</td>
+<td class="gt_row gt_center" headers="rank_2019">29</td>
+<td class="gt_row gt_center" headers="rank_cap1">30</td>
+<td class="gt_row gt_center" headers="rank_cap2">30</td>
+<td class="gt_row gt_center" headers="rank_2015">29</td>
+<td class="gt_row gt_center" headers="rank_2016">29</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">CZE</td>
+<td class="gt_row gt_center" headers="incise_2019">0.245</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.240</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.240</td>
+<td class="gt_row gt_center" headers="sens_2015">0.221</td>
+<td class="gt_row gt_center" headers="sens_2016">0.309</td>
+<td class="gt_row gt_center" headers="rank_2019">30</td>
+<td class="gt_row gt_center" headers="rank_cap1">31</td>
+<td class="gt_row gt_center" headers="rank_cap2">31</td>
+<td class="gt_row gt_center" headers="rank_2015">32</td>
+<td class="gt_row gt_center" headers="rank_2016">27</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">ISL</td>
+<td class="gt_row gt_center" headers="incise_2019">0.228</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.238</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.238</td>
+<td class="gt_row gt_center" headers="sens_2015">0.233</td>
+<td class="gt_row gt_center" headers="sens_2016">0.218</td>
+<td class="gt_row gt_center" headers="rank_2019">31</td>
+<td class="gt_row gt_center" headers="rank_cap1">32</td>
+<td class="gt_row gt_center" headers="rank_cap2">32</td>
+<td class="gt_row gt_center" headers="rank_2015">31</td>
+<td class="gt_row gt_center" headers="rank_2016">30</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">TUR</td>
+<td class="gt_row gt_center" headers="incise_2019">0.189</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.261</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.262</td>
+<td class="gt_row gt_center" headers="sens_2015">0.244</td>
+<td class="gt_row gt_center" headers="sens_2016">0.141</td>
+<td class="gt_row gt_center" headers="rank_2019">32</td>
+<td class="gt_row gt_center" headers="rank_cap1">29</td>
+<td class="gt_row gt_center" headers="rank_cap2">29</td>
+<td class="gt_row gt_center" headers="rank_2015">28</td>
+<td class="gt_row gt_center" headers="rank_2016">32</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">SVK</td>
+<td class="gt_row gt_center" headers="incise_2019">0.172</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.156</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.156</td>
+<td class="gt_row gt_center" headers="sens_2015">0.159</td>
+<td class="gt_row gt_center" headers="sens_2016">0.150</td>
+<td class="gt_row gt_center" headers="rank_2019">33</td>
+<td class="gt_row gt_center" headers="rank_cap1">34</td>
+<td class="gt_row gt_center" headers="rank_cap2">34</td>
+<td class="gt_row gt_center" headers="rank_2015">33</td>
+<td class="gt_row gt_center" headers="rank_2016">31</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">BGR</td>
+<td class="gt_row gt_center" headers="incise_2019">0.147</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.153</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.153</td>
+<td class="gt_row gt_center" headers="sens_2015">0.135</td>
+<td class="gt_row gt_center" headers="sens_2016">0.110</td>
+<td class="gt_row gt_center" headers="rank_2019">34</td>
+<td class="gt_row gt_center" headers="rank_cap1">35</td>
+<td class="gt_row gt_center" headers="rank_cap2">35</td>
+<td class="gt_row gt_center" headers="rank_2015">34</td>
+<td class="gt_row gt_center" headers="rank_2016">34</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">HRV</td>
+<td class="gt_row gt_center" headers="incise_2019">0.140</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.144</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.144</td>
+<td class="gt_row gt_center" headers="sens_2015">0.118</td>
+<td class="gt_row gt_center" headers="sens_2016">0.073</td>
+<td class="gt_row gt_center" headers="rank_2019">35</td>
+<td class="gt_row gt_center" headers="rank_cap1">36</td>
+<td class="gt_row gt_center" headers="rank_cap2">36</td>
+<td class="gt_row gt_center" headers="rank_2015">36</td>
+<td class="gt_row gt_center" headers="rank_2016">37</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">ROU</td>
+<td class="gt_row gt_center" headers="incise_2019">0.127</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.128</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.128</td>
+<td class="gt_row gt_center" headers="sens_2015">0.105</td>
+<td class="gt_row gt_center" headers="sens_2016">0.104</td>
+<td class="gt_row gt_center" headers="rank_2019">36</td>
+<td class="gt_row gt_center" headers="rank_cap1">37</td>
+<td class="gt_row gt_center" headers="rank_cap2">37</td>
+<td class="gt_row gt_center" headers="rank_2015">37</td>
+<td class="gt_row gt_center" headers="rank_2016">35</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">GRC</td>
+<td class="gt_row gt_center" headers="incise_2019">0.107</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.158</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.158</td>
+<td class="gt_row gt_center" headers="sens_2015">0.129</td>
+<td class="gt_row gt_center" headers="sens_2016">0.113</td>
+<td class="gt_row gt_center" headers="rank_2019">37</td>
+<td class="gt_row gt_center" headers="rank_cap1">33</td>
+<td class="gt_row gt_center" headers="rank_cap2">33</td>
+<td class="gt_row gt_center" headers="rank_2015">35</td>
+<td class="gt_row gt_center" headers="rank_2016">33</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">HUN</td>
+<td class="gt_row gt_center" headers="incise_2019">0.000</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.000</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.000</td>
+<td class="gt_row gt_center" headers="sens_2015">0.000</td>
+<td class="gt_row gt_center" headers="sens_2016">0.000</td>
+<td class="gt_row gt_center" headers="rank_2019">38</td>
+<td class="gt_row gt_center" headers="rank_cap1">38</td>
+<td class="gt_row gt_center" headers="rank_cap2">38</td>
+<td class="gt_row gt_center" headers="rank_2015">38</td>
+<td class="gt_row gt_center" headers="rank_2016">38</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">MAE</td>
+<td class="gt_row gt_center" headers="incise_2019">—</td>
+<td class="gt_row gt_center" headers="sens_cap1">0.015</td>
+<td class="gt_row gt_center" headers="sens_cap2">0.015</td>
+<td class="gt_row gt_center" headers="sens_2015">0.017</td>
+<td class="gt_row gt_center" headers="sens_2016">0.045</td>
+<td class="gt_row gt_center" headers="rank_2019"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_cap1"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_cap2"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_2015"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_2016"><br>
+</td>
+</tr>
+</tbody><tfoot class="gt_footnotes">
+<tr class="even">
+<td colspan="11" class="gt_footnote">Table B.2 in the original PDF publication</td>
+</tr>
+</tfoot>
+
+</table>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-sens-weight" class="anchored">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting</caption>
+<colgroup>
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header gt_col_headings gt_spanner_row">
+<th rowspan="2" id="Country" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Country</th>
+<th colspan="6" id="Index score" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><span class="gt_column_spanner">Index score</span></th>
+<th colspan="6" id="Country rank" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><span class="gt_column_spanner">Country rank</span></th>
+</tr>
+<tr class="odd gt_col_headings">
+<th id="2019 results" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">2019 results</th>
+<th id="50:50" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">50:50</th>
+<th id="Equal weights" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Equal weights</th>
+<th id="All DQA weights" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">All DQA weights</th>
+<th id="No within indicator" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">No within indicator</th>
+<th id="Sum of metrics" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Sum of metrics</th>
+<th id="2019 results" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">2019 results</th>
+<th id="50:50" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">50:50</th>
+<th id="Equal weights" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Equal weights</th>
+<th id="All DQA weights" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">All DQA weights</th>
+<th id="No within indicator" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">No within indicator</th>
+<th id="Sum of metrics" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Sum of metrics</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">========</td>
+<td class="gt_row gt_center" headers="incise_2019">===========</td>
+<td class="gt_row gt_center" headers="sens_5050">=========</td>
+<td class="gt_row gt_center" headers="sens_equal">==========</td>
+<td class="gt_row gt_center" headers="sens_dqa">========</td>
+<td class="gt_row gt_center" headers="sens_internal">=============</td>
+<td class="gt_row gt_center" headers="sens_sum">========</td>
+<td class="gt_row gt_center" headers="rank_2019">=========</td>
+<td class="gt_row gt_center" headers="rank_5050">=========</td>
+<td class="gt_row gt_center" headers="rank_equal">==========</td>
+<td class="gt_row gt_center" headers="rank_dqa">========</td>
+<td class="gt_row gt_center" headers="rank_internal">=============</td>
+<td class="gt_row gt_center" headers="rank_sum">========</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">GBR</td>
+<td class="gt_row gt_center" headers="incise_2019">1.000</td>
+<td class="gt_row gt_center" headers="sens_5050">1.000</td>
+<td class="gt_row gt_center" headers="sens_equal">0.999</td>
+<td class="gt_row gt_center" headers="sens_dqa">1.000</td>
+<td class="gt_row gt_center" headers="sens_internal">1.000</td>
+<td class="gt_row gt_center" headers="sens_sum">0.949</td>
+<td class="gt_row gt_center" headers="rank_2019">1</td>
+<td class="gt_row gt_center" headers="rank_5050">1</td>
+<td class="gt_row gt_center" headers="rank_equal">2</td>
+<td class="gt_row gt_center" headers="rank_dqa">1</td>
+<td class="gt_row gt_center" headers="rank_internal">1</td>
+<td class="gt_row gt_center" headers="rank_sum">2</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">NZL</td>
+<td class="gt_row gt_center" headers="incise_2019">0.980</td>
+<td class="gt_row gt_center" headers="sens_5050">0.970</td>
+<td class="gt_row gt_center" headers="sens_equal">1.000</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.941</td>
+<td class="gt_row gt_center" headers="sens_internal">0.941</td>
+<td class="gt_row gt_center" headers="sens_sum">1.000</td>
+<td class="gt_row gt_center" headers="rank_2019">2</td>
+<td class="gt_row gt_center" headers="rank_5050">2</td>
+<td class="gt_row gt_center" headers="rank_equal">1</td>
+<td class="gt_row gt_center" headers="rank_dqa">2</td>
+<td class="gt_row gt_center" headers="rank_internal">2</td>
+<td class="gt_row gt_center" headers="rank_sum">1</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">CAN</td>
+<td class="gt_row gt_center" headers="incise_2019">0.916</td>
+<td class="gt_row gt_center" headers="sens_5050">0.911</td>
+<td class="gt_row gt_center" headers="sens_equal">0.927</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.895</td>
+<td class="gt_row gt_center" headers="sens_internal">0.896</td>
+<td class="gt_row gt_center" headers="sens_sum">0.928</td>
+<td class="gt_row gt_center" headers="rank_2019">3</td>
+<td class="gt_row gt_center" headers="rank_5050">3</td>
+<td class="gt_row gt_center" headers="rank_equal">3</td>
+<td class="gt_row gt_center" headers="rank_dqa">3</td>
+<td class="gt_row gt_center" headers="rank_internal">3</td>
+<td class="gt_row gt_center" headers="rank_sum">3</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">FIN</td>
+<td class="gt_row gt_center" headers="incise_2019">0.883</td>
+<td class="gt_row gt_center" headers="sens_5050">0.876</td>
+<td class="gt_row gt_center" headers="sens_equal">0.895</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.858</td>
+<td class="gt_row gt_center" headers="sens_internal">0.824</td>
+<td class="gt_row gt_center" headers="sens_sum">0.897</td>
+<td class="gt_row gt_center" headers="rank_2019">4</td>
+<td class="gt_row gt_center" headers="rank_5050">4</td>
+<td class="gt_row gt_center" headers="rank_equal">4</td>
+<td class="gt_row gt_center" headers="rank_dqa">4</td>
+<td class="gt_row gt_center" headers="rank_internal">5</td>
+<td class="gt_row gt_center" headers="rank_sum">4</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">AUS</td>
+<td class="gt_row gt_center" headers="incise_2019">0.863</td>
+<td class="gt_row gt_center" headers="sens_5050">0.859</td>
+<td class="gt_row gt_center" headers="sens_equal">0.869</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.850</td>
+<td class="gt_row gt_center" headers="sens_internal">0.864</td>
+<td class="gt_row gt_center" headers="sens_sum">0.864</td>
+<td class="gt_row gt_center" headers="rank_2019">5</td>
+<td class="gt_row gt_center" headers="rank_5050">5</td>
+<td class="gt_row gt_center" headers="rank_equal">5</td>
+<td class="gt_row gt_center" headers="rank_dqa">5</td>
+<td class="gt_row gt_center" headers="rank_internal">4</td>
+<td class="gt_row gt_center" headers="rank_sum">5</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">DNK</td>
+<td class="gt_row gt_center" headers="incise_2019">0.832</td>
+<td class="gt_row gt_center" headers="sens_5050">0.823</td>
+<td class="gt_row gt_center" headers="sens_equal">0.851</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.797</td>
+<td class="gt_row gt_center" headers="sens_internal">0.774</td>
+<td class="gt_row gt_center" headers="sens_sum">0.855</td>
+<td class="gt_row gt_center" headers="rank_2019">6</td>
+<td class="gt_row gt_center" headers="rank_5050">7</td>
+<td class="gt_row gt_center" headers="rank_equal">6</td>
+<td class="gt_row gt_center" headers="rank_dqa">7</td>
+<td class="gt_row gt_center" headers="rank_internal">8</td>
+<td class="gt_row gt_center" headers="rank_sum">6</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">NOR</td>
+<td class="gt_row gt_center" headers="incise_2019">0.830</td>
+<td class="gt_row gt_center" headers="sens_5050">0.825</td>
+<td class="gt_row gt_center" headers="sens_equal">0.839</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.812</td>
+<td class="gt_row gt_center" headers="sens_internal">0.805</td>
+<td class="gt_row gt_center" headers="sens_sum">0.851</td>
+<td class="gt_row gt_center" headers="rank_2019">7</td>
+<td class="gt_row gt_center" headers="rank_5050">6</td>
+<td class="gt_row gt_center" headers="rank_equal">7</td>
+<td class="gt_row gt_center" headers="rank_dqa">6</td>
+<td class="gt_row gt_center" headers="rank_internal">7</td>
+<td class="gt_row gt_center" headers="rank_sum">7</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">NLD</td>
+<td class="gt_row gt_center" headers="incise_2019">0.794</td>
+<td class="gt_row gt_center" headers="sens_5050">0.787</td>
+<td class="gt_row gt_center" headers="sens_equal">0.809</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.765</td>
+<td class="gt_row gt_center" headers="sens_internal">0.745</td>
+<td class="gt_row gt_center" headers="sens_sum">0.783</td>
+<td class="gt_row gt_center" headers="rank_2019">8</td>
+<td class="gt_row gt_center" headers="rank_5050">8</td>
+<td class="gt_row gt_center" headers="rank_equal">8</td>
+<td class="gt_row gt_center" headers="rank_dqa">10</td>
+<td class="gt_row gt_center" headers="rank_internal">10</td>
+<td class="gt_row gt_center" headers="rank_sum">10</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">KOR</td>
+<td class="gt_row gt_center" headers="incise_2019">0.785</td>
+<td class="gt_row gt_center" headers="sens_5050">0.786</td>
+<td class="gt_row gt_center" headers="sens_equal">0.784</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.786</td>
+<td class="gt_row gt_center" headers="sens_internal">0.809</td>
+<td class="gt_row gt_center" headers="sens_sum">0.787</td>
+<td class="gt_row gt_center" headers="rank_2019">9</td>
+<td class="gt_row gt_center" headers="rank_5050">9</td>
+<td class="gt_row gt_center" headers="rank_equal">11</td>
+<td class="gt_row gt_center" headers="rank_dqa">8</td>
+<td class="gt_row gt_center" headers="rank_internal">6</td>
+<td class="gt_row gt_center" headers="rank_sum">9</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">SWE</td>
+<td class="gt_row gt_center" headers="incise_2019">0.785</td>
+<td class="gt_row gt_center" headers="sens_5050">0.782</td>
+<td class="gt_row gt_center" headers="sens_equal">0.790</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.775</td>
+<td class="gt_row gt_center" headers="sens_internal">0.763</td>
+<td class="gt_row gt_center" headers="sens_sum">0.805</td>
+<td class="gt_row gt_center" headers="rank_2019">10</td>
+<td class="gt_row gt_center" headers="rank_5050">10</td>
+<td class="gt_row gt_center" headers="rank_equal">9</td>
+<td class="gt_row gt_center" headers="rank_dqa">9</td>
+<td class="gt_row gt_center" headers="rank_internal">9</td>
+<td class="gt_row gt_center" headers="rank_sum">8</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">USA</td>
+<td class="gt_row gt_center" headers="incise_2019">0.765</td>
+<td class="gt_row gt_center" headers="sens_5050">0.754</td>
+<td class="gt_row gt_center" headers="sens_equal">0.787</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.722</td>
+<td class="gt_row gt_center" headers="sens_internal">0.724</td>
+<td class="gt_row gt_center" headers="sens_sum">0.781</td>
+<td class="gt_row gt_center" headers="rank_2019">11</td>
+<td class="gt_row gt_center" headers="rank_5050">11</td>
+<td class="gt_row gt_center" headers="rank_equal">10</td>
+<td class="gt_row gt_center" headers="rank_dqa">11</td>
+<td class="gt_row gt_center" headers="rank_internal">11</td>
+<td class="gt_row gt_center" headers="rank_sum">11</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">EST</td>
+<td class="gt_row gt_center" headers="incise_2019">0.674</td>
+<td class="gt_row gt_center" headers="sens_5050">0.667</td>
+<td class="gt_row gt_center" headers="sens_equal">0.687</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.649</td>
+<td class="gt_row gt_center" headers="sens_internal">0.657</td>
+<td class="gt_row gt_center" headers="sens_sum">0.740</td>
+<td class="gt_row gt_center" headers="rank_2019">12</td>
+<td class="gt_row gt_center" headers="rank_5050">12</td>
+<td class="gt_row gt_center" headers="rank_equal">12</td>
+<td class="gt_row gt_center" headers="rank_dqa">12</td>
+<td class="gt_row gt_center" headers="rank_internal">12</td>
+<td class="gt_row gt_center" headers="rank_sum">12</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">CHE</td>
+<td class="gt_row gt_center" headers="incise_2019">0.650</td>
+<td class="gt_row gt_center" headers="sens_5050">0.647</td>
+<td class="gt_row gt_center" headers="sens_equal">0.656</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.637</td>
+<td class="gt_row gt_center" headers="sens_internal">0.613</td>
+<td class="gt_row gt_center" headers="sens_sum">0.639</td>
+<td class="gt_row gt_center" headers="rank_2019">13</td>
+<td class="gt_row gt_center" headers="rank_5050">13</td>
+<td class="gt_row gt_center" headers="rank_equal">13</td>
+<td class="gt_row gt_center" headers="rank_dqa">13</td>
+<td class="gt_row gt_center" headers="rank_internal">14</td>
+<td class="gt_row gt_center" headers="rank_sum">14</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">IRL</td>
+<td class="gt_row gt_center" headers="incise_2019">0.625</td>
+<td class="gt_row gt_center" headers="sens_5050">0.616</td>
+<td class="gt_row gt_center" headers="sens_equal">0.641</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.593</td>
+<td class="gt_row gt_center" headers="sens_internal">0.598</td>
+<td class="gt_row gt_center" headers="sens_sum">0.601</td>
+<td class="gt_row gt_center" headers="rank_2019">14</td>
+<td class="gt_row gt_center" headers="rank_5050">15</td>
+<td class="gt_row gt_center" headers="rank_equal">14</td>
+<td class="gt_row gt_center" headers="rank_dqa">15</td>
+<td class="gt_row gt_center" headers="rank_internal">16</td>
+<td class="gt_row gt_center" headers="rank_sum">17</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">FRA</td>
+<td class="gt_row gt_center" headers="incise_2019">0.619</td>
+<td class="gt_row gt_center" headers="sens_5050">0.618</td>
+<td class="gt_row gt_center" headers="sens_equal">0.620</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.615</td>
+<td class="gt_row gt_center" headers="sens_internal">0.635</td>
+<td class="gt_row gt_center" headers="sens_sum">0.609</td>
+<td class="gt_row gt_center" headers="rank_2019">15</td>
+<td class="gt_row gt_center" headers="rank_5050">14</td>
+<td class="gt_row gt_center" headers="rank_equal">16</td>
+<td class="gt_row gt_center" headers="rank_dqa">14</td>
+<td class="gt_row gt_center" headers="rank_internal">13</td>
+<td class="gt_row gt_center" headers="rank_sum">16</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">AUT</td>
+<td class="gt_row gt_center" headers="incise_2019">0.617</td>
+<td class="gt_row gt_center" headers="sens_5050">0.608</td>
+<td class="gt_row gt_center" headers="sens_equal">0.635</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.583</td>
+<td class="gt_row gt_center" headers="sens_internal">0.607</td>
+<td class="gt_row gt_center" headers="sens_sum">0.649</td>
+<td class="gt_row gt_center" headers="rank_2019">16</td>
+<td class="gt_row gt_center" headers="rank_5050">16</td>
+<td class="gt_row gt_center" headers="rank_equal">15</td>
+<td class="gt_row gt_center" headers="rank_dqa">16</td>
+<td class="gt_row gt_center" headers="rank_internal">15</td>
+<td class="gt_row gt_center" headers="rank_sum">13</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">ESP</td>
+<td class="gt_row gt_center" headers="incise_2019">0.599</td>
+<td class="gt_row gt_center" headers="sens_5050">0.593</td>
+<td class="gt_row gt_center" headers="sens_equal">0.611</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.576</td>
+<td class="gt_row gt_center" headers="sens_internal">0.589</td>
+<td class="gt_row gt_center" headers="sens_sum">0.611</td>
+<td class="gt_row gt_center" headers="rank_2019">17</td>
+<td class="gt_row gt_center" headers="rank_5050">17</td>
+<td class="gt_row gt_center" headers="rank_equal">17</td>
+<td class="gt_row gt_center" headers="rank_dqa">17</td>
+<td class="gt_row gt_center" headers="rank_internal">17</td>
+<td class="gt_row gt_center" headers="rank_sum">15</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">MEX</td>
+<td class="gt_row gt_center" headers="incise_2019">0.507</td>
+<td class="gt_row gt_center" headers="sens_5050">0.511</td>
+<td class="gt_row gt_center" headers="sens_equal">0.497</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.524</td>
+<td class="gt_row gt_center" headers="sens_internal">0.497</td>
+<td class="gt_row gt_center" headers="sens_sum">0.412</td>
+<td class="gt_row gt_center" headers="rank_2019">18</td>
+<td class="gt_row gt_center" headers="rank_5050">18</td>
+<td class="gt_row gt_center" headers="rank_equal">19</td>
+<td class="gt_row gt_center" headers="rank_dqa">18</td>
+<td class="gt_row gt_center" headers="rank_internal">19</td>
+<td class="gt_row gt_center" headers="rank_sum">24</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">DEU</td>
+<td class="gt_row gt_center" headers="incise_2019">0.505</td>
+<td class="gt_row gt_center" headers="sens_5050">0.503</td>
+<td class="gt_row gt_center" headers="sens_equal">0.507</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.499</td>
+<td class="gt_row gt_center" headers="sens_internal">0.514</td>
+<td class="gt_row gt_center" headers="sens_sum">0.525</td>
+<td class="gt_row gt_center" headers="rank_2019">19</td>
+<td class="gt_row gt_center" headers="rank_5050">19</td>
+<td class="gt_row gt_center" headers="rank_equal">18</td>
+<td class="gt_row gt_center" headers="rank_dqa">19</td>
+<td class="gt_row gt_center" headers="rank_internal">18</td>
+<td class="gt_row gt_center" headers="rank_sum">18</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">LTU</td>
+<td class="gt_row gt_center" headers="incise_2019">0.487</td>
+<td class="gt_row gt_center" headers="sens_5050">0.489</td>
+<td class="gt_row gt_center" headers="sens_equal">0.483</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.494</td>
+<td class="gt_row gt_center" headers="sens_internal">0.482</td>
+<td class="gt_row gt_center" headers="sens_sum">0.470</td>
+<td class="gt_row gt_center" headers="rank_2019">20</td>
+<td class="gt_row gt_center" headers="rank_5050">20</td>
+<td class="gt_row gt_center" headers="rank_equal">21</td>
+<td class="gt_row gt_center" headers="rank_dqa">20</td>
+<td class="gt_row gt_center" headers="rank_internal">20</td>
+<td class="gt_row gt_center" headers="rank_sum">22</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">BEL</td>
+<td class="gt_row gt_center" headers="incise_2019">0.485</td>
+<td class="gt_row gt_center" headers="sens_5050">0.482</td>
+<td class="gt_row gt_center" headers="sens_equal">0.491</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.473</td>
+<td class="gt_row gt_center" headers="sens_internal">0.477</td>
+<td class="gt_row gt_center" headers="sens_sum">0.488</td>
+<td class="gt_row gt_center" headers="rank_2019">21</td>
+<td class="gt_row gt_center" headers="rank_5050">21</td>
+<td class="gt_row gt_center" headers="rank_equal">20</td>
+<td class="gt_row gt_center" headers="rank_dqa">21</td>
+<td class="gt_row gt_center" headers="rank_internal">21</td>
+<td class="gt_row gt_center" headers="rank_sum">21</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">JPN</td>
+<td class="gt_row gt_center" headers="incise_2019">0.472</td>
+<td class="gt_row gt_center" headers="sens_5050">0.471</td>
+<td class="gt_row gt_center" headers="sens_equal">0.475</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.467</td>
+<td class="gt_row gt_center" headers="sens_internal">0.438</td>
+<td class="gt_row gt_center" headers="sens_sum">0.503</td>
+<td class="gt_row gt_center" headers="rank_2019">22</td>
+<td class="gt_row gt_center" headers="rank_5050">22</td>
+<td class="gt_row gt_center" headers="rank_equal">23</td>
+<td class="gt_row gt_center" headers="rank_dqa">22</td>
+<td class="gt_row gt_center" headers="rank_internal">24</td>
+<td class="gt_row gt_center" headers="rank_sum">19</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">LVA</td>
+<td class="gt_row gt_center" headers="incise_2019">0.466</td>
+<td class="gt_row gt_center" headers="sens_5050">0.460</td>
+<td class="gt_row gt_center" headers="sens_equal">0.479</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.442</td>
+<td class="gt_row gt_center" headers="sens_internal">0.447</td>
+<td class="gt_row gt_center" headers="sens_sum">0.498</td>
+<td class="gt_row gt_center" headers="rank_2019">23</td>
+<td class="gt_row gt_center" headers="rank_5050">23</td>
+<td class="gt_row gt_center" headers="rank_equal">22</td>
+<td class="gt_row gt_center" headers="rank_dqa">24</td>
+<td class="gt_row gt_center" headers="rank_internal">23</td>
+<td class="gt_row gt_center" headers="rank_sum">20</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">CHL</td>
+<td class="gt_row gt_center" headers="incise_2019">0.454</td>
+<td class="gt_row gt_center" headers="sens_5050">0.451</td>
+<td class="gt_row gt_center" headers="sens_equal">0.459</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.444</td>
+<td class="gt_row gt_center" headers="sens_internal">0.461</td>
+<td class="gt_row gt_center" headers="sens_sum">0.440</td>
+<td class="gt_row gt_center" headers="rank_2019">24</td>
+<td class="gt_row gt_center" headers="rank_5050">24</td>
+<td class="gt_row gt_center" headers="rank_equal">24</td>
+<td class="gt_row gt_center" headers="rank_dqa">23</td>
+<td class="gt_row gt_center" headers="rank_internal">22</td>
+<td class="gt_row gt_center" headers="rank_sum">23</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">ITA</td>
+<td class="gt_row gt_center" headers="incise_2019">0.419</td>
+<td class="gt_row gt_center" headers="sens_5050">0.419</td>
+<td class="gt_row gt_center" headers="sens_equal">0.418</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.420</td>
+<td class="gt_row gt_center" headers="sens_internal">0.436</td>
+<td class="gt_row gt_center" headers="sens_sum">0.368</td>
+<td class="gt_row gt_center" headers="rank_2019">25</td>
+<td class="gt_row gt_center" headers="rank_5050">25</td>
+<td class="gt_row gt_center" headers="rank_equal">25</td>
+<td class="gt_row gt_center" headers="rank_dqa">25</td>
+<td class="gt_row gt_center" headers="rank_internal">25</td>
+<td class="gt_row gt_center" headers="rank_sum">26</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">SVN</td>
+<td class="gt_row gt_center" headers="incise_2019">0.369</td>
+<td class="gt_row gt_center" headers="sens_5050">0.360</td>
+<td class="gt_row gt_center" headers="sens_equal">0.388</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.333</td>
+<td class="gt_row gt_center" headers="sens_internal">0.338</td>
+<td class="gt_row gt_center" headers="sens_sum">0.394</td>
+<td class="gt_row gt_center" headers="rank_2019">26</td>
+<td class="gt_row gt_center" headers="rank_5050">26</td>
+<td class="gt_row gt_center" headers="rank_equal">26</td>
+<td class="gt_row gt_center" headers="rank_dqa">26</td>
+<td class="gt_row gt_center" headers="rank_internal">26</td>
+<td class="gt_row gt_center" headers="rank_sum">25</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">ISR</td>
+<td class="gt_row gt_center" headers="incise_2019">0.315</td>
+<td class="gt_row gt_center" headers="sens_5050">0.309</td>
+<td class="gt_row gt_center" headers="sens_equal">0.326</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.294</td>
+<td class="gt_row gt_center" headers="sens_internal">0.314</td>
+<td class="gt_row gt_center" headers="sens_sum">0.334</td>
+<td class="gt_row gt_center" headers="rank_2019">27</td>
+<td class="gt_row gt_center" headers="rank_5050">27</td>
+<td class="gt_row gt_center" headers="rank_equal">27</td>
+<td class="gt_row gt_center" headers="rank_dqa">27</td>
+<td class="gt_row gt_center" headers="rank_internal">27</td>
+<td class="gt_row gt_center" headers="rank_sum">27</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">POL</td>
+<td class="gt_row gt_center" headers="incise_2019">0.282</td>
+<td class="gt_row gt_center" headers="sens_5050">0.276</td>
+<td class="gt_row gt_center" headers="sens_equal">0.293</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.261</td>
+<td class="gt_row gt_center" headers="sens_internal">0.236</td>
+<td class="gt_row gt_center" headers="sens_sum">0.291</td>
+<td class="gt_row gt_center" headers="rank_2019">28</td>
+<td class="gt_row gt_center" headers="rank_5050">28</td>
+<td class="gt_row gt_center" headers="rank_equal">28</td>
+<td class="gt_row gt_center" headers="rank_dqa">28</td>
+<td class="gt_row gt_center" headers="rank_internal">29</td>
+<td class="gt_row gt_center" headers="rank_sum">28</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">PRT</td>
+<td class="gt_row gt_center" headers="incise_2019">0.259</td>
+<td class="gt_row gt_center" headers="sens_5050">0.253</td>
+<td class="gt_row gt_center" headers="sens_equal">0.273</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.235</td>
+<td class="gt_row gt_center" headers="sens_internal">0.241</td>
+<td class="gt_row gt_center" headers="sens_sum">0.289</td>
+<td class="gt_row gt_center" headers="rank_2019">29</td>
+<td class="gt_row gt_center" headers="rank_5050">29</td>
+<td class="gt_row gt_center" headers="rank_equal">29</td>
+<td class="gt_row gt_center" headers="rank_dqa">29</td>
+<td class="gt_row gt_center" headers="rank_internal">28</td>
+<td class="gt_row gt_center" headers="rank_sum">29</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">CZE</td>
+<td class="gt_row gt_center" headers="incise_2019">0.245</td>
+<td class="gt_row gt_center" headers="sens_5050">0.240</td>
+<td class="gt_row gt_center" headers="sens_equal">0.253</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.228</td>
+<td class="gt_row gt_center" headers="sens_internal">0.174</td>
+<td class="gt_row gt_center" headers="sens_sum">0.254</td>
+<td class="gt_row gt_center" headers="rank_2019">30</td>
+<td class="gt_row gt_center" headers="rank_5050">30</td>
+<td class="gt_row gt_center" headers="rank_equal">30</td>
+<td class="gt_row gt_center" headers="rank_dqa">30</td>
+<td class="gt_row gt_center" headers="rank_internal">32</td>
+<td class="gt_row gt_center" headers="rank_sum">31</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">ISL</td>
+<td class="gt_row gt_center" headers="incise_2019">0.228</td>
+<td class="gt_row gt_center" headers="sens_5050">0.223</td>
+<td class="gt_row gt_center" headers="sens_equal">0.239</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.207</td>
+<td class="gt_row gt_center" headers="sens_internal">0.218</td>
+<td class="gt_row gt_center" headers="sens_sum">0.270</td>
+<td class="gt_row gt_center" headers="rank_2019">31</td>
+<td class="gt_row gt_center" headers="rank_5050">31</td>
+<td class="gt_row gt_center" headers="rank_equal">31</td>
+<td class="gt_row gt_center" headers="rank_dqa">32</td>
+<td class="gt_row gt_center" headers="rank_internal">31</td>
+<td class="gt_row gt_center" headers="rank_sum">30</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">TUR</td>
+<td class="gt_row gt_center" headers="incise_2019">0.189</td>
+<td class="gt_row gt_center" headers="sens_5050">0.194</td>
+<td class="gt_row gt_center" headers="sens_equal">0.177</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.209</td>
+<td class="gt_row gt_center" headers="sens_internal">0.231</td>
+<td class="gt_row gt_center" headers="sens_sum">0.063</td>
+<td class="gt_row gt_center" headers="rank_2019">32</td>
+<td class="gt_row gt_center" headers="rank_5050">32</td>
+<td class="gt_row gt_center" headers="rank_equal">32</td>
+<td class="gt_row gt_center" headers="rank_dqa">31</td>
+<td class="gt_row gt_center" headers="rank_internal">30</td>
+<td class="gt_row gt_center" headers="rank_sum">35</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">SVK</td>
+<td class="gt_row gt_center" headers="incise_2019">0.172</td>
+<td class="gt_row gt_center" headers="sens_5050">0.170</td>
+<td class="gt_row gt_center" headers="sens_equal">0.175</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.166</td>
+<td class="gt_row gt_center" headers="sens_internal">0.107</td>
+<td class="gt_row gt_center" headers="sens_sum">0.143</td>
+<td class="gt_row gt_center" headers="rank_2019">33</td>
+<td class="gt_row gt_center" headers="rank_5050">33</td>
+<td class="gt_row gt_center" headers="rank_equal">33</td>
+<td class="gt_row gt_center" headers="rank_dqa">33</td>
+<td class="gt_row gt_center" headers="rank_internal">35</td>
+<td class="gt_row gt_center" headers="rank_sum">32</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">BGR</td>
+<td class="gt_row gt_center" headers="incise_2019">0.147</td>
+<td class="gt_row gt_center" headers="sens_5050">0.146</td>
+<td class="gt_row gt_center" headers="sens_equal">0.150</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.141</td>
+<td class="gt_row gt_center" headers="sens_internal">0.129</td>
+<td class="gt_row gt_center" headers="sens_sum">0.127</td>
+<td class="gt_row gt_center" headers="rank_2019">34</td>
+<td class="gt_row gt_center" headers="rank_5050">34</td>
+<td class="gt_row gt_center" headers="rank_equal">34</td>
+<td class="gt_row gt_center" headers="rank_dqa">34</td>
+<td class="gt_row gt_center" headers="rank_internal">33</td>
+<td class="gt_row gt_center" headers="rank_sum">33</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">HRV</td>
+<td class="gt_row gt_center" headers="incise_2019">0.140</td>
+<td class="gt_row gt_center" headers="sens_5050">0.140</td>
+<td class="gt_row gt_center" headers="sens_equal">0.140</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.140</td>
+<td class="gt_row gt_center" headers="sens_internal">0.086</td>
+<td class="gt_row gt_center" headers="sens_sum">0.069</td>
+<td class="gt_row gt_center" headers="rank_2019">35</td>
+<td class="gt_row gt_center" headers="rank_5050">35</td>
+<td class="gt_row gt_center" headers="rank_equal">35</td>
+<td class="gt_row gt_center" headers="rank_dqa">35</td>
+<td class="gt_row gt_center" headers="rank_internal">36</td>
+<td class="gt_row gt_center" headers="rank_sum">34</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">ROU</td>
+<td class="gt_row gt_center" headers="incise_2019">0.127</td>
+<td class="gt_row gt_center" headers="sens_5050">0.131</td>
+<td class="gt_row gt_center" headers="sens_equal">0.120</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.140</td>
+<td class="gt_row gt_center" headers="sens_internal">0.070</td>
+<td class="gt_row gt_center" headers="sens_sum">0.050</td>
+<td class="gt_row gt_center" headers="rank_2019">36</td>
+<td class="gt_row gt_center" headers="rank_5050">36</td>
+<td class="gt_row gt_center" headers="rank_equal">36</td>
+<td class="gt_row gt_center" headers="rank_dqa">36</td>
+<td class="gt_row gt_center" headers="rank_internal">37</td>
+<td class="gt_row gt_center" headers="rank_sum">36</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">GRC</td>
+<td class="gt_row gt_center" headers="incise_2019">0.107</td>
+<td class="gt_row gt_center" headers="sens_5050">0.111</td>
+<td class="gt_row gt_center" headers="sens_equal">0.099</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.123</td>
+<td class="gt_row gt_center" headers="sens_internal">0.123</td>
+<td class="gt_row gt_center" headers="sens_sum">0.000</td>
+<td class="gt_row gt_center" headers="rank_2019">37</td>
+<td class="gt_row gt_center" headers="rank_5050">37</td>
+<td class="gt_row gt_center" headers="rank_equal">37</td>
+<td class="gt_row gt_center" headers="rank_dqa">37</td>
+<td class="gt_row gt_center" headers="rank_internal">34</td>
+<td class="gt_row gt_center" headers="rank_sum">38</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">HUN</td>
+<td class="gt_row gt_center" headers="incise_2019">0.000</td>
+<td class="gt_row gt_center" headers="sens_5050">0.000</td>
+<td class="gt_row gt_center" headers="sens_equal">0.000</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.000</td>
+<td class="gt_row gt_center" headers="sens_internal">0.000</td>
+<td class="gt_row gt_center" headers="sens_sum">0.023</td>
+<td class="gt_row gt_center" headers="rank_2019">38</td>
+<td class="gt_row gt_center" headers="rank_5050">38</td>
+<td class="gt_row gt_center" headers="rank_equal">38</td>
+<td class="gt_row gt_center" headers="rank_dqa">38</td>
+<td class="gt_row gt_center" headers="rank_internal">38</td>
+<td class="gt_row gt_center" headers="rank_sum">37</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">MAE</td>
+<td class="gt_row gt_center" headers="incise_2019">—</td>
+<td class="gt_row gt_center" headers="sens_5050">0.004</td>
+<td class="gt_row gt_center" headers="sens_equal">0.009</td>
+<td class="gt_row gt_center" headers="sens_dqa">0.017</td>
+<td class="gt_row gt_center" headers="sens_internal">0.026</td>
+<td class="gt_row gt_center" headers="sens_sum">0.032</td>
+<td class="gt_row gt_center" headers="rank_2019"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_5050"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_equal"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_dqa"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_internal"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_sum"><br>
+</td>
+</tr>
+</tbody><tfoot class="gt_footnotes">
+<tr class="even">
+<td colspan="13" class="gt_footnote">Table B.3 in the original PDF publication</td>
+</tr>
+</tfoot>
+
+</table>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-sens-base" class="anchored">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Table&nbsp;B.4: Sensitivity tests adjusting the base data</caption>
+<colgroup>
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header gt_col_headings gt_spanner_row">
+<th rowspan="2" id="Country" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Country</th>
+<th colspan="4" id="Index score" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><span class="gt_column_spanner">Index score</span></th>
+<th colspan="4" id="Country rank" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><span class="gt_column_spanner">Country rank</span></th>
+</tr>
+<tr class="odd gt_col_headings">
+<th id="2019 results" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">2019 results</th>
+<th id="Ranked data" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Ranked data</th>
+<th id="Rescaled data" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Rescaled data</th>
+<th id="Standardise data" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Standardise data</th>
+<th id="2019 results" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">2019 results</th>
+<th id="Ranked data" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Ranked data</th>
+<th id="Rescaled data" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Rescaled data</th>
+<th id="Standardise data" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Standardise data</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">========</td>
+<td class="gt_row gt_center" headers="incise_2019">===========</td>
+<td class="gt_row gt_center" headers="sens_rank">=========</td>
+<td class="gt_row gt_center" headers="sens_rescale">============</td>
+<td class="gt_row gt_center" headers="sens_std">========</td>
+<td class="gt_row gt_center" headers="rank_2019">=========</td>
+<td class="gt_row gt_center" headers="rank_rank">=========</td>
+<td class="gt_row gt_center" headers="rank_rescale">============</td>
+<td class="gt_row gt_center" headers="rank_std">========</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">GBR</td>
+<td class="gt_row gt_center" headers="incise_2019">1.000</td>
+<td class="gt_row gt_center" headers="sens_rank">1.000</td>
+<td class="gt_row gt_center" headers="sens_rescale">1.000</td>
+<td class="gt_row gt_center" headers="sens_std">1.000</td>
+<td class="gt_row gt_center" headers="rank_2019">1</td>
+<td class="gt_row gt_center" headers="rank_rank">1</td>
+<td class="gt_row gt_center" headers="rank_rescale">1</td>
+<td class="gt_row gt_center" headers="rank_std">1</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">NZL</td>
+<td class="gt_row gt_center" headers="incise_2019">0.980</td>
+<td class="gt_row gt_center" headers="sens_rank">0.951</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.978</td>
+<td class="gt_row gt_center" headers="sens_std">0.979</td>
+<td class="gt_row gt_center" headers="rank_2019">2</td>
+<td class="gt_row gt_center" headers="rank_rank">2</td>
+<td class="gt_row gt_center" headers="rank_rescale">2</td>
+<td class="gt_row gt_center" headers="rank_std">2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">CAN</td>
+<td class="gt_row gt_center" headers="incise_2019">0.916</td>
+<td class="gt_row gt_center" headers="sens_rank">0.893</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.927</td>
+<td class="gt_row gt_center" headers="sens_std">0.908</td>
+<td class="gt_row gt_center" headers="rank_2019">3</td>
+<td class="gt_row gt_center" headers="rank_rank">3</td>
+<td class="gt_row gt_center" headers="rank_rescale">3</td>
+<td class="gt_row gt_center" headers="rank_std">3</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">FIN</td>
+<td class="gt_row gt_center" headers="incise_2019">0.883</td>
+<td class="gt_row gt_center" headers="sens_rank">0.883</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.885</td>
+<td class="gt_row gt_center" headers="sens_std">0.885</td>
+<td class="gt_row gt_center" headers="rank_2019">4</td>
+<td class="gt_row gt_center" headers="rank_rank">4</td>
+<td class="gt_row gt_center" headers="rank_rescale">4</td>
+<td class="gt_row gt_center" headers="rank_std">4</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">AUS</td>
+<td class="gt_row gt_center" headers="incise_2019">0.863</td>
+<td class="gt_row gt_center" headers="sens_rank">0.833</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.868</td>
+<td class="gt_row gt_center" headers="sens_std">0.864</td>
+<td class="gt_row gt_center" headers="rank_2019">5</td>
+<td class="gt_row gt_center" headers="rank_rank">6</td>
+<td class="gt_row gt_center" headers="rank_rescale">5</td>
+<td class="gt_row gt_center" headers="rank_std">5</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">DNK</td>
+<td class="gt_row gt_center" headers="incise_2019">0.832</td>
+<td class="gt_row gt_center" headers="sens_rank">0.862</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.824</td>
+<td class="gt_row gt_center" headers="sens_std">0.827</td>
+<td class="gt_row gt_center" headers="rank_2019">6</td>
+<td class="gt_row gt_center" headers="rank_rank">5</td>
+<td class="gt_row gt_center" headers="rank_rescale">7</td>
+<td class="gt_row gt_center" headers="rank_std">7</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">NOR</td>
+<td class="gt_row gt_center" headers="incise_2019">0.830</td>
+<td class="gt_row gt_center" headers="sens_rank">0.789</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.830</td>
+<td class="gt_row gt_center" headers="sens_std">0.829</td>
+<td class="gt_row gt_center" headers="rank_2019">7</td>
+<td class="gt_row gt_center" headers="rank_rank">10</td>
+<td class="gt_row gt_center" headers="rank_rescale">6</td>
+<td class="gt_row gt_center" headers="rank_std">6</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">NLD</td>
+<td class="gt_row gt_center" headers="incise_2019">0.794</td>
+<td class="gt_row gt_center" headers="sens_rank">0.815</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.794</td>
+<td class="gt_row gt_center" headers="sens_std">0.783</td>
+<td class="gt_row gt_center" headers="rank_2019">8</td>
+<td class="gt_row gt_center" headers="rank_rank">8</td>
+<td class="gt_row gt_center" headers="rank_rescale">8</td>
+<td class="gt_row gt_center" headers="rank_std">9</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">KOR</td>
+<td class="gt_row gt_center" headers="incise_2019">0.785</td>
+<td class="gt_row gt_center" headers="sens_rank">0.818</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.767</td>
+<td class="gt_row gt_center" headers="sens_std">0.770</td>
+<td class="gt_row gt_center" headers="rank_2019">9</td>
+<td class="gt_row gt_center" headers="rank_rank">7</td>
+<td class="gt_row gt_center" headers="rank_rescale">10</td>
+<td class="gt_row gt_center" headers="rank_std">11</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">SWE</td>
+<td class="gt_row gt_center" headers="incise_2019">0.785</td>
+<td class="gt_row gt_center" headers="sens_rank">0.802</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.785</td>
+<td class="gt_row gt_center" headers="sens_std">0.784</td>
+<td class="gt_row gt_center" headers="rank_2019">10</td>
+<td class="gt_row gt_center" headers="rank_rank">9</td>
+<td class="gt_row gt_center" headers="rank_rescale">9</td>
+<td class="gt_row gt_center" headers="rank_std">8</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">USA</td>
+<td class="gt_row gt_center" headers="incise_2019">0.765</td>
+<td class="gt_row gt_center" headers="sens_rank">0.775</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.737</td>
+<td class="gt_row gt_center" headers="sens_std">0.781</td>
+<td class="gt_row gt_center" headers="rank_2019">11</td>
+<td class="gt_row gt_center" headers="rank_rank">11</td>
+<td class="gt_row gt_center" headers="rank_rescale">11</td>
+<td class="gt_row gt_center" headers="rank_std">10</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">EST</td>
+<td class="gt_row gt_center" headers="incise_2019">0.674</td>
+<td class="gt_row gt_center" headers="sens_rank">0.680</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.666</td>
+<td class="gt_row gt_center" headers="sens_std">0.671</td>
+<td class="gt_row gt_center" headers="rank_2019">12</td>
+<td class="gt_row gt_center" headers="rank_rank">13</td>
+<td class="gt_row gt_center" headers="rank_rescale">12</td>
+<td class="gt_row gt_center" headers="rank_std">12</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">CHE</td>
+<td class="gt_row gt_center" headers="incise_2019">0.650</td>
+<td class="gt_row gt_center" headers="sens_rank">0.681</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.630</td>
+<td class="gt_row gt_center" headers="sens_std">0.625</td>
+<td class="gt_row gt_center" headers="rank_2019">13</td>
+<td class="gt_row gt_center" headers="rank_rank">12</td>
+<td class="gt_row gt_center" headers="rank_rescale">15</td>
+<td class="gt_row gt_center" headers="rank_std">13</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">IRL</td>
+<td class="gt_row gt_center" headers="incise_2019">0.625</td>
+<td class="gt_row gt_center" headers="sens_rank">0.588</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.631</td>
+<td class="gt_row gt_center" headers="sens_std">0.623</td>
+<td class="gt_row gt_center" headers="rank_2019">14</td>
+<td class="gt_row gt_center" headers="rank_rank">15</td>
+<td class="gt_row gt_center" headers="rank_rescale">14</td>
+<td class="gt_row gt_center" headers="rank_std">14</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">FRA</td>
+<td class="gt_row gt_center" headers="incise_2019">0.619</td>
+<td class="gt_row gt_center" headers="sens_rank">0.632</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.633</td>
+<td class="gt_row gt_center" headers="sens_std">0.620</td>
+<td class="gt_row gt_center" headers="rank_2019">15</td>
+<td class="gt_row gt_center" headers="rank_rank">14</td>
+<td class="gt_row gt_center" headers="rank_rescale">13</td>
+<td class="gt_row gt_center" headers="rank_std">15</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">AUT</td>
+<td class="gt_row gt_center" headers="incise_2019">0.617</td>
+<td class="gt_row gt_center" headers="sens_rank">0.573</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.622</td>
+<td class="gt_row gt_center" headers="sens_std">0.612</td>
+<td class="gt_row gt_center" headers="rank_2019">16</td>
+<td class="gt_row gt_center" headers="rank_rank">17</td>
+<td class="gt_row gt_center" headers="rank_rescale">16</td>
+<td class="gt_row gt_center" headers="rank_std">16</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">ESP</td>
+<td class="gt_row gt_center" headers="incise_2019">0.599</td>
+<td class="gt_row gt_center" headers="sens_rank">0.577</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.598</td>
+<td class="gt_row gt_center" headers="sens_std">0.591</td>
+<td class="gt_row gt_center" headers="rank_2019">17</td>
+<td class="gt_row gt_center" headers="rank_rank">16</td>
+<td class="gt_row gt_center" headers="rank_rescale">17</td>
+<td class="gt_row gt_center" headers="rank_std">17</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">MEX</td>
+<td class="gt_row gt_center" headers="incise_2019">0.507</td>
+<td class="gt_row gt_center" headers="sens_rank">0.461</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.517</td>
+<td class="gt_row gt_center" headers="sens_std">0.522</td>
+<td class="gt_row gt_center" headers="rank_2019">18</td>
+<td class="gt_row gt_center" headers="rank_rank">23</td>
+<td class="gt_row gt_center" headers="rank_rescale">18</td>
+<td class="gt_row gt_center" headers="rank_std">18</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">DEU</td>
+<td class="gt_row gt_center" headers="incise_2019">0.505</td>
+<td class="gt_row gt_center" headers="sens_rank">0.506</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.497</td>
+<td class="gt_row gt_center" headers="sens_std">0.488</td>
+<td class="gt_row gt_center" headers="rank_2019">19</td>
+<td class="gt_row gt_center" headers="rank_rank">20</td>
+<td class="gt_row gt_center" headers="rank_rescale">19</td>
+<td class="gt_row gt_center" headers="rank_std">21</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">LTU</td>
+<td class="gt_row gt_center" headers="incise_2019">0.487</td>
+<td class="gt_row gt_center" headers="sens_rank">0.495</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.490</td>
+<td class="gt_row gt_center" headers="sens_std">0.497</td>
+<td class="gt_row gt_center" headers="rank_2019">20</td>
+<td class="gt_row gt_center" headers="rank_rank">21</td>
+<td class="gt_row gt_center" headers="rank_rescale">21</td>
+<td class="gt_row gt_center" headers="rank_std">20</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">BEL</td>
+<td class="gt_row gt_center" headers="incise_2019">0.485</td>
+<td class="gt_row gt_center" headers="sens_rank">0.514</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.493</td>
+<td class="gt_row gt_center" headers="sens_std">0.513</td>
+<td class="gt_row gt_center" headers="rank_2019">21</td>
+<td class="gt_row gt_center" headers="rank_rank">19</td>
+<td class="gt_row gt_center" headers="rank_rescale">20</td>
+<td class="gt_row gt_center" headers="rank_std">19</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">JPN</td>
+<td class="gt_row gt_center" headers="incise_2019">0.472</td>
+<td class="gt_row gt_center" headers="sens_rank">0.521</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.478</td>
+<td class="gt_row gt_center" headers="sens_std">0.484</td>
+<td class="gt_row gt_center" headers="rank_2019">22</td>
+<td class="gt_row gt_center" headers="rank_rank">18</td>
+<td class="gt_row gt_center" headers="rank_rescale">23</td>
+<td class="gt_row gt_center" headers="rank_std">22</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">LVA</td>
+<td class="gt_row gt_center" headers="incise_2019">0.466</td>
+<td class="gt_row gt_center" headers="sens_rank">0.432</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.461</td>
+<td class="gt_row gt_center" headers="sens_std">0.453</td>
+<td class="gt_row gt_center" headers="rank_2019">23</td>
+<td class="gt_row gt_center" headers="rank_rank">24</td>
+<td class="gt_row gt_center" headers="rank_rescale">24</td>
+<td class="gt_row gt_center" headers="rank_std">24</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">CHL</td>
+<td class="gt_row gt_center" headers="incise_2019">0.454</td>
+<td class="gt_row gt_center" headers="sens_rank">0.465</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.484</td>
+<td class="gt_row gt_center" headers="sens_std">0.474</td>
+<td class="gt_row gt_center" headers="rank_2019">24</td>
+<td class="gt_row gt_center" headers="rank_rank">22</td>
+<td class="gt_row gt_center" headers="rank_rescale">22</td>
+<td class="gt_row gt_center" headers="rank_std">23</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">ITA</td>
+<td class="gt_row gt_center" headers="incise_2019">0.419</td>
+<td class="gt_row gt_center" headers="sens_rank">0.402</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.415</td>
+<td class="gt_row gt_center" headers="sens_std">0.412</td>
+<td class="gt_row gt_center" headers="rank_2019">25</td>
+<td class="gt_row gt_center" headers="rank_rank">25</td>
+<td class="gt_row gt_center" headers="rank_rescale">25</td>
+<td class="gt_row gt_center" headers="rank_std">25</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">SVN</td>
+<td class="gt_row gt_center" headers="incise_2019">0.369</td>
+<td class="gt_row gt_center" headers="sens_rank">0.386</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.366</td>
+<td class="gt_row gt_center" headers="sens_std">0.361</td>
+<td class="gt_row gt_center" headers="rank_2019">26</td>
+<td class="gt_row gt_center" headers="rank_rank">26</td>
+<td class="gt_row gt_center" headers="rank_rescale">26</td>
+<td class="gt_row gt_center" headers="rank_std">26</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">ISR</td>
+<td class="gt_row gt_center" headers="incise_2019">0.315</td>
+<td class="gt_row gt_center" headers="sens_rank">0.322</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.324</td>
+<td class="gt_row gt_center" headers="sens_std">0.327</td>
+<td class="gt_row gt_center" headers="rank_2019">27</td>
+<td class="gt_row gt_center" headers="rank_rank">27</td>
+<td class="gt_row gt_center" headers="rank_rescale">27</td>
+<td class="gt_row gt_center" headers="rank_std">27</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">POL</td>
+<td class="gt_row gt_center" headers="incise_2019">0.282</td>
+<td class="gt_row gt_center" headers="sens_rank">0.242</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.276</td>
+<td class="gt_row gt_center" headers="sens_std">0.273</td>
+<td class="gt_row gt_center" headers="rank_2019">28</td>
+<td class="gt_row gt_center" headers="rank_rank">29</td>
+<td class="gt_row gt_center" headers="rank_rescale">28</td>
+<td class="gt_row gt_center" headers="rank_std">28</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">PRT</td>
+<td class="gt_row gt_center" headers="incise_2019">0.259</td>
+<td class="gt_row gt_center" headers="sens_rank">0.223</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.252</td>
+<td class="gt_row gt_center" headers="sens_std">0.238</td>
+<td class="gt_row gt_center" headers="rank_2019">29</td>
+<td class="gt_row gt_center" headers="rank_rank">31</td>
+<td class="gt_row gt_center" headers="rank_rescale">31</td>
+<td class="gt_row gt_center" headers="rank_std">31</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">CZE</td>
+<td class="gt_row gt_center" headers="incise_2019">0.245</td>
+<td class="gt_row gt_center" headers="sens_rank">0.275</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.257</td>
+<td class="gt_row gt_center" headers="sens_std">0.251</td>
+<td class="gt_row gt_center" headers="rank_2019">30</td>
+<td class="gt_row gt_center" headers="rank_rank">28</td>
+<td class="gt_row gt_center" headers="rank_rescale">29</td>
+<td class="gt_row gt_center" headers="rank_std">30</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">ISL</td>
+<td class="gt_row gt_center" headers="incise_2019">0.228</td>
+<td class="gt_row gt_center" headers="sens_rank">0.230</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.254</td>
+<td class="gt_row gt_center" headers="sens_std">0.263</td>
+<td class="gt_row gt_center" headers="rank_2019">31</td>
+<td class="gt_row gt_center" headers="rank_rank">30</td>
+<td class="gt_row gt_center" headers="rank_rescale">30</td>
+<td class="gt_row gt_center" headers="rank_std">29</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">TUR</td>
+<td class="gt_row gt_center" headers="incise_2019">0.189</td>
+<td class="gt_row gt_center" headers="sens_rank">0.185</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.179</td>
+<td class="gt_row gt_center" headers="sens_std">0.190</td>
+<td class="gt_row gt_center" headers="rank_2019">32</td>
+<td class="gt_row gt_center" headers="rank_rank">32</td>
+<td class="gt_row gt_center" headers="rank_rescale">32</td>
+<td class="gt_row gt_center" headers="rank_std">32</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">SVK</td>
+<td class="gt_row gt_center" headers="incise_2019">0.172</td>
+<td class="gt_row gt_center" headers="sens_rank">0.170</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.177</td>
+<td class="gt_row gt_center" headers="sens_std">0.162</td>
+<td class="gt_row gt_center" headers="rank_2019">33</td>
+<td class="gt_row gt_center" headers="rank_rank">33</td>
+<td class="gt_row gt_center" headers="rank_rescale">33</td>
+<td class="gt_row gt_center" headers="rank_std">33</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">BGR</td>
+<td class="gt_row gt_center" headers="incise_2019">0.147</td>
+<td class="gt_row gt_center" headers="sens_rank">0.122</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.135</td>
+<td class="gt_row gt_center" headers="sens_std">0.113</td>
+<td class="gt_row gt_center" headers="rank_2019">34</td>
+<td class="gt_row gt_center" headers="rank_rank">35</td>
+<td class="gt_row gt_center" headers="rank_rescale">35</td>
+<td class="gt_row gt_center" headers="rank_std">35</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">HRV</td>
+<td class="gt_row gt_center" headers="incise_2019">0.140</td>
+<td class="gt_row gt_center" headers="sens_rank">0.131</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.151</td>
+<td class="gt_row gt_center" headers="sens_std">0.139</td>
+<td class="gt_row gt_center" headers="rank_2019">35</td>
+<td class="gt_row gt_center" headers="rank_rank">34</td>
+<td class="gt_row gt_center" headers="rank_rescale">34</td>
+<td class="gt_row gt_center" headers="rank_std">34</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">ROU</td>
+<td class="gt_row gt_center" headers="incise_2019">0.127</td>
+<td class="gt_row gt_center" headers="sens_rank">0.107</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.102</td>
+<td class="gt_row gt_center" headers="sens_std">0.090</td>
+<td class="gt_row gt_center" headers="rank_2019">36</td>
+<td class="gt_row gt_center" headers="rank_rank">36</td>
+<td class="gt_row gt_center" headers="rank_rescale">36</td>
+<td class="gt_row gt_center" headers="rank_std">36</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">GRC</td>
+<td class="gt_row gt_center" headers="incise_2019">0.107</td>
+<td class="gt_row gt_center" headers="sens_rank">0.072</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.066</td>
+<td class="gt_row gt_center" headers="sens_std">0.075</td>
+<td class="gt_row gt_center" headers="rank_2019">37</td>
+<td class="gt_row gt_center" headers="rank_rank">37</td>
+<td class="gt_row gt_center" headers="rank_rescale">37</td>
+<td class="gt_row gt_center" headers="rank_std">37</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">HUN</td>
+<td class="gt_row gt_center" headers="incise_2019">0.000</td>
+<td class="gt_row gt_center" headers="sens_rank">0.000</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.000</td>
+<td class="gt_row gt_center" headers="sens_std">0.000</td>
+<td class="gt_row gt_center" headers="rank_2019">38</td>
+<td class="gt_row gt_center" headers="rank_rank">38</td>
+<td class="gt_row gt_center" headers="rank_rescale">38</td>
+<td class="gt_row gt_center" headers="rank_std">38</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">MAE</td>
+<td class="gt_row gt_center" headers="incise_2019">—</td>
+<td class="gt_row gt_center" headers="sens_rank">0.021</td>
+<td class="gt_row gt_center" headers="sens_rescale">0.010</td>
+<td class="gt_row gt_center" headers="sens_std">0.011</td>
+<td class="gt_row gt_center" headers="rank_2019"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_rank"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_rescale"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_std"><br>
+</td>
+</tr>
+</tbody><tfoot class="gt_footnotes">
+<tr class="even">
+<td colspan="9" class="gt_footnote">Table B.4 in the original PDF publication</td>
+</tr>
+</tfoot>
+
+</table>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-sens-impute" class="anchored">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Table&nbsp;B.5: Sensitivity tests adjusting the base data</caption>
+<colgroup>
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header gt_col_headings gt_spanner_row">
+<th rowspan="2" id="Country" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Country</th>
+<th colspan="5" id="Index score" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><span class="gt_column_spanner">Index score</span></th>
+<th colspan="5" id="Country rank" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><span class="gt_column_spanner">Country rank</span></th>
+</tr>
+<tr class="odd gt_col_headings">
+<th id="2019 results" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">2019 results</th>
+<th id="All-in-one" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">All-in-one</th>
+<th id="Midas touch" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Midas touch</th>
+<th id="Random forests" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Random forests</th>
+<th id="Mean value" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Mean value</th>
+<th id="2019 results" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">2019 results</th>
+<th id="All-in-one" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">All-in-one</th>
+<th id="Midas touch" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Midas touch</th>
+<th id="Random forests" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Random forests</th>
+<th id="Mean value" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Mean value</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">========</td>
+<td class="gt_row gt_center" headers="incise_2019">===========</td>
+<td class="gt_row gt_center" headers="sens_allin">==========</td>
+<td class="gt_row gt_center" headers="sens_midas">==========</td>
+<td class="gt_row gt_center" headers="sens_rf">=======</td>
+<td class="gt_row gt_center" headers="sens_mean">=========</td>
+<td class="gt_row gt_center" headers="rank_2019">=========</td>
+<td class="gt_row gt_center" headers="rank_allin">==========</td>
+<td class="gt_row gt_center" headers="rank_midas">==========</td>
+<td class="gt_row gt_center" headers="rank_rf">=======</td>
+<td class="gt_row gt_center" headers="rank_mean">=========</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">GBR</td>
+<td class="gt_row gt_center" headers="incise_2019">1.000</td>
+<td class="gt_row gt_center" headers="sens_allin">0.989</td>
+<td class="gt_row gt_center" headers="sens_midas">1.000</td>
+<td class="gt_row gt_center" headers="sens_rf">1.000</td>
+<td class="gt_row gt_center" headers="sens_mean">1.000</td>
+<td class="gt_row gt_center" headers="rank_2019">1</td>
+<td class="gt_row gt_center" headers="rank_allin">2</td>
+<td class="gt_row gt_center" headers="rank_midas">1</td>
+<td class="gt_row gt_center" headers="rank_rf">1</td>
+<td class="gt_row gt_center" headers="rank_mean">1</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">NZL</td>
+<td class="gt_row gt_center" headers="incise_2019">0.980</td>
+<td class="gt_row gt_center" headers="sens_allin">1.000</td>
+<td class="gt_row gt_center" headers="sens_midas">0.975</td>
+<td class="gt_row gt_center" headers="sens_rf">0.981</td>
+<td class="gt_row gt_center" headers="sens_mean">0.966</td>
+<td class="gt_row gt_center" headers="rank_2019">2</td>
+<td class="gt_row gt_center" headers="rank_allin">1</td>
+<td class="gt_row gt_center" headers="rank_midas">2</td>
+<td class="gt_row gt_center" headers="rank_rf">2</td>
+<td class="gt_row gt_center" headers="rank_mean">2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">CAN</td>
+<td class="gt_row gt_center" headers="incise_2019">0.916</td>
+<td class="gt_row gt_center" headers="sens_allin">0.862</td>
+<td class="gt_row gt_center" headers="sens_midas">0.902</td>
+<td class="gt_row gt_center" headers="sens_rf">0.891</td>
+<td class="gt_row gt_center" headers="sens_mean">0.867</td>
+<td class="gt_row gt_center" headers="rank_2019">3</td>
+<td class="gt_row gt_center" headers="rank_allin">5</td>
+<td class="gt_row gt_center" headers="rank_midas">3</td>
+<td class="gt_row gt_center" headers="rank_rf">3</td>
+<td class="gt_row gt_center" headers="rank_mean">3</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">FIN</td>
+<td class="gt_row gt_center" headers="incise_2019">0.883</td>
+<td class="gt_row gt_center" headers="sens_allin">0.881</td>
+<td class="gt_row gt_center" headers="sens_midas">0.884</td>
+<td class="gt_row gt_center" headers="sens_rf">0.874</td>
+<td class="gt_row gt_center" headers="sens_mean">0.850</td>
+<td class="gt_row gt_center" headers="rank_2019">4</td>
+<td class="gt_row gt_center" headers="rank_allin">3</td>
+<td class="gt_row gt_center" headers="rank_midas">4</td>
+<td class="gt_row gt_center" headers="rank_rf">4</td>
+<td class="gt_row gt_center" headers="rank_mean">4</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">AUS</td>
+<td class="gt_row gt_center" headers="incise_2019">0.863</td>
+<td class="gt_row gt_center" headers="sens_allin">0.872</td>
+<td class="gt_row gt_center" headers="sens_midas">0.807</td>
+<td class="gt_row gt_center" headers="sens_rf">0.854</td>
+<td class="gt_row gt_center" headers="sens_mean">0.821</td>
+<td class="gt_row gt_center" headers="rank_2019">5</td>
+<td class="gt_row gt_center" headers="rank_allin">4</td>
+<td class="gt_row gt_center" headers="rank_midas">7</td>
+<td class="gt_row gt_center" headers="rank_rf">5</td>
+<td class="gt_row gt_center" headers="rank_mean">6</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">DNK</td>
+<td class="gt_row gt_center" headers="incise_2019">0.832</td>
+<td class="gt_row gt_center" headers="sens_allin">0.833</td>
+<td class="gt_row gt_center" headers="sens_midas">0.838</td>
+<td class="gt_row gt_center" headers="sens_rf">0.837</td>
+<td class="gt_row gt_center" headers="sens_mean">0.808</td>
+<td class="gt_row gt_center" headers="rank_2019">6</td>
+<td class="gt_row gt_center" headers="rank_allin">7</td>
+<td class="gt_row gt_center" headers="rank_midas">5</td>
+<td class="gt_row gt_center" headers="rank_rf">6</td>
+<td class="gt_row gt_center" headers="rank_mean">7</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">NOR</td>
+<td class="gt_row gt_center" headers="incise_2019">0.830</td>
+<td class="gt_row gt_center" headers="sens_allin">0.834</td>
+<td class="gt_row gt_center" headers="sens_midas">0.831</td>
+<td class="gt_row gt_center" headers="sens_rf">0.831</td>
+<td class="gt_row gt_center" headers="sens_mean">0.824</td>
+<td class="gt_row gt_center" headers="rank_2019">7</td>
+<td class="gt_row gt_center" headers="rank_allin">6</td>
+<td class="gt_row gt_center" headers="rank_midas">6</td>
+<td class="gt_row gt_center" headers="rank_rf">7</td>
+<td class="gt_row gt_center" headers="rank_mean">5</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">NLD</td>
+<td class="gt_row gt_center" headers="incise_2019">0.794</td>
+<td class="gt_row gt_center" headers="sens_allin">0.791</td>
+<td class="gt_row gt_center" headers="sens_midas">0.794</td>
+<td class="gt_row gt_center" headers="sens_rf">0.766</td>
+<td class="gt_row gt_center" headers="sens_mean">0.762</td>
+<td class="gt_row gt_center" headers="rank_2019">8</td>
+<td class="gt_row gt_center" headers="rank_allin">9</td>
+<td class="gt_row gt_center" headers="rank_midas">8</td>
+<td class="gt_row gt_center" headers="rank_rf">9</td>
+<td class="gt_row gt_center" headers="rank_mean">9</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">KOR</td>
+<td class="gt_row gt_center" headers="incise_2019">0.785</td>
+<td class="gt_row gt_center" headers="sens_allin">0.738</td>
+<td class="gt_row gt_center" headers="sens_midas">0.764</td>
+<td class="gt_row gt_center" headers="sens_rf">0.755</td>
+<td class="gt_row gt_center" headers="sens_mean">0.728</td>
+<td class="gt_row gt_center" headers="rank_2019">9</td>
+<td class="gt_row gt_center" headers="rank_allin">10</td>
+<td class="gt_row gt_center" headers="rank_midas">10</td>
+<td class="gt_row gt_center" headers="rank_rf">10</td>
+<td class="gt_row gt_center" headers="rank_mean">10</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">SWE</td>
+<td class="gt_row gt_center" headers="incise_2019">0.785</td>
+<td class="gt_row gt_center" headers="sens_allin">0.799</td>
+<td class="gt_row gt_center" headers="sens_midas">0.792</td>
+<td class="gt_row gt_center" headers="sens_rf">0.785</td>
+<td class="gt_row gt_center" headers="sens_mean">0.788</td>
+<td class="gt_row gt_center" headers="rank_2019">10</td>
+<td class="gt_row gt_center" headers="rank_allin">8</td>
+<td class="gt_row gt_center" headers="rank_midas">9</td>
+<td class="gt_row gt_center" headers="rank_rf">8</td>
+<td class="gt_row gt_center" headers="rank_mean">8</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">USA</td>
+<td class="gt_row gt_center" headers="incise_2019">0.765</td>
+<td class="gt_row gt_center" headers="sens_allin">0.691</td>
+<td class="gt_row gt_center" headers="sens_midas">0.747</td>
+<td class="gt_row gt_center" headers="sens_rf">0.721</td>
+<td class="gt_row gt_center" headers="sens_mean">0.699</td>
+<td class="gt_row gt_center" headers="rank_2019">11</td>
+<td class="gt_row gt_center" headers="rank_allin">11</td>
+<td class="gt_row gt_center" headers="rank_midas">11</td>
+<td class="gt_row gt_center" headers="rank_rf">11</td>
+<td class="gt_row gt_center" headers="rank_mean">11</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">EST</td>
+<td class="gt_row gt_center" headers="incise_2019">0.674</td>
+<td class="gt_row gt_center" headers="sens_allin">0.639</td>
+<td class="gt_row gt_center" headers="sens_midas">0.627</td>
+<td class="gt_row gt_center" headers="sens_rf">0.665</td>
+<td class="gt_row gt_center" headers="sens_mean">0.590</td>
+<td class="gt_row gt_center" headers="rank_2019">12</td>
+<td class="gt_row gt_center" headers="rank_allin">12</td>
+<td class="gt_row gt_center" headers="rank_midas">13</td>
+<td class="gt_row gt_center" headers="rank_rf">12</td>
+<td class="gt_row gt_center" headers="rank_mean">15</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">CHE</td>
+<td class="gt_row gt_center" headers="incise_2019">0.650</td>
+<td class="gt_row gt_center" headers="sens_allin">0.621</td>
+<td class="gt_row gt_center" headers="sens_midas">0.646</td>
+<td class="gt_row gt_center" headers="sens_rf">0.613</td>
+<td class="gt_row gt_center" headers="sens_mean">0.595</td>
+<td class="gt_row gt_center" headers="rank_2019">13</td>
+<td class="gt_row gt_center" headers="rank_allin">15</td>
+<td class="gt_row gt_center" headers="rank_midas">12</td>
+<td class="gt_row gt_center" headers="rank_rf">14</td>
+<td class="gt_row gt_center" headers="rank_mean">13</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">IRL</td>
+<td class="gt_row gt_center" headers="incise_2019">0.625</td>
+<td class="gt_row gt_center" headers="sens_allin">0.562</td>
+<td class="gt_row gt_center" headers="sens_midas">0.608</td>
+<td class="gt_row gt_center" headers="sens_rf">0.601</td>
+<td class="gt_row gt_center" headers="sens_mean">0.534</td>
+<td class="gt_row gt_center" headers="rank_2019">14</td>
+<td class="gt_row gt_center" headers="rank_allin">17</td>
+<td class="gt_row gt_center" headers="rank_midas">16</td>
+<td class="gt_row gt_center" headers="rank_rf">16</td>
+<td class="gt_row gt_center" headers="rank_mean">17</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">FRA</td>
+<td class="gt_row gt_center" headers="incise_2019">0.619</td>
+<td class="gt_row gt_center" headers="sens_allin">0.629</td>
+<td class="gt_row gt_center" headers="sens_midas">0.619</td>
+<td class="gt_row gt_center" headers="sens_rf">0.603</td>
+<td class="gt_row gt_center" headers="sens_mean">0.605</td>
+<td class="gt_row gt_center" headers="rank_2019">15</td>
+<td class="gt_row gt_center" headers="rank_allin">13</td>
+<td class="gt_row gt_center" headers="rank_midas">14</td>
+<td class="gt_row gt_center" headers="rank_rf">15</td>
+<td class="gt_row gt_center" headers="rank_mean">12</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">AUT</td>
+<td class="gt_row gt_center" headers="incise_2019">0.617</td>
+<td class="gt_row gt_center" headers="sens_allin">0.621</td>
+<td class="gt_row gt_center" headers="sens_midas">0.618</td>
+<td class="gt_row gt_center" headers="sens_rf">0.614</td>
+<td class="gt_row gt_center" headers="sens_mean">0.593</td>
+<td class="gt_row gt_center" headers="rank_2019">16</td>
+<td class="gt_row gt_center" headers="rank_allin">14</td>
+<td class="gt_row gt_center" headers="rank_midas">15</td>
+<td class="gt_row gt_center" headers="rank_rf">13</td>
+<td class="gt_row gt_center" headers="rank_mean">14</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">ESP</td>
+<td class="gt_row gt_center" headers="incise_2019">0.599</td>
+<td class="gt_row gt_center" headers="sens_allin">0.609</td>
+<td class="gt_row gt_center" headers="sens_midas">0.598</td>
+<td class="gt_row gt_center" headers="sens_rf">0.598</td>
+<td class="gt_row gt_center" headers="sens_mean">0.574</td>
+<td class="gt_row gt_center" headers="rank_2019">17</td>
+<td class="gt_row gt_center" headers="rank_allin">16</td>
+<td class="gt_row gt_center" headers="rank_midas">17</td>
+<td class="gt_row gt_center" headers="rank_rf">17</td>
+<td class="gt_row gt_center" headers="rank_mean">16</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">MEX</td>
+<td class="gt_row gt_center" headers="incise_2019">0.507</td>
+<td class="gt_row gt_center" headers="sens_allin">0.460</td>
+<td class="gt_row gt_center" headers="sens_midas">0.498</td>
+<td class="gt_row gt_center" headers="sens_rf">0.485</td>
+<td class="gt_row gt_center" headers="sens_mean">0.482</td>
+<td class="gt_row gt_center" headers="rank_2019">18</td>
+<td class="gt_row gt_center" headers="rank_allin">20</td>
+<td class="gt_row gt_center" headers="rank_midas">18</td>
+<td class="gt_row gt_center" headers="rank_rf">19</td>
+<td class="gt_row gt_center" headers="rank_mean">19</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">DEU</td>
+<td class="gt_row gt_center" headers="incise_2019">0.505</td>
+<td class="gt_row gt_center" headers="sens_allin">0.488</td>
+<td class="gt_row gt_center" headers="sens_midas">0.494</td>
+<td class="gt_row gt_center" headers="sens_rf">0.484</td>
+<td class="gt_row gt_center" headers="sens_mean">0.490</td>
+<td class="gt_row gt_center" headers="rank_2019">19</td>
+<td class="gt_row gt_center" headers="rank_allin">18</td>
+<td class="gt_row gt_center" headers="rank_midas">19</td>
+<td class="gt_row gt_center" headers="rank_rf">20</td>
+<td class="gt_row gt_center" headers="rank_mean">18</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">LTU</td>
+<td class="gt_row gt_center" headers="incise_2019">0.487</td>
+<td class="gt_row gt_center" headers="sens_allin">0.431</td>
+<td class="gt_row gt_center" headers="sens_midas">0.472</td>
+<td class="gt_row gt_center" headers="sens_rf">0.474</td>
+<td class="gt_row gt_center" headers="sens_mean">0.427</td>
+<td class="gt_row gt_center" headers="rank_2019">20</td>
+<td class="gt_row gt_center" headers="rank_allin">22</td>
+<td class="gt_row gt_center" headers="rank_midas">20</td>
+<td class="gt_row gt_center" headers="rank_rf">21</td>
+<td class="gt_row gt_center" headers="rank_mean">22</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">BEL</td>
+<td class="gt_row gt_center" headers="incise_2019">0.485</td>
+<td class="gt_row gt_center" headers="sens_allin">0.465</td>
+<td class="gt_row gt_center" headers="sens_midas">0.471</td>
+<td class="gt_row gt_center" headers="sens_rf">0.501</td>
+<td class="gt_row gt_center" headers="sens_mean">0.447</td>
+<td class="gt_row gt_center" headers="rank_2019">21</td>
+<td class="gt_row gt_center" headers="rank_allin">19</td>
+<td class="gt_row gt_center" headers="rank_midas">21</td>
+<td class="gt_row gt_center" headers="rank_rf">18</td>
+<td class="gt_row gt_center" headers="rank_mean">20</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">JPN</td>
+<td class="gt_row gt_center" headers="incise_2019">0.472</td>
+<td class="gt_row gt_center" headers="sens_allin">0.421</td>
+<td class="gt_row gt_center" headers="sens_midas">0.460</td>
+<td class="gt_row gt_center" headers="sens_rf">0.452</td>
+<td class="gt_row gt_center" headers="sens_mean">0.429</td>
+<td class="gt_row gt_center" headers="rank_2019">22</td>
+<td class="gt_row gt_center" headers="rank_allin">24</td>
+<td class="gt_row gt_center" headers="rank_midas">22</td>
+<td class="gt_row gt_center" headers="rank_rf">23</td>
+<td class="gt_row gt_center" headers="rank_mean">21</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">LVA</td>
+<td class="gt_row gt_center" headers="incise_2019">0.466</td>
+<td class="gt_row gt_center" headers="sens_allin">0.367</td>
+<td class="gt_row gt_center" headers="sens_midas">0.414</td>
+<td class="gt_row gt_center" headers="sens_rf">0.423</td>
+<td class="gt_row gt_center" headers="sens_mean">0.365</td>
+<td class="gt_row gt_center" headers="rank_2019">23</td>
+<td class="gt_row gt_center" headers="rank_allin">26</td>
+<td class="gt_row gt_center" headers="rank_midas">24</td>
+<td class="gt_row gt_center" headers="rank_rf">24</td>
+<td class="gt_row gt_center" headers="rank_mean">25</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">CHL</td>
+<td class="gt_row gt_center" headers="incise_2019">0.454</td>
+<td class="gt_row gt_center" headers="sens_allin">0.447</td>
+<td class="gt_row gt_center" headers="sens_midas">0.458</td>
+<td class="gt_row gt_center" headers="sens_rf">0.469</td>
+<td class="gt_row gt_center" headers="sens_mean">0.419</td>
+<td class="gt_row gt_center" headers="rank_2019">24</td>
+<td class="gt_row gt_center" headers="rank_allin">21</td>
+<td class="gt_row gt_center" headers="rank_midas">23</td>
+<td class="gt_row gt_center" headers="rank_rf">22</td>
+<td class="gt_row gt_center" headers="rank_mean">23</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">ITA</td>
+<td class="gt_row gt_center" headers="incise_2019">0.419</td>
+<td class="gt_row gt_center" headers="sens_allin">0.426</td>
+<td class="gt_row gt_center" headers="sens_midas">0.412</td>
+<td class="gt_row gt_center" headers="sens_rf">0.405</td>
+<td class="gt_row gt_center" headers="sens_mean">0.397</td>
+<td class="gt_row gt_center" headers="rank_2019">25</td>
+<td class="gt_row gt_center" headers="rank_allin">23</td>
+<td class="gt_row gt_center" headers="rank_midas">25</td>
+<td class="gt_row gt_center" headers="rank_rf">25</td>
+<td class="gt_row gt_center" headers="rank_mean">24</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">SVN</td>
+<td class="gt_row gt_center" headers="incise_2019">0.369</td>
+<td class="gt_row gt_center" headers="sens_allin">0.395</td>
+<td class="gt_row gt_center" headers="sens_midas">0.368</td>
+<td class="gt_row gt_center" headers="sens_rf">0.363</td>
+<td class="gt_row gt_center" headers="sens_mean">0.358</td>
+<td class="gt_row gt_center" headers="rank_2019">26</td>
+<td class="gt_row gt_center" headers="rank_allin">25</td>
+<td class="gt_row gt_center" headers="rank_midas">26</td>
+<td class="gt_row gt_center" headers="rank_rf">26</td>
+<td class="gt_row gt_center" headers="rank_mean">26</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">ISR</td>
+<td class="gt_row gt_center" headers="incise_2019">0.315</td>
+<td class="gt_row gt_center" headers="sens_allin">0.246</td>
+<td class="gt_row gt_center" headers="sens_midas">0.294</td>
+<td class="gt_row gt_center" headers="sens_rf">0.322</td>
+<td class="gt_row gt_center" headers="sens_mean">0.269</td>
+<td class="gt_row gt_center" headers="rank_2019">27</td>
+<td class="gt_row gt_center" headers="rank_allin">29</td>
+<td class="gt_row gt_center" headers="rank_midas">27</td>
+<td class="gt_row gt_center" headers="rank_rf">27</td>
+<td class="gt_row gt_center" headers="rank_mean">27</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">POL</td>
+<td class="gt_row gt_center" headers="incise_2019">0.282</td>
+<td class="gt_row gt_center" headers="sens_allin">0.302</td>
+<td class="gt_row gt_center" headers="sens_midas">0.277</td>
+<td class="gt_row gt_center" headers="sens_rf">0.262</td>
+<td class="gt_row gt_center" headers="sens_mean">0.260</td>
+<td class="gt_row gt_center" headers="rank_2019">28</td>
+<td class="gt_row gt_center" headers="rank_allin">27</td>
+<td class="gt_row gt_center" headers="rank_midas">28</td>
+<td class="gt_row gt_center" headers="rank_rf">29</td>
+<td class="gt_row gt_center" headers="rank_mean">28</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">PRT</td>
+<td class="gt_row gt_center" headers="incise_2019">0.259</td>
+<td class="gt_row gt_center" headers="sens_allin">0.294</td>
+<td class="gt_row gt_center" headers="sens_midas">0.266</td>
+<td class="gt_row gt_center" headers="sens_rf">0.241</td>
+<td class="gt_row gt_center" headers="sens_mean">0.252</td>
+<td class="gt_row gt_center" headers="rank_2019">29</td>
+<td class="gt_row gt_center" headers="rank_allin">28</td>
+<td class="gt_row gt_center" headers="rank_midas">29</td>
+<td class="gt_row gt_center" headers="rank_rf">31</td>
+<td class="gt_row gt_center" headers="rank_mean">30</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">CZE</td>
+<td class="gt_row gt_center" headers="incise_2019">0.245</td>
+<td class="gt_row gt_center" headers="sens_allin">0.219</td>
+<td class="gt_row gt_center" headers="sens_midas">0.227</td>
+<td class="gt_row gt_center" headers="sens_rf">0.241</td>
+<td class="gt_row gt_center" headers="sens_mean">0.243</td>
+<td class="gt_row gt_center" headers="rank_2019">30</td>
+<td class="gt_row gt_center" headers="rank_allin">30</td>
+<td class="gt_row gt_center" headers="rank_midas">31</td>
+<td class="gt_row gt_center" headers="rank_rf">30</td>
+<td class="gt_row gt_center" headers="rank_mean">31</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">ISL</td>
+<td class="gt_row gt_center" headers="incise_2019">0.228</td>
+<td class="gt_row gt_center" headers="sens_allin">0.207</td>
+<td class="gt_row gt_center" headers="sens_midas">0.235</td>
+<td class="gt_row gt_center" headers="sens_rf">0.297</td>
+<td class="gt_row gt_center" headers="sens_mean">0.254</td>
+<td class="gt_row gt_center" headers="rank_2019">31</td>
+<td class="gt_row gt_center" headers="rank_allin">31</td>
+<td class="gt_row gt_center" headers="rank_midas">30</td>
+<td class="gt_row gt_center" headers="rank_rf">28</td>
+<td class="gt_row gt_center" headers="rank_mean">29</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">TUR</td>
+<td class="gt_row gt_center" headers="incise_2019">0.189</td>
+<td class="gt_row gt_center" headers="sens_allin">0.184</td>
+<td class="gt_row gt_center" headers="sens_midas">0.195</td>
+<td class="gt_row gt_center" headers="sens_rf">0.197</td>
+<td class="gt_row gt_center" headers="sens_mean">0.180</td>
+<td class="gt_row gt_center" headers="rank_2019">32</td>
+<td class="gt_row gt_center" headers="rank_allin">33</td>
+<td class="gt_row gt_center" headers="rank_midas">32</td>
+<td class="gt_row gt_center" headers="rank_rf">32</td>
+<td class="gt_row gt_center" headers="rank_mean">32</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">SVK</td>
+<td class="gt_row gt_center" headers="incise_2019">0.172</td>
+<td class="gt_row gt_center" headers="sens_allin">0.203</td>
+<td class="gt_row gt_center" headers="sens_midas">0.170</td>
+<td class="gt_row gt_center" headers="sens_rf">0.153</td>
+<td class="gt_row gt_center" headers="sens_mean">0.132</td>
+<td class="gt_row gt_center" headers="rank_2019">33</td>
+<td class="gt_row gt_center" headers="rank_allin">32</td>
+<td class="gt_row gt_center" headers="rank_midas">33</td>
+<td class="gt_row gt_center" headers="rank_rf">33</td>
+<td class="gt_row gt_center" headers="rank_mean">34</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">BGR</td>
+<td class="gt_row gt_center" headers="incise_2019">0.147</td>
+<td class="gt_row gt_center" headers="sens_allin">0.138</td>
+<td class="gt_row gt_center" headers="sens_midas">0.144</td>
+<td class="gt_row gt_center" headers="sens_rf">0.095</td>
+<td class="gt_row gt_center" headers="sens_mean">0.129</td>
+<td class="gt_row gt_center" headers="rank_2019">34</td>
+<td class="gt_row gt_center" headers="rank_allin">35</td>
+<td class="gt_row gt_center" headers="rank_midas">35</td>
+<td class="gt_row gt_center" headers="rank_rf">36</td>
+<td class="gt_row gt_center" headers="rank_mean">35</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">HRV</td>
+<td class="gt_row gt_center" headers="incise_2019">0.140</td>
+<td class="gt_row gt_center" headers="sens_allin">0.144</td>
+<td class="gt_row gt_center" headers="sens_midas">0.159</td>
+<td class="gt_row gt_center" headers="sens_rf">0.145</td>
+<td class="gt_row gt_center" headers="sens_mean">0.169</td>
+<td class="gt_row gt_center" headers="rank_2019">35</td>
+<td class="gt_row gt_center" headers="rank_allin">34</td>
+<td class="gt_row gt_center" headers="rank_midas">34</td>
+<td class="gt_row gt_center" headers="rank_rf">34</td>
+<td class="gt_row gt_center" headers="rank_mean">33</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">ROU</td>
+<td class="gt_row gt_center" headers="incise_2019">0.127</td>
+<td class="gt_row gt_center" headers="sens_allin">0.095</td>
+<td class="gt_row gt_center" headers="sens_midas">0.128</td>
+<td class="gt_row gt_center" headers="sens_rf">0.101</td>
+<td class="gt_row gt_center" headers="sens_mean">0.121</td>
+<td class="gt_row gt_center" headers="rank_2019">36</td>
+<td class="gt_row gt_center" headers="rank_allin">37</td>
+<td class="gt_row gt_center" headers="rank_midas">36</td>
+<td class="gt_row gt_center" headers="rank_rf">35</td>
+<td class="gt_row gt_center" headers="rank_mean">36</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">GRC</td>
+<td class="gt_row gt_center" headers="incise_2019">0.107</td>
+<td class="gt_row gt_center" headers="sens_allin">0.119</td>
+<td class="gt_row gt_center" headers="sens_midas">0.081</td>
+<td class="gt_row gt_center" headers="sens_rf">0.075</td>
+<td class="gt_row gt_center" headers="sens_mean">0.066</td>
+<td class="gt_row gt_center" headers="rank_2019">37</td>
+<td class="gt_row gt_center" headers="rank_allin">36</td>
+<td class="gt_row gt_center" headers="rank_midas">37</td>
+<td class="gt_row gt_center" headers="rank_rf">37</td>
+<td class="gt_row gt_center" headers="rank_mean">37</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="cc_iso3c">HUN</td>
+<td class="gt_row gt_center" headers="incise_2019">0.000</td>
+<td class="gt_row gt_center" headers="sens_allin">0.000</td>
+<td class="gt_row gt_center" headers="sens_midas">0.000</td>
+<td class="gt_row gt_center" headers="sens_rf">0.000</td>
+<td class="gt_row gt_center" headers="sens_mean">0.000</td>
+<td class="gt_row gt_center" headers="rank_2019">38</td>
+<td class="gt_row gt_center" headers="rank_allin">38</td>
+<td class="gt_row gt_center" headers="rank_midas">38</td>
+<td class="gt_row gt_center" headers="rank_rf">38</td>
+<td class="gt_row gt_center" headers="rank_mean">38</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="cc_iso3c">MAE</td>
+<td class="gt_row gt_center" headers="incise_2019">—</td>
+<td class="gt_row gt_center" headers="sens_allin">0.026</td>
+<td class="gt_row gt_center" headers="sens_midas">0.011</td>
+<td class="gt_row gt_center" headers="sens_rf">0.018</td>
+<td class="gt_row gt_center" headers="sens_mean">0.032</td>
+<td class="gt_row gt_center" headers="rank_2019"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_allin"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_midas"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_rf"><br>
+</td>
+<td class="gt_row gt_center" headers="rank_mean"><br>
+</td>
+</tr>
+</tbody><tfoot class="gt_footnotes">
+<tr class="even">
+<td colspan="11" class="gt_footnote">Table B.5 in the original PDF publication</td>
+</tr>
+</tfoot>
+
+</table>
+</div>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./A_composite-metrics.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Composite metrics</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

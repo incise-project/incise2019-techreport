@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>InCiSE 2019: Technical Report - Appendix A — Composite metrics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./B_sensitivity-detailed.html" rel="next">
+<link href="./references.html" rel="prev">
+<link href="./incise2019-techreport-cover.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A_composite-metrics.html">Appendices</a></li><li class="breadcrumb-item"><a href="./A_composite-metrics.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Composite metrics</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">InCiSE 2019: Technical Report</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/incise-project/incise2019-techreport/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./InCiSE-2019--Technical-Report.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./contents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Contents, figures and tables</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./readers-guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reader’s guide</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1_introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2_index-methodology.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Methodology of the InCiSE index</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3_indicators-methodology.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Methodology of the InCiSE indicators</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./4_changes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary of changes from the 2017 pilot edition of the InCiSE Index</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5_sensitivity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Sensitivity analysis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6_future-development.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Future development</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A_composite-metrics.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Composite metrics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./B_sensitivity-detailed.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Sensitivity analysis – detailed results</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-composite-integrity" id="toc-sec-composite-integrity" class="nav-link active" data-scroll-target="#sec-composite-integrity"><span class="header-section-number">A.1</span> Integrity</a></li>
+  <li><a href="#sec-composite-inclusiveness" id="toc-sec-composite-inclusiveness" class="nav-link" data-scroll-target="#sec-composite-inclusiveness"><span class="header-section-number">A.2</span> Inclusiveness</a></li>
+  <li><a href="#sec-composite-ffm" id="toc-sec-composite-ffm" class="nav-link" data-scroll-target="#sec-composite-ffm"><span class="header-section-number">A.3</span> Fiscal and financial management</a></li>
+  <li><a href="#sec-composite-tax" id="toc-sec-composite-tax" class="nav-link" data-scroll-target="#sec-composite-tax"><span class="header-section-number">A.4</span> Tax administration</a></li>
+  <li><a href="#sec-composite-procurement" id="toc-sec-composite-procurement" class="nav-link" data-scroll-target="#sec-composite-procurement"><span class="header-section-number">A.5</span> Procurement</a></li>
+  <li><a href="#sec-composite-crm" id="toc-sec-composite-crm" class="nav-link" data-scroll-target="#sec-composite-crm"><span class="header-section-number">A.6</span> Crisis and risk management</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-composite-metrics" class="quarto-section-identifier">Appendix A — Composite metrics</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Most metrics in InCiSE are variables taken directly from the source datasets. Some of these metrics are themselves an index or composite score, where this composite is calculated by the source provider the metric is taken “as is” by InCiSE. However, some of the source variables identified for inclusion in InCiSE are binary information (e.g.&nbsp;yes/no questions, or representing categorical data).</p>
+<p>In the case of inclusiveness the InCiSE model calculates the absolute difference between the composition of central government employees and the composition of the general labour market. This Annex provides details on how the composite metrics calculated by the InCiSE methodology have been produced.</p>
+<p>Including binary variables directly into the InCiSE model presents challenges in respect of the usability of the model’s results. Firstly, it has the potential for some indicators to become difficult to summarise due to the large number of metrics they would record – in the most extreme case the crisis and risk management indicator would be based on 68 metrics. Secondly, by their nature, binary variables have only two positions, meaning that a country would either score 0 or 1 with no variation between these two positions, limiting the ability to distinguish between relative country performance. To resolve these limitations, the InCiSE model combines binary variables into composite aggregate metrics. These composite metrics have been designed within the InCiSE project’s methodology, and have not been developed by the authors/ publishers of the source data. In general, InCiSE maintains conceptual consistency (e.g.&nbsp;the composite metric aggregates information about similar) and source consistency (i.e.&nbsp;a composite metric is an aggregation of variables from the same dataset from the same author/publisher).</p>
+<section id="sec-composite-integrity" class="level2" data-number="A.1">
+<h2 data-number="A.1" class="anchored" data-anchor-id="sec-composite-integrity"><span class="header-section-number">A.1</span> Integrity</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-composite-int" class="anchored">
+
+<table class="table table-sm small composite-metrics-tbl"><caption>Table&nbsp;A.1:  <p>Composite metrics in the integrity indicator</p> </caption>
+<colgroup>
+<col span="1" style="width: 20%;">
+<col span="1" style="width: 40%;">
+<col span="1" style="width: 20%;">
+<col span="1" style="width: 20%;">
+</colgroup>
+<thead>
+<tr class="header gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_boder" scope="col">InCiSE metric</th>
+<th class="gt_col_heading gt_columns_bottom_boder" scope="col">Source variables</th>
+<th class="gt_col_heading gt_columns_bottom_boder" scope="col">Coding</th>
+<th class="gt_col_heading gt_columns_bottom_boder" scope="col">Calculation
+</th></tr>
+
+</thead><tbody class="gt_table_body">
+<tr>
+<td class="gt_row gt_left" rowspan="2">Post-employment cooling-off</td>
+<td class="gt_row gt_left">[OECD] Post-public employment cooling-off: other civil servants</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+<td class="gt_row gt_left" rowspan="2">Cooling-off period for both = 3; Cooling-off for SCS only = 2; Cooling-off for non-SCS only = 1; No cooling-off for both = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Post-public employment cooling-off: senior civil servants</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" rowspan="3">Lobbyist protections</td>
+<td class="gt_row gt_left">[OECD] Is there an obligation to have a balanced composition of advisory/expert groups?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+<td class="gt_row gt_left" rowspan="3">Sum of variables<br>[Range 0 to 3]</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Are lobbyists allowed to sit in advisory/expert groups in a personal capacity?</td>
+<td class="gt_row gt_left">Yes = 0; No = 1</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Are corporate executives allowed to sit in advisory/ expert groups in a personal capacity?</td>
+<td class="gt_row gt_left">Yes = 0; No = 1</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" rowspan="6">Coverage of whistleblower protections</td>
+<td class="gt_row gt_left">[OECD] Scope includes: public sector employees</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+<td class="gt_row gt_left" rowspan="6">Sum of variables<br>[Range 0 to 6]</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Scope includes: consultants working for the public sector</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Scope includes: suppliers to the public sector</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Scope includes: temporary employees in the public sector</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Scope includes: former public sector employees</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Scope includes: those volunteering for the public sector</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+</tbody>
+<tfoot class="gt_footnotes"><tr>
+<td class="gt_footnote" colspan="4">Table A.1 in the original PDF publication</td>
+</tr></tfoot>
+</table>
+</div>
+</div>
+</div>
+<p>See <a href="3_indicators-methodology.html#sec-method-integrity"><span>Section&nbsp;3.1</span></a> for more details about the coding of post-employment cooling-off periods.</p>
+</section>
+<section id="sec-composite-inclusiveness" class="level2" data-number="A.2">
+<h2 data-number="A.2" class="anchored" data-anchor-id="sec-composite-inclusiveness"><span class="header-section-number">A.2</span> Inclusiveness</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-composite-inc" class="anchored">
+
+<table class="table table-sm small composite-metrics-tbl"><caption>Table&nbsp;A.2:  <p>Composite metrics in the inclusiveness indicator</p> </caption>
+<colgroup>
+<col span="1" style="width: 20%;">
+<col span="1" style="width: 40%;">
+<col span="1" style="width: 20%;">
+<col span="1" style="width: 20%;">
+</colgroup>
+<thead>
+<tr class="header gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_boder" scope="col">InCiSE metric</th>
+<th class="gt_col_heading gt_columns_bottom_boder" scope="col">Source variables</th>
+<th class="gt_col_heading gt_columns_bottom_boder" scope="col">Coding</th>
+<th class="gt_col_heading gt_columns_bottom_boder" scope="col">Calculation
+</th></tr>
+
+</thead><tbody class="gt_table_body">
+<tr>
+<td class="gt_row gt_left" rowspan="2">Women in central government</td>
+<td class="gt_row gt_left">[OECD] Women as a proportion of total central government employment</td>
+<td class="gt_row gt_left">No recoding</td>
+<td class="gt_row gt_left" rowspan="2">Absolute difference between OECD and ILO variables</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[ILO] Women as a proportion of the labour market</td>
+<td class="gt_row gt_left">No recoding</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" rowspan="2">Women in the public sector</td>
+<td class="gt_row gt_left">[QoG] Women as a proportion of public sector employment</td>
+<td class="gt_row gt_left">No recoding</td>
+<td class="gt_row gt_left" rowspan="2">Absolute difference between QoG and ILO variables</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[ILO] Women as a proportion of the labour market</td>
+<td class="gt_row gt_left">No recoding</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" rowspan="2">Women in top management</td>
+<td class="gt_row gt_left">[OECD] Women as a proportion of central government senior management positions</td>
+<td class="gt_row gt_left">No recoding</td>
+<td class="gt_row gt_left" rowspan="2">Absolute difference between OECD and ILO variables</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[ILO] Women as a proportion of the labour market</td>
+<td class="gt_row gt_left">No recoding</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" rowspan="2">Women in senior government</td>
+<td class="gt_row gt_left">[QoG] Women as a proportion of senior positions in central government</td>
+<td class="gt_row gt_left">No recoding</td>
+<td class="gt_row gt_left" rowspan="2">Absolute difference between QoG and ILO variables</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[ILO] Women as a proportion of the labour market</td>
+<td class="gt_row gt_left">No recoding</td>
+</tr>
+</tbody>
+<tfoot class="gt_footnotes"><tr>
+<td class="gt_footnote" colspan="4">Table A.2 in the original PDF publication</td>
+</tr></tfoot>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-composite-ffm" class="level2" data-number="A.3">
+<h2 data-number="A.3" class="anchored" data-anchor-id="sec-composite-ffm"><span class="header-section-number">A.3</span> Fiscal and financial management</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-composite-ffm" class="anchored">
+
+<table class="table table-sm small composite-metrics-tbl"><caption>Table&nbsp;A.3:  <p>Composite metrics in the fiscal and financial management
+indicator</p> </caption>
+<colgroup>
+<col span="1" style="width: 20%;">
+<col span="1" style="width: 40%;">
+<col span="1" style="width: 20%;">
+<col span="1" style="width: 20%;">
+</colgroup>
+<thead>
+<tr class="header gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_boder" scope="col">InCiSE metric</th>
+<th class="gt_col_heading gt_columns_bottom_boder" scope="col">Source variables</th>
+<th class="gt_col_heading gt_columns_bottom_boder" scope="col">Coding</th>
+<th class="gt_col_heading gt_columns_bottom_boder" scope="col">Calculation
+</th></tr>
+
+</thead><tbody class="gt_table_body">
+<tr>
+<td class="gt_row gt_left" rowspan="10">Published public finance data</td>
+<td class="gt_row gt_left">[WB] Consolidated budget execution results for the public sector?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+<td class="gt_row gt_left" rowspan="10">Sum of variables<br>[Range 0 to 10]</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[WB] Sector analysis?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[WB] Regional analysis?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[WB] Gender analysis?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[WB] Budget analysis with special emphasis towards children and youth?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[WB] Debt data?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[WB] Foreign aid data?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[WB] Fiscal data on sub-national/ local governments and municipalities?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[WB] Financial statements?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[WB] Public procurement and contracts for the whole government?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+</tbody>
+<tfoot class="gt_footnotes"><tr>
+<td class="gt_footnote" colspan="4">Table A.3 in the original PDF publication</td>
+</tr></tfoot>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-composite-tax" class="level2" data-number="A.4">
+<h2 data-number="A.4" class="anchored" data-anchor-id="sec-composite-tax"><span class="header-section-number">A.4</span> Tax administration</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-composite-tax" class="anchored">
+
+<table class="table table-sm small composite-metrics-tbl"><caption>Table&nbsp;A.4:  <p>Composite metrics in the tax administration indicator</p> </caption>
+<colgroup>
+<col span="1" style="width: 20%;">
+<col span="1" style="width: 40%;">
+<col span="1" style="width: 20%;">
+<col span="1" style="width: 20%;">
+</colgroup>
+<thead>
+<tr class="header gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_boder" scope="col">InCiSE metric</th>
+<th class="gt_col_heading gt_columns_bottom_boder" scope="col">Source variables</th>
+<th class="gt_col_heading gt_columns_bottom_boder" scope="col">Coding</th>
+<th class="gt_col_heading gt_columns_bottom_boder" scope="col">Calculation
+</th></tr>
+
+</thead><tbody class="gt_table_body">
+<tr>
+<td class="gt_row gt_left" rowspan="2">Collection cost</td>
+<td class="gt_row gt_left">[OECD] Total recurrent budget</td>
+<td class="gt_row gt_left">No recoding</td>
+<td class="gt_row gt_left" rowspan="2">Buget as a proportion of net revenue</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Net revenue</td>
+<td class="gt_row gt_left">No recoding</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" rowspan="2">Tax debt</td>
+<td class="gt_row gt_left">[OECD] Total tax debt</td>
+<td class="gt_row gt_left">No recoding</td>
+<td class="gt_row gt_left" rowspan="2">Tax debt as a proportion of net revenue</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Net revenue</td>
+<td class="gt_row gt_left">No recoding</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" rowspan="2">Online personal tax returns</td>
+<td class="gt_row gt_left">[OECD] Personal tax returns filed online</td>
+<td class="gt_row gt_left">No recoding</td>
+<td class="gt_row gt_left" rowspan="2">Online returns as a proportion of total returns</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Total personal tax returns filed</td>
+<td class="gt_row gt_left">No recoding</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" rowspan="2">Online corporate tax returns</td>
+<td class="gt_row gt_left">[OECD Corporate tax returns filed online</td>
+<td class="gt_row gt_left">No recoding</td>
+<td class="gt_row gt_left" rowspan="2">Online returns as a proportion of total returns</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Total corporate tax returns filed</td>
+<td class="gt_row gt_left">No recoding</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" rowspan="2">Online VAT returns</td>
+<td class="gt_row gt_left">[OECD] VAT returns filed online</td>
+<td class="gt_row gt_left">No recoding</td>
+<td class="gt_row gt_left" rowspan="2">Online returns as a proportion of total returns</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Total VAT returns filed</td>
+<td class="gt_row gt_left">No recoding</td>
+</tr>
+</tbody>
+<tfoot class="gt_footnotes"><tr>
+<td class="gt_footnote" colspan="4">Table A.4 in the original PDF publication</td>
+</tr></tfoot>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-composite-procurement" class="level2" data-number="A.5">
+<h2 data-number="A.5" class="anchored" data-anchor-id="sec-composite-procurement"><span class="header-section-number">A.5</span> Procurement</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-composite-pro" class="anchored">
+
+<table class="table table-sm small composite-metrics-tbl"><caption>Table&nbsp;A.5:  <p>Composite metrics in the procurement indicator</p> </caption>
+<colgroup>
+<col span="1" style="width: 20%;">
+<col span="1" style="width: 40%;">
+<col span="1" style="width: 20%;">
+<col span="1" style="width: 20%;">
+</colgroup>
+<thead>
+<tr class="header gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_boder" scope="col">InCiSE metric</th>
+<th class="gt_col_heading gt_columns_bottom_boder" scope="col">Source variables</th>
+<th class="gt_col_heading gt_columns_bottom_boder" scope="col">Coding</th>
+<th class="gt_col_heading gt_columns_bottom_boder" scope="col">Calculation
+</th></tr>
+
+</thead><tbody class="gt_table_body">
+<tr>
+<td class="gt_row gt_left" rowspan="9">E-procurement functions</td>
+<td class="gt_row gt_left">[OECD] Publishing procurement plans</td>
+<td class="gt_row gt_left">National = 1; Partial = 0.5; No = 0</td>
+<td class="gt_row gt_left" rowspan="9">Sum of variables<br>[Range 0 to 9]</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Publication of opportunities</td>
+<td class="gt_row gt_left">National = 1; Partial = 0.5; No = 0; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Announcing tenders</td>
+<td class="gt_row gt_left">National = 1; Partial = 0.5; No = 0; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Online catalogue</td>
+<td class="gt_row gt_left">National = 1; Partial = 0.5; No = 0; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Provision of tender documents</td>
+<td class="gt_row gt_left">National = 1; Partial = 0.5; No = 0; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] E-submission of bids</td>
+<td class="gt_row gt_left">National = 1; Partial = 0.5; No = 0; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] E-reverse auctions</td>
+<td class="gt_row gt_left">National = 1; Partial = 0.5; No = 0; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Notification of award</td>
+<td class="gt_row gt_left">National = 1; Partial = 0.5; No = 0; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] E-submission of invoices</td>
+<td class="gt_row gt_left">National = 1; Partial = 0.5; No = 0; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" rowspan="4">Role of central purchasing body</td>
+<td class="gt_row gt_left">[OECD] CPBs award framework agreements or other consolidated instruments, from which CAs then order</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+<td class="gt_row gt_left" rowspan="4">Sum of variables<br>[Range 0 to 4</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD]CPBs act as CAs aggregating demand and purchasing</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD]CPBs establish policies for CAs</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD]CPBs co-ordinate training for public officials in charge of public procurement</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" rowspan="5">Access for SMEs</td>
+<td class="gt_row gt_left">[OECD] A specific unit specialized in SMEs is in place at the central government level</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+<td class="gt_row gt_left" rowspan="5">Sum of variables<br>[Range 0 to 5]</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Training and workshops are carried out for SMEs</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Documentation or guidance focused on SMEs is available online</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Division into lots of the contract</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Administrative procedures are simplified for SMEs to participate in tenders</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+</tbody>
+<tfoot class="gt_footnotes"><tr>
+<td class="gt_footnote" colspan="4">Table A.5 in the original PDF publication</td>
+</tr></tfoot>
+</table>
+</div>
+</div>
+</div>
+<p>The source data for e-procurement functions indicates whether these functions are available in national e-procurement systems and in e-procurement systems for (some) individual entities. Where a country has the functionality in a national system this is coded as 1 (irrespective of whether exists in the systems of individual entities), where there is no functionality indicated in a national system but it is available in some individual entities this is coded as 0.5.</p>
+</section>
+<section id="sec-composite-crm" class="level2" data-number="A.6">
+<h2 data-number="A.6" class="anchored" data-anchor-id="sec-composite-crm"><span class="header-section-number">A.6</span> Crisis and risk management</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-composite-crm" class="anchored">
+
+<table class="table table-sm small composite-metrics-tbl"><caption>Table&nbsp;A.6:  <p>Composite metrics in the crisis and risk management indicator</p> </caption>
+<colgroup>
+<col span="1" style="width: 20%;">
+<col span="1" style="width: 40%;">
+<col span="1" style="width: 20%;">
+<col span="1" style="width: 20%;">
+</colgroup>
+<thead>
+<tr class="header gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_boder" scope="col">InCiSE metric</th>
+<th class="gt_col_heading gt_columns_bottom_boder" scope="col">Source variables</th>
+<th class="gt_col_heading gt_columns_bottom_boder" scope="col">Coding</th>
+<th class="gt_col_heading gt_columns_bottom_boder" scope="col">Calculation
+</th></tr>
+
+</thead><tbody class="gt_table_body">
+<tr>
+<td class="gt_row gt_left" rowspan="7">Strategic approach</td>
+<td class="gt_row gt_left">[OECD] Does your government have a national strategy for the management of critical risks?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+<td class="gt_row gt_left" rowspan="7">Sum of variables<br>[Range 0 to 7]</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Does your government's national strategy adopt an all-hazards approach to risk?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Does your government have an institution that is assigned leadership at the national level for the management of critical risks</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Does the lead institution on the management of critical risks report to the centre of government?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Does the lead institution prepare a report on its functions to the Head of Government and/or a Cabinet level minister?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Does the institution consult with a variety of stakeholders in the policy-formulation process for the management of critical risks?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Does your government have a mechanism for monitoring unexpected events in order to quickly build situation awareness about critical riss once they actually occur?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" rowspan="11">Lead institution's functions</td>
+<td class="gt_row gt_left">[OECD] Lead risk mgmt institution functions: design/ formulate risk management policies</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+<td class="gt_row gt_left" rowspan="11">Sum of variables<br>[Range 0 to 11]</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Lead risk mgmt institution functions: set priorities and allocate resources accordingly</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Lead risk mgmt institution functions: set performance targets</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Lead risk mgmt institution functions: provide incentives for policy implementation</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Lead risk mgmt institution functions: monitor policy implementation</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Lead risk mgmt institution functions: evaluate policy implementation</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Lead risk mgmt institution functions: disseminate results of evaluation to the public</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Lead risk mgmt institution functions: promote policy coherence across government departments</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Lead risk mgmt institution functions: address competing policy objectives</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Lead risk mgmt institution functions: coordinate actions across central and local level of government</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Lead risk mgmt institution functions: coordinate cooperation between government and non-governmental entities</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" rowspan="7">Risk planning</td>
+<td class="gt_row gt_left">[UN] PA1-C1: Is disaster risk taken into account in public investment and planning decisions?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+<td class="gt_row gt_left" rowspan="7">Sum of variables<br>[Range 0 to 7]</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[UN] PA1-C1: National development plan</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[UN] PA1-C1: Sector strategies and plans</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[UN] PA1-C1: Climate change policy and strategy</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[UN] PA1-C1: Poverty reduction strategy papers</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[UN] PA1-C1: CCA/ UNDAF (Common Country Assessment/ UN Development Assistance Framework)</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[UN] PA1-C1: Civil defence policy, strategy and contingency planning</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" rowspan="8">Multi-hazard assessment</td>
+<td class="gt_row gt_left">[UN] PA2-C1: Multi-hazard risk assessment</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+<td class="gt_row gt_left" rowspan="8">Sum of variables<br>[Range 0 to 8]</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[UN] PA2-C1: Gender disaggregated vulnerability and capacity assessments</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[UN] PA2-C1: Agreed national standards for multi hazard risk assessments</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[UN] PA2-C1: Common format for risk assessment</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[UN] PA2-C1: Is future/probable risk assessed?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[UN] PA5-C4: Damage and loss assessment methodologies and capacities available</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[UN] PA5-C4: Post-disaster need assessment methodologies</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[UN] PA5-C4: Post-disaster needs assessment methodologies include guidance on gender aspects</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" rowspan="4">Risk monitoring</td>
+<td class="gt_row gt_left">[UN] PA2-C2: Are disaster losses and hazards systematically reported, monitored and analyzed?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+<td class="gt_row gt_left" rowspan="4">Sum of variables<br>[Range 0 to 4</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[UN] PA2-C2: Disaster loss databases exist and are regularly updated</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[UN] PA2-C2: Reports generated and used in planning by finance, planning and sectoral line ministries (from the disaster databases/ information systems)</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[UN] PA2-C2: Hazards are consistently monitored across localities and territorial boundaries</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" rowspan="5">Risk management capability</td>
+<td class="gt_row gt_left">[OECD] Does your government undertake efforts to develop risk anticipation capacity</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+<td class="gt_row gt_left" rowspan="5">Sum of variables<br>[Range 0 to 5]</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Does your government's national strategy for the management of critical risks promote measures to enhance risk prevention and mitigation?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Does your government have a critical infrastructure protection programme (CIP)?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Are inter-agency cooperation mechanisms built into your government's crisis management system?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Does your government encourage the private sector to take steps to ensure business continuity?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" rowspan="5">Preparedness</td>
+<td class="gt_row gt_left">[UN] PA5-C1: Are future disaster risks anticipated through scenario development and aligned preparedness planning?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+<td class="gt_row gt_left" rowspan="5">Sum of variables<br>[Range 0 to 5]</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[UN] PA5-C1: Are there national programmes or policies for disaster preparedness, contingency planning and response?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[UN] PA5-C1: The institutional mechanisms exist for the rapid mobilisation of resources in a disaster, utilising civil society and the private sector; in addition to public sector support.</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[UN] PA5-C1: Preparedness plans are regularly updated based on future risk scenarios</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[UN] PA5-C2: Risk management/contingency plans for continued basic service delivery</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" rowspan="6">Disaster spending appraisal</td>
+<td class="gt_row gt_left">[UN] PA4-C3: Are the costs and benefits of DRR incorporated into the planning of public investment?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+<td class="gt_row gt_left" rowspan="6">Sum of variables<br>[Range 0 to 6]</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[UN] PA4-C6: Are the impacts of disaster risk that are created by major development projects assessed?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[UN] PA4-C6: Are cost/benefits of disaster risk taken into account in the design and operation of major development projects?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[UN] PA4-C6: Impacts of disaster risk taken account in Environment Impact Assessment (EIA)</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[UN] PA4-C6: By national and sub-national authorities and institutions</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[UN] PA4-C6: By international development actors</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" rowspan="6">International cooperation</td>
+<td class="gt_row gt_left">[UN] PA2-C4: Does your country participate in regional or sub-regional actions to reduce disaster risk?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+<td class="gt_row gt_left" rowspan="6">Sum of variables<br>[Range 0 to 6]</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[UN] PA2-C4: Establishing and maintaining regional hazard monitoring</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[UN] PA2-C4: Regional or sub-regional risk assessment</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[UN] PA2-C4: Regional or sub-regional early warning</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[UN] PA2-C4: Establishing and implementing protocols for transboundary information sharing</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[UN] PA2-C4: Establishing and resourcing regional and sub-regional strategies and frameworks</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" rowspan="3">Risk communications</td>
+<td class="gt_row gt_left">[OECD] Does your government encourage a whole-of-society approach to risk communication?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+<td class="gt_row gt_left" rowspan="3">Sum of variables<br>[Range 0 to 3]</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Has your government communicated the results of any such evaluations to the public in past?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Does your government make information that is used for the assessment of critical risks available to the public?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" rowspan="3">Early warning systems</td>
+<td class="gt_row gt_left">[UN] PA2-C3: Do risk prone communities receive timely and understandable warnings of impending hazard events?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+<td class="gt_row gt_left" rowspan="3">Sum of variables<br>[Range 0 to 3]</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[UN] PA2-C3: Communication systems and protocols used and applied</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[UN] PA2-C3: Active involvement of media in early warning dissemination</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" rowspan="3">Risk evaluationa and research</td>
+<td class="gt_row gt_left">[OECD] Has your government conducted a post-disaster evaluation of policies that are designed to support the management of critical risks within the last three years?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+<td class="gt_row gt_left" rowspan="3">Sum of variables<br>[Range 0 to 3]</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Have the results from such evaluations been used in the design of revised risk management policies?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">[OECD] Does your government provide support for scientific research that is meant to improve policies for the management of critical risks?</td>
+<td class="gt_row gt_left">Yes = 1; No = 0</td>
+</tr>
+</tbody>
+<tfoot class="gt_footnotes"><tr>
+<td class="gt_footnote" colspan="4">Table A.6 in the original PDF publication</td>
+</tr></tfoot>
+</table>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./references.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">References</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./B_sensitivity-detailed.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Sensitivity analysis – detailed results</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

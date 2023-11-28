@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>InCiSE 2019: Technical Report - 1&nbsp; Introduction</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./2_index-methodology.html" rel="next">
+<link href="./readers-guide.html" rel="prev">
+<link href="./incise2019-techreport-cover.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./1_introduction.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">InCiSE 2019: Technical Report</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/incise-project/incise2019-techreport/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./InCiSE-2019--Technical-Report.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./contents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Contents, figures and tables</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./readers-guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reader’s guide</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1_introduction.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2_index-methodology.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Methodology of the InCiSE index</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3_indicators-methodology.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Methodology of the InCiSE indicators</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./4_changes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary of changes from the 2017 pilot edition of the InCiSE Index</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5_sensitivity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Sensitivity analysis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6_future-development.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Future development</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A_composite-metrics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Composite metrics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./B_sensitivity-detailed.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Sensitivity analysis – detailed results</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-why-needed" id="toc-sec-why-needed" class="nav-link active" data-scroll-target="#sec-why-needed"><span class="header-section-number">1.1</span> Why InCiSE is needed</a></li>
+  <li><a href="#sec-define-civil-service" id="toc-sec-define-civil-service" class="nav-link" data-scroll-target="#sec-define-civil-service"><span class="header-section-number">1.2</span> Defining the civil service</a></li>
+  <li><a href="#sec-incise-framework" id="toc-sec-incise-framework" class="nav-link" data-scroll-target="#sec-incise-framework"><span class="header-section-number">1.3</span> The InCiSE framework</a></li>
+  <li><a href="#sec-incise-datamodel" id="toc-sec-incise-datamodel" class="nav-link" data-scroll-target="#sec-incise-datamodel"><span class="header-section-number">1.4</span> The InCiSE data model</a></li>
+  <li><a href="#sec-metric-eligibility" id="toc-sec-metric-eligibility" class="nav-link" data-scroll-target="#sec-metric-eligibility"><span class="header-section-number">1.5</span> Eligibility of metrics</a></li>
+  <li><a href="#sec-technical-approach" id="toc-sec-technical-approach" class="nav-link" data-scroll-target="#sec-technical-approach"><span class="header-section-number">1.6</span> Technical approach</a></li>
+  <li><a href="#sec-quality-limitations" id="toc-sec-quality-limitations" class="nav-link" data-scroll-target="#sec-quality-limitations"><span class="header-section-number">1.7</span> Quality considerations and limitations</a></li>
+  <li><a href="#sec-relationship" id="toc-sec-relationship" class="nav-link" data-scroll-target="#sec-relationship"><span class="header-section-number">1.8</span> Relationship with other indicators and data collections</a></li>
+  <li><a href="#sec-report-structure" id="toc-sec-report-structure" class="nav-link" data-scroll-target="#sec-report-structure"><span class="header-section-number">1.9</span> Structure of this report</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-introduction" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>This report sets out the methodology for the 2019 edition of the International Civil Service Effectiveness (InCiSE) Index project. It provides an explanation of the high-level principles underlying the development of the InCiSE Index, the overarching methodology for the Index’s calculation, the methodology for each of the constituent indicators that make up the Index, and documents the methodological changes made following the 2017 Pilot edition of the index.</p>
+<section id="sec-why-needed" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="sec-why-needed"><span class="header-section-number">1.1</span> Why InCiSE is needed</h2>
+<p>An effective civil service can play a vital role in determining a country’s progress and prosperity. But what constitutes an “effective civil service”? The functions of the central government are not always directly comparable to other organisations in a given country. Thus, international comparisons of government and civil service activity are often sought.</p>
+<p>InCiSE aims to define “effectiveness” more extensively than previous literature, drawing on a wide range of existing international data sources to bring together a set of indicators, each measuring a different dimension of civil service effectiveness. These indicators are then used to produce a composite (overall) score. This creation of a new and concise set of civil service effectiveness indicators therefore serves as:</p>
+<ul>
+<li>An accountability tool: allowing citizens, government officials, and politicians to establish clearly and concisely how well their civil service is performing.</li>
+<li>A performance improvement tool: enabling senior decision makers to see the countries which perform best in each area, and therefore learn from them.</li>
+</ul>
+<p>InCiSE has been developed following a literature review and in consultation with many experts, including academics from schools of government, think-tanks that monitor government effectiveness, international organisations, senior civil servants (past and present) and subject matter experts. InCiSE has also been the subject of an independent, international peer review process. The 2019 edition of InCiSE has also benefited from the feedback collected and provided since the publication of the 2017 Pilot.</p>
+</section>
+<section id="sec-define-civil-service" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="sec-define-civil-service"><span class="header-section-number">1.2</span> Defining the civil service</h2>
+<p>Civil service effectiveness is well recognised in academic, international and practitioner communities as a highly complex area for analysis. As well as data limitations and the need to take account of country context factors, analysts are also faced with differing views on the definitions of both “civil service” and “effectiveness”. The scope, responsibilities, and structure of the civil service vary across countries, creating the need to establish exactly what is being assessed, and how. In defining the civil service there are a number of possible approaches to take:</p>
+<ul>
+<li>First, a civil service can be defined by function: a narrow view of the civil service through this definition focuses on the central, “upstream” agencies which set policy direction and procedural regulation for “downstream” agencies. The broader view encompasses agencies responsible for service delivery.</li>
+<li>Second, a civil service can be defined by national accounts: this perspective sees the civil service as made up of entities which are owned by the government, and whose financial reporting places them within the System of National Accounts (SNA) category of General Government.</li>
+<li>Third, a civil service can be defined by employment regimes: under this definition, civil service entities are limited to those which are required to hire most employees under the civil service law, and those using other legal employment regimes are excluded.</li>
+</ul>
+<p>However, conceptual and practical problems arise under each of these definitions. For example, staff commonly referred to as “civil servants” do not always have legally distinct employee contracts; the SNA definition is inconsistent with the views of many practitioners and researchers; and each alternative conception results in a large and unwieldy group of agencies.</p>
+<p>InCiSE therefore takes a fourth and alternative approach, defining the scope of ‘civil services’ by outlining and measuring performance on the core functions of civil services; the parts which can generally be classified as civil service in every country. This approach leads to a focus on (i) functions which deliver services or affect citizens directly and (ii) public management and policy functions carried out in the centre of government.</p>
+<p>The unit of analysis of interest for the InCiSE Index is the civil service, rather than the public sector more generally. InCiSE also focuses on civil service at the central/federal level – the highest level of government in a country/state – rather than at the regional or local level. Even with these parameters, isolating civil service performance with currently available data is still difficult, particularly given the varying sizes and shapes of civil services internationally.</p>
+<p><a href="#tbl-scope">Table&nbsp;<span>1.1</span></a> gives more detail about what is included and excluded in the InCiSE Index.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-scope" class="anchored">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Table&nbsp;1.1: Scope of the InCiSE Framework</caption>
+<thead>
+<tr class="header gt_col_headings">
+<th id="Part/function of the public sector" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Part/function of the public sector</th>
+<th id="Degree of inclusion in the InCiSE framework" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Degree of inclusion in the InCiSE framework</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="part_function">Civil service functions that deliver services to citizens and organisations directly (e.g. tax and social security administration at the central/ federal level).</td>
+<td class="gt_row gt_left" headers="degree_of_inclusion">A primary focus of the InCiSE framework</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="part_function">Public administration functions of central government (e.g. fiscal management, policy making, regulation)</td>
+<td class="gt_row gt_left" headers="degree_of_inclusion">A primary focus of the InCiSE framework</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="part_function">'Mission support' functions (e.g. HRM and procurement) that support the operation of central government organisations.</td>
+<td class="gt_row gt_left" headers="degree_of_inclusion">A primary focus of the InCiSE framework</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="part_function">Parts of the civil service which direct and support the wider public sector on specific policy areas (e.g. ministries of health or education) but may not deliver services to citizens directly.</td>
+<td class="gt_row gt_left" headers="degree_of_inclusion">Performance captured through the assessment of central government's public administration functions (e.g. policy making, regulation). Performance of policy areas themselves (e.g. quality of healthcare, educational attainment) are not assessed as these are not always the responsibility of central/federal government, moreover the policy goals and policy approaches taken are determined by political decision making.</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="part_function">Sub-national government/public administration (e.g. regional or local government)</td>
+<td class="gt_row gt_left" headers="degree_of_inclusion">While in some jurisdictions employees of sub-national governments may be classed as civil servants (e.g. via employment law) the scope of InCiSE is principally with the central/federal level of government in a country/state. However, general government/public administration (incorporating both central and sub-national government) may be used as a proxy where no central-level civil service data is available.</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="part_function">The wider public sector (e.g. schools, hospitals, police forces).</td>
+<td class="gt_row gt_left" headers="degree_of_inclusion">Out of scope. However, public sector data may be used as a proxy where no central-level civil service data is available.</td>
+</tr>
+</tbody><tfoot class="gt_footnotes">
+<tr class="odd">
+<td colspan="2" class="gt_footnote">Table 1.2.A in the original PDF publication</td>
+</tr>
+</tfoot>
+
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-incise-framework" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="sec-incise-framework"><span class="header-section-number">1.3</span> The InCiSE framework</h2>
+<p>The purpose of the InCiSE framework is to define a common approach for assessing the effectiveness of a civil service, in a way which could realistically enable international data to be collected to measure against it. Whilst there are many alternative ways to define civil service effectiveness, the framework outlined here is informed by evidence and set out in such a way that if a civil service scores highly against it, it is reasonable to conclude that this civil service is high-performing relative to its international counterparts.</p>
+<p>Our approach to deriving a common framework was to:</p>
+<ul>
+<li>Specify and adhere to a set of principles to inform the development of the framework:
+<ul>
+<li>Coherent – identifying the key elements and drivers of effective public administration</li>
+<li>Comprehensive – covering all relevant aspects and drivers of the performance of public administration</li>
+<li>Actionable – offering genuine insights into what drives excellent public administration that can be implemented</li>
+<li>Transparent – a clear methodology and assessment process to ensure credibility, robustness, and replicability</li>
+<li>Feasible – it is possible to collect data for a large group of countries at reasonable cost</li>
+</ul></li>
+<li>Draw on evidence to identify key features of a draft framework which was then extensively tested through consultation.</li>
+<li>Build on existing indicators and data where possible, striving to develop a more comprehensive framework capturing all aspects of civil service effectiveness.</li>
+<li>Refine the framework through consultation with a number of experts, including academics, think-tanks, international organisations, civil servants (both past and present) and subject experts.</li>
+</ul>
+<p>A common approach for assessing organisational effectiveness is to think in terms of inputs, outputs, and outcomes. However, this is appears less attractive when considering civil services and the public administration-type functions they provide. While output and outcome measures may have the advantage of cutting through conceptual uncertainty, they can be problematic in this area for three reasons:</p>
+<ol type="1">
+<li>Outputs and outcomes can be affected by external factors, making it difficult to isolate the contribution of the civil service.</li>
+<li>Measuring outputs and their value can be methodologically problematic, particularly as many public sector outputs are provided free at the point of consumption.</li>
+<li>Focusing on outputs and outcomes means that normative and procedural concerns which are also relevant to effectiveness can be ignored.</li>
+</ol>
+<p>Given these concerns, the preferred approach here is to focus on the effectiveness of the procedures within the civil service which (often indirectly) affect outcomes. The framework’s approach is therefore more process focused and output focused, as outlined in <a href="#fig-framework">Figure&nbsp;<span>1.1</span></a>. An advantage of choosing process-based indicators is that they are more instructive for potential performance improvements – it is processes that are ultimately changed to increase effectiveness.</p>
+<p>Although procedural definitions also come with problems (they may not actually correlate with positive outcomes, for example) certain procedural measures remain at the core of any measure of effectiveness. Where there is evidence to support the relationship between procedures and positive outcomes, procedures may also be intrinsically beneficial. For example, meritocracy of recruitment procedures in the civil service are important because there is broad agreement that such procedures and outcomes are associated with an effective civil service. However, the extent to which recruitment processes reward merit is also important in the principle of fairness which is valued in itself.</p>
+<div id="fig-framework" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<figcaption class="figure-caption">Figure&nbsp;1.1: The InCiSE Index Framework</figcaption>
+<p><img src="figures/incise_framework.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<p>The InCiSE framework, shown in <a href="#fig-framework">Figure&nbsp;<span>1.1</span></a>, defines the core characteristics of an effective civil service. To do this, it assesses effectiveness on the basis of two interrelated dimensions: 1) the delivery of its core functions and 2) an underlying set of attributes which are important drivers of effectiveness across all parts of the civil service. Collectively the functions and attributes are called ‘indicators’ within the InCiSE model. <a href="#sec-technical-approach"><span>Section&nbsp;1.6</span></a> describes in more detail how the framework is implemented as a statistical model.</p>
+<p><strong>Functions</strong>: On one side, civil services deliver a set of central executive functions for ministers. These may help to formulate policy for the country (the effects of which are borne by citizens). On the other side, the services interact more directly with citizens through the delivery of services such as tax administration. Finally, in the centre, supporting these core external functions, are mission support functions such as HR management or IT services for officials. By looking across all three types of function, the aim is to measure how well civil services deliver the core elements of their roles. The functions identified by the InCiSE model are:</p>
+<ul>
+<li><em>Policy making:</em> The quality of the policy making process, including how policy is developed and coordinated across government and monitored during implementation.</li>
+<li><em>Fiscal and financial management:</em> The quality of the budgeting process and the extent to which spending decisions are informed through economic appraisal and evaluation.</li>
+<li><em>Regulation:</em> The extent and quality of regulatory impact assessments and the degree of stakeholder engagement involved in them.</li>
+<li><em>Crisis and risk management:</em> The effectiveness with which the government engages the whole of society to better assess, prevent, respond to and recover from the effects of extreme events.</li>
+<li><em>Procurement:</em> The extent to which the procurement process is efficient, competitive, fair, and pursues value for money.</li>
+<li><em>HR management:</em> The meritocracy of recruitment and the extent to which civil servants are effectively attracted, managed and developed.</li>
+<li><em>IT for officials:</em> The extent to which civil servants have the technology and digital tools to work efficiently.</li>
+<li><em>Internal finance:</em> The extent to which civil service operations are supported by well-managed and efficient finance systems, particularly on the alignment of finance with the business strategy and the level of civil servant satisfaction with finance support.</li>
+<li><em>Tax administration:</em> The efficiency and effectiveness of tax collection (at the central/federal level). Social security administration: The efficiency and effectiveness of social security administration (at the central/federal level).</li>
+<li><em>Digital services:</em> The availability and usability of national-level digital public services.</li>
+</ul>
+<p><strong>Attributes:</strong> Every civil service also has an underlying set of attributes which are important drivers of how effectively they deliver core functions. These attributes should apply to all parts of the civil service and are not specific to particular parts or functions. The inclusion of attributes in the framework is based on both a normative and a positive judgement: civil services should aim to cultivate and demonstrate these attributes as they are commonly (but not necessarily universally) understood as aspects of best practice, and the included attributes should generally be determinants of performance across all functions.</p>
+<ul>
+<li><em>Integrity:</em> The extent to which civil servants behave with integrity, make decisions impartially and fairly, and strive to serve both citizens and ministers.</li>
+<li><em>Openness:</em> The regular practice and degree of consultation with citizens to help guide the decisions we make and extent of transparency in our decision-making.</li>
+<li><em>Capabilities:</em> The extent to which the workforce has the right mix of skills.</li>
+<li><em>Inclusiveness:</em> The extent to which the civil service is representative of the citizens it serves.</li>
+<li><em>Staff engagement:</em> Staff levels of pride, attachment and motivation to work for their organisation.</li>
+<li><em>Innovation:</em> The degree to which new ideas, policies, and ways of operating are able to freely develop.</li>
+</ul>
+<p>The 2019 edition of InCiSE measures 12 of the 17 functions and attributes defined by the framework. <a href="3_indicators-methodology.html"><span>Chapter&nbsp;3</span></a> provides further detail of the definition and measurement of each of these indicators. Four of the five indicators (IT for officials, internal finance, staff engagement, and innovation) are not included because it has not been possible to identify suitable or sufficient data for cross-country measurement. One of the five indicators (social security administration) was measured in the 2017 Pilot but has been depreciated due to data quality concerns.</p>
+</section>
+<section id="sec-incise-datamodel" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="sec-incise-datamodel"><span class="header-section-number">1.4</span> The InCiSE data model</h2>
+<p>The InCiSE Index is based on a framework that describes the various components of an effective civil service. The Index operationalises this framework by measuring a series of indicators that correspond to the different components of the InCiSE framework. The overall InCiSE Index results are a composite of the indicator scores. In turn the indicators are split into themes, which describe important sub-divisions of the indicator. Scores for these themes are not computed but the theme structure is part of the weighting used in the calculation of the indicator scores. The themes within an indicator are represented by individual metrics, which ideally measure tangible qualities of the civil service that can be acted upon or influenced by senior officials. Most of the InCiSE metrics are single data points published by the data source providers, however some metrics are calculated from multiple data points. <a href="#fig-datamodel">Figure&nbsp;<span>1.2</span></a> outlines the “data model” used by InCiSE, showing how individual data points from the external data sources combine to form the metrics, indicators and composite index of InCiSE.</p>
+<p>InCiSE is not intended to measure inputs (e.g.&nbsp;money/resources) or public policy outputs (e.g.&nbsp;unemployment benefits paid; taxes collected) or citizen outcomes (e.g.&nbsp;life expectancy, GDP per capita, citizen wellbeing), as these are typically determined by political decisions about the size of the state and what it is aiming to achieve. Rather, InCiSE is designed to assess the effectiveness of the way in which the civil service of a country uses the inputs it has been given to deliver the policy outputs/ outcomes that it has been set.</p>
+<p>One of the main aims of the Index is to provide a mechanism for civil services to learn from each other: in particular to offer a data-driven approach to identify sources of good practice. To achieve this, InCiSE does not assess the absolute performance of different civil services. Instead, it converts the absolute performance captured in the individual metrics into relative assessments of performance of the countries included in the Index. This means that scoring poorly in InCiSE does not in itself indicate absolute poor performance, rather that when compared to other countries performance is lower. Similarly, scoring well in InCiSE does not in itself indicate absolute high performance, but that when compared to other countries performance is higher. The fact that there is no natural scale for civil service performance strengthens the case for measuring relative rather than absolute performance.</p>
+<div id="fig-datamodel" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<figcaption class="figure-caption">Figure&nbsp;1.2: The InCiSE data model</figcaption>
+<p><img src="figures/incise_datamodel.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="sec-metric-eligibility" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="sec-metric-eligibility"><span class="header-section-number">1.5</span> Eligibility of metrics</h2>
+<p>Metrics are eligible for inclusion in InCiSE if they meet the following criteria:</p>
+<ul>
+<li>The data must be published in a free to-access form in the public domain and online. That is, an independent person must be able to access the data from a publicly accessible and free-to-use website.</li>
+<li>The data must be actionable. That is, the data must measure some quality or component of the civil service that government officials and ministers can act on to improve performance. Where data for the civil service is not available, public sector proxies can be used, but these must still be data that represent something that can be acted on.</li>
+<li>The data must be quantifiable, and if not directly collected and published as numerical data there must be a way to convert the data into a clear and relevant numerical format.</li>
+</ul>
+</section>
+<section id="sec-technical-approach" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="sec-technical-approach"><span class="header-section-number">1.6</span> Technical approach</h2>
+<p>The technical approach for the 2019 model has used the 2017 InCiSE pilot edition of the model as the reference point for its methodology however the data collection and statistical model was rebuilt from first principles to provide a “clean slate” for the 2019 modelling. That is the 2019 model did not start as a copy of the 2017 final model with data updated to reflect the latest values with new data inserted and code amended. Instead, the 2019 model has been developed from scratch using <a href="https://www.r-project.org">R</a> (rather than the mix of Excel and Stata used for the 2017 Pilot). This approach has been taken to (i) minimise the potential of error and improve quality assurance processes, and (ii) improve the openness, reproducibility and extensibility of the InCiSE model. The approach adopted for the 2019 InCiSE model is based on the Reproducible Analytical Pipelines approach developed by data scientists at the UK Government Digital Service <span class="citation" data-cites="gregory_rap_2017">(<a href="references.html#ref-gregory_rap_2017" role="doc-biblioref">Gregory &amp; Upson, 2017</a>)</span>. The technical approach to coding and data management/processing was also influenced by the “tidyverse” principles <span class="citation" data-cites="wickham_r_2017">Wickham (<a href="references.html#ref-wickham_r_2015" role="doc-biblioref">2015</a>)</span>. A full list of the software packages used to develop and implement the modelling are listed in the <a href="./references.html">References</a> section at the end of this report.</p>
+</section>
+<section id="sec-quality-limitations" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="sec-quality-limitations"><span class="header-section-number">1.7</span> Quality considerations and limitations</h2>
+<p>As with any analytical endeavour, there are limitations to how far and in what ways the InCiSE Index can and can’t be used. Furthermore, given its early stage of development, the InCiSE Partners are clear that the index remains an experimental methodology that is subject to change and evolve in order to refine and improve the Index.</p>
+<p>This section outlines some of the key considerations that should be taken into account when reviewing and using the InCiSE Index. Stating these limitations is not to downplay the value of the index as a tool for cross-country comparison, rather it is to help users understand the data they are using. Furthermore, InCiSE is not intended to be used in isolation but to enhance the range of evidence available about government effectiveness. Users should build a “rich picture” of the situation by triangulation across the results from InCiSE, the underlying results from InCiSE’s source metrics or other international comparisons, and domestic information for which there is no international comparisons.</p>
+<p>There are a number of different aspects that should be taken into consideration in regards to the quality of data used in InCiSE:</p>
+<ul>
+<li><em>Recency and frequency of the data:</em> InCiSE 2019 uses the most recently available data as at 30 November 2018. Some metrics in InCiSE are collected annually, others biennial or longer, or are ad-hoc in their repetition. As a result, some metrics may use data that does not accurately reflect the most recent situation.</li>
+<li><em>Depth of the data:</em> Some metrics represent a single measure in a survey, some are aggregations of multiple measures by the InCiSE model, while some are composite indicators compiled by others parties that are based on a range of metrics.</li>
+<li><em>“Spill over”:</em> Some measures that contribute to one of the InCiSE indicators may be relevant to other indicators, but wherever possible this has been avoided. No original piece of data used by the InCiSE model is used more than once in order to ensure that the overall figures are not overly-reliant on a particular data source.</li>
+<li><em>Public sector proxy:</em> The purpose of the InCiSE Index is to measure the effectiveness of a country’s national and central civil service. However, some metrics measure the performance of the public sector at large – or at least a larger subset than the specific unit of analysis that InCiSE is interested in. In this case the public sector measures can only be considered proxies.</li>
+<li><em>Proxy measures of effectiveness:</em> The true nature of the effectiveness of a country’s civil service is inherently unobservable, and cannot be comprehensively observed in an empirical study. The purpose of the InCiSE project is to provide a means to combine a range of proxy measures to provide insight into the effectiveness of civil services. The InCiSE framework enables this analysis by providing a way to conceptualise how a civil service operates. The model therefore uses measures about the functions and attributes of a civil service to produce an estimate of effectiveness.</li>
+</ul>
+</section>
+<section id="sec-relationship" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="sec-relationship"><span class="header-section-number">1.8</span> Relationship with other indicators and data collections</h2>
+<p>In setting the civil service as our unit of interest, it is also important to distinguish the difference of InCiSE with other ‘governance’ indicators (particularly the World Bank’s Worldwide Governance Indicators and the Bertelsmann Foundation’s Sustainable Governance Indicators). Other governance indicators take a broad view of the topic of governance, including assessments of political decision making within governing parties, the quality of democracy, the ability to hold the government to account, and the freedoms of media and civil society. These are important factors in considering the governance of a country in general. InCiSE seeks to complement these ‘broad’ assessments of governance by providing a deeper investigation with a narrower focus on a key element of the operation of government – the civil service.</p>
+<p>Besides ‘broad’ governance indicators there are also thematic indicators that focus on specific elements of governance; for example, the World Wide Web Foundation’s Open Data Barometer, the World Justice Project’s Rule of Law Index or the OECD’s regulation indicators. There are also indicators focused on other themes that cut across sectoral boundaries (for example Transparency International’s Global Corruption Barometer, or the World Economic Forum’s Doing Business Report) which contain a large amount of information about countries but where only a few measures directly relate to central government/civil service performance.</p>
+<p>Finally, there are also a range of data collections made by international organisations and other institutions (notably the OECD, the European Commission, and the United Nations) about the functioning of government/the civil service but which do not produce single composite assessments.</p>
+<p>The InCiSE framework and index has been designed and developed to re-use data from these indicators and data sources to produce a single coherent and comparable data model that allows a wide variety of parties interested in civil service reform to make a high-level assessment of how the civil services of different countries compare. The InCiSE Index should not be used in isolation, but in combination with reference to the source datasets as well as with domestic data from within a country about performance across the various indicators.</p>
+<p>Further considerations about the specific data quality of the InCiSE data and results is provided in <a href="2_index-methodology.html"><span>Chapter&nbsp;2</span></a>.</p>
+</section>
+<section id="sec-report-structure" class="level2" data-number="1.9">
+<h2 data-number="1.9" class="anchored" data-anchor-id="sec-report-structure"><span class="header-section-number">1.9</span> Structure of this report</h2>
+<p>This Technical Report on the InCiSE Index is intended to describe the methodology, data and limitations of the approach used. The results of the Index can be found in the accompanying 2019 Results Report. Including the introductory chapter, there are seven chapters in this report:</p>
+<ul>
+<li><em>Chapter 2: Methodology</em> of the InCiSE Index outlines the data processing, calculation of the InCiSE indicators, and calculation of the InCiSE Index.</li>
+<li><em>Chapter 3: Methodology of the InCiSE</em> indicators sets out the methodology for each of the 12 indicators that make up the 2019 index.</li>
+<li><em>Chapter 4: Summary of changes</em> from the 2017 Pilot highlights the changes made within the methodology of each indicator, as well as in the overarching methodology of the index.</li>
+<li><em>Chapter 5: Sensitivity analysis</em> describes some of the uncertainties associated with the modelling process and subjective choices, and the consequent impact on the Index results.</li>
+<li><em>Chapter 6: Future development</em> sets out the next steps for future consideration and development of the index methodology.</li>
+</ul>
+<p>There are also two annexes to the report that provide additional detail:</p>
+<ul>
+<li><em>Annex A: Composite metrics</em> provides details of how the different composite metrics used in the InCiSE Index have been constructed.</li>
+<li><em>Annex B: Sensitivity analysis</em> results provides detailed results of the different tests conducted as part of the sensitivity analysis.</li>
+</ul>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-gregory_rap_2017" class="csl-entry" role="listitem">
+Gregory, M. &amp; Upson, M. (2017). <em><span>RAP</span> <span>Companion</span>: <span>Automating</span> the production of statistical reports using <span>DataOps</span> principles</em>. London, UK: <span>UK Government Digital Service</span>. Retrieved from <a href="https://ukgovdatascience.github.io/rap_companion/">https://ukgovdatascience.github.io/rap_companion/</a>
+</div>
+<div id="ref-wickham_r_2015" class="csl-entry" role="listitem">
+Wickham, H. (2015). <em>R <span>Packages</span></em>. Sebastopol, CA: O’Reilly. Retrieved from <a href="https://r-pkgs.had.co.nz">https://r-pkgs.had.co.nz</a>
+</div>
+<div id="ref-wickham_r_2017" class="csl-entry" role="listitem">
+Wickham, H. &amp; Grolemund, G. (2017). <em>R for data science</em>. Sebastapol, CA: O’Reilly. Retrieved from <a href="https://r4ds.had.co.nz">https://r4ds.had.co.nz</a>
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./readers-guide.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Reader’s guide</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./2_index-methodology.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Methodology of the InCiSE index</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
