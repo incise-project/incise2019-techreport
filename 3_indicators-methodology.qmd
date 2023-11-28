@@ -1,0 +1,1132 @@
+---
+execute:
+  echo: false
+---
+
+```{r, setup}
+#| output: false
+library(ggplot2)
+source("R/tbl_helpers.R")
+source("R/gg_helpers.R")
+
+tbl_3 <- readr::read_csv("tables/table_3.csv") |>
+  dplyr::mutate(
+    proxy = dplyr::if_else(proxy, "Yes", "No"),
+    label = dplyr::if_else(new, paste0(label, " [new]"), label),
+    wt_intheme = formattable::percent(1/wt_intheme, 1),
+    wt_theme = formattable::percent(1/wt_theme, 1),
+    wt_total = formattable::percent(wt_intheme * wt_theme, 1)
+  )
+
+tbl_pemp_2017 <- read_md_tbl("tables/table_3-1-C.txt")
+tbl_pemp_2019 <- read_md_tbl("tables/table_3-1-D.txt")
+tbl_egbr_nat <- read_md_tbl("tables/table_3-12-C.txt")
+
+attain_chart_df <- readr::read_csv("tables/fig-3-1-data.csv")
+
+tbl_egbr_nat <- tbl_egbr_nat |>
+  dplyr::mutate(
+    median_national = convert_percent(median_national)
+  )
+
+```
+
+# Methodology of the InCiSE indicators {#sec-indicators-methodology}
+
+The sections of this chapter set out the methodology for each of the 12
+indicators that make up the 2019 edition of the InCiSE Index. For each
+indicator the section outlines: the source data; the indicator structure and
+weighting; the nature and definition of the imported source data and any
+transformations; the approach to imputation of missing data; and, the
+rationale for any changes from the 2017 Pilot methodology.
+
+The source data for InCiSE comes from a variety of sources which use different
+methodologies, we have applied the following taxonomy to describe the
+different types of data sources:
+
+* Subjective data:
+    * *Public opinion survey* – a survey of the opinion/attitudes of the general
+      population/households within a country (e.g. Transparency International's
+      Global Corruption Barometer)
+    * *Business opinion survey* – a survey of the opinion/attitudes of business
+      owners/executives within a country (e.g. the World Economic Forum's
+      Executive Opinion Survey)
+    * *Expert assessment* – a survey/assessment of a country made by a small
+      number of experts/researchers (e.g the Quality of Government Institute's
+      Expert Opinion Survey)
+* Objective data:
+    * *Analysis of published data* – secondary analysis of information/data
+      published by governments
+    * *Social survey* – studies that use scientific social survey methods to
+      collect representative information about the population, but are not
+      opinion surveys (e.g. the OECD's Programme for the International Assessment
+      of Adult Skills)
+    * *Government assessments* – official responses from governments to data
+      collection exercises by international organisations (e.g. OECD surveys)
+
+Each of these types has its strengths and limitations, and some types of data
+are more appropriate in certain cases than others. The InCiSE model places
+equal value on these different types of data and does not attempt to make
+'quality adjustments', e.g. through weighting, to distinguish between the
+different types of data.
+
+Critiques of subjective measures can include that they measure perceptions
+and other 'subjective' positions which may be influenced by considerations
+beyond just the specific item being measured – e.g. business perceptions of
+how effective the civil service is at delivering services may be influenced
+by their perceptions of how business-friendly the government's political
+programme is. Another critique is through the use of expert assessments, which
+often rely on a small number of experts/researchers to assess government
+performance on a given topic or area. However, expert assessments often focus
+on niche areas which the general public/businesses may not be able to make
+a judgement about.
+
+Objective data is also not without its own limitations. It can be argued that
+it is rare for any data to be truly 'objective' even if it is not directly
+'subjective'. Even if the data does not aim to measure perceptions or another
+form of subjective position, it is collected and analysed to fulfil a
+particular purpose, defined by a particular group of individuals, with a
+particular agenda. While efforts can be made to minimise biases and
+particular normative assumptions, in any study there are implicit or explicit
+subjective decisions made about the collection and analysis of data. The
+decisions a researcher or analyst makes, such as whether to collect one piece
+of data over another, which methods of collection and analysis to use, or what
+to consider in scope or out of scope, are all subjective and therefore will
+influence the results.
+
+Each section lists the data sources used to supply the input data for the
+InCiSE metrics of each indicator. For ease of reference in each section's
+tables, the data sources are given an acronym. Figures in square brackets next
+to a data source indicate the reference year for the data (i.e. the year the
+data was collected/relates to) rather than the year of publication. A complete
+reference list of the data sources used for InCiSE is provided in the
+[References](references.qmd) chapter. Some metrics are calculated as
+aggregations of multiple data points, details of these calculations are
+provided in @sec-composite-metrics.
+
+## Integrity {#sec-method-integrity}
+
+The integrity indicator is defined as: the extent to which civil servants
+behave with integrity, make decisions impartially and fairly, and strive to
+serve both citizens and ministers, and is one of the core values associated
+with a civil service. The International Civil Service Commission 
+[-@international_civil_service_commission_standards_2002] highlights
+the importance of integrity to the work of the United Nations (UN) common
+systems staff: "The concept of integrity ... embraces all aspects of behaviour
+of an international civil servant ... including  ... honesty, truthfulness,
+impartiality and incorruptibility. These qualities are as basic as those of
+competence and efficiency". Numerous studies aiming to establish good
+governance have utilised similar metrics in their analyses, for instance
+@muriithi_quantifying_2015. The inclusion of integrity in the InCiSE is
+therefore deemed necessary and crucial for the assessment of an effective
+civil service.
+
+The indicator for integrity is comprised of 17 metrics – an increase of one
+from the 2017 Pilot edition. A change has also been made in the metric on
+post-employment cooling-off in the way it has been coded from the source data.
+
+The following sources are used:
+
+* Transparency International's Global Corruption Barometer (GCB) [2017].
+* The World Economic Forum's Global Competitiveness Report Executive
+  Opinion Survey (WEF) [2016-2017].
+* The University of Gothenburg's Quality of Government Expert Survey
+  (QoG) [2015].
+* The OECD's Survey on Managing Conflict of Interest in the Executive Branch
+  and Whistleblower Protection [2014] and Survey on Lobbying Rules and
+  Guidelines [2013] as processed and published in their Government at a Glance
+  2015 report.
+* The Bertelsmann Foundation's Sustainable Governance Indicators (SGI) [2018].
+
+```{r}
+#| label: tbl-comp-int
+#| tbl-cap: Composition of the integrity indicator
+#| column: screen-inset-right
+#| classes: no-stripe .table-responsive
+
+tbl_3 |>
+  composition_table("INT") |>
+  gt::tab_footnote("Tables 3.1.A & 3.1.B in the original PDF publication") |>
+  strip_gt()
+
+```
+
+### Imputation of missing data
+
+None of the 38 countries selected for the 2019 edition of InCiSE have
+completely missing data for the integrity metrics. As a result the imputation
+of missing data for the integrity metrics is based solely on the data within
+the indicator.
+
+### Changes from the 2017 pilot
+
+There is one proposed change to the structure of the metrics used in the
+calculation of the integrity indicator: the inclusion of a measure from the
+Bertelsmann Foundation's Sustainable Governance Indicators on corruption
+prevention.
+
+A further change from the 2017 pilot methodology has been implemented in the
+processing of the OECD's data on post-employment cooling-off periods. The
+model now simply codes whether post-employment cooling-off periods and now
+ignores whether compensation is paid during this period.
+
+The OECD source data provides information on whether post-employment
+cooling-off periods exist for both senior civil servant sand other
+civil servants, and also includes information on whether a compensation period
+is paid during that period.
+
+These data are combined by the InCiSE model into a single scale, outlined
+below. In the 2017 Pilot, this scale creates the normative conditions that a
+post-employment cooling-off period with compensation for both groups of civil
+servants is "best" and no cooling-off period is "worst", @tbl-pemp-2017.
+
+```{r}
+#| label: tbl-pemp-2017
+#| tbl-cap: Coding of post-employment cooling-off in the 2017 Pilot edition
+#|   of InCiSE
+#| classes: no-stripe .table-responsive
+
+tbl_pemp_2017 |>
+  gt::gt(
+    groupname_col = "pemp_2017",
+    row_group_as_column = TRUE
+  ) |>
+  gt::tab_stubhead(label = "InCiSE 2017 post-employment scale value") |>
+  gt::cols_label(
+    scs_cool = "Cooling-off period?",
+    scs_comp = "With compensation?",
+    ocs_cool = "Cooling-off period?",
+    ocs_comp = "With compensation?"
+  ) |>
+  gt::tab_spanner(
+    label = "Senior civil servants", columns = c(scs_cool, scs_comp)
+  ) |>
+  gt::tab_spanner(
+    label = "Other civil servants", columns = c(ocs_cool, ocs_comp)
+  ) |>
+  gt::tab_footnote("Table 3.1.C in the original PDF publication") |>
+  strip_gt()
+
+```
+
+Further examination of the data, as reported by the OECD, showed that only a
+limited number of officials in only a small number of countries received paid
+compensation during a cooling off period and that there was noticeable
+variation in how this was decided by country. This limited usage of
+post-employment compensation and high variability in its nature suggests that
+it may not be appropriate to code in the provision of post-employment
+compensation as normative "best" practice in the calculation of the integrity
+indicator.
+
+> *"During the cooling off period, only some categories of public officials in
+  Austria, Israel, Norway, Portugal and Spain receive compensation. For
+  instance, in Spain, public officials receive 80% of their basic salaries
+  as compensation and in Norway, compensation is awarded only for prohibitions
+  on taking up a specific appointment, the level of which is equivalent to the
+  salary received at the time of the public official left public office"*
+  [@oecd_government_2015 p. 116]
+
+Therefore, for the 2019 edition, InCiSE has adopted a new scale that measures
+only the existence of post-employment cooling-off periods for senior civil
+servants and other civil servants, ignoring the use/existence of compensation,
+@tbl-pemp-2019. The highest score will be awarded for those countries that have
+a cooling-off period for both groups of civil servants, the lowest score for
+those that do not have a cooling-off period for either group, while an
+intermediate score will be given to those countries that have a cooling-off
+period for one group but not the other – with cooling-off periods for senior
+civil servants preferred to those for non-senior civil servants.
+
+```{r}
+#| label: tbl-pemp-2019
+#| tbl-cap: Coding of post-employment cooling-off in the 2019 edition
+#|   of InCiSE
+#| classes: .table-responsive
+
+tbl_pemp_2019 |>
+  gt::gt(
+    groupname_col = "pemp_2019",
+    row_group_as_column = TRUE
+  ) |>
+  gt::tab_stubhead(label = "InCiSE 2019 post-employment scale value") |>
+  gt::cols_label(
+    scs_cool = "Senior civil servants",
+    ocs_cool = "Other civil servants"
+  ) |>
+  gt::tab_spanner(
+    label = "Does a post-employment cooling-off period exist for...?",
+    columns = c(scs_cool, ocs_cool)
+  ) |>
+  gt::tab_footnote("Table 3.1.D in the original PDF publication") |>
+  strip_gt()
+
+```
+
+## Openness {#sec-method-openness}
+
+The openness indicator is defined as: the regular practice and degree of
+consultation with citizens to help guide the decisions we make and extent of
+transparency in our decision-making. It is included in the index because the
+need for transparency within a civil service is imperative for the public to
+trust and feel empowered to hold the government accountable for their actions,
+whilst at the same time reducing corruption. The @world_bank_world_2017 notes 
+that "transparency initiatives [are] an important first step toward increasing
+accountability". The UN also outlines the need for transparency and
+accountability in governance: "[this] implies a proactive effort to make
+information accessible to citizens" and it is "one indicator of a government
+that is citizen-focused and service-oriented" [@united_nations_transparency_1999].
+@graham_principles_2003 also refer to the United Nations Development Program's
+five principles of good governance, in which transparency is identified as a key
+characteristic.
+
+This indicator is comprised of 10 metrics, an increase of one from the 2017
+Pilot edition of InCiSE. The data sources for the openness indicator are:
+
+* The open government domain of the World Justice Project's Rule of Law Index
+  (RLI) [2017].
+* The United Nations' E-Participation Index(UN) [2018].
+* Bertelsmann Stiftung's Sustainable Governance Indicators (SGI) [2018].
+* The World Wide Web Foundation's Open Data Barometer (ODB) [2016].
+* Open Knowledge International's Global Open Data Index (OKI) [2016].
+* The OECD's Open, Useful, Reusable (OUR) Government Data Index (OECD) [2016].
+
+```{r}
+#| label: tbl-comp-opn
+#| tbl-cap: Composition of the openness indicator
+#| column: screen-inset-right
+#| classes: no-stripe .table-responsive
+
+tbl_3 |>
+  composition_table("OPN") |>
+  gt::tab_footnote("Tables 3.2.A & 3.2.B in the original PDF publication") |>
+  strip_gt()
+
+```
+
+### Imputation of missing data
+
+None of the 38 countries selected for the 2019 edition of InCiSE have
+completely missing data for the openness metrics. As a result the imputation
+of missing data for the openness metrics is based solely on the data within
+the indicator.
+
+### Changes from the 2017 Pilot
+
+Compared to the 2017 Pilot, an additional metric from the Bertelsmann
+Sustainable Governance Indicators on access to information has been identified
+and added to the indicator.
+
+## Capabilities {#sec-method-capabilities}
+
+The capabilities indicator is defined as: the extent to which the workforce
+has the right mix of skills. The need for a variety of certain strong skills
+is vital for the successful operation of any organisation, civil services
+included. The standards for good governance set out by @opm_good_2004 include
+leadership as a core skill, it goes on to list necessary skills as "the ability
+to scrutinise and challenge information ...including skills in financial
+management and the ability to recognise when outside expert advice is needed". @fukuyama_what_2013 acknowledges the importance of educational attainment of
+civil servants: "another critical measure of capacity is the level of education
+and professionalisation of government officials", along with the importance of
+digital capability: "what level of technical expertise they are required to
+possess".
+
+The capabilities indicator is composed of 14 metrics from the OECD's Programme
+for the International Assessment of Adult Competencies (referred to as PIAAC
+from this point onwards), this is an increase of 10 metrics from the 2017 Pilot.
+
+PIAAC is a scientific assessment of competencies in adults, modelled on the
+OECD's successful Programme for International Student Assessment (PISA)
+that measures the competencies of school-aged children around the world.
+
+Data for 25 countries was collected over 2011-12, and data for nine countries
+was collected over 2014-15. Of these, 31 countries have published microdata
+available for analysis.
+
+The results from PIAAC are not published in a form that allows for direct
+import of the relevant data for InCiSE. Instead the data must be calculated
+from the individual respondent-level microdata published by the OECD. The
+microdata is analysed to produce results for those defined as currently
+working in the "public administration" sector of the International Standard
+Industrial Classification. This is wider than just the civil service and
+includes other forms of public administration, such as sub-national and local
+government, but excludes functions such as healthcare, education and transport
+which may or may not be part of the public sector depending on country.
+
+```{r}
+#| label: tbl-comp-cap
+#| tbl-cap: Composition of the capabilities indicator
+#| column: screen-inset-right
+#| classes: no-stripe .table-responsive
+
+tbl_3 |>
+  composition_table("CAP") |>
+  gt::tab_footnote("Tables 3.3.A & 3.3.B in the original PDF publication") |>
+  strip_gt()
+
+```
+
+### Imputation of missing data
+
+Of the 38 countries selected for the 2019 edition of InCiSE, 10 countries do
+not have data for the capabilities metrics. As there are countries where data
+is missing for all metrics the imputation of the capabilities indicator
+requires a data point from outside the indicator. The 2017 edition of InCiSE
+used data from the HR Management indicator on applicant skills and whether a
+country was an EU member. For the 2019 edition, the applicant skills metric
+from the HR management indicator is retained, but EU membership is removed.
+One of the metrics within the indicator is the level of tertiary educational
+attainment. There are a number of sources for estimates of tertiary educational
+attainment in the general adult population of most countries. Therefore, InCiSE
+also uses UNESCO data on educational attainment to impute missing data for the
+capabilities indicator.
+
+### Changes from the 2017 Pilot
+
+The capabilities indicator published in the2019 edition of InCiSE has had a
+number of changes which improve its quality compared to the data published in
+the 2017 Pilot. These include additional metrics, change in how data is
+extracted, updated coding of educational attainment, and changes to imputation.
+While these do not change the recency of the data, they improve the overall
+quality of the information provided by the indicator. The OECD intends to
+update PIAAC every decade, as annual change in the skill level of the adult
+population does not change rapidly – a general principle in education research
+is that educational attainment is broadly fixed after young adulthood[^caprec].
+Figure 3.1, shows how the overall proportion of tertiary educational attainment
+has evolved for different age groups since 1997 in four countries, the average
+annual change is 0.9 percentage points.
+
+```{r}
+#| label: fig-edu-levels
+#| fig-cap: Tertiary education levels of adults 25-34 and 55-64, in selected
+#|   countries
+#| column: body-outset-right
+
+edu_plot <- ggplot(
+  attain_chart_df,
+  aes(x = year, y = value, colour = group,
+      shape = group, group = group)) +
+  geom_line(linewidth = 0.5) +
+  geom_point(size = 1.25) +
+  scale_color_manual(
+    values = c(
+      # canada
+      "Canada 25-34 years" = "#0082c2",
+      "Canada 55-64 years" = "#0082c2",
+      # france
+      "France 25-34 years" = "#C24113",
+      "France 55-64 years" = "#C24113",
+      # japan
+      "Japan 25-34 years"  = "#009D94",
+      "Japan 55-64 years"  = "#009D94",
+      # sweden
+      "Sweden 25-34 years" = "#C29913",
+      "Sweden 55-64 years" = "#C29913"
+    )
+  ) +
+  scale_shape_manual(
+    values = c(
+      # 25-34 years
+      "Canada 25-34 years" = "circle",
+      "France 25-34 years" = "circle",
+      "Japan 25-34 years"  = "circle",
+      "Sweden 25-34 years" = "circle",
+      # 55-64 years
+      "Canada 55-64 years" = "square",
+      "France 55-64 years" = "square",
+      "Japan 55-64 years"  = "square",
+      "Sweden 55-64 years" = "square"
+    )
+  ) +
+  scale_x_continuous(
+    breaks = c(1997, 2002, 2007, 2012, 2017),
+    expand = expansion(add = 1)
+  ) +
+  scale_y_continuous(
+    limits = c(0, 62),
+    breaks = seq(0, 60, 10),
+    labels =  scales::percent_format(accuracy = 0.1, scale = 1),
+    expand = expansion(add = 1)
+  ) +
+  facet_grid(cols = vars(country)) +
+  guides(
+    colour = guide_legend(title = NULL, nrow = 2, ncol = 4),
+    shape = guide_legend(title = NULL, nrow = 2, ncol = 4)
+  ) +
+  theme_minimal() +
+  theme(
+    text = element_text(colour = "#666666", family = "Inter", size = 14),
+    legend.position = "bottom",
+    axis.title = element_blank(),
+    axis.text = element_text(colour = "#666666"),
+    axis.text.x = element_text(angle = 90),
+    strip.text = element_text(hjust = 0, colour = "#666666", face = "bold",
+                              size = 14),
+    panel.background = element_rect(fill = "#edf6fb", colour = NA),
+    panel.grid.major = element_line(colour = "#ffffff"),
+    panel.grid.minor = element_blank(),
+    plot.background = element_rect(fill = "#fafdfe", colour = NA)
+  )
+
+render_svg(edu_plot, width = 700, height = 600,
+           alt_text = paste(
+             "Four line graphs showing the proportion of adults with teritary",
+             "eduation (e.g. a university Bachelor's degree) between 1997 and",
+             "2017 for those aged 25 to 34 years old and those aged 55-64",
+             "years old in each of Canada, France, Japan and Sweden.",
+             "The graph shows a broadly linear increase in attainment levels",
+             "for each age group and a consistent gap between age-groups."
+             ),
+           source_note = paste(
+             "Source: OECD (2023), Population with tertiary education.",
+             "doi: 10.1787/0b8f90e9-en (Accessed on 28 November 2023).",
+             "<br />This chart varies slightly from that included in the original",
+             "published PDF report due to changes in data availability.",
+             "The original chart included data for the age groups 25-34, 35-44",
+             "and 45-54, however the source data at the time of this",
+             "reproduction (November, 2023) provides data for those aged",
+             "25-35 and 55-64."
+             )
+           )
+
+```
+
+#### Additional metrics {.unnumbered}
+In examining the PIAAC dataset, a number of additional metrics that complement
+the metrics used in the pilot provide a richer picture of capabilities in the
+public administration workforce.
+
+The pilot metrics gave a broad overview of employee capability, looking at
+overall levels of core skills (literacy, numeracy and problem solving) and
+tertiary educational attainment. The additional metrics complement this by
+providing for measurement of the use of core skills at work (ICT, numeracy,
+reading and writing). They also cover more complex skills, including
+influencing others, planning, and task management. Finally, they also include
+metrics relating to learning and development --- whether individuals learn at
+work, their overall attitude to learning, and whether they have participated
+in learning for work-related purposes (either formallyor informally). Together
+these metrics provide a more detailed picture of the skills and capabilities
+of the workforce.
+
+#### Using the public administration industrial sector {.unnumbered}
+The pilot edition of InCiSE used data for all adults currently employed by a
+public sector organisation. Further investigations of the raw data in PIAAC
+indicated that there was a sufficient sample size in most countries (n>100) to
+generate an estimate for the "public administration" industry
+sector[^capsmpl] and worked for a public sector organisation.
+
+There is a considerable difference between countries with regard to whether
+someone is a public sector worker. This is in part due to the political choices
+about what is or isn't delivered by the public sector. For example, in the
+United Kingdom the vast majority of healthcare workers will be public sector
+employees, while in the United States the vast majority of healthcare workers
+will be private sector employees. In contrast, this difference is likely to be
+much reduced for the "public administration" industry sector, as it will not
+include sectors such as healthcare, education or competitive market economic
+sectors. Therefore, while the sample size for the "public administration"
+subset will be lower, it is likely to be a more appropriate comparator group
+across countries than using the large "public sector" basis.
+
+Further details on the structure of the activities included in the
+"public administration" industrial sector can be found in the UN's registry of
+Statistical Classifications ([unsd_statistical_2018]).
+
+#### Updated coding of tertiary education {.unnumbered}
+
+In reviewing the way that results are extracted from PIAAC's raw data files,
+an improvement was identified in the way tertiary education is coded. The
+pilot edition of InCiSE used data from a variable included for legacy
+comparisons with previous international assessments of adult competencies
+based on type of institution attended. InCiSE 2019 uses a more accurate method
+based on the highest level of qualification achieved.
+
+#### Updating the approach to imputation {.unnumbered}
+
+In the pilot edition of InCiSE, missing data issues were handled by examining
+the relationship of the metrics from PIAAC with metrics from the other
+indicators in InCiSE (as PIAAC is the only data source for the capabilities
+indicator). The most suitable predictors observed in the dataset were the
+applicant skills metric from the HR management indicator and whether a country
+was an EU member. As described above, the imputation for the 2019 edition has
+changed the methodology to remove the EU membership criteria and include the
+tertiary education level of the general population in the external imputation
+data. This provides a closer link to the indicator's theoretical construct.
+
+[^caprec]: @lutz_reconstruction_2007 and goujon_harmonized_2016 utilise this
+principle to develop "back-projections" of educational attainment, and hold a
+general assumption that 'transition' to different levels of education tend to
+be limited after the age of 34.
+
+[^capsmpl]: Sample sizes for the public administration industry sector (limited
+to declared public sector workers) range from 83 to 1,562. The minimum and
+maximum are both noticeable outliers: ignoring these, the sample sizes range
+from 144-446. The only country with a sample less than 100 (Russian Federation)
+had similar standard errors to those of other countries and therefore was
+retained in the data extracted from PIAAC.
+
+## Inclusiveness {#sec-method-inclusiveness}
+
+The inclusiveness indicator is defined as: the extent to which the civil
+service is representative of the citizens it serves. A model civil service
+should be representative of the public it stands to serve, and therefore
+institutions must be inclusive in nature. In their Post-2015 Millennium
+Development Goal reflections, the @oecd_building_nodate outlines the greater
+success felt by inclusive public bodies: "Inclusive governments and an active
+civil society put forward more responsive, equitable policies" and that these
+"build trust in government and help create... public services that are better
+suited to diverse needs". The guiding principles to the international civil
+service, set out by the International Civil Service Commission, support the
+claim that civil servants must "respect the dignity, worth and equality of all
+people" and have: "a willingness to work without bias with persons of all
+nationalities, religions and cultures"
+[-@international_civil_service_commission_standards_2002].
+
+The @oecd_government_2015 states that "a more representative public
+administration can better access previously overlooked knowledge, networks and
+perspectives for improved policy development and implementation". The same
+report also points out that the opinion on the groups in need of representation
+in public administration has widened "and now includes a range of dimensions
+such as women; racial, ethnic, and religious
+minorities; the poor; the elderly; the disabled; and other minority groups
+such as indigenous populations". A paper by @opm_good_2004 highlights the
+potential benefits of this view: "Public trust and confidence in governance will
+increase if governance  ... [is] done by a diverse group of people who reflect
+the community".
+
+The inclusiveness indicator is comprised of five metrics, and is unchanged in
+structure from the 2017 Pilot. It uses the following source data:
+
+* OECD data on the central government share of women in the central
+  government and in top management positions [2016], as processed and
+  published in their Government at a Glance 2017 report.
+* The University of Gothenburg's Quality of Government Expert Survey
+  (QoG) [2015].
+* Figures on women's representation in the government workforce are compared
+  to data from the International Labour Organisation on the composition to
+  calculate the difference between government and the workforce as a whole
+  (ILO) [2015].
+
+```{r}
+#| label: tbl-comp-inc
+#| tbl-cap: Composition of the inclusiveness indicator
+#| column: screen-inset-right
+#| classes: no-stripe .table-responsive
+
+tbl_3 |>
+  composition_table("INC") |>
+  gt::tab_footnote("Tables 3.4.A & 3.4.B in the original PDF publication") |>
+  strip_gt()
+
+```
+
+### Imputation of missing data
+
+None of the 38 countries selected for the 2019 edition of InCiSE have
+completely missing data for the inclusiveness metrics. As a result the
+imputation of missing data for the inclusiveness metrics is based solely on
+the data within the indicator.
+
+### Changes from the 2017 Pilot
+
+There are no changes in the structure of the inclusivness indicator from the
+2017 Pilot.
+
+## Policy making {#sec-method-policy}
+
+The policy making indicator is defined as: the quality of the policy making
+process, including how policy is developed and coordinated across government
+and how policy is monitored during implementation. Policy making remains a
+central role of a civil service and the quality of evidence and appraisal are
+central to the success of policy. @kaufman_governance_1999 outline three
+functions of good governance, including "the capacity of government to
+effectively formulate and implement sound policies". Policymakers need to
+"receive rigorous analyses of comprehensive background information and
+evidence, and of the options for actions" according to @opm_good_2004. This
+paper also advises that "good quality information and clear, objective advice
+can significantly reduce the risk of taking decisions that fail to achieve
+their objectives or have serious unintended consequences".
+
+The indicator is comprised of eight metrics, and the structure is unchanged
+from the 2017 Pilot edition of InCiSE. The policy making indicator uses a
+single source, the Bertelsmann Stiftung's Sustainable Government Indicators
+(SGI), an expert assessment of the performance of government in EU and OECD
+countries. The data for the 2019 edition of InCiSE use the 2018 edition of the
+SGIs.
+
+```{r}
+#| label: tbl-comp-pol
+#| tbl-cap: Composition of the policy making indicator
+#| column: screen-inset-right
+#| classes: no-stripe .table-responsive
+
+tbl_3 |>
+  composition_table("POL") |>
+  gt::tab_footnote("Tables 3.5.A & 3.5.B in the original PDF publication") |>
+  strip_gt()
+
+```
+
+### Imputation of missing data
+All 38 countries selected for the 2019 edition of InCiSE have data for all the
+metrics in the policy making indicator. Therefore, no approach to imputation
+is needed.
+
+### Changes from the 2017 Pilot
+The policy making indicator is unchanged from the 2017 Pilot edition.
+
+## Fiscal and financial management {#sec-method-fiscal}
+
+The fiscal and financial management indicator is defined as: The quality of
+the budgeting process and the extent to which spending decisions are informed
+through economic appraisal and evaluation. It is an important measure of every
+system of public administration. The Indicator of the Strength of Public
+Management Systems (ISPMS) from the @world_bank_indicators_2012 state "Public
+sector management arrangements must also encourage fiscal and institutional sustainability as less tangible but equally critical outcomes" and "Reforms of
+budgetary and financial management systems ... are often crucial for development outcomes". @holt_fukuyama_2014 also consider that "public administration
+practitioners break down the functioning of the central agencies into five
+management systems", including fiscal and financial management which is made
+up of: "planning and budgeting; financial management; and accounting, fiscal
+reporting and audit". The OECD's recommendation paper on budgetary governance
+[-@oecd_recommendation_2015] also sets out ten principles for good budgetary
+governance which include "ensur[ing] that performance, evaluation, and value
+for money are integral to the budget process ... [and] ...manag[ing] budgets
+within clear, credible and predictable limits for fiscal policy".
+
+The fiscal and financial management indicator is made up of six metrics, an
+increase of three from the 2017 Pilot. The sources for the indicator are:
+
+* The OECD's 'medium-term budgeting index' [2012] and 'performance budgeting
+  index' [2016].
+* The World Economic Forum's Global Competitiveness Index (WEF) [2016 2017].
+* World Bank Financial Management Information Systems & Open Budget Data
+  (WB) [2017].
+* International Budget Partnership' s Open Budget Survey (IBP) [2017].
+
+```{r}
+#| label: tbl-comp-ffm
+#| tbl-cap: Composition of the fiscal and financial management indicator
+#| column: screen-inset-right
+#| classes: no-stripe .table-responsive
+
+tbl_3 |>
+  composition_table("FFM") |>
+  gt::tab_footnote("Tables 3.6.A & 3.6.B in the original PDF publication") |>
+  strip_gt()
+
+```
+
+### Imputation of missing data
+None of the 38 countries selected for the 2019 edition of InCiSE have
+completely missing data for the fiscal and financial management metrics. As a
+result the imputation of missing data for the fiscal and financial management
+metrics is based solely on the data within the indicator.
+
+### Changes from the 2017 Pilot
+The fiscal and financial management indicator has seen the introduction of
+three new data points to increase the scope and robustness of the indicator.
+These include a metric on the publication of medium-term budgeting data from
+the World Bank into the theme of the same name and two new metrics under the
+economic appraisal and evaluation theme: two data points measuring the extent
+of external scrutiny or audit and two data points measuring the extent of
+transparency based on the publication of budgetary reports.
+
+## Regulation {#sec-method-regulation}
+
+The regulation indicator is defined as: the extent and quality of regulatory
+impact assessments and the degree of stakeholder engagement involved in them. The appropriate appraisal and evaluation of regulatory changes accompanied by
+sufficient stakeholder engagement is crucial to ensuring that any
+introductions are fully considered and fair, involving various stakeholders.
+This scrutiny is endorsed by many; the @oecd_recommendation_2012 for instance,
+"recognis[es] that regulations are one of the key levers by which governments
+act to promote economic prosperity, enhance welfare and pursue the public
+interest", and that "well designed regulations can generate significant social
+and economic benefits which out weigh the costs of regulation, and contribute
+to social well-being". The @international_monetary_fund_consultation_2016
+acknowledges the importance of regulatory frameworks to successful governance:
+"From the perspective of the IMF, countries with good governance have strong
+legal and regulatory frameworks in place". Additionally, in promoting best
+practice, "[the] Regulatory Impact Analysis (RIA) is a multiple stakeholder
+assessment of the economic, environmental and social impact of regulations.
+The OECD and European Union have strongly promoted this evidence-based
+approach towards legislation" [@boviard_public_2003].
+
+The regulation indicator is comprised of nine metrics, an increase of three
+from the 2017 Pilot. It uses the following sources:
+
+* The OECD's Indicators of Regulatory Policy and Governance (OECD) [2017].
+* The Bertelsmann Foundation's Sustainable Governance Indicators (SGI) [2018].
+
+```{r}
+#| label: tbl-comp-reg
+#| tbl-cap: Composition of the regulation indicator
+#| column: screen-inset-right
+#| classes: no-stripe .table-responsive
+
+tbl_3 |>
+  composition_table("REG") |>
+  gt::tab_footnote("Tables 3.7.A & 3.7.B in the original PDF publication") |>
+  strip_gt()
+
+```
+
+### Imputation of missing data
+
+None of the 38 countries selected for the 2019 edition of InCiSE have
+completely missing data for the regulation metrics. As a result the imputation
+of missing data for the regulation metrics is based solely on the data within
+the indicator.
+
+### Changes from the 2017 Pilot
+
+The regulation indicator has had three additional metrics added from the
+Bertelsmann Foundation's Sustainable Governance Indicators on the use and
+quality of regulatory impact assessments (RIA), and whether RIAs include
+sustainability checks.
+
+## Crisis and risk management {#sec-method-crisis}
+
+The crisis and risk management indicator is defined as: the effectiveness with
+which the government engages the whole of society to better assess, prevent,
+respond to and recover from the effects of extreme events. The OECD Strategic
+Crisis Management report highlights crisis management as central to
+government's role and a "fundamental element of good governance"
+[@baubion_oecd_2013]. Studies have shown that credibility and trust in
+governments to deal with crises is vital both to reassure and encourage support
+from the private sector and general public, as outlined by
+@christensen_crisis_2011.
+
+The crisis and risk management indicator is made up of 13 metrics. This is an
+increase of four from the 2017 Pilot, however it has been restructured to
+allow for the inclusion of a new data source, with eight metrics continuing
+from the 2017 Pilot and five new metrics. The data for the indicator comes
+from:
+
+* The United Nation's Hyogo Framework for Action monitoring reports [2015].
+* The OECD's Survey on the Governance of Critical Risk [2016].
+
+Both the Hyogo Framework monitoring reports and the OECD survey are largely
+composed of binary yes/no questions. The InCiSE model has undertaken its own analysis and aggregation of these measures to produce metrics for the crisis and risk management indicator. These are listed in detail in @sec-composite-crm.
+
+```{r}
+#| label: tbl-comp-crm
+#| tbl-cap: Composition of the crisis and risk management indicator
+#| column: screen-inset-right
+#| classes: no-stripe .table-responsive
+
+tbl_3 |>
+  composition_table("CRM") |>
+  gt::tab_footnote("Tables 3.8.A & 3.8.B in the original PDF publication") |>
+  strip_gt()
+
+```
+
+### Imputation of missing data
+
+One of the 38 countries selected for the 2019 edition of InCiSE has completely
+missing data for all crisis and risk management metrics. This is an
+improvement on the 2017 Pilot of InCiSE where eight countries had completely
+missing data. The 2017 Pilot used median imputation to handle missing data for
+the crisis and risk management indicator (i.e. replacement of missing values
+with the median value of the included countries). As a result of the decision
+to move to fully predictive imputation for the 2019 edition, external
+predictors needed to be found. There are no easily identifiable external
+predictors (e.g. tertiary education for capabilities or the UN's E-Government
+survey for digital services), instead the correlations between the crisis and
+risk management metrics and other metrics in the InCiSE model have been
+analysed to identify potential predictors. This analysis has selected three
+metrics: the task discretion metric from the capabilities indicator; the use
+of data in HR administration from the HR management indicator; and, the Open
+Data Index from the openness indicator.
+
+### Changes from the 2017 Pilot
+
+The 2017 Pilot used data solely from the national monitoring and progress
+reports of the UN Hyogo Framework for Action. The Hyogo Framework for Action
+ended in 2015 and has been replaced by the Sendai Framework, however
+monitoring and reporting of this framework has only just begun. Furthermore,
+these frameworks focus on natural disaster risk rather than the full range of
+risks and civil contingencies issues that countries have to manage at a
+central government level. Since the publication of the pilot a further dataset
+has become available, the OECD's Survey of the Governance of Critical Risks.
+This dataset provides data on this wider array of risks that governments,
+especially OECD members, tend to manage.
+
+## Procurement {#sec-method-procurement}
+
+The procurement indicator is defined as: the extent to which the government's
+procurement processes are efficient, competitive, fair and pursues value for
+money. According to the @world_trade_organisation_government_2015 "government 
+procurement accounts for an average of 15 percent of more of a country's GDP".
+As procurement makes up such a large proportion of countries' GDP, it must be
+managed appropriately. Effective procurement management can streamline
+contracts and reduce outgoings, contributing to improved efficiencies in civil
+services. On public procurement, the @world_bank_benchmarking_2016 states it
+"is a key variable in determining development outcomes and, when carried out in
+an efficient and transparent manner, it can play a strategic role in delivering
+more effective public services. It can also act as a powerful tool for
+development with profoundly positive repercussions for both good governance
+and more rapid and inclusive growth".
+
+The procurement indicator is comprised of six metrics. This indicator is new
+for the 2019 edition of the index, and was not included in the 2017 Pilot
+edition. The sources for the procurement indicator are:
+
+* The OECD's Public Procurement Survey [2016].
+* Opentender (OT) analysis of European public procurement data by Digiwhist
+  (a collaboration of the University of Cambridge, Open Knowledge Foundation
+  Germany, Government Transparency Institute, Hertie School of Governance,
+  Datlab and Transcrime) [2016].
+
+```{r}
+#| label: tbl-comp-pro
+#| tbl-cap: Composition of the procurement indicator
+#| column: screen-inset-right
+#| classes: no-stripe .table-responsive
+
+tbl_3 |>
+  composition_table("PRO") |>
+  gt::tab_footnote("Tables 3.9.A & 3.9.B in the original PDF publication") |>
+  strip_gt()
+
+```
+
+### Imputation of missing data
+
+Two of the 38 countries selected for the 2019 edition of InCiSE have
+completely missing data for the procurement indicator.
+
+The procurement indicator is a new indicator for the 2019 edition, and there
+are no easily identifiable external predictors (e.g. tertiary education for
+Capabilities or the UN's E-Government survey for Digital Services), instead
+the correlations between the procurement metrics and the other metrics in the
+InCiSE model have been analysed to identify potential predictors. This
+analysis has selected three metrics: the use of data in HR administration from
+the HR management indicator; the publicised laws metric from the openness
+indicator; and, the collection cost metric from the tax administration
+indicator.
+
+### Changes from the 2017 Pilot
+
+The procurement indicator is a new indicator and was not covered by the 2017
+Pilot edition of the InCiSE Index.
+
+## HR management {#sec-method-hrm}
+
+The HR Management indicator is defined as: the meritocracy of recruitment and
+extent to which civil servants are effectively attracted, managed and
+developed. "The public sector is very labour intensive – around 70 per cent of
+the budgets of most public organisations are spent on staff"
+[@boviard_public_2003], so good HR management is key to the successful
+functioning of an exemplary civil service. Performance management can help
+create incentives for personal development in the civil service.
+@fukuyama_what_2013 recognises that recruitment and reward "remain at the
+core of any measure of quality of governance. Whether bureaucrats are recruited
+and promoted on the basis of merit". Meanwhile, @boviard_public_2003 note that
+"if the HR policies are not right, then public organisations will not attract
+the human resources they need to perform the functions of government and
+deliver the services that government has promised the electorate".
+
+The HR management indicator is comprised of nine metrics, an increase of four
+from the 2017 Pilot. The data sources for the indicator are:
+
+* Quality of Government expert survey by the University of Gothenburg
+  (QoG) [2015].
+* OECD survey on Strategic HumanResources Management (OECD) [2016].
+
+```{r}
+#| label: tbl-comp-hrm
+#| tbl-cap: Composition of the HR management indicator
+#| column: screen-inset-right
+#| classes: no-stripe .table-responsive
+
+tbl_3 |>
+  composition_table("HRM") |>
+  gt::tab_footnote("Tables 3.10.A & 3.10.B in the original PDF publication") |>
+  strip_gt()
+
+```
+
+### Imputation of missing data
+
+None of the 38 countries selected for the 2019 edition of InCiSE have
+completely missing data for the HR management metrics. As a result the
+imputation of missing data for the HR management metrics is based solely on
+the data within the indicator.
+
+### Changes from the 2017 Pilot
+
+In the 2017 Pilot, InCiSE used five metrics from the Quality of Governance
+study. These provided only partial coverage of the topic area, with a
+particularly strong focus on meritocratic recruitment. Since the 2017 Pilot,
+the OECD published the 2017 edition of their Government at a Glance report,
+including a number of measures from their 2016 Survey on Strategic Human
+Resource Management. The 2019 edition of InCiSE has incorporated three metrics
+from this survey as published in Government at a Glance in order to improve
+the coverage of the indicator.
+
+While there continue to be arguments about the use and implementation of
+performance appraisal and performance-related pay mechanisms within public
+sector organisations, the OECD (2005) suggests that even if there is no direct
+performance improvement associated with these measures they can act as a
+catalyst for change. Thus, there may be secondary effects from performance
+appraisal and performance related pay that improve civil service
+effectiveness.
+
+## Tax administration {#sec-method-tax}
+
+The tax administration indicator is defined as: the efficiency and
+effectiveness of tax collection (at the central/federal level). Effective tax
+systems can be viewed as a critical building block for increased domestic
+resource mobilisation which is essential for civil service effectiveness and
+good governance. "Successful tax extraction provides resources that enable the
+government to operate in other domains", @fukuyama_what_2013 highlights "it is
+a necessary function of all states, and one for which considerable data exist".
+The role of tax administration as the basis of government operations is made
+clear by the @oecd_building_nodate: "Strong tax administrations and sound public
+financial management help maximise the domestic resources that are necessary
+for government to function, to sustain social safety nets, to maintain
+long-term fiscal sustainability, and to free up fiscal space for pursuing
+socio-economics objectives". Although priorities and circumstances vary widely
+across countries, the drive to elevate the collective standard of tax
+administration is of great importance. Holt and Manning highlight the
+importance of tax administration in measuring the effectiveness of public
+administration and it is one of the key functions highlighted by the 
+@world_bank_indicators_2012.
+
+The tax administration indicator is comprised of six metrics and its structure
+is unchanged from the 2017 Pilot edition of InCiSE. The data sources for the
+indicator are:
+
+* OECD's Tax Administration Comparative Information Series [2015].
+* The World Bank's 'Doing Business' Index (WB) [2018].
+
+```{r}
+#| label: tbl-comp-tax
+#| tbl-cap: Composition of the tax administration indicator
+#| column: screen-inset-right
+#| classes: no-stripe .table-responsive
+
+tbl_3 |>
+  composition_table("TAX") |>
+  gt::tab_footnote("Tables 3.11.A & 3.11.B in the original PDF publication") |>
+  strip_gt()
+
+```
+
+### Imputation of missing data
+
+None of the 38 countries selected for the 2019 edition of InCiSE have
+completely missing data for the tax administration metrics. As a result the
+imputation of missing data for the tax administration metrics is based solely
+on the data within the indicator.
+
+### Changes from the 2017 Pilot
+
+There are no changes to the structure of the tax administration indicator.
+
+## Digital services {#sec-method-digital}
+
+The digital services indicator in InCiSE is defined as the user-centricity
+and cross-border mobility of digitally-provided public services and the
+availability of 'key enablers'. A changing world and digital environment
+provide the impetus for a civil service to ensure modernity and remain
+user-centric for the public. In doing so, efficiencies should be achieved to
+enable cost savings in processes while also allowing for further
+accessibility of services. The OECD has supported this view of potential
+benefits: "ICT is increasingly used to support broader public sector
+development objectives ... by changing service delivery approaches by creating
+personalised, high quality services to users, thereby increasing user
+satisfaction and effective service delivery; facilitating major work
+organisation and management changes creating back-office coherence and
+efficiency gains; increasing transparency of government activities, and
+increasing citizen engagement" [@lonti_towards_2008].
+
+The source data for the digital services indicator is the European Commission's
+eGovernment Benchmark Report (eGBR) 2017 and 2018 reports, which provide data
+for 2016 and 2017 respectively. This is the same source that was used in the
+2017 Pilot, however significant changes have been made to the way in which the
+data is extracted and imported. The 2019 edition of the digital services
+indicator is composed of 13 metrics, compared to four in the 2017 Pilot.
+
+```{r}
+#| label: tbl-comp-dig
+#| tbl-cap: Composition of the digital services indicator
+#| column: screen-inset-right
+#| classes: no-stripe .table-responsive
+
+tbl_3 |>
+  composition_table("DIG") |>
+  gt::tab_footnote("Tables 3.12.A & 3.12.B in the original PDF publication") |>
+  strip_gt()
+
+```
+
+### Imputation of missing data
+
+Nine of the 38 countries selected for the 2019 edition of InCiSE have
+completely missing data for the digital services indicator. The 2017 Pilot of
+the InCiSE Index set out the use of Online Services Index from the UN's
+biennial E-Government Survey as the external predictor for imputation. This
+approach is maintained for the 2019 edition of the InCiSE Index.
+
+### Changes from the 2017 Pilot
+
+The data source used for the digital services indicator in the 2019 edition of
+InCiSE is the same as that used for the 2017 Pilot – the European Commission's
+eGovernment Benchmark Report (eGBR). However, further investigation of the data
+and methodology of the report has led to a change in the metrics used by
+InCiSE. While the 2017 Pilot took four high-level metrics, the 2019 edition of
+InCiSE will use 13 more granular metrics.
+
+The eGBR uses mystery shopping of eight 'life events' to assess the quality of
+digital public services in all 28 EU member countries and six other
+neighbouring/partner countries. These life events are designed to capture the
+majority of interactions that citizens and businesses have with public services
+in European nations. The services assessed by the eGBR include not only
+national level services but also those provided by sub-national and local
+governments. As InCiSE aims to look at the effectiveness of national-level
+civil services we investigated whether there was a way to exclude non-national
+services.
+
+While the European Commission publishes the full underlying data for the eGBR,
+it is not easy to calculate scores based solely on the assessments of
+national-level services. So, an analysis of the data from the 2016 and 2017
+reports was undertaken to look at the pattern of service delivery across the
+eight life events. The results of this analysis is presented in Table 3.12.C,
+and shows that for five of the eight life events more than half of the URLs
+assessed by the eGBR are recorded as 'national' level services. However, for
+the 'moving house', 'owning and driving a car' and 'studying' life events the
+analysis shows that in most countries the URLs being assessed are sub-national/
+local services.
+
+```{r}
+#| label: tbl-egbr-nat
+#| tbl-cap: Proportion of eGBR assessed services identified as 'national'
+#|   level services
+
+tbl_egbr_nat |>
+  gt::gt() |>
+  gt::cols_label(
+    life_event = "Life event",
+    median_national = "Median proportion of country assessed URLs that are for 'national' services",
+    low_national = "Number of countries where less than 50% of assessed URLs are for 'national' services (out of 34)"
+  ) |>
+  gt::tab_footnote("Table 3.12.C in the original PDF publication") |>
+  strip_gt()
+
+```
+
+For each of the eight life events the mystery shopping exercise looks across
+three domains: 'user centric government', 'transparency' and 'key enablers';
+six of the eight life events are also assessed for the additional domain of
+'cross-border mobility'. As transparency is already covered in InCiSE through
+the openness indicator, including the eGBR transparency data could be seen as
+duplicating information already measured elsewhere in the InCiSE framework.
+
+Therefore, in the 2019 edition of InCiSE rather than use the high-level
+averages for the four domains (as used in the 2017Pilot), the model uses the
+'user centric', 'transparency' and 'key enablers' domain scores for the
+business start-up, regular business operations, family life, losing and
+finding a job, and small claims procedure life events. This approach removes
+scores for the three life events (moving house, owning and driving a car,
+and studying) where services are typically not delivered by national
+governments, and reduces potential overlap with the openness indicator by
+removing scores for the 'transparency' domain.

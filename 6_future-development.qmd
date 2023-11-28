@@ -1,0 +1,126 @@
+---
+execute:
+  echo: false
+---
+
+```{r, setup}
+#| output: false
+
+source("R/tbl_helpers.R")
+
+tbl_future <- read_md_tbl("tables/table_6-3-A.txt")
+
+```
+
+# Future development {#sec-future-development}
+
+The 2019 index is the second edition of the InCiSE project, following the
+pilot edition published in 2017. The 2019 edition builds on and strengthens
+the methodology of the pilot edition. The InCiSE Partners have used a
+combination of stakeholder feedback, continued engagement with data providers
+and further desk research to develop the methodology for the 2019 edition of
+the InCiSE Index.
+
+Given the frequency of data updates and to provide suitable time to reflect
+on each edition's results, we propose that future editions of the InCiSE Index
+are repeated on a biennial timescale. This chapter sets out considerations for
+future development of the InCiSE methodology.
+
+## Social security administration {#sec-future-ssa}
+
+The InCiSE framework (described in @sec-incise-framework) identifies social
+security administration as one of the constituent functions of an effective
+central civil service, and the 2017 Pilot edition of the InCiSE Index included
+an indicator for social security administration. The indicator was based on a
+single metric, which was the administrative costs of social protection as a
+proportion of total social protection expenditure. Feedback from the pilot
+edition included a critique of this metric, saying it was unsuitable given the
+inclusion of state provided healthcare which varies significantly across
+countries. Furthermore, the data was available solely for European Union
+member states, so data for non-EU countries was imputed based on correlated
+perception measures from the Quality of Governance study used elsewhere in
+the InCiSE model.
+
+Exploration of the source data did not identify an appropriate method to
+exclude healthcare costs from the calculations. A review of further data
+sources identified neither alternative metrics that included non-EU countries
+nor imputation predictors with a closer intellectual or theoretical
+relationship to the indicator's conceptual basis.
+
+It was therefore decided that the social security indicator should be removed
+from the 2019 edition of InCISE. For future editions of the InCiSE Index, we
+will continue to explore whether there is suitable data to reintroduce a
+social security indicator.
+
+## Functions and attributes not yet measured {#sec-future-notmeasured}
+
+In addition to social security, four of the functions and attributes
+identified in the InCiSE framework have not been measured in either edition
+of the index: IT for officials, internal finance, staff engagement, and
+innovation. No suitable data has been identified since the pilot that would
+allow for measurement of these four potential indicators. Future editions of
+the InCiSE index will continue to explore whether suitable data exists to
+introduce indicators for these four areas.
+
+## Functions and attributes already measured {#sec-future-measured}
+
+The 2019 edition of InCiSE has used an additional 46 metrics compared to the
+2017 Pilot: six form the new procurement indicator and 40 are distributed
+across the existing indicators measured in the 2017 Pilot. 
+
+While this has strengthened a number of indicators, as @tbl-rag-rating shows
+only three of the indicators have been given a final 'RAG' rating of green
+(data quality score of 0.75 or more). @tbl-indicator-future below provides some
+considerations for future improvements of each of the indicators measured in
+the 2019 edition of InCiSE, with amber or red 'RAG' ratings. 
+
+```{r}
+#| label: tbl-indicator-future
+#| tbl-cap: Potential future improvement of indicators measured in the 2019
+#|   edition of InCiSE
+
+tbl_future |>
+  gt::gt() |>
+  gt::cols_label(
+    indicator = "InCiSE indicator",
+    final_rag = "RAG rating",
+    development_note = "Potential routes for future development"
+  ) |>
+  gt::fmt(
+    columns = final_rag,
+    fns = rag_image
+  ) |>
+  gt::cols_align(align = "center", columns = final_rag) |>
+  gt::tab_footnote("Table 6.3.A in the original PDF publication") |>
+  strip_gt()
+
+```
+
+:::{.aside .nobullet}
+- ![](figures/green-circle.png){.img_h15} High data quality
+- ![](figures/amber-circle.png){.img_h15} Medium data quality
+- ![](figures/red-circle.png){.img_h15} Low data quality
+:::
+
+## Extending country coverage {#sec-future-country}
+
+While coverage of the InCiSE results has increased from the 31 countries in
+the 2017 Pilot to 38 in the 2019 edition, the group of countries remains
+broadly homogeneous, made up of OECD and EU member countries with high or
+upper-middle incomes. Future editions of the InCiSE Index will continue to use
+the data quality based approach to country inclusion set out in @sec-coverage,
+however this requires greater data availability for non-OECD/EU countries.
+
+There are a number of potential options, such as creating regional versions
+of the InCiSE Index using existing multi-country data collections for
+different regions (but for which either OECD or EU countries are not members).
+Alternatively, subsets of the existing InCiSE Index could be created as some
+indicators have wider data coverage than others.
+
+The InCiSE Partners are committed to identifying ways to increase coverage,
+and have conducted two short studies of how the InCiSE framework applies in
+Brazil and Nigeria to inform future thinking. 
+
+While extending country coverage will generate a greater set of results,
+careful consideration will be needed on developing alternative versions of the
+index and how (if at all) to compare between them. 

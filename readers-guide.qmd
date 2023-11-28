@@ -1,0 +1,72 @@
+# Reader's guide {.unnumbered}
+
+## Country codes {.unnumbered}
+
+In some tables and graphs countries are referred to by their three-letter
+ISO 3166-1 country codes, the codes for the 38 countries covered by the
+2019 InCiSE Index are:
+  
+Code| Country
+:-: | :--
+GBR | United Kingdom
+NZL | New Zealand
+CAN | Canada
+FIN | Finland
+AUS | Australia
+DNK | Denmark
+NOR | Norway
+NLD | Netherlands (the)
+KOR | Korea (the Republic of)
+SWE | Sweden
+USA | United States of America (the)
+EST | Estonia
+CHE | Switzerland
+IRL | Ireland
+FRA | France
+AUT | Austria
+ESP | Spain
+MEX | Mexico
+DEU | Germany
+LTU | Lithuania
+BEL | Belgium
+JPN | Japan
+LVA | Latvia
+CHL | Chile
+ITA | Italy
+SVN | Slovenia
+ISR | Israel
+POL | Poland
+PRT | Portugal
+CZE | Czechia
+ISL | Iceland
+TUR | Turkey
+SVK | Slovakia
+BGR | Bulgaria
+HRV | Croatia
+ROU | Romania
+GRC | Greece
+HUN | Hungary
+
+: {tbl-colwidths="[25, 75]" .striped .sm}
+
+## Indicator codes {.unnumbered}
+
+The following acronyms are used in some tables to refer to the 12 indicators
+measured in the InCiSE 2019 Index.
+
+Code | Indicator
+:-: | :--
+CAP | Capabilities
+CRM | Crisis and risk management
+DIG | Digital services
+FFM | Fiscal and financial management
+HRM | HR management
+INC | Inclusiveness
+INT | Integrity
+OPN | Openness
+POL | Policy making
+PRO | Procurement
+REG | Regulation
+TAX | Tax administration
+
+: {tbl-colwidths="[25, 75]" .striped .sm}

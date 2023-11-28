@@ -1,0 +1,14 @@
+indicator | final_rag | development_note
+========= | ========= | ================
+Integrity | Amber | Addition to, or replacement of, existing metrics with non-perception based measures.
+Openness | Green | n/a
+Capabilities | Red | Identification of data sources with more recent data and/or more regular update frequency.
+Inclusiveness | Red | Additional metrics providing objective measurement of ethnic/religious diversity, and metrics providing objective/subjective measurement of inclusion for other under-represented groups (e.g. disability, age, socio-economic background, LGBT).
+Policymaking | Amber | Addition of non-perception based measures, including on themes such as timeliness, accuracy, and use of evidence.
+Fiscal & financial management | Green | n/a
+Regulation | Green | n/a
+Crisis & risk management | Amber | Replacement of the data sourced from the UN’s Hyogo Framework for Action monitoring reports as monitoring data from the Sendai Framework becomes available.
+HR management | Amber | Identification of data to measure additional themes such as skills gaps/talent deployment, quality of learning and development, and level of satisfaction with HR services.
+Procurement | Amber | Additional themes such as value for money and the capabilities of procurement officials.
+Tax administration | Amber | Additional themes such as preventing tax evasion.
+Digital services | Amber | Identification of non-perception based measures, including average transaction time, up-time of systems, proportion of government services available online.

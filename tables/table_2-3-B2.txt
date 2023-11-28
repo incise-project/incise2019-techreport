@@ -1,0 +1,7 @@
+cc_iso3c | cc_name | dqa | percent_metrics | ind_low | ind_miss | ind_miss_which
+======== | ======= | === | =============== | ======= | ======== | ==============
+COL | Columbia | 0.471 | 57% | 6 | 3 | CAP, DIG, POL
+LUX | Luxembourg | 0.46 | 51% | 7 | 2 | CAP, INC
+CYP | Cyprus | 0.435 | 64% | 9 | 1 | CRM
+CRI | Costa Rica | 0.417 | 48% | 7 | 3 | CAP, DIG, POL
+MLT | Malta | 0.375 | 49% | 9 | 2 | CAP, CRM

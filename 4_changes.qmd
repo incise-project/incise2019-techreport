@@ -1,0 +1,128 @@
+---
+execute:
+  echo: false
+---
+
+```{r, setup}
+#| output: false
+
+tbl_scope <- readr::read_delim("tables/table_1-2-A.txt", delim = "|")
+
+```
+
+# Summary of changes from the 2017 pilot edition of the InCiSE Index {#sec-changes}
+
+The 2019 edition of InCiSE incorporates a number of methodological
+changes and improvement since the 2017 Pilot, which are the result of
+desk research, stakeholder feedback and engagement since the pilot
+publication. This chapter provides a general  summary of the changes
+since the 2017 Pilot.
+
+## Changes in the overarching methodology {#sec-changes-methodology}
+
+There are two main changes to the overarching methodological approach
+for the 2019 edition of InCiSE. Firstly, the technical modelling is
+being done in the R software package, rather than the mix of Excel and
+Stata that was used for the pilot. This approach reduces the potential
+for error, while the use of open source software will increase the
+opportunities for reproducibility. Secondly, a 'data quality assessment'
+has been introduced which makes a quantitative appraisal of the data
+quality of countries and indicators. This assessment has been used to
+determine country selection, and to partially account for data quality in
+the weighting of the indicators into the composite index score.
+
+
+## Indicators with no changes {#sec-no-change}
+
+There are three indicators with no changes to their definition or
+metrics – policy making, inclusiveness and tax administration. For
+policy making and tax administration there have been data updates to
+all metrics, while two of the five metrics in inclusiveness have been
+updated.
+
+## Indicators with minor changes {#sec-minor-changes}
+
+There are five indicators with what we class as 'minor' changes, that is
+changes that we do not believe substantially change or which are not
+contentious.
+
+For the openness, integrity and regulation indicators we have identified some
+additional metrics in the Bertelsmann Foundation's Sustainable Governance
+Indicators that enhance the topic coverage of these indicators.
+
+For the integrity indicator we are also making a change to the coding of
+post-employment cooling-off periods to remove consideration of whether
+compensation is paid during the cooling-off period due to quality concerns
+about this aspect of the data.
+
+For the fiscal & financial management indicator we are adding three metrics
+(one from the International Budget Partnership and two from the World Bank)
+that measure government's openness/publication of budget and public spending
+documents and statistics.
+
+For the HR management indicator we are incorporating newly published data from
+the OECD on strategic HRM practices.
+
+## Crisis and risk management {#sec-change-crisis}
+
+The crisis and risk management indicator has been redesigned, drawing from both
+the 2017 Pilot source (the Hyogo Framework for Action monitoring reports) and
+new data from the OECD on the governance of critical risks. The 2017 Pilot data
+focuses heavily on natural disaster risk management, the OECD data
+substantially enhances the topic coverage and provide a more rounded view of
+crisis and risk management practices.
+
+## Capabilities {#sec-change-capabilities}
+
+A data quality concern about the capabilities indicators is that the data for
+most countries has a reference date of 2012. It has not been possible to
+identify new and more up-to-date data for the capabilities indicator (the
+source data is the OECD Survey of Adult Skills), although further datasets for
+this data source that expand country coverage for this indicator were
+identified. This led to a further review of the source data, which led to the
+identification of a range of additional metrics that could be incorporated into
+the model. The metrics in the pilot focused on capability levels (literacy,
+numeracy, problem solving skills, and education level), however the data also
+includes a number of metrics on the use of skills and learning at work (e.g.
+use of reading/ writing/ IT skills at work, formal and informal learning for
+job-related reasons in the past 12 months). Furthermore, the pilot used data
+for the public sector as a whole, however investigation of the source data
+suggested that reliable estimates for the 'public administration' industrial
+sector could be produced (this is wider than just the civil service, including
+things like local government, but excluding things such as healthcare,
+education and transport). The capabilities indicator has therefore
+incorporated 10 additional metrics on skills use and learning at work, and
+switched to using data for the 'public administration' industrial sector.
+
+## Digital services {#sec-change-digital}
+
+The source data for digital services (the European Commission's eGovernment
+Benchmark Report) uses a 'life events' model, however for a number of these
+life events delivery across the countries included in the dataset is at the
+sub-national/local level. Moreover, one of the domains (transparency) overlaps
+with an existing InCiSE indicator. Therefore, the way in which data is
+extracted has been changed to select data for those life events where for a
+majority of countries the service is delivered at the national level (and
+therefore likely to be managed by the civil service) and to exclude the
+transparency domain. 
+
+## Procurement {#sec-change-procurement}
+
+Since the 2017 Pilot, two data sources have been identified that can provide
+metrics for an indicator on procurement (an element of the InCiSE framework
+not covered by the pilot). One source is the OECD's Survey on Public
+Procurement which looks at the role of CPBs and strategic approaches to public
+procurement (e.g. e-procurement and support for SMEs). The other source is the
+Opentender project, supported by an academic consortium, which analyses the
+tender and contract notices for procurement exercises using the European
+Union's Tenders Electronic Daily service. 
+
+## Social security {#sec-change-social-security}
+
+The 2017 Pilot included an indicator for social security. This was based on a
+single metric: administrative costs as a proportion of total social protection
+spending. Feedback received following the publication of the pilot identified
+significant quality issues with the metric used. No alternative metrics for
+the indicator were identified, therefore it was decided to depreciate the
+indicator from the model. Further discussion of this is provided in
+@sec-future-development. 

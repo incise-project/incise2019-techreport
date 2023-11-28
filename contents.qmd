@@ -1,0 +1,48 @@
+---
+execute:
+  echo: false
+---
+
+```{r, setup}
+#| output: false
+
+source("R/gen_contents.R")
+
+```
+
+# Contents, figures and tables {.unnumbered}
+
+## Contents of the report
+
+This report is structured into six chapters and two appendices.
+
+:::{.custom-toc}
+
+```{r}
+#| output: asis
+cat(get_content_list("sec"), sep = "\n")
+```
+
+:::
+
+## List of figures
+
+:::{.custom-toc}
+
+```{r}
+#| output: asis
+cat(get_content_list("fig", insert_breaks = FALSE), sep = "\n")
+```
+
+:::
+
+## List of tables
+
+:::{.custom-toc}
+
+```{r}
+#| output: asis
+cat(get_content_list("tbl"), sep = "\n")
+```
+
+:::

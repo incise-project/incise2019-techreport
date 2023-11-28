@@ -1,0 +1,15 @@
+indicator | dqa_min | dqa_max | dqa_mean | dqa_good | dqa_poor | no_data
+========= | ======= | ======= | ======== | ======== | ======== | =======
+Capabilities | 0.000 | 0.333 | 0.244 | 0 | 38 | 10
+Crisis & risk management | 0.000 | 0.855 | 0.631 | 26 | 12 | 1
+Digital services | 0.000 | 0.581 | 0.444 | 29 | 9 | 9
+Fiscal & financial management | 0.439 | 0.889 | 0.783 | 37 | 1 | 0
+HR management | 0.293 | 0.673 | 0.640 | 35 | 3 | 0
+Inclusiveness | 0.375 | 0.722 | 0.663 | 33 | 5 | 0
+Integrity | 0.402 | 0.569 | 0.526 | 29 | 9 | 0
+Openness | 0.283 | 0.928 | 0.818 | 35 | 3 | 0
+Policy making | 1.000 | 1.000 | 1.000 | 38 | 0 | 0
+Procurement | 0.000 | 0.722 | 0.513 | 20 | 18 | 2
+Regulation | 0.339 | 0.963 | 0.908 | 35 | 3 | 0
+Tax administration | 0.352 | 0.852 | 0.770 | 34 | 4 | 0
+Overall data quality | 0.501 | 0.757 | 0.662 | 38 | 0 | 0

@@ -1,0 +1,10 @@
+life_event                          | median_national | low_national
+=================================== | =============== | ============
+Business start-up and early trading | 91%             | 3
+Regular business operations         | 83%             | 4
+Family life                         | 61%             | 13
+Finding and losing a job            | 86%             | 4
+Moving house                        | 23%             | 28
+Owning and driving a car            | 49%             | 17
+Small claims procedures             | 66%             | 11
+Studying                            | 37%             | 25

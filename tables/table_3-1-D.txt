@@ -1,0 +1,6 @@
+scs_cool | ocs_cool | pemp_2019
+======== | ======== | =========
+Yes      | Yes      | 3
+Yes      | No       | 2
+No       | Yes      | 1
+No       | No       | 0

@@ -1,0 +1,243 @@
+---
+execute:
+  echo: false
+---
+
+```{r, setup}
+#| output: false
+
+source("R/tbl_helpers.R")
+
+tbl_sens_country <- readr::read_delim("tables/table_B-1.txt",
+                                      delim = "|", trim_ws = TRUE)
+
+tbl_sens_date <- readr::read_delim("tables/table_B-2.txt",
+                                   delim = "|", trim_ws = TRUE)
+
+tbl_sens_wght <- readr::read_delim("tables/table_B-3.txt",
+                                   delim = "|", trim_ws = TRUE)
+
+tbl_sens_base <- readr::read_delim("tables/table_B-4.txt",
+                                  delim = "|", trim_ws = TRUE)
+
+tbl_sens_imp <- readr::read_delim("tables/table_B-5.txt",
+                                  delim = "|", trim_ws = TRUE)
+
+```
+
+# Sensitivity analysis &ndash; detailed results {#sec-sensitivity-detailed}
+
+This Annex provides detailed results from the sensitivity analysis described
+in @sec-sensitivity. Each table includes the index score and rank for each of
+the 38 countries included in the 2019 InCiSE Index results for each of the
+sensitivity tests carried out alongside the results of the 2019 index results. 
+
+@tbl-sens-country shows the results of the sensitivity tests varying country
+coverage (@sec-sens-country):
+
+* Using a data quality assessment threshold of 0.55 to determine country
+  inclusion; 
+* Using a data quality assessment threshold of 0.6 to determine country
+  inclusion; 
+* Using a threshold of 75% of the available data to determine country
+  inclusion; 
+* Using only the countries included in the 2017 Pilot edition of the index. 
+
+@tbl-sens-date shows the results of the sensitivity tests varying the reference
+date (@sec-sens-date): 
+
+* Excluding the capabilities indicator; 
+* Excluding the capabilities indicator and adjusting the weighting
+  accordingly; 
+* Using only data with a reference year of 2015 or later; 
+* Using only data with a reference year of 2016 or later. 
+
+@tbl-sens-weight shows the results of the sensitivity tests using alternative
+weighting (@sec-sens-weight):
+
+* Using a 50:50 split for the equal-share and data-quality based weighting; 
+* Using only equal indicator weights(i.e. all indicator weights equal 1/12); 
+* Using only indicator weights based on the data quality assessment results; 
+* Not applying any within-indicator weights; 
+* Calculating the index as a sum of all metrics. 
+
+@tbl-sens-base shows the results of the sensitivity tests adjusting the
+base data (@sec-sens-base): 
+
+* Ranking the metrics before imputation; 
+* Rescaling the metrics before imputation; 
+* Standardising the metrics before imputation. 
+
+@tbl-sens-impute shows the results of the sensitivity tests using alternative
+imputation methods (@sec-sens-impute): 
+
+* Using an ‘all-in-one’ approach for imputation of missing data; 
+* Using the ‘midas touch’ method for imputation of missing data; 
+* Using the ‘random forests’ method for imputation of missing data; 
+* Replacing missing data with the mean of observed values.
+
+```{r}
+#| label: tbl-sens-country
+#| tbl-cap: Sensitivity tests varying country coverage
+
+tbl_sens_country |>
+  gt::gt() |>
+  gt::cols_label(
+    cc_iso3c = "Country",
+    incise_2019 = "2019 results",
+    sens_55 = "DQA ≥ 0.55",
+    sens_60 = "DQA ≥ 0.6",
+    sens_75 = "75% of data",
+    sens_2017 = "2017 group",
+    rank_2019 = "2019 results",
+    rank_55 = "DQA ≥ 0.55",
+    rank_60 = "DQA ≥ 0.6",
+    rank_75 = "75% of data",
+    rank_2017 = "2017 group"
+  ) |>
+  gt::tab_spanner(
+    label = "Index score", c(incise_2019, starts_with("sens"))
+  ) |>
+  gt::tab_spanner(
+    label = "Country rank", starts_with("rank")
+  ) |>
+  gt::sub_missing(missing_text = "", columns = c(-cc_iso3c, -incise_2019)) |>
+  gt::sub_missing(missing_text = "---", columns = c(incise_2019)) |>
+  gt::cols_align(align = "center", columns = c(-cc_iso3c)) |>
+  gt::tab_footnote("Table B.1 in the original PDF publication") |>
+  strip_gt()
+
+```
+
+```{r}
+#| label: tbl-sens-date
+#| tbl-cap: Sensitivity tests varying reference year
+
+tbl_sens_date |>
+  gt::gt() |>
+  gt::cols_label(
+    cc_iso3c = "Country",
+    incise_2019 = "2019 results",
+    sens_cap1 = "Excl. CAP",
+    sens_cap2 = "Excl. CAP & reweight",
+    sens_2015 = "2015-2018 data",
+    sens_2016 = "2016-2018 data",
+    rank_2019 = "2019 results",
+    rank_cap1 = "Excl. CAP",
+    rank_cap2 = "Excl. CAP & reweight",
+    rank_2015 = "2015-2018 data",
+    rank_2016 = "2016-2018 data"
+  ) |>
+  gt::tab_spanner(
+    label = "Index score", c(incise_2019, starts_with("sens"))
+  ) |>
+  gt::tab_spanner(
+    label = "Country rank", starts_with("rank")
+  ) |>
+  gt::sub_missing(missing_text = "", columns = c(-cc_iso3c, -incise_2019)) |>
+  gt::sub_missing(missing_text = "---", columns = c(incise_2019)) |>
+  gt::cols_align(align = "center", columns = c(-cc_iso3c)) |>
+  gt::tab_footnote("Table B.2 in the original PDF publication") |>
+  strip_gt()
+
+```
+
+```{r}
+#| label: tbl-sens-weight
+#| tbl-cap: Sensitivity tests with alternative approaches to weighting
+
+tbl_sens_wght |>
+  gt::gt() |>
+  gt::cols_label(
+    cc_iso3c = "Country",
+    incise_2019 = "2019 results",
+    sens_5050 = "50:50",
+    sens_equal = "Equal weights",
+    sens_dqa = "All DQA weights",
+    sens_internal = "No within indicator",
+    sens_sum = "Sum of metrics",
+    rank_2019 = "2019 results",
+    rank_5050 = "50:50",
+    rank_equal = "Equal weights",
+    rank_dqa = "All DQA weights",
+    rank_internal = "No within indicator",
+    rank_sum = "Sum of metrics"
+  ) |>
+  gt::tab_spanner(
+    label = "Index score", c(incise_2019, starts_with("sens"))
+  ) |>
+  gt::tab_spanner(
+    label = "Country rank", starts_with("rank")
+  ) |>
+  gt::sub_missing(missing_text = "", columns = c(-cc_iso3c, -incise_2019)) |>
+  gt::sub_missing(missing_text = "---", columns = c(incise_2019)) |>
+  gt::cols_align(align = "center", columns = c(-cc_iso3c)) |>
+  gt::tab_footnote("Table B.3 in the original PDF publication") |>
+  strip_gt()
+
+```
+
+```{r}
+#| label: tbl-sens-base
+#| tbl-cap: Sensitivity tests adjusting the base data
+
+tbl_sens_base |>
+  gt::gt() |>
+  gt::cols_label(
+    cc_iso3c = "Country",
+    incise_2019 = "2019 results",
+    sens_rank = "Ranked data",
+    sens_rescale = "Rescaled data",
+    sens_std = "Standardise data",
+    rank_2019 = "2019 results",
+    rank_rank = "Ranked data",
+    rank_rescale = "Rescaled data",
+    rank_std = "Standardise data"
+  ) |>
+  gt::tab_spanner(
+    label = "Index score", c(incise_2019, starts_with("sens"))
+  ) |>
+  gt::tab_spanner(
+    label = "Country rank", starts_with("rank")
+  ) |>
+  gt::sub_missing(missing_text = "", columns = c(-cc_iso3c, -incise_2019)) |>
+  gt::sub_missing(missing_text = "---", columns = c(incise_2019)) |>
+  gt::cols_align(align = "center", columns = c(-cc_iso3c)) |>
+  gt::tab_footnote("Table B.4 in the original PDF publication") |>
+  strip_gt()
+
+```
+
+
+```{r}
+#| label: tbl-sens-impute
+#| tbl-cap: Sensitivity tests adjusting the base data
+
+tbl_sens_imp |>
+  gt::gt() |>
+  gt::cols_label(
+    cc_iso3c = "Country",
+    incise_2019 = "2019 results",
+    sens_allin = "All-in-one",
+    sens_midas = "Midas touch",
+    sens_rf = "Random forests",
+    sens_mean = "Mean value",
+    rank_2019 = "2019 results",
+    rank_allin = "All-in-one",
+    rank_midas = "Midas touch",
+    rank_rf = "Random forests",
+    rank_mean = "Mean value"
+  ) |>
+  gt::tab_spanner(
+    label = "Index score", c(incise_2019, starts_with("sens"))
+  ) |>
+  gt::tab_spanner(
+    label = "Country rank", starts_with("rank")
+  ) |>
+  gt::sub_missing(missing_text = "", columns = c(-cc_iso3c, -incise_2019)) |>
+  gt::sub_missing(missing_text = "---", columns = c(incise_2019)) |>
+  gt::cols_align(align = "center", columns = c(-cc_iso3c)) |>
+  gt::tab_footnote("Table B.5 in the original PDF publication") |>
+  strip_gt()
+
+```

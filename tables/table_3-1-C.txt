@@ -1,0 +1,11 @@
+scs_cool | scs_comp | ocs_cool | ocs_comp | pemp_2017
+======== | ======== | ======== | ======== | =========
+Yes      | Yes      | Yes      | Yes      | 4
+Yes      | Yes      | Yes      | No       | 3
+Yes      | No       | Yes      | Yes      | 3
+Yes      | Yes      | No       | N/A      | 2
+No       | N/A      | Yes      | Yes      | 2
+Yes      | No       | Yes      | No       | 2
+Yes      | No       | No       | N/A      | 1
+No       | N/A      | Yes      | No       | 1
+No       | N/A      | No       | N/A      | 0

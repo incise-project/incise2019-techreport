@@ -1,0 +1,318 @@
+/*-- font import --*/
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300&family=Inter:wght@300;400;600');
+
+/*-- scss:defaults --*/
+$incise-blue:             #0082c2;
+$incise-blue-tint:        tint-color($incise-blue, 95%) !default;
+$incise-green:            #009d94;
+
+$h2-font-size:            1.25rem !default;
+$h3-font-size:            1.1rem !default;
+$headings-font-weight:    600 !default;
+$body-color:              #444444 !default;
+
+$headings-font-family:    "Inter", "Helvetica Neue", "Noto Sans", "Arial", sans-serif !default;
+$headings-font-style:     null !default;
+$headings-font-weight:    600 !default;
+$headings-line-height:    1.2 !default;
+$headings-color:          $incise-blue !default;
+
+$font-family-sans-serif:  "Inter", "Helvetica Neue", "Noto Sans", "Arial", sans-serif !default;
+$font-weight-normal:      400 !default;
+$font-size-base:          0.9rem !default;
+
+$table-th-font-weight:    600 !default;
+$table-striped-bg:        $incise-blue-tint;
+
+/*-- scss:rules --*/
+
+strong {
+  color: $incise-blue;
+  font-weight: 600;
+}
+
+em {
+  color: $incise-blue;
+  font-style: normal;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 600;
+}
+
+h4 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.125rem;
+  font-size: calc(var(--bs-body-font-size) * 1.1);
+}
+
+h1 .chapter-number, h2 .header-section-number, h3 .header-section-number {
+  color: $incise-blue;
+}
+
+.sidebar-title {
+  color: $incise-blue;
+  font-weight: 600;
+}
+
+.sidebar .chapter-title, .sidebar .chapter-number, .sidebar .menu-text {
+  color: $body-color;
+}
+
+.sidebar .active .chapter-title, .sidebar .active .chapter-number,
+.sidebar .active .menu-text {
+  color: $incise-blue;
+}
+
+h2#toc-title {
+  color: $body-color;
+  font-weight: 400;
+}
+
+.header-section-number {
+  color: $body-color;
+}
+
+.active .header-section-number {
+  color: $incise-blue;
+}
+
+.img_h15 {
+  max-height: 15px;
+}
+
+main ul {
+  list-style: none;
+}
+
+main ul li::before {
+  content: "▪";
+  color: $incise-blue;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+main ol {
+  list-style: none;
+  counter-reset: li;
+}
+
+main ol li::before {
+  content: counters(li, ".") ".";
+  color: $incise-blue;
+  display: inline-block;
+  width: 2em;
+  margin-left: -2em;
+}
+
+main ol li {
+  counter-increment: li
+}
+
+main .nobullet ul {
+  list-style: none;
+}
+
+main .nobullet ul li::before {
+  content: none;
+  color: none;
+  display: none;
+}
+
+main li p {
+  display: contents;
+}
+
+
+#incise-project-note {
+  border: 1px solid $incise-blue;
+  display: table-cell;
+  background-color: $incise-blue-tint;
+  padding: 1rem;
+}
+
+#incise-project-note p:last-child {
+  margin-bottom: 0px;
+}
+
+.incise-separator {
+  height: 1rem;
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.custom-toc ul {
+  list-style: none;
+  margin-bottom: 1.25rem;
+}
+
+.custom-toc li {
+  list-style: none;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.custom-toc li::before {
+  content: none;
+}
+
+.custom-toc hr {
+  background-color: unset;
+}
+
+figure svg {
+  width: 100%;
+  min-width: 700px;
+}
+
+svg text {
+  font-family: $font-family-sans-serif !important;
+}
+
+figure .source-note {
+  color: #848484;
+  font-size: 0.65rem;
+  text-align: left !important;
+}
+
+/* table formatting */
+
+table.table caption, figcaption.figure-caption {
+  color: $incise-blue;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+table.table td {
+  vertical-align: middle;
+}
+
+table.table th {
+  color: $incise-blue;
+  vertical-align: top;
+  border-top-width: 0px !important;
+  border-bottom-width: 0px !important;
+}
+
+table.table thead tr {
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+}
+
+table.table thead {
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+}
+
+table.table td, table.table th, table.table tr, table.table thead {
+  border-color: $incise-blue !important;
+  border-bottom-color: $incise-blue !important;
+}
+
+table.table td img {
+  max-height: 15px;
+}
+
+table.table td, table.table th {
+  background-color: #fff;
+}
+
+table.table tbody tr.odd {
+  background-color: $incise-blue-tint;
+}
+
+.no-stripe table.table.table-striped tbody tr.odd,
+.no-stripe table.table.table-striped tbody tr.odd td {
+  --bs-table-striped-bg: transparent;
+}
+
+/* gt classes */
+
+.gt_group_heading {
+  background-color: $incise-blue-tint !important;
+  color: $incise-blue !important;
+  font-weight: 600;
+}
+
+.gt_left {
+  text-align: left;
+}
+
+.gt_center {
+  text-align: center;
+}
+
+.gt_right {
+  text-align: right;
+}
+
+.gt_column_spanner_outer {
+  text-align: left;
+}
+
+.gt_columns_bottom_border {
+  border-top-width: 0px !important;
+}
+
+.gt_columns_top_border {
+  border-bottom-width: 0px !important;
+}
+
+.gt_footnote {
+  color: #848484;
+  font-size: 0.65rem;
+  border-bottom: none;
+}
+
+/*-- specific tables --*/
+
+#tbl-scope tbody td {
+  vertical-align: top;
+}
+
+#tbl-dqa-all table tbody tr:last-child td,
+#tbl-dqa-incise table tbody tr:last-child td,
+#tbl-dqa-countries1 table tbody tr:last-child td,
+#tbl-ind-weights table tbody tr:last-child td,
+#tbl-sens-country table tbody tr:last-child td,
+#tbl-sens-date table tbody tr:last-child td,
+#tbl-sens-weight table tbody tr:last-child td,
+#tbl-sens-adjust table tbody tr:last-child td,
+#tbl-sens-impute table tbody tr:last-child td, {
+  color: $incise-blue;
+  font-weight: 600;
+}
+
+table.table.composite-metrics-tbl td {
+  vertical-align: top !important;
+}
+
+/*-- reference formatting --*/
+.references ul {
+  list-style: none;
+  padding: 0px;
+}
+
+.references li, .csl-entry {
+  list-style: none;
+  padding-bottom: 0.5rem;
+}
+
+.references li em, .csl-entry em {
+  font-weight: 600;
+}
+
+.references li a, .csl-entry a {
+  color: $body-color;
+}
+
+main a:hover {
+  background-color: $incise-blue-tint;
+}
+
+.references li::before {
+  display: none;
+}

@@ -1,0 +1,126 @@
+﻿indicator,metric_id,datapoint_id,order,metric_label,datapoint_label,coding,composite_calc
+CRM,crm_approach,gcr_approach_natstrat,1.01,Strategic approach,[OECD] Does your government have a national strategy for the management of critical risks?,Yes = 1; No = 0,Sum of variables [Range 0 to 7]
+CRM,crm_approach,gcr_approach_allhaz,1.02,Strategic approach,[OECD] Does your government's national strategy adopt an all-hazards approach to risk?,Yes = 1; No = 0,Sum of variables [Range 0 to 7]
+CRM,crm_approach,gcr_approach_leadinst,1.03,Strategic approach,[OECD] Does your government have an institution that is assigned leadership at the national level for the management of critical risks,Yes = 1; No = 0,Sum of variables [Range 0 to 7]
+CRM,crm_approach,gcr_approach_ldinstrep,1.04,Strategic approach,[OECD] Does the lead institution on the management of critical risks report to the centre of government?,Yes = 1; No = 0,Sum of variables [Range 0 to 7]
+CRM,crm_approach,gcr_approach_ldinstcog,1.05,Strategic approach,[OECD] Does the lead institution prepare a report on its functions to the Head of Government and/or a Cabinet level minister?,Yes = 1; No = 0,Sum of variables [Range 0 to 7]
+CRM,crm_approach,gcr_approach_consult,1.06,Strategic approach,[OECD] Does the institution consult with a variety of stakeholders in the policy-formulation process for the management of critical risks?,Yes = 1; No = 0,Sum of variables [Range 0 to 7]
+CRM,crm_approach,gcr_approach_monitor,1.07,Strategic approach,[OECD] Does your government have a mechanism for monitoring unexpected events in order to quickly build situation awareness about critical riss once they actually occur?,Yes = 1; No = 0,Sum of variables [Range 0 to 7]
+CRM,crm_communications,gcr_comms_wholesocty,9.01,Risk communications,[OECD] Does your government encourage a whole-of-society approach to risk communication?,Yes = 1; No = 0,Sum of variables [Range 0 to 3]
+CRM,crm_communications,gcr_comms_cmncteval,9.02,Risk communications,[OECD] Has your government communicated the results of any such evaluations to the public in past?,Yes = 1; No = 0,Sum of variables [Range 0 to 3]
+CRM,crm_communications,gcr_comms_pubassmnt,9.03,Risk communications,[OECD] Does your government make information that is used for the assessment of critical risks available to the public?,Yes = 1; No = 0,Sum of variables [Range 0 to 3]
+CRM,crm_earlywarn,hfa_earlywarn1,10.01,Early warning systems,[UN] PA2-C3: Do risk prone communities receive timely and understandable warnings of impending hazard events?,Yes = 1; No = 0,Sum of variables [Range 0 to 3]
+CRM,crm_earlywarn,hfa_earlywarn2,10.02,Early warning systems,[UN] PA2-C3: Communication systems and protocols used and applied,Yes = 1; No = 0,Sum of variables [Range 0 to 3]
+CRM,crm_earlywarn,hfa_earlywarn3,10.03,Early warning systems,[UN] PA2-C3: Active involvement of media in early warning dissemination,Yes = 1; No = 0,Sum of variables [Range 0 to 3]
+CRM,crm_econappraisal,hfa_econaprsl1,7.01,Disaster spending appraisal,[UN] PA4-C3: Are the costs and benefits of DRR incorporated into the planning of public investment?,Yes = 1; No = 0,Sum of variables [Range 0 to 6]
+CRM,crm_econappraisal,hfa_econaprsl2,7.02,Disaster spending appraisal,[UN] PA4-C6: Are the impacts of disaster risk that are created by major development projects assessed?,Yes = 1; No = 0,Sum of variables [Range 0 to 6]
+CRM,crm_econappraisal,hfa_econaprsl3,7.03,Disaster spending appraisal,[UN] PA4-C6: Are cost/benefits of disaster risk taken into account in the design and operation of major development projects?,Yes = 1; No = 0,Sum of variables [Range 0 to 6]
+CRM,crm_econappraisal,hfa_econaprsl4,7.04,Disaster spending appraisal,[UN] PA4-C6: Impacts of disaster risk taken account in Environment Impact Assessment (EIA),Yes = 1; No = 0,Sum of variables [Range 0 to 6]
+CRM,crm_econappraisal,hfa_econaprsl5,7.05,Disaster spending appraisal,[UN] PA4-C6: By national and sub-national authorities and institutions,Yes = 1; No = 0,Sum of variables [Range 0 to 6]
+CRM,crm_econappraisal,hfa_econaprsl6,7.06,Disaster spending appraisal,[UN] PA4-C6: By international development actors,Yes = 1; No = 0,Sum of variables [Range 0 to 6]
+CRM,crm_evaluation,gcr_eval_conducted,11.01,Risk evaluationa and research,[OECD] Has your government conducted a post-disaster evaluation of policies that are designed to support the management of critical risks within the last three years?,Yes = 1; No = 0,Sum of variables [Range 0 to 3]
+CRM,crm_evaluation,gcr_eval_useindesign,11.02,Risk evaluationa and research,[OECD] Have the results from such evaluations been used in the design of revised risk management policies?,Yes = 1; No = 0,Sum of variables [Range 0 to 3]
+CRM,crm_evaluation,gcr_eval_sciresearch,11.03,Risk evaluationa and research,[OECD] Does your government provide support for scientific research that is meant to improve policies for the management of critical risks?,Yes = 1; No = 0,Sum of variables [Range 0 to 3]
+CRM,crm_intlcoop,hfa_intlcoop1,8.01,International cooperation,[UN] PA2-C4: Does your country participate in regional or sub-regional actions to reduce disaster risk?,Yes = 1; No = 0,Sum of variables [Range 0 to 6]
+CRM,crm_intlcoop,hfa_intlcoop2,8.02,International cooperation,[UN] PA2-C4: Establishing and maintaining regional hazard monitoring,Yes = 1; No = 0,Sum of variables [Range 0 to 6]
+CRM,crm_intlcoop,hfa_intlcoop3,8.03,International cooperation,[UN] PA2-C4: Regional or sub-regional risk assessment,Yes = 1; No = 0,Sum of variables [Range 0 to 6]
+CRM,crm_intlcoop,hfa_intlcoop4,8.04,International cooperation,[UN] PA2-C4: Regional or sub-regional early warning,Yes = 1; No = 0,Sum of variables [Range 0 to 6]
+CRM,crm_intlcoop,hfa_intlcoop5,8.05,International cooperation,[UN] PA2-C4: Establishing and implementing protocols for transboundary information sharing,Yes = 1; No = 0,Sum of variables [Range 0 to 6]
+CRM,crm_intlcoop,hfa_intlcoop6,8.06,International cooperation,[UN] PA2-C4: Establishing and resourcing regional and sub-regional strategies and frameworks,Yes = 1; No = 0,Sum of variables [Range 0 to 6]
+CRM,crm_leadinstfunc,gcr_ldinst_design,2.01,Lead institution's functions,[OECD] Lead risk mgmt institution functions: design/ formulate risk management policies,Yes = 1; No = 0,Sum of variables [Range 0 to 11]
+CRM,crm_leadinstfunc,gcr_ldinst_priorities,2.02,Lead institution's functions,[OECD] Lead risk mgmt institution functions: set priorities and allocate resources accordingly,Yes = 1; No = 0,Sum of variables [Range 0 to 11]
+CRM,crm_leadinstfunc,gcr_ldinst_targets,2.03,Lead institution's functions,[OECD] Lead risk mgmt institution functions: set performance targets,Yes = 1; No = 0,Sum of variables [Range 0 to 11]
+CRM,crm_leadinstfunc,gcr_ldinst_incentives,2.04,Lead institution's functions,[OECD] Lead risk mgmt institution functions: provide incentives for policy implementation,Yes = 1; No = 0,Sum of variables [Range 0 to 11]
+CRM,crm_leadinstfunc,gcr_ldinst_monpolicy,2.05,Lead institution's functions,[OECD] Lead risk mgmt institution functions: monitor policy implementation,Yes = 1; No = 0,Sum of variables [Range 0 to 11]
+CRM,crm_leadinstfunc,gcr_ldinst_evalpolicy,2.06,Lead institution's functions,[OECD] Lead risk mgmt institution functions: evaluate policy implementation,Yes = 1; No = 0,Sum of variables [Range 0 to 11]
+CRM,crm_leadinstfunc,gcr_ldinst_disemeval,2.07,Lead institution's functions,[OECD] Lead risk mgmt institution functions: disseminate results of evaluation to the public,Yes = 1; No = 0,Sum of variables [Range 0 to 11]
+CRM,crm_leadinstfunc,gcr_ldinst_polcohernc,2.08,Lead institution's functions,[OECD] Lead risk mgmt institution functions: promote policy coherence across government departments,Yes = 1; No = 0,Sum of variables [Range 0 to 11]
+CRM,crm_leadinstfunc,gcr_ldinst_competing,2.09,Lead institution's functions,[OECD] Lead risk mgmt institution functions: address competing policy objectives,Yes = 1; No = 0,Sum of variables [Range 0 to 11]
+CRM,crm_leadinstfunc,gcr_ldinst_coordlocal,2.1,Lead institution's functions,[OECD] Lead risk mgmt institution functions: coordinate actions across central and local level of government,Yes = 1; No = 0,Sum of variables [Range 0 to 11]
+CRM,crm_leadinstfunc,gcr_ldinst_cordnongov,2.11,Lead institution's functions,[OECD] Lead risk mgmt institution functions: coordinate cooperation between government and non-governmental entities,Yes = 1; No = 0,Sum of variables [Range 0 to 11]
+CRM,crm_multihazard,hfa_multihaz1,3.01,Multi-hazard assessment,[UN] PA2-C1: Multi-hazard risk assessment,Yes = 1; No = 0,Sum of variables [Range 0 to 8]
+CRM,crm_multihazard,hfa_multihaz2,3.02,Multi-hazard assessment,[UN] PA2-C1: Gender disaggregated vulnerability and capacity assessments,Yes = 1; No = 0,Sum of variables [Range 0 to 8]
+CRM,crm_multihazard,hfa_multihaz3,3.03,Multi-hazard assessment,[UN] PA2-C1: Agreed national standards for multi hazard risk assessments,Yes = 1; No = 0,Sum of variables [Range 0 to 8]
+CRM,crm_multihazard,hfa_multihaz4,3.04,Multi-hazard assessment,[UN] PA2-C1: Common format for risk assessment,Yes = 1; No = 0,Sum of variables [Range 0 to 8]
+CRM,crm_multihazard,hfa_multihaz5,3.05,Multi-hazard assessment,[UN] PA2-C1: Is future/probable risk assessed?,Yes = 1; No = 0,Sum of variables [Range 0 to 8]
+CRM,crm_postdisaster,hfa_postdisas1,3.06,Multi-hazard assessment,[UN] PA5-C4: Damage and loss assessment methodologies and capacities available,Yes = 1; No = 0,Sum of variables [Range 0 to 8]
+CRM,crm_postdisaster,hfa_postdisas2,3.07,Multi-hazard assessment,[UN] PA5-C4: Post-disaster need assessment methodologies,Yes = 1; No = 0,Sum of variables [Range 0 to 8]
+CRM,crm_postdisaster,hfa_postdisas3,3.08,Multi-hazard assessment,[UN] PA5-C4: Post-disaster needs assessment methodologies include guidance on gender aspects,Yes = 1; No = 0,Sum of variables [Range 0 to 8]
+CRM,crm_preprdness,hfa_preprdns1,6.01,Preparedness,[UN] PA5-C1: Are future disaster risks anticipated through scenario development and aligned preparedness planning?,Yes = 1; No = 0,Sum of variables [Range 0 to 5]
+CRM,crm_preprdness,hfa_preprdns2,6.02,Preparedness,"[UN] PA5-C1: Are there national programmes or policies for disaster preparedness, contingency planning and response?",Yes = 1; No = 0,Sum of variables [Range 0 to 5
+CRM,crm_preprdness,hfa_preprdns3,6.03,Preparedness,"[UN] PA5-C1: The institutional mechanisms exist for the rapid mobilisation of resources in a disaster, utilising civil society and the private sector; in addition to public sector support.",Yes = 1; No = 0,Sum of variables [Range 0 to 5
+CRM,crm_preprdness,hfa_preprdns4,6.04,Preparedness,[UN] PA5-C1: Preparedness plans are regularly updated based on future risk scenarios,Yes = 1; No = 0,Sum of variables [Range 0 to 5]
+CRM,crm_preprdness,hfa_preprdns5,6.05,Preparedness,[UN] PA5-C2: Risk management/contingency plans for continued basic service delivery,Yes = 1; No = 0,Sum of variables [Range 0 to 5]
+CRM,crm_riskmgmtcap,gcr_rmcap_anticipation,5.01,Risk management capability,[OECD] Does your government undertake efforts to develop risk anticipation capacity,Yes = 1; No = 0,Sum of variables [Range 0 to 5]
+CRM,crm_riskmgmtcap,gcr_rmcap_mitigation,5.02,Risk management capability,[OECD] Does your government's national strategy for the management of critical risks promote measures to enhance risk prevention and mitigation?,Yes = 1; No = 0,Sum of variables [Range 0 to 5]
+CRM,crm_riskmgmtcap,gcr_rmcap_critinfra,5.03,Risk management capability,[OECD] Does your government have a critical infrastructure protection programme (CIP)?,Yes = 1; No = 0,Sum of variables [Range 0 to 5]
+CRM,crm_riskmgmtcap,gcr_rmcap_agncycoop,5.04,Risk management capability,[OECD] Are inter-agency cooperation mechanisms built into your government's crisis management system?,Yes = 1; No = 0,Sum of variables [Range 0 to 5]
+CRM,crm_riskmgmtcap,gcr_rmcap_privatesectr,5.05,Risk management capability,[OECD] Does your government encourage the private sector to take steps to ensure business continuity?,Yes = 1; No = 0,Sum of variables [Range 0 to 5]
+CRM,crm_riskmonitoring,hfa_riskmon1,4.01,Risk monitoring,"[UN] PA2-C2: Are disaster losses and hazards systematically reported, monitored and analyzed?",Yes = 1; No = 0,Sum of variables [Range 0 to 4
+CRM,crm_riskmonitoring,hfa_riskmon2,4.02,Risk monitoring,[UN] PA2-C2: Disaster loss databases exist and are regularly updated,Yes = 1; No = 0,Sum of variables [Range 0 to 4]
+CRM,crm_riskmonitoring,hfa_riskmon3,4.03,Risk monitoring,"[UN] PA2-C2: Reports generated and used in planning by finance, planning and sectoral line ministries (from the disaster databases/ information systems)",Yes = 1; No = 0,Sum of variables [Range 0 to 4
+CRM,crm_riskmonitoring,hfa_riskmon4,4.04,Risk monitoring,[UN] PA2-C2: Hazards are consistently monitored across localities and territorial boundaries,Yes = 1; No = 0,Sum of variables [Range 0 to 4]
+CRM,crm_riskplanning,hfa_riskplan1,2.51,Risk planning,[UN] PA1-C1: Is disaster risk taken into account in public investment and planning decisions?,Yes = 1; No = 0,Sum of variables [Range 0 to 7]
+CRM,crm_riskplanning,hfa_riskplan2,2.52,Risk planning,[UN] PA1-C1: National development plan,Yes = 1; No = 0,Sum of variables [Range 0 to 7]
+CRM,crm_riskplanning,hfa_riskplan3,2.53,Risk planning,[UN] PA1-C1: Sector strategies and plans,Yes = 1; No = 0,Sum of variables [Range 0 to 7]
+CRM,crm_riskplanning,hfa_riskplan4,2.54,Risk planning,[UN] PA1-C1: Climate change policy and strategy,Yes = 1; No = 0,Sum of variables [Range 0 to 7]
+CRM,crm_riskplanning,hfa_riskplan5,2.55,Risk planning,[UN] PA1-C1: Poverty reduction strategy papers,Yes = 1; No = 0,Sum of variables [Range 0 to 7]
+CRM,crm_riskplanning,hfa_riskplan6,2.56,Risk planning,[UN] PA1-C1: CCA/ UNDAF (Common Country Assessment/ UN Development Assistance Framework),Yes = 1; No = 0,Sum of variables [Range 0 to 7]
+CRM,crm_riskplanning,hfa_riskplan7,2.57,Risk planning,"[UN] PA1-C1: Civil defence policy, strategy and contingency planning",Yes = 1; No = 0,Sum of variables [Range 0 to 7
+FFM,ffm_pfpublish,fmis_pfpub01,1.01,Published public finance data,[WB] Consolidated budget execution results for the public sector?,Yes = 1; No = 0,Sum of variables [Range 0 to 10]
+FFM,ffm_pfpublish,fmis_pfpub02,1.02,Published public finance data,[WB] Sector analysis?,Yes = 1; No = 0,Sum of variables [Range 0 to 10]
+FFM,ffm_pfpublish,fmis_pfpub03,1.03,Published public finance data,[WB] Regional analysis?,Yes = 1; No = 0,Sum of variables [Range 0 to 10]
+FFM,ffm_pfpublish,fmis_pfpub04,1.04,Published public finance data,[WB] Gender analysis?,Yes = 1; No = 0,Sum of variables [Range 0 to 10]
+FFM,ffm_pfpublish,fmis_pfpub05,1.05,Published public finance data,[WB] Budget analysis with special emphasis towards children and youth?,Yes = 1; No = 0,Sum of variables [Range 0 to 10]
+FFM,ffm_pfpublish,fmis_pfpub06,1.06,Published public finance data,[WB] Debt data?,Yes = 1; No = 0,Sum of variables [Range 0 to 10]
+FFM,ffm_pfpublish,fmis_pfpub07,1.07,Published public finance data,[WB] Foreign aid data?,Yes = 1; No = 0,Sum of variables [Range 0 to 10]
+FFM,ffm_pfpublish,fmis_pfpub08,1.08,Published public finance data,[WB] Fiscal data on sub-national/ local governments and municipalities?,Yes = 1; No = 0,Sum of variables [Range 0 to 10]
+FFM,ffm_pfpublish,fmis_pfpub09,1.09,Published public finance data,[WB] Financial statements?,Yes = 1; No = 0,Sum of variables [Range 0 to 10]
+FFM,ffm_pfpublish,fmis_pfpub10,1.10,Published public finance data,[WB] Public procurement and contracts for the whole government?,Yes = 1; No = 0,Sum of variables [Range 0 to 10]
+INC,inc_wmn_cgov,oecd_women_cgov,1.01,Women in central government,[OECD] Women as a proportion of total central government employment,No recoding,Absolute difference between OECD and ILO variables
+INC,inc_wmn_pubsec,qog_wmnpubsec,2.01,Women in the public sector,[QoG] Women as a proportion of public sector employment,No recoding,Absolute difference between QoG and ILO variables
+INC,inc_wmn_snrgovt,qog_wmnsnrgovt,3.01,Women in top management,[OECD] Women as a proportion of central government senior management positions,No recoding,Absolute difference between OECD and ILO variables
+INC,inc_wmn_snrmgr,oecd_women_snrmgr,4.01,Women in senior government,[QoG] Women as a proportion of senior positions in central government	,No recoding,Absolute difference between QoG and ILO variables
+INC,inc_wmn_cgov,ilo_women_lf_rate,1.02,Women in central government,[ILO] Women as a proportion of the labour market,No recoding,Absolute difference between OECD and ILO variables
+INT,int_postemp,oecd_postemp_scs,1.01,Post-employment cooling-off,[OECD] Post-public employment cooling-off: other civil servants,Yes = 1; No = 0,Cooling-off period for both = 3; Cooling-off for SCS only = 2; Cooling-off for non-SCS only = 1; No cooling-off for both = 0
+INT,int_postemp,oecd_postemp_cs,1.02,Post-employment cooling-off,[OECD] Post-public employment cooling-off: senior civil servants,Yes = 1; No = 0,Cooling-off period for both = 3; Cooling-off for SCS only = 2; Cooling-off for non-SCS only = 1; No cooling-off for both = 0
+INT,int_lobbying,oecd_lobby_balance,2.01,Lobbyist protections,[OECD] Is there an obligation to have a balanced composition of advisory/expert groups?,Yes = 1; No = 0,Sum of variables [Range 0 to 3]
+INT,int_lobbying,oecd_lobby_lbbystpers,2.02,Lobbyist protections,[OECD] Are lobbyists allowed to sit in advisory/expert groups in a personal capacity?,Yes = 0; No = 1,Sum of variables [Range 0 to 3]
+INT,int_lobbying,oecd_lobby_corpexecpers,2.03,Lobbyist protections,[OECD] Are corporate executives allowed to sit in advisory/ expert groups in a personal capacity?,Yes = 0; No = 1,Sum of variables [Range 0 to 3]
+INT,int_whstlcover,oecd_whstl_employees,3.01,Coverage of whistleblower protections,[OECD] Scope includes: public sector employees,Yes = 1; No = 0,Sum of variables [Range 0 to 6]
+INT,int_whstlcover,oecd_whstl_consultants,3.02,Coverage of whistleblower protections,[OECD] Scope includes: consultants working for the public sector,Yes = 1; No = 0,Sum of variables [Range 0 to 6]
+INT,int_whstlcover,oecd_whstl_suppliers,3.03,Coverage of whistleblower protections,[OECD] Scope includes: suppliers to the public sector,Yes = 1; No = 0,Sum of variables [Range 0 to 6]
+INT,int_whstlcover,oecd_whstl_tempempls,3.04,Coverage of whistleblower protections,[OECD] Scope includes: temporary employees in the public sector,Yes = 1; No = 0,Sum of variables [Range 0 to 6]
+INT,int_whstlcover,oecd_whstl_frmrempls,3.05,Coverage of whistleblower protections,[OECD] Scope includes: former public sector employees,Yes = 1; No = 0,Sum of variables [Range 0 to 6]
+INT,int_whstlcover,oecd_whstl_volunteers,3.06,Coverage of whistleblower protections,[OECD] Scope includes: those volunteering for the public sector,Yes = 1; No = 0,Sum of variables [Range 0 to 6]
+PRO,pro_cpb_roles,oecd_pp_cpb_mngfrmwk,2.01,Role of central purchasing body,"[OECD] CPBs award framework agreements or other consolidated instruments, from which CAs then order",Yes = 1; No = 0,Sum of variables [Range 0 to 4
+PRO,pro_cpb_roles,oecd_pp_cpb_aggregate,2.02,Role of central purchasing body,[OECD]CPBs act as CAs aggregating demand and purchasing,Yes = 1; No = 0,Sum of variables [Range 0 to 4]
+PRO,pro_cpb_roles,oecd_pp_cpb_estbpolicy,2.03,Role of central purchasing body,[OECD]CPBs establish policies for CAs,Yes = 1; No = 0,Sum of variables [Range 0 to 4]
+PRO,pro_cpb_roles,oecd_pp_cpb_coordtrain,2.04,Role of central purchasing body,[OECD]CPBs co-ordinate training for public officials in charge of public procurement,Yes = 1; No = 0,Sum of variables [Range 0 to 4]
+PRO,pro_eproc_funcs,oecd_pp_eproc_pubplans,1.01,E-procurement functions,[OECD] Publishing procurement plans,National = 1; Partial = 0.5; No = 0,Sum of variables [Range 0 to 9]
+PRO,pro_eproc_funcs,oecd_pp_eproc_pubopps,1.02,E-procurement functions,[OECD] Publication of opportunities,National = 1; Partial = 0.5; No = 0; No = 0,Sum of variables [Range 0 to 9]
+PRO,pro_eproc_funcs,oecd_pp_eproc_anctends,1.03,E-procurement functions,[OECD] Announcing tenders,National = 1; Partial = 0.5; No = 0; No = 0,Sum of variables [Range 0 to 9]
+PRO,pro_eproc_funcs,oecd_pp_eproc_onlinecat,1.04,E-procurement functions,[OECD] Online catalogue,National = 1; Partial = 0.5; No = 0; No = 0,Sum of variables [Range 0 to 9]
+PRO,pro_eproc_funcs,oecd_pp_eproc_tenddocs,1.05,E-procurement functions,[OECD] Provision of tender documents,National = 1; Partial = 0.5; No = 0; No = 0,Sum of variables [Range 0 to 9]
+PRO,pro_eproc_funcs,oecd_pp_eproc_esubbid,1.06,E-procurement functions,[OECD] E-submission of bids,National = 1; Partial = 0.5; No = 0; No = 0,Sum of variables [Range 0 to 9]
+PRO,pro_eproc_funcs,oecd_pp_eproc_erevauc,1.07,E-procurement functions,[OECD] E-reverse auctions,National = 1; Partial = 0.5; No = 0; No = 0,Sum of variables [Range 0 to 9]
+PRO,pro_eproc_funcs,oecd_pp_eproc_notifyaward,1.08,E-procurement functions,[OECD] Notification of award,National = 1; Partial = 0.5; No = 0; No = 0,Sum of variables [Range 0 to 9]
+PRO,pro_eproc_funcs,oecd_pp_eproc_esubinvc,1.09,E-procurement functions,[OECD] E-submission of invoices,National = 1; Partial = 0.5; No = 0; No = 0,Sum of variables [Range 0 to 9]
+PRO,pro_sme_support,oecd_pp_sme_spclunit,3.01,Access for SMEs,[OECD] A specific unit specialized in SMEs is in place at the central government level,Yes = 1; No = 0,Sum of variables [Range 0 to 5]
+PRO,pro_sme_support,oecd_pp_sme_training,3.02,Access for SMEs,[OECD] Training and workshops are carried out for SMEs,Yes = 1; No = 0,Sum of variables [Range 0 to 5]
+PRO,pro_sme_support,oecd_pp_sme_onlinedocs,3.03,Access for SMEs,[OECD] Documentation or guidance focused on SMEs is available online,Yes = 1; No = 0,Sum of variables [Range 0 to 5]
+PRO,pro_sme_support,oecd_pp_sme_contractlots,3.04,Access for SMEs,[OECD] Division into lots of the contract,Yes = 1; No = 0,Sum of variables [Range 0 to 5]
+PRO,pro_sme_support,oecd_pp_sme_adminsimplf,3.05,Access for SMEs,[OECD] Administrative procedures are simplified for SMEs to participate in tenders,Yes = 1; No = 0,Sum of variables [Range 0 to 5]
+TAX,tax_adminbudget,tas_budget,1.01,Collection cost,[OECD] Total recurrent budget,No recoding,Buget as a proportion of net revenue
+TAX,tax_xxc_netrev,tas_netrev,1.02,Collection cost,[OECD] Net revenue,No recoding,Buget as a proportion of net revenue
+TAX,tax_debt_total,tas_taxdebt,2.01,Tax debt,[OECD] Total tax debt,No recoding,Tax debt as a proportion of net revenue
+TAX,tax_xxc_netrev,tas_netrev,2.02,Tax debt,[OECD] Net revenue,No recoding,Tax debt as a proportion of net revenue
+TAX,tax_ptr_online,tas_ptr_online,3.01,Online personal tax returns,[OECD] Personal tax returns filed online,No recoding,Online returns as a proportion of total returns
+TAX,tax_xxc_ptr_total,tas_ptr_total,3.02,Online personal tax returns,[OECD] Total personal tax returns filed,No recoding,Online returns as a proportion of total returns
+TAX,tax_ctr_online,tas_ctr_online,4.01,Online corporate tax returns,[OECD Corporate tax returns filed online,No recoding,Online returns as a proportion of total returns
+TAX,tax_xxc_ctr_total,tas_ctr_total,4.02,Online corporate tax returns,[OECD] Total corporate tax returns filed,No recoding,Online returns as a proportion of total returns
+TAX,tax_vatr_online,tas_vatr_online,5.01,Online VAT returns,[OECD] VAT returns filed online,No recoding,Online returns as a proportion of total returns
+INC,inc_wmn_cgov,ilo_women_lf_rate,2.02,Women in the public sector,[ILO] Women as a proportion of the labour market,No recoding,Absolute difference between QoG and ILO variables
+INC,inc_wmn_cgov,ilo_women_lf_rate,3.02,Women in top management,[ILO] Women as a proportion of the labour market,No recoding,Absolute difference between OECD and ILO variables
+INC,inc_wmn_cgov,ilo_women_lf_rate,4.02,Women in senior government,[ILO] Women as a proportion of the labour market,No recoding,Absolute difference between QoG and ILO variables
+TAX,tax_xxc_vatr_total,tas_vatr_total,5.02,Online VAT returns,[OECD] Total VAT returns filed,No recoding,Online returns as a proportion of total returns

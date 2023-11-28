@@ -1,0 +1,42 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "InCiSE 2019: Technical Report"
+  date: "April 2019"
+  chapters:
+    - index.qmd
+    - contents.qmd
+    - readers-guide.qmd
+    - 1_introduction.qmd
+    - 2_index-methodology.qmd
+    - 3_indicators-methodology.qmd
+    - 4_changes.qmd
+    - 5_sensitivity.qmd
+    - 6_future-development.qmd
+    - references.qmd
+  appendices: 
+    - A_composite-metrics.qmd
+    - B_sensitivity-detailed.qmd
+  cover-image: incise2019-techreport-cover.png
+  favicon: incise2019-techreport-cover.png
+  repo-url: https://github.com/incise-project/incise2019-techreport/
+  downloads: pdf
+
+execute:
+  freeze: auto
+
+bibliography: references/references.bib
+csl: european-journal-of-political-research.csl
+
+format:
+  html:
+    theme:
+      - cosmo
+      - custom.scss
+    fig-cap-location: top
+    fig-format: svg
+    fig-responsive: true
+    tbl-cap-location: top
+    reference-location: margin

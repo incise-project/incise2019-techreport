@@ -1,0 +1,40 @@
+---
+execute:
+  echo: false
+---
+
+# References {#sec-references .unnumbered}
+
+```{r}
+#| output: false
+
+source("R/references.R")
+
+```
+
+## Data sources
+
+::: {#data-source-refs .references .hanging-indent}
+```{r}
+#| output: asis
+
+gen_ds_refs("references/data_sources.bib")
+
+```
+:::
+
+## Software packages
+
+::: {#data-source-refs .references .hanging-indent}
+```{r}
+#| output: asis
+
+gen_sw_refs("references/software.bib") 
+
+```
+:::
+
+## Published works and other materials
+
+::: {#refs}
+:::

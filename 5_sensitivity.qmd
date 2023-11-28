@@ -1,0 +1,580 @@
+---
+execute:
+  echo: false
+---
+
+```{r, setup}
+#| output: false
+library(ggplot2)
+library(patchwork)
+source("R/tbl_helpers.R")
+source("R/gg_helpers.R")
+
+tbl_metrics <- readr::read_csv("tables/table_3.csv") |>
+  dplyr::mutate(
+    yr_group = dplyr::case_when(
+      year < 2015 ~ "yr_1214",
+      year < 2017 ~ "yr_1516",
+      year < 2019 ~ "yr_1718"
+    )
+  )
+
+tbl_sens <- readr::read_csv("tables/table_B.csv")
+
+tbl_refyr_n <- tbl_metrics |>
+  dplyr::count(indicator, year) |>
+  dplyr::mutate(year = paste0("yr_", year)) |>
+  dplyr::arrange(year) |>
+  tidyr::pivot_wider(names_from = year, values_from = n) |>
+  dplyr::arrange(indicator)
+
+tbl_refyr_pc <- tbl_metrics |>
+  dplyr::count(indicator, yr_group) |>
+  dplyr::mutate(pc = n/sum(n), .by = "indicator") |>
+  dplyr::select(-n) |>
+  dplyr::arrange(yr_group) |>
+  tidyr::pivot_wider(names_from = yr_group, values_from = pc) |>
+  dplyr::arrange(indicator) |>
+  dplyr::mutate(across(c(yr_1214, yr_1516, yr_1718), ~formattable::percent(.x, 0)))
+
+tbl_refyr_out <- tbl_refyr_n |>
+  dplyr::left_join(tbl_refyr_pc, by = "indicator") |>
+  dplyr::mutate(
+    indicator = dplyr::case_match(
+      indicator,
+      "CAP" ~ "Capabilities",
+      "CRM" ~ "Crisis and risk management",
+      "DIG" ~ "Digital services",
+      "FFM" ~ "Fiscal and financial management",
+      "HRM" ~ "HR management",
+      "INC" ~ "Inclusiveness",
+      "INT" ~ "Integrity",
+      "OPN" ~ "Openness",
+      "POL" ~ "Policy making",
+      "PRO" ~ "Procurement",
+      "REG" ~ "Regulation",
+      "TAX" ~ "Tax administration"
+    )
+  ) |>
+  dplyr::bind_rows(
+    tbl_refyr_n |>
+      dplyr::summarise(across(-indicator, ~sum(.x, na.rm = TRUE))) |>
+      dplyr::bind_cols(
+        tbl_metrics |>
+          dplyr::count(yr_group) |>
+          dplyr::mutate(pc = n/sum(n)) |>
+          dplyr::select(-n) |>
+          dplyr::arrange(yr_group) |>
+          tidyr::pivot_wider(names_from = yr_group, values_from = pc) |>
+          dplyr::mutate(across(c(yr_1214, yr_1516, yr_1718), ~formattable::percent(.x, 0)))
+      ) |>
+      dplyr::mutate(indicator = "Total")
+  )
+
+tbl_sens_rank_rng <- tbl_sens |>
+  dplyr::filter(grepl("^rank", var) & group != 0) |>
+  dplyr::group_by(cc_iso3c, group) |>
+  dplyr::summarise(
+    min_rank = min(value, na.rm = TRUE),
+    max_rank = max(value, na.rm = TRUE),
+    .groups = "drop_last"
+  ) |>
+  dplyr::mutate(
+    across(c(min_rank, max_rank),
+           ~dplyr::if_else(.x == Inf | .x == -Inf, NA_integer_, .x)),
+    rank_diff = max_rank - min_rank,
+    no_change = rank_diff == 0,
+    output = dplyr::case_when(
+      is.na(min_rank) ~ NA_character_,
+      no_change ~ as.character(min_rank),
+      TRUE ~ paste(min_rank, max_rank, sep = "-")
+    )
+  ) |>
+  dplyr::ungroup()
+
+tbl_sens_rank_summary <- tbl_sens_rank_rng |>
+  dplyr::select(group, rank_diff, no_change) |>
+  dplyr::summarise(
+    no_change = sum(no_change, na.rm = TRUE),
+    max_change = max(rank_diff, na.rm = TRUE),
+    mean_change = mean(rank_diff, na.rm = TRUE),
+    .by = "group"
+  ) |>
+  dplyr::mutate(mean_change = janitor::round_half_up(mean_change)) |>
+  tidyr::pivot_longer(cols = -group, names_to = "var", values_to = "value") |>
+  dplyr::mutate(
+    group = dplyr::case_match(group,
+                                  1 ~ "rank_country",
+                                  2 ~ "rank_date",
+                                  3 ~ "rank_weight",
+                                  4 ~ "rank_base",
+                                  5 ~ "rank_imp")
+  )
+
+tbl_sens_diff <- tbl_sens |>
+  dplyr::select(cc_iso3c, var, value, group) |>
+  dplyr::filter(var == "incise_2019" | grepl("sens", var)) |>
+  dplyr::mutate(
+    incise = dplyr::if_else(var == "incise_2019", value, NA_real_)
+  ) |>
+  tidyr::fill(incise, .direction = "down") |>
+  dplyr::mutate(
+    diff = value - incise
+  )
+
+tbl_sens_country_mae <- tbl_sens_diff |>
+  dplyr::filter(var != "incise_2019") |>
+  dplyr::summarise(
+    country_mae = mean(abs(diff), na.rm = TRUE),
+    .by = "cc_iso3c"
+  ) |>
+  dplyr::mutate(country_mae = round(country_mae, 3))
+
+tbl_sens_group_mae <- tbl_sens_diff |>
+  dplyr::filter(var != "incise_2019") |>
+  dplyr::summarise(
+    value = mean(abs(diff), na.rm = TRUE),
+    .by = "group"
+  ) |>
+  dplyr::mutate(
+    var = "group_mae",
+    group = dplyr::case_match(group,
+                                  1 ~ "rank_country",
+                                  2 ~ "rank_date",
+                                  3 ~ "rank_weight",
+                                  4 ~ "rank_base",
+                                  5 ~ "rank_imp")
+  ) |>
+  dplyr::mutate(value = round(value, 3))
+
+tbl_sens_summary_country <- tbl_sens |>
+  dplyr::select(cc_iso3c, var, value) |>
+  dplyr::filter(var == "incise_2019" | var == "rank_2019") |>
+  tidyr::pivot_wider(names_from = var, values_from = value) |>
+  dplyr::left_join(tbl_sens_country_mae, by = "cc_iso3c") |>
+  dplyr::left_join(
+    tbl_sens_rank_rng |>
+      dplyr::select(cc_iso3c, group, value = output) |>
+      dplyr::mutate(
+        group = dplyr::case_match(group,
+                                  1 ~ "rank_country",
+                                  2 ~ "rank_date",
+                                  3 ~ "rank_weight",
+                                  4 ~ "rank_base",
+                                  5 ~ "rank_imp")
+      ) |>
+      tidyr::pivot_wider(names_from = group, values_from = value),
+    by = "cc_iso3c"
+  ) |>
+  dplyr::select(cc_iso3c, incise_2019, rank_2019, rank_country, rank_date,
+                rank_weight, rank_base, rank_imp, country_mae) |>
+  dplyr::arrange(-incise_2019)
+ 
+tbl_sens_summary_group <- tbl_sens_group_mae |>
+  dplyr::bind_rows(tbl_sens_rank_summary) |>
+  dplyr::mutate(
+    value = dplyr::if_else(var == "group_mae",
+                           scales::number(value, accuracy = 0.001),
+                           scales::number(value, accuracy = 1))
+  ) |>
+  tidyr::pivot_wider(names_from = group, values_from = value) |>
+  dplyr::mutate(
+    var = dplyr::case_match(
+      var,
+      "group_mae" ~ "Mean absolute error (MAE)",
+      "no_change" ~ "Countries with no change in rank",
+      "max_change" ~ "Largest difference in rank",
+      "mean_change" ~ "Average difference in rank"
+    )
+  )
+
+```
+
+# Sensitivity analysis {#sec-sensitivity}
+
+Building statistical models and indices involves stages where subjective
+judgements have to be made. These can include the selection of individual
+data sets, the treatment of missing values, and the approach to weighting
+and aggregation. Good modelling practice means we should evaluate our model,
+testing the assumptions and judgements made in its building and analysing
+the uncertainties associated with the modelling process. Sensitivity analysis
+is one way to undertake such an assessment.
+
+To test the robustness and uncertainty of the modelling approach used by
+InCiSE, five types of sensitivity analysis have been undertaken:
+
+* Varying the set of countries selected for results to be produced;
+* Excluding out-of-date data;
+* Alternative approaches to weighting;
+* Using the ranks of source data; and,
+* Alternative approaches to imputation.
+
+This chapter summarises the approach and results of these different analyses,
+while detailed results can be found in @sec-sensitivity-detailed.
+
+## Country selection  {#sec-sens-country}
+
+@sec-coverage discusses how the approach to country selection for the 2019
+edition of InCiSE differs from the 2017 Pilot, as it now uses the results of
+the data quality assessment (DQA) to identify countries for inclusion. The DQA
+produces a score for each country that summarises the quality of the data
+within the InCiSE model about that country (before imputation of missing
+values). The threshold for inclusion in the 2019 edition of InCiSE is an
+overall DQA score of 0.50 or greater.
+
+The three countries included in the InCiSE Index with the lowest data quality
+scores have markedly poorer data quality by indicator than other countries
+(see Table 2.8.A). For each of these three countries only two or three of the
+12 InCiSE indicators are rated green, a further two or three indicators are
+rated as amber, while five or six are rated as red, and one indicator is fully
+imputed.
+
+@sec-considerations also outlines an approach to 'grading' countries based
+on their data quality scores. DQA scores of 0.75 are given an 'A+' grade, while
+those below 0.6 are given a 'D' grade. In this 'D' group there are four more
+countries in addition to the three discussed above.
+
+The 2017 Pilot used a simpler approach to country inclusion with a threshold
+of having at least 75% of metrics available, and producing a set of 31
+countries[^pilot-coverage]. For the 2019 edition's set of metrics 31 countries
+also achieve the 75% threshold but the country coverage differs to the set of
+countries in the 2017 Pilot.
+
+[^pilot-coverage]: One further country in 2017 met this criteria but was not an
+OECD member so was excluded to simplify interpretation of results.
+
+The first two sensitivity tests for country coverage altered the DQA threshold
+used to determine country inclusion. The first test used a DQA score of 0.55
+or higher, excluding the three countries in the 2019 set with the lowest data
+quality, while the second test used a DQA score of 0.6 or higher. The third
+test used the 2017 Pilot's threshold of countries with 75% of data being
+available. The fourth test used the 31 countries included in the 2017 Pilot.
+
+## Reference date {#sec-sens-date}
+
+The reference dates of the source data for the 2019 edition of InCiSE ranges
+from 2012 to 2018. However, as shown in Table 5.2.A, the reference dates vary
+across indicators. A third of the metrics have a reference date of 2017 or
+2018, around half of the metrics have a reference date of 2015 or 2016, while
+just 17 out of the 116 metrics have a reference date of 2012.
+
+Of these 17 metrics, 14 are the metrics for the capabilities indicator. This
+is the only indicator with 100% of its data with a reference date from before
+2015[^recency]. The capabilities indicator is solely composed of data with a
+reference year of 2012. Only two other indicators have data from before 2014
+but in both cases this is a small number of their constituent metrics.
+
+[^recency]: The lack of recency of the data source for the capabilities
+indicator (the OECD's Survey of Adult Skills) is discussed in
+@sec-method-capabilities.
+
+```{r}
+#| label: tbl-ref-year
+#| tbl-cap: Reference year of InCiSE metrics by indicator
+
+tbl_refyr_out |>
+  gt::gt() |>
+  gt::cols_label(
+    indicator = "Indicator",
+    yr_2012 = "2012",
+    yr_2013 = "2013",
+    yr_2014 = "2014",
+    yr_2015 = "2015",
+    yr_2016 = "2016",
+    yr_2017 = "2017",
+    yr_2018 = "2018",
+    yr_1214 = "2012-14",
+    yr_1516 = "2015-16",
+    yr_1718 = "2017-18",
+  ) |>
+  gt::tab_spanner(label = "Number of metrics per year",
+                  columns = starts_with("yr_20")) |>
+  gt::tab_spanner(label = "Percent within period...",
+                  columns = starts_with("yr_1")) |>
+  gt::cols_align(align = "center", columns = -indicator) |>
+  gt::sub_missing(missing_text = "") |>
+  gt::tab_footnote("Table 5.2.A in the original PDF publication") |>
+  strip_gt()
+
+```
+
+The first two sensitivity tests for recency exclude the capabilities
+indicator. In the first analysis the capabilities indicator is excluded but
+the weightings of the other indicators are not adjusted. In the second
+analysis the weightings are recalculated to account for the removal of the
+capabilities indicator.
+
+In the third test, only data with a reference year of 2015 or later is
+included in the model; the four other metrics from before 2014 are excluded
+in addition to the 14 capabilities metrics. In the fourth test, only data with
+a reference year of 2016 or later is included in the model; the 51 metrics
+with a reference date of 2016 or earlier are therefore excluded. For both
+these analyses there is no adjustment the weightings – either to calculate
+the indicators from their constituent metrics or to calculate the index from
+the indicators.
+
+## Alternative approaches to weighting {#sec-sens-weight}
+
+The InCiSE Index is a weighted aggregation of the InCiSE indicators, which
+themselves are weighted aggregations of the InCiSE metrics. @sec-calc-index
+set out the approach to weighting the InCiSE indicators to calculate the
+InCiSE Index. Two-thirds of an indicator's weight is based on an 'equal share'
+approach (i.e. 1/12), while one-third is based on the results of the data
+quality assessment. @sec-calc-indicators and @sec-indicators-methodology
+outline how the metrics are weighted to produce each of the 12 indicator scores.
+
+The first three sensitivity tests for alternative weighting look at the
+proportion of indicator weighting that is assigned to the 'equal share' and
+the data quality assessment. The first test uses a 50:50 split rather than
+the 67:33 split. The second test uses solely an 'equal share' approach (i.e.
+indicator weights set to 1/12 each). The third test uses solely the results
+of the data quality assessment to determine the weighting.
+
+The fourth and fifth tests focus on metrics weighting: The fourth does not
+apply weighting to metrics within indicators (i.e. all metrics contribute
+equally to the calculation of their indicator), and the fifth is a simple
+summation of the metrics, then normalised as per the standard calculations
+of the indicators and index (as set out @sec-normalisation).
+
+## Adjusting the base data {#sec-sens-base}
+
+In the InCiSE model, metrics are normalised after missing data is imputed.
+An alternative approach would be to normalise the data before it is imputed.
+
+Three sensitivity tests were done where normalisation of the data occurred
+before the imputation. In the first test the data was ranked, in the second
+test the data was rescaled using the same min-max normalisation applied to
+the outputs of the model, and in the third test the data was converted to
+z-scores with a mean of 0 and a standard deviation of 1.
+
+## Alternative imputation methods {#sec-sens-impute}
+
+As discussed in section 2.4 missing data in the InCiSE base data is handled
+through multiple imputation, and in particular the predictive mean matching
+method.
+
+Four sensitivity tests were carried out using different approaches to
+imputation. @sec-imputation outlines how the imputation of missing data is
+handled on a per-indicator basis, the first test changes this to adopt a
+"kitchen sink"/"all-in-one" approach in which the full dataset of all 116
+metrics (and two external predictor variables) are supplied to the imputation
+function. The second test uses a modified form of predictive mean matching
+called 'midas touch' to generate imputed values. The third test uses the
+'random forest' method to generate imputed values, a machine learning
+approach. The fourth test uses mean imputation, where missing data is
+replaced with the simple arithmetic mean of the observed data.
+
+## Results of the sensitivity analysis {#sec-sens-results}
+
+@tbl-sens-summary-country shows the results of the 2019 InCiSE model for each
+country and the range of ranks across the five different sets of sensitivity
+analysis, while @fig-sens-results show how the InCiSE Index score varies by
+country for each of the sensitivity tests carried out. The results of the five
+sets of sensitivity analysis demonstrate general stability in the model, with
+country ranks either unchanged or changed by only one or two places on average,
+and the same groupings of countries at the top and bottom of the rankings. Full
+results from the sensitivity analysis are provided in @sec-sensitivity-detailed.
+
+```{r}
+#| label: fig-sens-results
+#| fig-cap: Sensitivity analysis results
+
+sens_graph_df <- tbl_sens |>
+  dplyr::filter(group > 0 & grepl("sens", var)) |>
+  dplyr::bind_rows(
+    tbl_sens |>
+      dplyr::filter(var == "incise_2019") |>
+      dplyr::mutate(count = 5) |>
+      tidyr::uncount(count) |>
+      dplyr::mutate(group = rep(c(1:5), 38))
+  ) |>
+  dplyr::mutate(
+    sens_set = dplyr::case_match(
+      group,
+      1 ~ "Country selection",
+      2 ~ "Reference year",
+      3 ~ "Altenative weighting",
+      4 ~ "Adjusting base data",
+      5 ~ "Alternative imputation method"
+    ),
+    analysis = dplyr::case_match(
+      var,
+      "incise_2019" ~ "2019\nresults",
+      "sens_55" ~ "DQA ≥ 0.55",
+      "sens_60" ~ "DQA ≥ 0.6",
+      "sens_75" ~ "75% of\ndata",
+      "sens_2017" ~ "2017\ncountries",
+      "sens_cap1" ~ "Excl CAP",
+      "sens_cap2" ~ "Excl CAP\n& reweight",
+      "sens_2015" ~ "2015-18\ndata",
+      "sens_2016" ~ "2016-18\ndata",
+      "sens_5050" ~ "50:50",
+      "sens_equal" ~ "Equal\nweights",
+      "sens_DQA" ~ "DQA\nweights",
+      "sens_internal" ~ "No internal\nweights",
+      "sens_sum" ~ "Sum of\nmetrics",
+      "sens_rank" ~ "Ranked\ndata",
+      "sens_rescale" ~ "Rescaled\ndata",
+      "sens_std" ~ "Standardised\ndata",
+      "sens_allin" ~ "All-in-one",
+      "sens_midas" ~ "Midas\ntouch",
+      "sens_rf" ~ "Random\nforests",
+      "sens_mean" ~ "Mean\nvalue",
+    ),
+    analysis = forcats::fct(analysis, levels = c(
+      "2019\nresults",
+      "DQA ≥ 0.55",
+      "DQA ≥ 0.6",
+      "75% of\ndata",
+      "2017\ncountries",
+      "Excl CAP",
+      "Excl CAP\n& reweight",
+      "2015-18\ndata",
+      "2016-18\ndata",
+      "50:50",
+      "Equal\nweights",
+      "DQA\nweights",
+      "No internal\nweights",
+      "Sum of\nmetrics",
+      "Ranked\ndata",
+      "Rescaled\ndata",
+      "Standardised\ndata",
+      "All-in-one",
+      "Midas\ntouch",
+      "Random\nforests",
+      "Mean\nvalue"
+    ))
+  ) |>
+  tidyr::drop_na()
+
+plot_theme <- theme_minimal() +
+  theme(
+    text = element_text(colour = "#666666", family = "Inter", size = 14),
+    legend.position = "bottom",
+    axis.title = element_blank(),
+    axis.text = element_text(colour = "#666666"),
+    axis.text.x = element_text(angle = 90, hjust = 1),
+    strip.text = element_text(hjust = 0, colour = "#666666", face = "bold",
+                              size = 14),
+    panel.background = element_rect(fill = "#edf6fb", colour = NA),
+    panel.grid.major = element_line(colour = "#ffffff"),
+    panel.grid.minor = element_blank(),
+    plot.background = element_rect(fill = "#fafdfe", colour = NA),
+    plot.title.position = "plot",
+    aspect.ratio = 1
+  )
+
+sens_plot <- ggplot(sens_graph_df, aes(x = analysis,
+                                       y = value,
+                                       group = cc_iso3c)) +
+  geom_line(colour = "#666666", linewidth = 0.5) +
+  geom_point(shape = 21, fill = "#ffffff", colour = "#666666", stroke = 1) +
+  facet_wrap(vars(sens_set), scales = "free_x", ncol = 2) +
+  plot_theme
+
+render_svg(sens_plot, width = 700, height = 1200,
+           alt_text = paste(
+             "Five line graphs showing the detailed results of the sensitivity",
+             "analysis. Each graph shows the InCiSE 2019 final index scores",
+             "for each country compared to the results of each set of tests",
+             "conducted in the sensitivity analysis."),
+           source_note = "Figures 5.1 to 5.5 in the original PDF publication."
+           )
+
+```
+
+In the country coverage sensitivity analysis, the main driver of change in
+rankings is due to the exclusion of countries: Figure 5.1 shows that the scores
+of individual countries do not substantially change as a result of the
+exclusion of different countries. When varying the reference date there are
+some changes as a result of the exclusion of the capabilities indicator, and
+further changes as a result of excluding data with a reference year of 2015
+and earlier.
+
+Altering the weighting schemes for the calculation of the index and indicators
+does not result in many changes, except when calculating the index as a simple
+sum of all metrics (i.e. applying no weighting at all). Similarly making
+alterations to the metrics (e.g. ranking, rescaling, standardisation) before
+they are imputed does not result in many changes to country scores or rankings.
+
+Varying the imputation methodology results in slightly more variation of
+country scores and ranks than the previous sensitivity checks.
+Only three countries see no change in their ranking, however of those that do
+change, the difference in ranks is still small at around one or two places.
+
+One way to consider the effectiveness of the sensitivity analysis is to
+calculate the Mean Absolute Error (MAE) arising from the analysis. MAE is a
+common technique for assessing the quality of statistical models by comparing
+the difference of the model's estimates/predictions with the original data. It
+is calculated as the sum of the absolute errors divided by the number of cases.
+In the case of the InCiSE sensitivity analysis, 'error' is calculated as the
+difference between the 2019 InCiSE Index results and the results from each of
+the sensitivity tests.
+
+The overall MAE figure for the sensitivity analysis, that is the mean level of
+'error' across all 20 sensitivity tests for all 38 countries, is ±0.017. The
+MAE can also be calculated for each sensitivity test or each set of tests. The
+per-set MAE figures is presented in @tbl-sens-summary-group, while the
+per-test MAE is presented in the tables in @sec-sensitivity-detailed. Across
+the different sets of methodological sensitivity tests, the smallest MAE is
+±0.007 for the set of tests varying country selection while the highest MAE is
+±0.023 for the set of tests changing the reference date.
+
+Finally, the MAE can also be calculated by country, which is also included in
+@tbl-sens-summary-country and ranges from ±0.001 to ±0.032. However, given that
+the same two countries place highest and lowest across most tests the minimum
+per-country MAE is skewed by the limited variability in these two countries'
+scores, when excluding these countries the minimum MAE rises from ±0.001 to
+±0.009.
+
+```{r}
+#| label: tbl-sens-summary-country
+#| tbl-cap: Variation in country ranking across sensitivity analyses
+
+tbl_sens_summary_country |>
+  gt::gt() |>
+  gt::cols_label(
+    cc_iso3c = "Country",
+    incise_2019 = "Score",
+    rank_2019 = "Rank",
+    rank_country = "Country coverage",
+    rank_date = "Reference date",
+    rank_weight = "Alternative weightings",
+    rank_base = "Adjust base data",
+    rank_imp = "Imputation method",
+    country_mae = "Mean absolute error (MAE)",
+  ) |>
+  gt::tab_spanner(label = "2019 results",
+                  columns = c(incise_2019, rank_2019)) |>
+  gt::tab_spanner(label = "Range of country's ranks in sensitivity analysis",
+                  columns = c(rank_country, rank_date, rank_weight,
+                              rank_base, rank_imp)) |>
+  gt::cols_align(align = "center", columns = -cc_iso3c) |>
+  gt::sub_missing() |>
+  gt::tab_footnote("Table 5.6.A in the original PDF publication") |>
+  strip_gt()
+
+```
+
+
+```{r}
+#| label: tbl-sens-summary-group
+#| tbl-cap: Summary of variation in ranking changes across sensitivity analysis
+#|   sets
+
+tbl_sens_summary_group |>
+  gt::gt() |>
+  gt::cols_label(
+    var = "",
+    rank_country = "Country coverage",
+    rank_date = "Reference date",
+    rank_weight = "Alternative weightings",
+    rank_base = "Adjust base data",
+    rank_imp = "Imputation method"
+  ) |>
+  gt::cols_align(align = "center", columns = -var) |>
+  gt::sub_missing() |>
+  gt::tab_footnote("Table 5.6.A in the original PDF publication") |>
+  strip_gt()
+
+```

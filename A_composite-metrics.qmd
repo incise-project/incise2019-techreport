@@ -1,0 +1,113 @@
+---
+execute:
+  echo: false
+---
+
+```{r, setup}
+#| output: false
+source("R/tbl_helpers.R")
+tbl_A <- readr::read_csv("tables/table_A.csv")
+
+```
+
+# Composite metrics {#sec-composite-metrics}
+
+Most metrics in InCiSE are variables taken directly from the source datasets.
+Some of these metrics are themselves an index or composite score, where this
+composite is calculated by the source provider the metric is taken "as is" by
+InCiSE. However, some of the source variables identified for inclusion in
+InCiSE are binary information (e.g. yes/no questions, or representing
+categorical data). 
+
+In the case of inclusiveness the InCiSE model calculates the absolute
+difference between the composition of central government employees and the
+composition of the general labour market. This Annex provides details on how
+the composite metrics calculated by the InCiSE methodology have been produced. 
+
+Including binary variables directly into the InCiSE model presents challenges
+in respect of the usability of the model's results. Firstly, it has the
+potential for some indicators to become difficult to summarise due to the
+large number of metrics they would record – in the most extreme case the
+crisis and risk management indicator would be based on 68 metrics. Secondly,
+by their nature, binary variables have only two positions, meaning that a
+country would either score 0 or 1 with no variation between these two
+positions, limiting the ability to distinguish between relative country
+performance. To resolve these limitations, the InCiSE model combines binary
+variables into composite aggregate metrics. These composite metrics have been
+designed within the InCiSE project's methodology, and have not been developed
+by the authors/ publishers of the source data. In general, InCiSE maintains
+conceptual consistency (e.g. the composite metric aggregates information about
+similar) and source consistency (i.e. a composite metric is an aggregation of
+variables from the same dataset from the same author/publisher). 
+
+## Integrity {#sec-composite-integrity}
+
+```{r}
+#| label: tbl-composite-int
+#| tbl-cap: Composite metrics in the integrity indicator
+
+composite_metrics_table(tbl_A, "INT",
+                        "Table A.1 in the original PDF publication")
+```
+
+See @sec-method-integrity for more details about the coding of post-employment
+cooling-off periods.
+
+## Inclusiveness  {#sec-composite-inclusiveness}
+
+```{r}
+#| label: tbl-composite-inc
+#| tbl-cap: Composite metrics in the inclusiveness indicator
+
+composite_metrics_table(tbl_A, "INC",
+                        "Table A.2 in the original PDF publication")
+```
+
+## Fiscal and financial management  {#sec-composite-ffm}
+
+```{r}
+#| label: tbl-composite-ffm
+#| tbl-cap: Composite metrics in the fiscal and financial management indicator
+
+composite_metrics_table(tbl_A, "FFM",
+                        "Table A.3 in the original PDF publication")
+```
+
+## Tax administration {#sec-composite-tax}
+
+```{r}
+#| label: tbl-composite-tax
+#| tbl-cap: Composite metrics in the tax administration indicator
+
+composite_metrics_table(tbl_A, "TAX",
+                        "Table A.4 in the original PDF publication") 
+```
+
+## Procurement {#sec-composite-procurement}
+
+```{r}
+#| label: tbl-composite-pro
+#| tbl-cap: Composite metrics in the procurement indicator
+
+composite_metrics_table(tbl_A, "PRO",
+                        "Table A.5 in the original PDF publication")
+```
+
+The source data for e-procurement functions indicates whether these functions
+are available in national e-procurement systems and in e-procurement systems
+for (some) individual entities. Where a country has the functionality in a
+national system this is coded as 1 (irrespective of whether exists in the
+systems of individual entities), where there is no functionality indicated in
+a national system but it is available in some individual entities this is coded
+as 0.5.
+
+## Crisis and risk management {#sec-composite-crm}
+
+```{r}
+#| label: tbl-composite-crm
+#| tbl-cap: Composite metrics in the crisis and risk management indicator
+
+composite_metrics_table(tbl_A, "CRM",
+                        "Table A.6 in the original PDF publication")
+```
+

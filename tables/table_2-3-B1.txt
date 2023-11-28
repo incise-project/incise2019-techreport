@@ -1,0 +1,41 @@
+cc_iso3c | cc_name | dqa | percent_metrics | ind_low | ind_miss | ind_miss_which
+======== | ======= | === | =============== | ======= | ======== | ==============
+GBR | United Kingdom | 0.757 | 100% | 1 | 0
+ITA | Italy | 0.755 | 99% | 1 | 0
+POL | Poland | 0.755 | 99% | 1 | 0
+SWE | Sweden | 0.755 | 99% | 1 | 0
+NOR | Norway | 0.752 | 99% | 1 | 0
+SVN | Slovenia | 0.75 | 99% | 1 | 0
+AUT | Austria | 0.738 | 98% | 1 | 0
+FIN | Finland | 0.736 | 97% | 2 | 0
+ESP | Spain | 0.733 | 97% | 1 | 0
+NLD | The Netherlands | 0.731 | 98% | 1 | 0
+FRA | France | 0.718 | 97% | 2 | 0
+PRT | Portugal | 0.716 | 85% | 1 | 1 | CAP
+DNK | Denmark | 0.707 | 93% | 2 | 0
+DEU | Germany | 0.701 | 96% | 2 | 0
+GRC | Greece | 0.696 | 94% | 2 | 0
+SVK | Slovakia | 0.692 | 93% | 1 | 0
+HUN | Hungary | 0.671 | 81% | 1 | 1 | CAP
+EST | Estonia | 0.669 | 90% | 2 | 0
+CZE | Czechia | 0.659 | 91% | 3 | 0
+TUR | Turkey | 0.65 | 90% | 4 | 0
+MEX | Mexico | 0.648 | 73% | 3 | 2 | CAP, DIG
+NZL | New Zealand | 0.644 | 83% | 4 | 1 | DIG
+CHL | Chile | 0.643 | 79% | 4 | 1 | DIG
+CAN | Canada | 0.638 | 78% | 4 | 1 | DIG
+KOR | Republic of Korea | 0.636 | 78% | 4 | 1 | DIG
+BEL | Belgium | 0.635 | 85% | 3 | 1 | CRM
+LVA | Latvia [new] | 0.628 | 75% | 2 | 1 | CAP
+CHE | Switzerland | 0.627 | 79% | 2 | 1 | CAP
+AUS | Australia | 0.618 | 71% | 3 | 3 | CAP, DIG, PRO
+LTU | Lithuania [new] | 0.615 | 82% | 5 | 0
+IRL | Ireland | 0.614 | 84% | 4 | 0
+JPN | Japan | 0.597 | 75% | 5 | 1 | DIG
+USA | United States of America | 0.579 | 74% | 4 | 2 | DIG, PRO
+ISR | Israel [new] | 0.578 | 72% | 5 | 1 | DIG
+ISL | Iceland [new] | 0.563 | 68% | 5 | 1 | CAP
+ROU | Romania [new] | 0.529 | 66% | 5 | 1 | CAP
+BGR | Bulgaria [new] | 0.511 | 66% | 6 | 1 | CAP
+HRV | Croatia [new] | 0.501 | 65% | 6 | 1 | CAP
+    | Mean of 38 countries | 0.635 | 82% | 3.3 | 0.8

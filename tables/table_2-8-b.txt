@@ -1,0 +1,19 @@
+indicator | mean_dqa | num_metrics | dqa_rag | assessment | final_rag
+========= | ======== | =========== | ======= | ========== | =========
+Capabilities | 0.244 | 14 | Red | While the indicator has a large number of metrics, these are all drawn from a public sector proxy and date between 2012-2015. | Red
+Crisis & risk management | 0.631 | 13 | Amber | The indicator contains a wide range of metrics which provide a broad overview of the concept, however one of the two data sources focuses solely on natural disaster risk management. | Amber
+Digital services | 0.444 | 13 | Amber | The indicator relies on a number of metrics from a single source which gives an overview of some aspects of the concept and relies on public sector proxy data. | Amber
+Fiscal & financial management | 0.783 | 6 | Green | The indicator contains a number of metrics which appear to give a detailed overview of the concept. | Green
+HR management | 0.64 | 9 | Amber | The indicator's metrics give an overview of some aspects of the concept, but several metrics are dependent on external perceptions and public sector proxy data. | Amber
+Inclusiveness | 0.663 | 5 | Amber | The indicator has only a small number of metrics which only provide a partial picture of performance across the concept. | Red
+Integrity | 0.536 | 17 | Amber | The indicator has a large number of metrics that give a broad overview of the concept, however it relies heavily on external expert perceptions. | Amber
+Openness | 0.818 | 10 | Green | The indicator uses a large number of metrics from a wide range of sources that give a broad overview of the concept. | Green
+Policy making | 1 | 8 | Green | The indicator uses a wide range of metrics that give a broad overview of the concept, however these come from a single source relying on external expert perception. | Amber
+Procurement | 0.513 | 6 | Amber | The indicator has a small number of metrics that give an overview of some aspects of the concept. | Amber
+Regulation | 0.908 | 3 | Green | The indicator contains a number of metrics which appear to give a detailed overview of the concept. | Green
+Tax administration | 0.77 | 6 | Green | The indicator has a small number of metrics that give an overview of some aspects of the concept. | Amber
+Innovation |  | 0 | X | No data available: indicator not measured. | X
+Internal finance |  | 0 | X | No data available: indicator not measured. | X
+IT for officials |  | 0 | X | No data available: indicator not measured. | X
+Social security |  | 0 | X | The social security indicator has been depreciated following an in-depth review. | X
+Staff engagement |  | 0 | X | No data available: indicator not measured. | X

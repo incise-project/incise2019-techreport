@@ -1,0 +1,858 @@
+---
+execute:
+  echo: false
+---
+
+```{r, setup}
+#| output: false
+
+source("R/tbl_helpers.R")
+
+tbl_dqa_all <- read_md_tbl("tables/table_2-2-A.txt")
+tbl_dqa_incise <- read_md_tbl("tables/table_2-3-A.txt")
+tbl_dqa_countries1 <- read_md_tbl("tables/table_2-3-B1.txt")
+tbl_dqa_countries2 <- read_md_tbl("tables/table_2-3-B2.txt")
+tbl_ind_weights <- read_md_tbl("tables/table_2-7-A.txt")
+tbl_dqa_meta <- read_md_tbl("tables/table_2-8-a.txt")
+tbl_rag_rating <- read_md_tbl("tables/table_2-8-b.txt")
+tbl_dqa_grade_countries <- readr::read_csv("tables/table_2-8-c.csv")
+
+tbl_dqa_countries1 <- tbl_dqa_countries1 |>
+  dplyr::mutate(
+    ind_miss_which = tidyr::replace_na(ind_miss_which, ""),
+    percent_metrics = convert_percent(percent_metrics),
+    across(c(ind_low, ind_miss), ~formattable::comma(.x, digits = 0))
+  )
+
+tbl_dqa_countries2 <- tbl_dqa_countries2 |>
+  dplyr::mutate(
+    ind_miss_which = tidyr::replace_na(ind_miss_which, ""),
+    percent_metrics = convert_percent(percent_metrics),
+    across(c(ind_low, ind_miss), ~formattable::comma(.x, digits = 0))
+  )
+
+tbl_ind_weights <- tbl_ind_weights |>
+  dplyr::mutate(
+    approx_frac = tidyr::replace_na(approx_frac, ""),
+    across(c(dqa_share, final_weight), ~convert_percent(.x, digits = 1))
+  )
+
+tbl_dqa_meta <- tbl_dqa_meta |>
+  dplyr::mutate(max_count = formattable::comma(max_count, 0))
+
+tbl_rag_rating <- tbl_rag_rating |>
+  dplyr::arrange(-mean_dqa, indicator) |>
+  dplyr::mutate(
+    mean_dqa = dplyr::if_else(is.na(mean_dqa), "",
+                              scales::number(mean_dqa, accuracy = 0.001)),
+    num_metrics = dplyr::if_else(num_metrics == 0, "",
+                                 as.character(num_metrics))
+  )
+
+tbl_dqa_grade_countries <- tbl_dqa_grade_countries |>
+  dplyr::mutate(
+    dqa_overall = formattable::comma(dqa_overall, 3),
+    dqa_avl_smpl = formattable::percent(dqa_avl_smpl, 0)
+  )
+
+```
+
+# Methodology of the InCiSE index {#sec-index-methodology}
+
+As outlined in @sec-introduction, the InCiSE Index is a composite index formed
+from a series of indicators, each of which is comprised of a set individual
+metrics. The overall Index is the normalised and weighted average of the scores
+of the constituent InCiSE indicators. The InCiSE indicators are themselves
+normalised weighted averages of their individual metrics. The calculation and
+modelling process to produce the Index is as follows:
+
+1. Data processing:
+    a. Data preparation [@sec-data-prep]
+    b. Data quality assessment [@sec-data-quality]
+    c. Country coverage selection [@sec-coverage]
+    d. Imputation of missing data [@sec-imputation]
+    e. Data normalisation [@sec-normalisation]
+2. Calculation of the InCiSE indicators [@sec-calc-indicators]:
+    a. Raw score calculated as a weighted average of the individual metrics
+    b. Raw score normalised to produce final indicator score
+3. Calculation of the InCiSE Index [@sec-calc-index]:
+    a. Raw score calculated as a weighted average of the indicator scores
+    b. Raw score normalised to produce final Index score
+
+This chapter outlines the methodology for each of these different stages, and
+finishes with a discussion of key data quality considerations
+in [@sec-considerations] and comparisons over time in [@sec-time-series], while @sec-indicators-methodology provides details on
+the specific methodology of each of the InCiSE indicators.
+
+## Data preparation {#sec-data-prep}
+
+The data for InCiSE comes from a wide range of independent sources, such as the
+UN's E-Government Survey, Transparency International's Global Corruption
+Barometer, and Bertelsmann's Sustainable Governance Indicators (SGIs).[^data]
+The InCiSE partnership does not produce any of the source data itself or engage
+in primary data collection.
+
+[^data]: A full list of data sources can be found in the
+[References](references.qmd) section at the end of this report.
+
+The data for the 2019 edition of InCiSE is the latest available as of 30
+November 2018. As well as the source metrics some additional data are collected
+to aid in the imputation of missing data – this data does not directly
+contribute to the scores and therefore is not included in the published results.
+
+Some of the source data requires processing before it is suitable for use in
+the InCiSE calculations and modelling. For example:
+
+* *Binary/multiple categorical data:* some of the source data are binary
+  measures (e.g. yes/no questions) or assess multiple categories (e.g. groups
+  subject to whistleblower protection). In most cases this type of data is
+  summed.
+
+* *Individual level microdata:* InCiSE uses a custom analysis of the Programme
+  for the International Assessment of Adult Competencies (PIAAC)
+  individual-level microdata to produce country scores. The Opentender data on
+  procurement is on individual contracts, which also requires analysis to
+  produce country scores.
+ 
+* *Negatively framed data:* Some of the source data is based on negatively
+  framed questions, where a higher score is poorer performance than a lower
+  score. To align with other metrics, this data is inverted so that higher
+  scores relate to better performance than lower scores.
+
+* *Calculations against reference data:* For the inclusiveness indicator,
+  women's representation in the civil service/public sector is compared to the
+  labour market in general. Tax administration from the OECD is published as
+  raw data. InCiSE uses rates based on these data which must therefore be
+  calculated.
+
+@sec-indicators-methodology outlines the underlying source data for each of the
+indicators, and covers the specific transformations that are applied to the
+source data. @sec-composite-metrics outlines the construction and calculation
+of composite metrics.
+
+When importing data to the InCiSE model, data is matched against a reference
+list of 249 countries and territories produced by
+@arel-bundock_countrycode_2018 using the 3-digit ISO 3166-1 alphanumeric codes.
+Some source data natively uses the 3-digit ISO country codes, but some use the
+2-digit ISO code, another code system, or a name of the territory (either the
+official long/short name, or colloquial name). Therefore, as part of data
+preparation, all country references are converted to the 3-digit ISO country
+code.
+
+## Data quality assessment {#sec-data-quality}
+
+In order to provide a clearer understanding of the quality of the InCiSE Index,
+a data quality assessment has been calculated and published alongside the
+2019 edition. This assessment has a dual role: it is an important piece of
+metadata that will help users of the InCiSE Index better understand the
+results, but it has also been used to determine the country coverage of the
+InCiSE Index. This section describes the method for conducting the data quality
+assessment. The use of the assessment for country selection and weighting are
+discussed in sections @sec-coverage and @sec-calc-index respectively, while a
+wider discussion of data quality based on the results of the assessment is
+provided at section @sec-considerations.
+
+The data quality assessment is a purely quantitative exercise based on three
+factors: data availability, the (non-)use of public sector proxy data, and
+the recency of the data. The assessment does not include any subjective
+evaluation of the methodology or the quality of the data sources that the
+underlying data used by InCiSE comes from.
+
+The data quality assessment also does not incorporate assessments of the
+reliability or validity of indicator and index construction. Its purpose is to
+provide an assessment of easily quantifiable characteristics of the data,
+which can help interpretation of the InCiSE results for countries and of
+the indicators.
+
+The simple mean of the three measures is taken as the data quality score for
+each country for each indicator. The 12 overall indicator quality scores are
+then combined as a simple mean score to produce an overall data quality
+assessment for each country.
+
+For each indicator, the data quality assessment is based on three measures:
+(1) the proportion of metrics with data; (2) the proportion of metrics that
+have civil service specific data; and (3) the recency of the data. All three
+measures take a simple assessment of whether data is missing or present as
+their basis. However, each measure has different weighting rules for the data:
+
+* *Data availability:* A missing data point fora metric with a
+  within-indicator weight of 15% will give a greater penalty than a missing data
+  point for a metric with a within-indicator weight of 5%.
+* *Civil service data (1) or a public sector proxy (0):* Data points that come
+  from public sector data are treated as equivalent to being missing.
+* *Recency of the data:* The reference year of the metric is scaled from 0
+  (for 2012, the earliest year) to 1 (for 2018, the latest year) and used as
+  the weighting.[^recency]
+
+[^recency]: For example a datapoint with a reference year of 2013 will be
+weighted 0.1667, while one with a reference year of 2016 will be weighted
+0.6667.
+
+The country indicator data quality scores and overall data quality assessment
+($DQA_{c,i}$) for a given country ($c$) and indicator ($i$) is calculated by
+multiplying the missing data matrix of the metrics in the indicator for that
+country ($d_{c,i}$) by each of: the within indicator weighting for the metrics
+in the indicator ($m_i$), the proxy data status of each metric in the indicator
+($s_i$), and the recency of each metric in the indicator ($r_i$). The resulting
+products are summed and divided by three to give the mean data quality for that
+country and indicator.
+
+$$
+DQA_{c,i} = \frac{{(d_{c,i} * m_i) + (d_{c,i} * s_i) + (d_{c,i} * r_i)}}{3}
+$$
+
+The overall data quality indicator for a country ($DQA_c$) is then calculated
+as the sum of data quality assessment scores of that country for each indicator
+divided by the number of indicators ($n_i$).
+
+$$
+DQA_c = \frac{\sum{DQA_{c,i}}}{n_i}
+$$
+
+The data quality assessment scores therefore have a theoretical range from 0
+to 1. Where 0 represents there being no metrics available and 1 represents
+there being data for all metrics, with all data representing the civil service
+(i.e. not using a public-sector proxy) and all data relating to the latest
+available year. @tbl-dqa-all illustrates the complex picture of
+data quality across all countries and indicators.
+
+The table shows how maximum data quality varies from 0.333 for capabilities,
+where the available data is for a public sector proxy and the oldest data in
+the model, to 1.000 for policy making, where all the available data relates to
+the civil service and is at the latest available data.
+
+The indicators for openness, fiscal & financial management and crisis & risk
+management have good data quality (DQA score greater than or equal to 0.5) for
+a very large number of countries. Other indicators (such as HR management or
+tax administration) have a moderate number of countries with good data quality,
+but have a large number of countries with poorer data quality. Finally, some
+indicators (such as digital services or policy making) have data for only a
+small number of countries, which is typically due to the source data covering
+only OECD or EU members (or both).
+
+```{r}
+#| label: tbl-dqa-all
+#| tbl-cap: Data quality assessment (DQA) results across the 12 InCiSE
+#|   indicators and overall, for all 249 countries and territories
+#|   considered by the InCiSE data model
+
+tbl_dqa_all |>
+  gt::gt() |>
+  gt::cols_label(
+    indicator = "Indicator",
+    dqa_max = "Highest country DQA score",
+    dqa_good = "DQA ≥ 0.5",
+    dqa_poor = "0.5 > DQA > 0",
+    no_data = "DQA = 0"
+  ) |>
+  gt::tab_spanner(
+    label = "Distribution of country DQA scores",
+    columns = c(dqa_good, dqa_poor, no_data)
+  ) |>
+  gt::cols_align(
+    align = "center",
+    columns = c(dqa_max, dqa_good, dqa_poor, no_data)
+  ) |>
+  gt::tab_footnote("Table 2.2.A in the original PDF publication") |>
+  strip_gt()
+
+```
+
+## Country coverage selection {#sec-coverage}
+
+For the 2017 Pilot edition of the InCiSE Index only two countries had data for
+all 76 metrics, and a simple threshold of 75% data availability plus membership
+of the OECD were used as the selection criteria for country availability.
+However, analysis of the pilot showed (as @tbl-dqa-all shows) that there
+is a mixed picture of data availability and quality across indicators which is
+not reflected in this simple threshold. The data quality assessment outlined in
+@sec-data-quality provides a more nuanced way to consider the variation of data
+availability and quality, and is therefore used to determine which countries
+are included in the final version of the index for the InCiSE 2019.
+
+In determining country coverage, the InCiSE Partners have decided to use an
+overall data quality assessment score of 0.5 or greater for the threshold for
+country inclusion. 38 countries reached this score. Although two further
+countries would be included if data quality scores were rounded to 1 decimal
+place, these two countries have lower data availability (57% and 51% of all
+metrics respectively), which is judged to be too low for reliable analysis.
+Therefore, the 38 countries with a data quality score of 0.5 or higher
+(when rounded to 2-decimal places) are included in the 2019 edition of the
+InCiSE Index. This includes all 31 countries covered by the InCiSE pilot.
+
+@tbl-dqa-incise provides an overview of the country-level data quality scores
+for the group of 38 countries. The table shows that for most indicators the 38
+countries have generally good data quality. However, for four indicators
+(capabilities, crisis & risk management, digital services and procurement)
+there are a small number of countries with no available data at all.
+
+@tbl-dqa-countries1 provides a summary of the data quality assessment for all
+38 countries selected for the 2019 edition of InCiSE, @tbl-dqa-countries2
+provides the assessment for the five countries with the next highest data
+quality score. One country (the United Kingdom) achieved the highest overall
+data quality score of 0.757, followed closely by five others (Italy, Poland,
+Sweden, Norway and Slovenia). Countries included for the first time in the
+2019 edition of the Index are flagged with the "[new]" marker next to their
+country name in @tbl-dqa-countries1.
+
+Further discussion on data quality issues are provided at the end of this
+chapter in section @sec-considerations, covering both the quality of the
+indicators and interpretation of country level results from the InCiSE Index.
+
+```{r}
+#| label: tbl-dqa-incise
+#| tbl-cap: Data quality assessment (DQA) results for the 38 countries included
+#|   in the 2019 index
+#| column: body-outset-right
+
+tbl_dqa_incise |>
+  gt::gt() |>
+  gt::cols_label(
+    indicator = "Indicator",
+    dqa_min = "Lowest country DQA score",
+    dqa_max = "Highest country DQA score",
+    dqa_mean = "Mean country DQA score",
+    dqa_good = "DQA ≥ 0.5",
+    dqa_poor = "0.5 > DQA > 0",
+    no_data = "DQA = 0"
+  ) |>
+  gt::tab_spanner(
+    label = "Distribution of country DQA scores",
+    columns = c(dqa_good, dqa_poor, no_data)
+  ) |>
+  gt::cols_align(
+    align = "center",
+    columns = c(starts_with("dqa_"), no_data)
+  ) |>
+  gt::tab_footnote("Table 2.3.A in the original PDF publication") |>
+  strip_gt()
+
+```
+
+
+```{r}
+#| label: tbl-dqa-countries1
+#| tbl-cap: Data quality assessment (DQA) results by country
+#| column: body-outset-right
+
+tbl_dqa_countries1 |>
+  gt::gt() |>
+  gt::cols_label(
+    cc_iso3c = "Code",
+    cc_name = "Country",
+    dqa = "Overall DQA score",
+    percent_metrics = "Percent of metrics available",
+    ind_low = "Number of indicators where: 0.5 > DQA > 0",
+    ind_miss = "Number",
+    ind_miss_which = "Indicators"
+  ) |>
+  gt::tab_spanner(
+    label = "Indicators with completely missing data (DQA = 0)",
+    columns = starts_with("ind_miss")
+  ) |>
+  gt::tab_footnote("Table 2.3.B in the original PDF publication") |>
+  strip_gt()
+
+```
+
+```{r}
+#| label: tbl-dqa-countries2
+#| tbl-cap: Data quality assessment (DQA) results by country for the next
+#|   countries after the 38 selected for inclusion in the InCiSE 2019 model
+#| column: body-outset-right
+
+tbl_dqa_countries2 |>
+  gt::gt() |>
+  gt::cols_label(
+    cc_iso3c = "Code",
+    cc_name = "Country",
+    dqa = "Overall DQA score",
+    percent_metrics = "Percent of metrics available",
+    ind_low = "Number of indicators where: 0.5 > DQA > 0",
+    ind_miss = "Number",
+    ind_miss_which = "Indicators"
+  ) |>
+  gt::tab_spanner(
+    label = "Indicators with completely missing data (DQA = 0)",
+    columns = starts_with("ind_miss")
+  ) |>
+  gt::cols_align("center", c(dqa, percent_metrics, ind_low)) |>
+  gt::tab_footnote("Table 2.3.B in the original PDF publication") |>
+  strip_gt()
+
+```
+
+## Imputation of missing data {#sec-imputation}
+
+As seen in Table @tbl-dqa-countries1 only one country has complete data (i.e.
+100% of metrics). The average level of data availability is 86% across the 38
+countries, and 7 of the included countries have data availability below the
+75% threshold used for the 2017 Pilot, with the lowest level of data
+availability being 65%. Of the 38 countries, 15 have one indicator with a data
+quality score of 0 (i.e. no data at all for that indicator), two countries have
+two indicators with a data quality score of 0 and one country has three
+indicators with a data quality score of 0.
+
+This presents issues for the analysis of the data and providing an effective
+method for aggregating the metrics into indicators and an overall index.
+The 2017 Pilot edition of InCiSE adopted two methods for imputation: multiple
+imputation using linear regression and median imputation. For the 2019 edition
+of InCiSE a decision has been made to move fully to a multiple imputation
+approach, using the 'predictive mean matching' (PMM) technique of
+@van_buuren_mice_2011. The PMM technique uses correlation – of both the values
+and pattern of missing data – to identify for a country with missing data those
+countries in the dataset that closely match it, and randomly select one of
+those to replace the missing value. Following the approach set out by
+@van_buuren_flexible_2018, for each missing value 15 imputations are generated
+(each of which has also been iterated 15 times). A simple mean of these 15
+imputation values is then calculated and used as the country's value in the
+'final' dataset.
+
+Imputation is handled on a per-indicator basis – in most cases imputation will
+be solely from within the metrics of that indicator. However, a few indicators
+have external predictors, either data from elsewhere in the InCiSE model or
+from an external data source. Full details of the imputation approach for each
+indicator is described in @sec-indicators-methodology.
+
+## Data normalisation {#sec-normalisation}
+
+As a result of coming from different sources, the underlying data that drives
+the InCiSE model has a variety of formats: some are proportions or scores from
+0 to 1 or 0 to 100; some are ratings on a scale, or the average of ratings
+given by a set of assessors/survey participants; and some are counts. The
+different formats of these data are not easily comparable, and cannot be
+directly averaged together to produce a combined score. In order to facilitate
+the comparison and combination of data from different sources, the metrics are
+normalised so that they are all in a common format.
+
+There are a number of normalisation techniques that could be used. A useful
+discussion of the different methods is provided in the @oecd_handbook_2008
+Handbook on Constructing Composite Indicators. The InCiSE Index uses min-max
+normalisation at all stages, as this maintains the underlying distribution of
+each metric while providing a common scale of 0 to 1. The common scale is of
+particular benefit, as it helps achieve InCiSE's goal of assessing relative
+performance. In the min-max normalisation 0 represents the lowest achieved
+score and 1 represents the highest achieved score. It is therefore important
+to note that scoring 0 on a particular metric, indicator or the index itself
+does not represent poor performance in absolute terms, nor does scoring 1
+represent high performance in absolute terms. Rather the country is either the
+lowest or highest performing of the 38 countries selected.
+
+The min-max normalisation operates via the following mathematical formula:
+
+$$
+m_c = \frac{x_c-x_{min}}{x_{max}-x_{min}}
+$$
+
+For a metric for a given country its normalised score ($m_c$) is calculated as
+the difference of the country's original score ($x_c$) from the metric's
+minimum score ($x_min$) divided by the range of the metric's scores (the
+difference of the metric's maximum score ($x_max$) from the metric's minimum
+score ($x_min$).
+
+## Calculation of the InCiSE indicators {#sec-calc-indicators}
+
+Once the data has been processed, missing data imputed, and the metrics
+normalised, the InCiSE indicators can be calculated. There are two stages to
+the calculation of the indicators: the weighting of the metrics into an
+aggregate score, and the normalisation of that score.
+
+As outlined in @fig-datamodel, the InCiSE data model first groups metrics into
+themes before aggregating into the indicator scores themselves. These themes
+are purely structural and scores for them are not computed. The raw score for
+an indicator follows this formula:
+
+$$
+i_c = \sum{(m_{i,c}*w_m*w_t)}
+$$
+
+A country's raw score for an indicator ($i_c$) is calculated as the sum of the
+product of each metric within the indicator for that country ($m_{i,c}$) with
+the weight of that metric within its theme ($w_m$) and the weight of that
+theme within the indicator ($w_t$). The weighting structure for each indicator
+is listed in detail in @sec-indicators-methodology. After the raw scores are
+calculated they are normalised as described in @sec-normalisation above.
+
+
+## Calculation of the InCiSE Index {#sec-calc-index}
+
+The InCiSE Index is an aggregation of the InCiSE indicators. Ideally, the
+indicators would be combined equally, however in producing the 2017 Pilot
+edition the InCiSE Partners felt it important to consider relative data
+quality. In the 2017 Pilot this was done by placing a lower weight on the
+indicators measuring 'attributes' than those measuring'functions', as the
+four attribute indicators were considered to generally have lower data quality
+than those measuring functions. The 2019 edition builds on this approach to
+weighting by using the results of the data quality assessment (section
+@sec-data-quality).
+
+For this approach to weighting, two-thirds of the weighting is allocated on an
+equal basis, while one third is allocated according to the outcome of the data
+quality assessment. The weight for an indicator is calculated as follows:
+
+$$
+w_i = \left(\frac{2}{3}*\frac{1}{n_i}\right) + \left(\frac{1}{3}*Q_i\right)
+$$
+
+Here the indicator weight ($w_i$) is equal to the product of two-thirds and
+the equal share (1 divided by $n_i$, the number of indicators; i.e. 1/12) plus
+the product of one-third and the data quality weight for the indicator ($Q_i$).
+The data quality weight is calculated first by summing the data quality scores
+of the 38 selected countries for the indicator. The indicator's data quality
+sum is then divided by the sum of all indicator data quality scores, in essence
+providing a score that represents that indicator's share of the total data
+quality for the 38 countries selected. The resulting weights are shown in
+Table @tbl-ind-weights.
+
+A country's overall raw index score ($I_c$) is thus calculated as the sum of
+the product of the normalised indicator scores for the country ($i_c$) with the
+indicator weights ($w_i$):
+
+$$
+I_c = \sum{(i_c * w_i)}
+$$
+
+After calculating the raw index scores, they are then are normalised as
+outlined in @sec-normalisation, resulting in the overall index scores for the
+2019 edition of InCiSE.
+
+```{r}
+#| label: tbl-ind-weights
+#| tbl-cap: InCiSE 2019 indicator weightings
+
+tbl_ind_weights |>
+  gt::gt() |>
+  gt::cols_label(
+    indicator = "InCiSE indicator",
+    dqa_sum = "Sum of data quality scores",
+    dqa_share = "Share of total data quality scores",
+    final_weight = "Final weight",
+    approx_frac = "Approximate fraction"
+  ) |>
+  gt::cols_align("center", c(dqa_sum, dqa_share, final_weight, approx_frac)) |>
+  gt::sub_missing(missing_text = "") |>
+  gt::tab_footnote("Table 2.7.A in the original PDF publication") |>
+  strip_gt()
+
+```
+
+## Data quality considerations {#sec-considerations}
+
+Sections @sec-coverage and @sec-calc-index illustrate how the data quality
+assessment described in section @sec-data-quality is used within the InCiSE
+model for country selection and indicator weighting.
+
+The assessment can also be used to help interpret the results of the InCiSE
+Index, both in terms of the quality of the indicators and for country results.
+
+### Quality of indicators
+
+The data quality assessment conducts three checks for each indicator: the
+availability of metrics, the (non-)use of wider public sector data as a proxy,
+and the recency of the data. @tbl-dqa-meta summarises the results of these
+three checks for each of the indicators.
+
+As discussed in sections @sec-coverage and @sec-imputation there are four
+indicators where at least one country is missing all data for the indicator.
+Conversely, there is only one indicator (policy making) where all 38 countries
+have all data available. When it comes to the use of public sector proxy data,
+there are six indicators where all the data is not a public sector proxy,
+giving the indicators a maximum proxy data score of 1, and only two indicators
+(capabilities and digital services) where all the data relates to the civil
+service and is not public sector proxy which means their maximum proxy score
+is 0. The recency calculation is a relative assessment where the oldest data
+(2012) scored 0 and the most recent data (2018) scored 1 – here we see that
+only one indicator (policy making) is composed solely of 2018 data and again
+only one indicator (capabilities) is composed solely of 2012 data.
+
+```{r}
+#| label: tbl-dqa-meta
+#| tbl-cap: Summary of data quality metadata for the 38 countries of the
+#|   InCiSE 2019 Index
+#| column: page-inset-right
+
+tbl_dqa_meta |>
+  gt::gt() |>
+  gt::cols_label(
+    indicator = "InCiSE indicator",
+    avl_min = "Min",
+    avl_max = "Max",
+    psp_min = "Min",
+    psp_max = "Max",
+    rec_min = "Min",
+    rec_max = "Max",
+    dqa_min = "Min",
+    dqa_max = "Max",
+    max_count = "Countries with max DAQ score",
+    mean_dqa = "Mean DQA score",
+    rag_rating = "RAG rating"
+  ) |>
+  gt::tab_spanner(label = "Data availability", starts_with("avl_")) |>
+  gt::tab_spanner(label = "Public sector proxy", starts_with("psp_")) |>
+  gt::tab_spanner(label = "Recency of data", starts_with("rec_")) |>
+  gt::tab_spanner(label = "Overall DQA score", starts_with("dqa_")) |>
+  gt::fmt(columns = rag_rating, fns = rag_image) |>
+  gt::cols_align("center", columns = -indicator) |>
+  gt::tab_footnote("Table 2.8.A in the original PDF publication") |>
+  strip_gt()
+
+```
+
+:::{.aside .nobullet}
+- ![Green](figures/green-circle.png){.img_h15} Mean DQA &#x2265; 0.75
+- ![Amber](figures/amber-circle.png){.img_h15} Mean DQA 0.75-0.25
+- ![Red](figures/red-circle.png){.img_h15} Mean DQA < 0.25
+:::
+
+We can also see in @tbl-dqa-meta that there is noticeable variation in the
+number of countries that achieve the maximum overall data quality score for
+each indicator. For policy making all 38 countries score achieve the maximum
+score, while for integrity only 14 countries achieve the maximum score.
+
+Besides integrity, three other indicators (crisis & risk management, fiscal &
+financial management, and procurement) have less than 20 countries achieving
+the maximum score, while three indicators besides policy making have more than
+30 countries achieving the maximum score (HR management, inclusiveness, and
+regulation).
+
+The indicator data quality scores can also be used to create a data-driven
+red-amber-green (RAG) rating for data quality. Using the mean overall data
+quality scores for each indicator from the 38 countries selected for the 2019
+edition of InCiSE, a 'green' rating is assigned to those with a score of 0.75
+or higher, 'amber' to those with a score between 0.25 and 0.75, and 'red' to
+those with a score below 0.25.
+
+However, the data quality assessment does not consider the reliability and
+validity of each indicator's construction and therefore says nothing on how
+well the indicator represents the concept it is trying to measure. Instead,
+these data-driven RAG ratings can be combined with a subjective assessment of
+wider data quality concerns to make an overall assessment of the general
+'quality' of each indicator. @tbl-rag-rating shows the data quality assessment
+of each indicator alongside a high-level qualitative assessment of the
+indicator and a 'final' subjective RAG rating for the indicator.
+
+```{r}
+#| label: tbl-rag-rating
+#| tbl-cap: Overall quality assessment 'RAG' rating of the 2019
+#|   InCiSE indicators
+
+tbl_rag_rating |>
+  gt::gt() |>
+  gt::cols_label(
+    indicator = "InCiSE indicator",
+    mean_dqa = "Mean DQA score",
+    num_metrics = "Number of metrics",
+    dqa_rag = "DQA-based RAG rating",
+    assessment = "High-level assessment of the reliability and validity of the indicator construction",
+    final_rag = "Final RAG rating"
+  ) |>
+  gt::cols_align("center", c(mean_dqa, num_metrics, dqa_rag, final_rag)) |>
+  gt::fmt(
+    columns = c(dqa_rag, final_rag),
+    fns = rag_image
+  ) |>
+  gt::tab_footnote("Table 2.8.B in the original PDF publication") |>
+  strip_gt()
+
+```
+
+:::{.aside .nobullet}
+- ![Green](figures/green-circle.png){.img_h15} Green rating icon
+- ![Amber](figures/amber-circle.png){.img_h15} Amber rating icon
+- ![Red](figures/red-circle.png){.img_h15} Red rating icon
+- ![X](figures/grey-x.png){.img_h15} X rating icon
+:::
+
+Five of the indicators have a mean data quality score of 0.75 or higher,
+earning them an initial 'green' rating. Of these indicators, three retain their
+green rating after wider considerations of the quality of the indicators are
+taken into account, meaning that these indicators are considered to provide
+broad and robust coverage of their respective concepts. Two of the five are
+demoted from green to amber, reflecting concerns about whether the indicators
+are sufficiently broad.
+
+Six of the indicators have an initial 'amber' rating. Five of these indicators
+retain their rating, meaning they may only provide partial coverage of the
+underlying concept or be heavily reliant on one particular data source or type
+of data. One of the six is demoted from amber to red, reflecting concerns that
+the indicator provides limited coverage of the underlying concept.
+
+One indicator has an initial 'red' rating, which is driven largely by its lack
+of recent data and being solely composed of public sector proxy data. Finally,
+the social security function, which was included in the 2017 Pilot, is given a
+'red' rating following its removal from the 2019 edition of InCiSE due to data
+quality concerns. This change is discussed further in @sec-changes and
+@sec-future-development.
+
+### Quality of country-level results
+
+Country-level data quality has already been considered to some degree, through
+the determination of country selection in @sec-coverage. However, as with the
+quality of indicators, the results of the data quality assessment can be used
+to show the relative quality of the selected countries, which can help improve
+interpretation of the results of the InCiSE Index.
+
+@tbl-dqa-grade presents a detailed overview of the data quality by country.
+Each country has been given an overall data quality letter "grade" based on its
+overall data quality score, and for each indicator each country has been given
+a "RAG" rating.
+
+The overall data quality grades are allocated as follows based on a country's
+data quality score rounded to 2 decimal places:
+
+* **A+** for those countries that achieve the highest overall data quality
+  assessment score (i.e. a data quality score of 0.75 when rounded to 2
+  decimal places)
+* **A** for countries with a data quality score greater than or equal to 0.7
+  but less than 0.75
+* **B** for countries with a data quality score greater than or equal to 0.65
+  but less than 0.7
+* **C** for countries with a data quality score greater than or equal to 0.6
+  but less than 0.65
+* **D** for countries with a data quality score greater than or equal to 0.5
+  but less than 0.6
+ 
+For the indicators, a four category "RAG+" rating system is adopted. The data
+quality scores have been normalised (using min-max normalisation) by indicator:
+
+* A 'green' rating is given to those countries with a normalised indicator
+  data quality score of 1 – the country has the best possible data for this
+  indicator.
+
+* An 'amber' rating is given to those countries with a normalised indicator
+  data quality score of greater than or equal to 0.5 – the country's data
+  quality is at least half as good as the 'best' possible data for that
+  indicator.
+
+* A 'red' rating is given to those countries with a normalised indicator
+  data quality score of less than 0.5 – the country's data quality is less than
+  half as good as the'best' possible data for that indicator.
+
+* An 'X' rating is given to those countries which have no data at all for
+  that metric – that all of the country's scores for the metrics in that
+  indicator have been imputed.
+
+```{r}
+#| label: tbl-dqa-grade
+#| tbl-cap: Data quality scores by indicator and country
+
+tbl_dqa_grade_countries |>
+  gt::gt() |>
+  gt::cols_label(
+    cc_iso3c = "Country",
+    dqa_overall = "Overall data quality score",
+    dqa_grade = "Data quality grade",
+    dqa_avl_smpl = "Percent of metrics available",
+    dqa_cap_dqi = "CAP",
+    dqa_crm_dqi = "CRM",
+    dqa_dig_dqi = "DIG",
+    dqa_ffm_dqi = "FFM",
+    dqa_hrm_dqi = "HRM",
+    dqa_inc_dqi = "INC",
+    dqa_int_dqi = "INT",
+    dqa_opn_dqi = "OPN",
+    dqa_pol_dqi = "POL",
+    dqa_pro_dqi = "PRO",
+    dqa_reg_dqi = "REG",
+    dqa_tax_dqi = "TAX"
+  ) |>
+  gt::cols_align("center", starts_with("dqa_")) |>
+  gt::fmt(
+    columns = ends_with("_dqi"),
+    fns = rag_image
+  ) |>
+  gt::tab_footnote("Table 2.3.C in the original PDF publication") |>
+  strip_gt()
+
+```
+
+:::{.aside .nobullet}
+- ![Green](figures/green-circle.png){.img_h15} Green rating icon
+- ![Amber](figures/amber-circle.png){.img_h15} Amber rating icon
+- ![Red](figures/red-circle.png){.img_h15} Red rating icon
+- ![X](figures/grey-x.png){.img_h15} X rating icon
+:::
+
+@tbl-dqa-grade reveals interesting patterns in data quality:
+
+* Six countries are given an "A+" rating – one has full data for all indicators
+  (i.e. all indicator rated 'green'), while the other five have just one
+  indicator where they have an 'amber' rating.
+* Eight countries achieve an "A" rating – they have generally good coverage of
+  data but typically have two or three indicators rated 'amber' or 'red", only
+  one country has an indicator where all data for that indicator has been
+  imputed (rated'grey').
+* Seven countries achieve a "B" rating for data quality – these countries have
+  a greater degree of 'amber' and 'red' rated indicators, typically four. All
+  but one country has at least one 'red' rated indicator, one country has one
+  indicator fully imputed while another has two indicators fully imputed.
+* Ten countries achieve a "C" rating for data quality – all countries have at
+  least one 'red' rated indicator and eight of the countries have at least one
+  indicator fully imputed.
+* Seven countries achieve a "D" rating for data quality – all countries both
+  have at least one indicator fully imputed and one indicator rated 'red',
+  four countries have at least four indicators rated 'red'.
+
+## Comparisons over time {#sec-time-series}
+
+The InCiSE project is still in its infancy, and the methodology for the 2019
+Index has built substantially on the foundations of the 2017 Pilot – most of
+the metrics used in the 2017 Pilot have continued to be used in the 2019
+edition. Of the 70 metrics in the 2017 Pilot that are directly comparable to
+the 2019 edition, 33 have since had updates which are incorporated into the
+model.
+
+In addition to the 70 metrics carried over from the 2017 Pilot, a further 46
+metrics have been incorporated into the InCiSE methodology, bringing the total
+number of metrics for the 2019 model to 116. Most of these additional metrics
+(30) are from existing sources. Some have been collected multiple times, but
+some are new and have no previous data collection. Changes are summarised
+in @sec-changes.
+
+A further consideration for comparisons over time is the need to deal with
+different reference dates and frequencies of updating.
+
+Some data is updated on an annual basis while others are on two-year,
+three-year, or longer update cycles. For example, the data for capabilities
+has not been updated since it was first collected in 2012. These differing
+cycles are the function of a variety of different factors, such as an
+appreciation of the pace of change within a given topic area or the funding
+and resourcing of the data producers.
+
+As outlined in @sec-imputation, the InCiSE model uses imputation methods which
+use statistical techniques to provide an estimate of a country's missing data.
+While the imputation is based on predictive methods, it is not a firm
+prediction of what a given country would have scored, but better understood as
+indicative. The imputation methods may change between years, and the
+relationships in the observed data (from which the imputation is drawn) may
+also change, limiting the reliability of comparing data imputed in one year
+with data imputed in another year.
+
+It may also be the case that at one time point a country did not have data for
+a given metric but then has data at a later time point (or vice versa). This
+would mean that for one point the metrics would have been imputed.
+
+Comparing a score based on 'real' data with one based on imputed estimates is
+unlikely to be reliable. In addition, as the methodology for InCiSE develops,
+future versions of the InCiSE Index could adopt back-/forward-casting (i.e.
+using results from different time points) to improve the quality of the
+imputation methods. This would also make time-series comparison more
+complicated or less feasible.
+
+Finally, consideration should be given to the changing country composition.
+The 2017 Pilot covered 31 countries, while the 2019 edition covers 38
+countries. As outlined in section @sec-normalisation, the data is normalised
+so that country scores are relative to the group of countries selected. This
+again means it is not possible to directly compare scores from one edition of
+InCiSE to another as the scores are related to the specific data range and
+country set used for that edition.
+
+As a result of these varied challenges, the InCiSE Partners have decided not
+to include any comparisons between the 2017 Pilot and the 2019 edition of the
+InCiSE Index.
+
+Furthermore, the Partners strongly advise against any direct or indirect
+comparisons being made beyond references to changes in the underlying source
+data itself (i.e. before the data is imported into the InCiSE data model,
+processed, imputed and normalised).
+
