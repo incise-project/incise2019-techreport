@@ -13,9 +13,10 @@ get_qmd_secs <- function(qmd_file) {
     input = x[grepl("#sec-", x)]
   ) |>
     dplyr::mutate(
-      level = nchar(gsub("(^#+).*", "\\1", input)),
-      reference = gsub(".*\\{#(sec.+)}$", "\\1", input),
-      name = gsub("^#+ (.*) \\{#sec.+}$", "\\1", input),
+      level = nchar(gsub("(^#+).*", "\\1", input)) - 1,
+      reference = gsub(".*\\{#(sec\\S+).*\\}.*$", "\\1", input),
+      name = gsub("^#+\\s(.*)\\s\\{#sec\\S+.*\\}.*$", "\\1", input),
+      unnumbered = grepl("unnumbered", input),
       sec_num = dplyr::row_number() - 1
     ) |>
     dplyr::select(-input)
@@ -102,45 +103,81 @@ get_qmd_figs <- function(qmd_file) {
 
 # get a df of parts from a quarto book
 get_book_parts <- function(what = c("sec", "tbl", "fig"), input = ".",
-                           insert_breaks = TRUE) {
+                           insert_breaks = TRUE, drop_empty = TRUE) {
   
   what <- match.arg(what)
   
   x <- quarto::quarto_inspect(input)
-  y <- x$config$project$render
+  y <- x$config$book$render
   
   if (what == "sec") {
-    out <- purrr::map_dfr(y, get_qmd_secs, .id = "source") |>
+    out <- y |> 
       dplyr::mutate(
-        source = y[as.numeric(source)],
-        indent = purrr::map_chr(
-          level, 
-          ~paste0(rep(" ", (.x - 1) * 4), collapse = "")
+        order = dplyr::row_number(),
+        sections = purrr::map(file, get_qmd_secs)
+      ) |>
+      tidyr::unnest(sections, keep_empty = TRUE) |>
+      dplyr::mutate(
+        level = tidyr::replace_na(level, 0),
+        full_depth = depth + level,
+        name = dplyr::case_when(
+          is.na(name) & !is.na(text) ~ gsub("\\s\\{.*", "", text),
+          TRUE ~ name
         ),
-        output = paste0(indent, "* @", reference, ": ", name),
-        output = dplyr::if_else(
-          grepl("unnumbered", reference),
-          paste0(indent, "* [", name,"](", source, ")"),
-          output
-        )
+        out_text = dplyr::case_when(
+          is.na(name) ~ NA_character_,
+          is.na(file) ~ name,
+          is.na(number) & level == 0 ~ 
+            paste0("[", name, "](", file, ")"),
+          is.na(number) ~ 
+            paste0("[", name, "](", file, "#", reference,")"),
+          TRUE ~ paste0("@", reference, ": ", name)
+        ),
+        indent = purrr::map_chr(
+          .x = full_depth,
+          .f = ~paste0(rep(" ", .x * 4), collapse = "")
+        ),
+        output = dplyr::if_else(is.na(out_text), NA_character_, 
+                                paste0(indent, "* ", out_text))
+      ) |>
+      dplyr::select(
+        type, file, full_depth, order, chapter_number = number,
+        section_number = sec_num, reference, name, output
       )
+    
+    if (drop_empty) {
+      out <- out |>
+        tidyr::drop_na(output)
+    }
+      
   } else if (what == "tbl" | what == "fig") {
     
     if (what == "tbl") {
-      df <- purrr::map_dfr(y, get_qmd_tbls, .id = "source")
+      df <- y |> 
+        dplyr::mutate(
+          order = dplyr::row_number(),
+          tables = purrr::map(file, get_qmd_tbls),
+          type = "table"
+        ) |>
+        tidyr::unnest(tables, keep_empty = FALSE)
     } else if (what == "fig") {
-      df <- purrr::map_dfr(y, get_qmd_figs, .id = "source")
+      df <- y |> 
+        dplyr::mutate(
+          order = dplyr::row_number(),
+          figures = purrr::map(file, get_qmd_figs),
+          type = "figure"
+        ) |>
+        tidyr::unnest(figures, keep_empty = FALSE)
     }
     
     out <- df |>
-      dplyr::mutate(source = y[as.numeric(source)]) |>
       dplyr::add_row(
-        source = sort(unique(y)),
+        file = sort(unique(y$file)),
         group = Inf
       ) |>
-      dplyr::add_count(source) |>
+      dplyr::add_count(file) |>
       dplyr::filter(n > 1) |>
-      dplyr::arrange(source, group) |>
+      dplyr::arrange(file, group) |>
       dplyr::mutate(
         output = dplyr::if_else(
           group == Inf,
@@ -155,6 +192,12 @@ get_book_parts <- function(what = c("sec", "tbl", "fig"), input = ".",
     } else if (out$output[nrow(out)] == "\n******\n") {
       out <- out[1:(nrow(out) - 1), ]
     }
+    
+    out <- out |>
+      dplyr::mutate(order = dplyr::row_number(),
+                    type = tidyr::replace_na(type, "spacer")) |>
+      dplyr::select(type, file, order, chapter_number = number,
+                    item_number = group, reference, name, output)
     
   } else {
     return(NULL)

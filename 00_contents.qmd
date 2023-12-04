@@ -16,9 +16,9 @@ source("R/gen_contents.R")
 
 This report is structured into six chapters and two appendices.
 
-:::{.custom-toc}
+:::{.custom-toc .report-contents}
 
-```{r}
+```{r, list-sections}
 #| output: asis
 cat(get_content_list("sec"), sep = "\n")
 ```
@@ -27,9 +27,9 @@ cat(get_content_list("sec"), sep = "\n")
 
 ## List of figures
 
-:::{.custom-toc}
+:::{.custom-toc .list-of-figures}
 
-```{r}
+```{r, list-figures}
 #| output: asis
 cat(get_content_list("fig", insert_breaks = FALSE), sep = "\n")
 ```
@@ -38,9 +38,9 @@ cat(get_content_list("fig", insert_breaks = FALSE), sep = "\n")
 
 ## List of tables
 
-:::{.custom-toc}
+:::{.custom-toc .list-of-tables}
 
-```{r}
+```{r, list-tables}
 #| output: asis
 cat(get_content_list("tbl"), sep = "\n")
 ```

@@ -5,6 +5,7 @@
 $incise-blue:             #0082c2;
 $incise-blue-tint:        tint-color($incise-blue, 95%) !default;
 $incise-green:            #009d94;
+$note-color:              #848484;
 
 $h2-font-size:            1.25rem !default;
 $h3-font-size:            1.1rem !default;
@@ -143,15 +144,10 @@ main li p {
   display: table;
 }
 
-.custom-toc ul {
-  list-style: none;
-  margin-bottom: 1.25rem;
-}
-
 .custom-toc li {
   list-style: none;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
 }
 
 .custom-toc li::before {
@@ -160,6 +156,19 @@ main li p {
 
 .custom-toc hr {
   background-color: unset;
+  margin: 0.5rem 0;
+}
+
+.custom-toc.report-contents ul li {
+  margin-bottom: 1.25rem;
+}
+
+.custom-toc.report-contents ul ul, .custom-toc.report-contents ul ul li {
+  margin-bottom: 0.25rem;
+}
+
+.custom-toc.list-of-tables ul {
+  margin-bottom: 0.25rem;
 }
 
 figure svg {
@@ -172,7 +181,7 @@ svg text {
 }
 
 figure .source-note {
-  color: #848484;
+  color: $note-color;
   font-size: 0.65rem;
   text-align: left !important;
 }
@@ -262,7 +271,7 @@ table.table tbody tr.odd {
 }
 
 .gt_footnote {
-  color: #848484;
+  color: $note-color;
   font-size: 0.65rem;
   border-bottom: none;
 }
@@ -315,4 +324,36 @@ main a:hover {
 
 .references li::before {
   display: none;
+}
+
+/*-- callout boxes --*/
+
+div.callout-note.callout {
+  border-left-color: #dee2e6;
+  background-color: unset;
+  color: $note-color;
+}
+
+.callout.callout-style-default .callout-body {
+  font-size: 0.65rem;
+}
+
+.callout.callout-style-default {
+    border-left: 3px solid;
+    border-right: 0px;
+    border-top: 0px;
+    border-bottom: 0px;
+}
+
+div.callout-note.callout-style-default>.callout-header {
+  background-color: unset;
+}
+
+.callout .callout-title-container {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+}
+
+.callout {
+  border-radius: unset;
 }
