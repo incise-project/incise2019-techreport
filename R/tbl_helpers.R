@@ -87,7 +87,7 @@ composite_metrics_table <- function(df, ind, footnote) {
     ) |>
     tidyr::pivot_longer(cols = c(-order, -rowspan, -lead_cell)) |>
     dplyr::mutate(
-      content = gsub(" (\\[Range)", "<br />\\1", value),
+      content = gsub(" (\\[Range)", "<br>\\1", value),
       tr_open = dplyr::if_else(name == "metric_label", "<tr>\n", ""),
       tr_close = dplyr::if_else(name == "composite_calc", "</tr>\n", ""),
       td_tag = dplyr::case_when(
@@ -113,8 +113,8 @@ composite_metrics_table <- function(df, ind, footnote) {
       "<th class=\"gt_col_heading gt_columns_bottom_boder\" scope=\"col\">InCiSE metric</th>",
       "<th class=\"gt_col_heading gt_columns_bottom_boder\" scope=\"col\">Source variables</th>",
       "<th class=\"gt_col_heading gt_columns_bottom_boder\" scope=\"col\">Coding</th>",
-      "<th class=\"gt_col_heading gt_columns_bottom_boder\" scope=\"col\">Calculation</tg>",
-      "</tr>\n</tead>\n<tbody class=\"gt_table_body\">\n"), 
+      "<th class=\"gt_col_heading gt_columns_bottom_boder\" scope=\"col\">Calculation</th>",
+      "</tr>\n</thead>\n<tbody class=\"gt_table_body\">\n"), 
     collapse = "\n"
   )
   
