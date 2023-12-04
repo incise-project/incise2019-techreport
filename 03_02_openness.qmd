@@ -1,0 +1,81 @@
+---
+execute:
+  echo: false
+---
+
+```{r, setup}
+#| output: false
+source("R/tbl_helpers.R")
+
+tbl_3 <- readr::read_csv("tables/table_3.csv") |>
+  dplyr::mutate(
+    proxy = dplyr::if_else(proxy, "Yes", "No"),
+    label = dplyr::if_else(new, paste0(label, " [new]"), label),
+    wt_intheme = formattable::percent(1/wt_intheme, 1),
+    wt_theme = formattable::percent(1/wt_theme, 1),
+    wt_total = formattable::percent(wt_intheme * wt_theme, 1)
+  )
+
+```
+
+# Openness {#sec-method-openness}
+
+<!-- This is chapter 3, section 2 in the original PDF -->
+
+The openness indicator is defined as: the regular practice and degree of
+consultation with citizens to help guide the decisions we make and extent of
+transparency in our decision-making. It is included in the index because the
+need for transparency within a civil service is imperative for the public to
+trust and feel empowered to hold the government accountable for their actions,
+whilst at the same time reducing corruption. The @world_bank_world_2017 notes 
+that "transparency initiatives [are] an important first step toward increasing
+accountability". The UN also outlines the need for transparency and
+accountability in governance: "[this] implies a proactive effort to make
+information accessible to citizens" and it is "one indicator of a government
+that is citizen-focused and service-oriented" [@united_nations_transparency_1999].
+@graham_principles_2003 also refer to the United Nations Development Program's
+five principles of good governance, in which transparency is identified as a key
+characteristic.
+
+This indicator is comprised of 10 metrics, an increase of one from the 2017
+Pilot edition of InCiSE. The data sources for the openness indicator are:
+
+* The open government domain of the World Justice Project's Rule of Law Index
+  (RLI) [2017].
+* The United Nations' E-Participation Index(UN) [2018].
+* Bertelsmann Stiftung's Sustainable Governance Indicators (SGI) [2018].
+* The World Wide Web Foundation's Open Data Barometer (ODB) [2016].
+* Open Knowledge International's Global Open Data Index (OKI) [2016].
+* The OECD's Open, Useful, Reusable (OUR) Government Data Index (OECD) [2016].
+
+```{r}
+#| label: tbl-comp-opn
+#| tbl-cap: Composition of the openness indicator
+#| column: screen-inset-right
+#| classes: no-stripe .table-responsive
+
+tbl_3 |>
+  composition_table("OPN") |>
+  gt::tab_footnote("Tables 3.2.A & 3.2.B in the original 2019 publication") |>
+  strip_gt()
+
+```
+
+## Imputation of missing data {#sec-openness-imputation}
+
+None of the 38 countries selected for the 2019 edition of InCiSE have
+completely missing data for the openness metrics. As a result the imputation
+of missing data for the openness metrics is based solely on the data within
+the indicator.
+
+## Changes from the 2017 Pilot {#sec-openness-changes}
+
+Compared to the 2017 Pilot, an additional metric from the Bertelsmann
+Sustainable Governance Indicators on access to information has been identified
+and added to the indicator.
+
+::: {.callout-note .crf title="Cross-referencing note" icon="false"}
+
+This chapter was presented as section 3.2 in the original 2019 publication.
+
+:::

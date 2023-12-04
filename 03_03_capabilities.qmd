@@ -1,0 +1,281 @@
+---
+execute:
+  echo: false
+---
+
+```{r, setup}
+#| output: false
+library(ggplot2)
+source("R/tbl_helpers.R")
+source("R/gg_helpers.R")
+
+tbl_3 <- readr::read_csv("tables/table_3.csv") |>
+  dplyr::mutate(
+    proxy = dplyr::if_else(proxy, "Yes", "No"),
+    label = dplyr::if_else(new, paste0(label, " [new]"), label),
+    wt_intheme = formattable::percent(1/wt_intheme, 1),
+    wt_theme = formattable::percent(1/wt_theme, 1),
+    wt_total = formattable::percent(wt_intheme * wt_theme, 1)
+  )
+
+attain_chart_df <- readr::read_csv("tables/fig-3-1-data.csv")
+
+```
+
+# Capabilities {#sec-method-capabilities}
+
+<!-- This is chapter 3, section 3 in the original PDF -->
+
+The capabilities indicator is defined as: the extent to which the workforce
+has the right mix of skills. The need for a variety of certain strong skills
+is vital for the successful operation of any organisation, civil services
+included. The standards for good governance set out by @opm_good_2004 include
+leadership as a core skill, it goes on to list necessary skills as "the ability
+to scrutinise and challenge information ...including skills in financial
+management and the ability to recognise when outside expert advice is needed". @fukuyama_what_2013 acknowledges the importance of educational attainment of
+civil servants: "another critical measure of capacity is the level of education
+and professionalisation of government officials", along with the importance of
+digital capability: "what level of technical expertise they are required to
+possess".
+
+The capabilities indicator is composed of 14 metrics from the OECD's Programme
+for the International Assessment of Adult Competencies (referred to as PIAAC
+from this point onwards), this is an increase of 10 metrics from the 2017 Pilot.
+
+PIAAC is a scientific assessment of competencies in adults, modelled on the
+OECD's successful Programme for International Student Assessment (PISA)
+that measures the competencies of school-aged children around the world.
+
+Data for 25 countries was collected over 2011-12, and data for nine countries
+was collected over 2014-15. Of these, 31 countries have published microdata
+available for analysis.
+
+The results from PIAAC are not published in a form that allows for direct
+import of the relevant data for InCiSE. Instead the data must be calculated
+from the individual respondent-level microdata published by the OECD. The
+microdata is analysed to produce results for those defined as currently
+working in the "public administration" sector of the International Standard
+Industrial Classification. This is wider than just the civil service and
+includes other forms of public administration, such as sub-national and local
+government, but excludes functions such as healthcare, education and transport
+which may or may not be part of the public sector depending on country.
+
+```{r}
+#| label: tbl-comp-cap
+#| tbl-cap: Composition of the capabilities indicator
+#| column: screen-inset-right
+#| classes: no-stripe .table-responsive
+
+tbl_3 |>
+  composition_table("CAP") |>
+  gt::tab_footnote("Tables 3.3.A & 3.3.B in the original 2019 publication") |>
+  strip_gt()
+
+```
+
+## Imputation of missing data {#sec-capabilities-imputation}
+
+Of the 38 countries selected for the 2019 edition of InCiSE, 10 countries do
+not have data for the capabilities metrics. As there are countries where data
+is missing for all metrics the imputation of the capabilities indicator
+requires a data point from outside the indicator. The 2017 edition of InCiSE
+used data from the HR Management indicator on applicant skills and whether a
+country was an EU member. For the 2019 edition, the applicant skills metric
+from the HR management indicator is retained, but EU membership is removed.
+One of the metrics within the indicator is the level of tertiary educational
+attainment. There are a number of sources for estimates of tertiary educational
+attainment in the general adult population of most countries. Therefore, InCiSE
+also uses UNESCO data on educational attainment to impute missing data for the
+capabilities indicator.
+
+## Changes from the 2017 Pilot {#sec-capabilities-changes}
+
+The capabilities indicator published in the2019 edition of InCiSE has had a
+number of changes which improve its quality compared to the data published in
+the 2017 Pilot. These include additional metrics, change in how data is
+extracted, updated coding of educational attainment, and changes to imputation.
+While these do not change the recency of the data, they improve the overall
+quality of the information provided by the indicator. The OECD intends to
+update PIAAC every decade, as annual change in the skill level of the adult
+population does not change rapidly – a general principle in education research
+is that educational attainment is broadly fixed after young adulthood[^caprec].
+Figure 3.1, shows how the overall proportion of tertiary educational attainment
+has evolved for different age groups since 1997 in four countries, the average
+annual change is 0.9 percentage points.
+
+```{r}
+#| label: fig-edu-levels
+#| fig-cap: Tertiary education levels of adults 25-34 and 55-64, in selected
+#|   countries
+#| column: body-outset-right
+
+edu_plot <- ggplot(
+  attain_chart_df,
+  aes(x = year, y = value, colour = group,
+      shape = group, group = group)) +
+  geom_line(linewidth = 0.5) +
+  geom_point(size = 1.25) +
+  scale_color_manual(
+    values = c(
+      # canada
+      "Canada 25-34 years" = "#0082c2",
+      "Canada 55-64 years" = "#0082c2",
+      # france
+      "France 25-34 years" = "#C24113",
+      "France 55-64 years" = "#C24113",
+      # japan
+      "Japan 25-34 years"  = "#009D94",
+      "Japan 55-64 years"  = "#009D94",
+      # sweden
+      "Sweden 25-34 years" = "#C29913",
+      "Sweden 55-64 years" = "#C29913"
+    )
+  ) +
+  scale_shape_manual(
+    values = c(
+      # 25-34 years
+      "Canada 25-34 years" = "circle",
+      "France 25-34 years" = "circle",
+      "Japan 25-34 years"  = "circle",
+      "Sweden 25-34 years" = "circle",
+      # 55-64 years
+      "Canada 55-64 years" = "square",
+      "France 55-64 years" = "square",
+      "Japan 55-64 years"  = "square",
+      "Sweden 55-64 years" = "square"
+    )
+  ) +
+  scale_x_continuous(
+    breaks = c(1997, 2002, 2007, 2012, 2017),
+    expand = expansion(add = 1)
+  ) +
+  scale_y_continuous(
+    limits = c(0, 62),
+    breaks = seq(0, 60, 10),
+    labels =  scales::percent_format(accuracy = 0.1, scale = 1),
+    expand = expansion(add = 1)
+  ) +
+  facet_grid(cols = vars(country)) +
+  guides(
+    colour = guide_legend(title = NULL, nrow = 2, ncol = 4),
+    shape = guide_legend(title = NULL, nrow = 2, ncol = 4)
+  ) +
+  theme_minimal() +
+  theme(
+    text = element_text(colour = "#666666", family = "Inter", size = 14),
+    legend.position = "bottom",
+    axis.title = element_blank(),
+    axis.text = element_text(colour = "#666666"),
+    axis.text.x = element_text(angle = 90),
+    strip.text = element_text(hjust = 0, colour = "#666666", face = "bold",
+                              size = 14),
+    panel.background = element_rect(fill = "#edf6fb", colour = NA),
+    panel.grid.major = element_line(colour = "#ffffff"),
+    panel.grid.minor = element_blank(),
+    plot.background = element_rect(fill = "#fafdfe", colour = NA)
+  )
+
+render_svg(edu_plot, width = 700, height = 600,
+           alt_text = paste(
+             "Four line graphs showing the proportion of adults with teritary",
+             "eduation (e.g. a university Bachelor's degree) between 1997 and",
+             "2017 for those aged 25 to 34 years old and those aged 55-64",
+             "years old in each of Canada, France, Japan and Sweden.",
+             "The graph shows a broadly linear increase in attainment levels",
+             "for each age group and a consistent gap between age-groups."
+             ),
+           source_note = paste(
+             "Source: OECD (2023), Population with tertiary education.",
+             "doi: 10.1787/0b8f90e9-en (Accessed on 28 November 2023).",
+             "<br>This chart varies slightly from that included in the original",
+             "published PDF report due to changes in data availability.",
+             "The original chart included data for the age groups 25-34, 35-44",
+             "and 45-54, however the source data at the time of this",
+             "reproduction (November, 2023) provides data for those aged",
+             "25-35 and 55-64.",
+             "<br>This chart was Figure 3.1 in the original 2019 publication"
+             )
+           )
+
+```
+
+### Additional metrics
+In examining the PIAAC dataset, a number of additional metrics that complement
+the metrics used in the pilot provide a richer picture of capabilities in the
+public administration workforce.
+
+The pilot metrics gave a broad overview of employee capability, looking at
+overall levels of core skills (literacy, numeracy and problem solving) and
+tertiary educational attainment. The additional metrics complement this by
+providing for measurement of the use of core skills at work (ICT, numeracy,
+reading and writing). They also cover more complex skills, including
+influencing others, planning, and task management. Finally, they also include
+metrics relating to learning and development --- whether individuals learn at
+work, their overall attitude to learning, and whether they have participated
+in learning for work-related purposes (either formallyor informally). Together
+these metrics provide a more detailed picture of the skills and capabilities
+of the workforce.
+
+### Using the public administration industrial sector {.unnumbered}
+The pilot edition of InCiSE used data for all adults currently employed by a
+public sector organisation. Further investigations of the raw data in PIAAC
+indicated that there was a sufficient sample size in most countries (n>100) to
+generate an estimate for the "public administration" industry
+sector[^capsmpl] and worked for a public sector organisation.
+
+There is a considerable difference between countries with regard to whether
+someone is a public sector worker. This is in part due to the political choices
+about what is or isn't delivered by the public sector. For example, in the
+United Kingdom the vast majority of healthcare workers will be public sector
+employees, while in the United States the vast majority of healthcare workers
+will be private sector employees. In contrast, this difference is likely to be
+much reduced for the "public administration" industry sector, as it will not
+include sectors such as healthcare, education or competitive market economic
+sectors. Therefore, while the sample size for the "public administration"
+subset will be lower, it is likely to be a more appropriate comparator group
+across countries than using the large "public sector" basis.
+
+Further details on the structure of the activities included in the
+"public administration" industrial sector can be found in the UN's registry of
+Statistical Classifications ([unsd_statistical_2018]).
+
+### Updated coding of tertiary education
+
+In reviewing the way that results are extracted from PIAAC's raw data files,
+an improvement was identified in the way tertiary education is coded. The
+pilot edition of InCiSE used data from a variable included for legacy
+comparisons with previous international assessments of adult competencies
+based on type of institution attended. InCiSE 2019 uses a more accurate method
+based on the highest level of qualification achieved.
+
+### Updating the approach to imputation
+
+In the pilot edition of InCiSE, missing data issues were handled by examining
+the relationship of the metrics from PIAAC with metrics from the other
+indicators in InCiSE (as PIAAC is the only data source for the capabilities
+indicator). The most suitable predictors observed in the dataset were the
+applicant skills metric from the HR management indicator and whether a country
+was an EU member. As described above, the imputation for the 2019 edition has
+changed the methodology to remove the EU membership criteria and include the
+tertiary education level of the general population in the external imputation
+data. This provides a closer link to the indicator's theoretical construct.
+
+::: {.callout-note .crf title="Cross-referencing note" icon="false"}
+
+This chapter was presented as section 3.3 in the original 2019 publication.
+
+:::
+
+
+[^caprec]: @lutz_reconstruction_2007 and goujon_harmonized_2016 utilise this
+principle to develop "back-projections" of educational attainment, and hold a
+general assumption that 'transition' to different levels of education tend to
+be limited after the age of 34.
+
+[^capsmpl]: Sample sizes for the public administration industry sector (limited
+to declared public sector workers) range from 83 to 1,562. The minimum and
+maximum are both noticeable outliers: ignoring these, the sample sizes range
+from 144-446. The only country with a sample less than 100 (Russian Federation)
+had similar standard errors to those of other countries and therefore was
+retained in the data extracted from PIAAC.
+

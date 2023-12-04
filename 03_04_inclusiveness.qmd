@@ -1,0 +1,94 @@
+---
+execute:
+  echo: false
+---
+
+```{r, setup}
+#| output: false
+source("R/tbl_helpers.R")
+
+tbl_3 <- readr::read_csv("tables/table_3.csv") |>
+  dplyr::mutate(
+    proxy = dplyr::if_else(proxy, "Yes", "No"),
+    label = dplyr::if_else(new, paste0(label, " [new]"), label),
+    wt_intheme = formattable::percent(1/wt_intheme, 1),
+    wt_theme = formattable::percent(1/wt_theme, 1),
+    wt_total = formattable::percent(wt_intheme * wt_theme, 1)
+  )
+
+```
+
+# Inclusiveness {#sec-method-inclusiveness}
+
+<!-- This is chapter 3, section 4 in the original PDF -->
+
+The inclusiveness indicator is defined as: the extent to which the civil
+service is representative of the citizens it serves. A model civil service
+should be representative of the public it stands to serve, and therefore
+institutions must be inclusive in nature. In their Post-2015 Millennium
+Development Goal reflections, the @oecd_building_nodate outlines the greater
+success felt by inclusive public bodies: "Inclusive governments and an active
+civil society put forward more responsive, equitable policies" and that these
+"build trust in government and help create... public services that are better
+suited to diverse needs". The guiding principles to the international civil
+service, set out by the International Civil Service Commission, support the
+claim that civil servants must "respect the dignity, worth and equality of all
+people" and have: "a willingness to work without bias with persons of all
+nationalities, religions and cultures"
+[-@international_civil_service_commission_standards_2002].
+
+The @oecd_government_2015 states that "a more representative public
+administration can better access previously overlooked knowledge, networks and
+perspectives for improved policy development and implementation". The same
+report also points out that the opinion on the groups in need of representation
+in public administration has widened "and now includes a range of dimensions
+such as women; racial, ethnic, and religious
+minorities; the poor; the elderly; the disabled; and other minority groups
+such as indigenous populations". A paper by @opm_good_2004 highlights the
+potential benefits of this view: "Public trust and confidence in governance will
+increase if governance  ... [is] done by a diverse group of people who reflect
+the community".
+
+The inclusiveness indicator is comprised of five metrics, and is unchanged in
+structure from the 2017 Pilot. It uses the following source data:
+
+* OECD data on the central government share of women in the central
+  government and in top management positions [2016], as processed and
+  published in their Government at a Glance 2017 report.
+* The University of Gothenburg's Quality of Government Expert Survey
+  (QoG) [2015].
+* Figures on women's representation in the government workforce are compared
+  to data from the International Labour Organisation on the composition to
+  calculate the difference between government and the workforce as a whole
+  (ILO) [2015].
+
+```{r}
+#| label: tbl-comp-inc
+#| tbl-cap: Composition of the inclusiveness indicator
+#| column: screen-inset-right
+#| classes: no-stripe .table-responsive
+
+tbl_3 |>
+  composition_table("INC") |>
+  gt::tab_footnote("Tables 3.4.A & 3.4.B in the original 2019 publication") |>
+  strip_gt()
+
+```
+
+## Imputation of missing data {#sec-inclusiveness-imputation}
+
+None of the 38 countries selected for the 2019 edition of InCiSE have
+completely missing data for the inclusiveness metrics. As a result the
+imputation of missing data for the inclusiveness metrics is based solely on
+the data within the indicator.
+
+## Changes from the 2017 Pilot {#sec-inclusiveness-changes}
+
+There are no changes in the structure of the inclusivness indicator from the
+2017 Pilot.
+
+::: {.callout-note .crf title="Cross-referencing note" icon="false"}
+
+This chapter was presented as section 3.4 in the original 2019 publication.
+
+:::

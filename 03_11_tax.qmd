@@ -1,0 +1,79 @@
+---
+execute:
+  echo: false
+---
+
+```{r, setup}
+#| output: false
+source("R/tbl_helpers.R")
+
+tbl_3 <- readr::read_csv("tables/table_3.csv") |>
+  dplyr::mutate(
+    proxy = dplyr::if_else(proxy, "Yes", "No"),
+    label = dplyr::if_else(new, paste0(label, " [new]"), label),
+    wt_intheme = formattable::percent(1/wt_intheme, 1),
+    wt_theme = formattable::percent(1/wt_theme, 1),
+    wt_total = formattable::percent(wt_intheme * wt_theme, 1)
+  )
+
+```
+
+# Tax administration {#sec-method-tax}
+
+<!-- This is chapter 3, section 11 in the original PDF -->
+
+The tax administration indicator is defined as: the efficiency and
+effectiveness of tax collection (at the central/federal level). Effective tax
+systems can be viewed as a critical building block for increased domestic
+resource mobilisation which is essential for civil service effectiveness and
+good governance. "Successful tax extraction provides resources that enable the
+government to operate in other domains", @fukuyama_what_2013 highlights "it is
+a necessary function of all states, and one for which considerable data exist".
+The role of tax administration as the basis of government operations is made
+clear by the @oecd_building_nodate: "Strong tax administrations and sound public
+financial management help maximise the domestic resources that are necessary
+for government to function, to sustain social safety nets, to maintain
+long-term fiscal sustainability, and to free up fiscal space for pursuing
+socio-economics objectives". Although priorities and circumstances vary widely
+across countries, the drive to elevate the collective standard of tax
+administration is of great importance. Holt and Manning highlight the
+importance of tax administration in measuring the effectiveness of public
+administration and it is one of the key functions highlighted by the 
+@world_bank_indicators_2012.
+
+The tax administration indicator is comprised of six metrics and its structure
+is unchanged from the 2017 Pilot edition of InCiSE. The data sources for the
+indicator are:
+
+* OECD's Tax Administration Comparative Information Series [2015].
+* The World Bank's 'Doing Business' Index (WB) [2018].
+
+```{r}
+#| label: tbl-comp-tax
+#| tbl-cap: Composition of the tax administration indicator
+#| column: screen-inset-right
+#| classes: no-stripe .table-responsive
+
+tbl_3 |>
+  composition_table("TAX") |>
+  gt::tab_footnote("Tables 3.11.A & 3.11.B in the original 2019 publication") |>
+  strip_gt()
+
+```
+
+## Imputation of missing data {#sec-tax-imputation}
+
+None of the 38 countries selected for the 2019 edition of InCiSE have
+completely missing data for the tax administration metrics. As a result the
+imputation of missing data for the tax administration metrics is based solely
+on the data within the indicator.
+
+## Changes from the 2017 Pilot {#sec-tax-changes}
+
+There are no changes to the structure of the tax administration indicator.
+
+::: {.callout-note .crf title="Cross-referencing note" icon="false"}
+
+This chapter was presented as section 3.11 in the original 2019 publication.
+
+:::

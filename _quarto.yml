@@ -11,6 +11,20 @@ book:
     - 00_readers_guide.qmd
     - 01_introduction.qmd
     - 02_index.qmd
+    - part: 03_00_indicators.qmd
+      chapters:
+        - 03_01_integrity.qmd
+        - 03_02_openness.qmd
+        - 03_03_capabilities.qmd
+        - 03_04_inclusiveness.qmd
+        - 03_05_policy_making.qmd
+        - 03_06_fiscal_financial.qmd
+        - 03_07_regulation.qmd
+        - 03_08_crisis_risk.qmd
+        - 03_09_procurement.qmd
+        - 03_10_hrm.qmd
+        - 03_11_tax.qmd
+        - 03_12_digital.qmd
     - 04_changes.qmd
     - 05_sensitivity.qmd
     - 06_future_development.qmd

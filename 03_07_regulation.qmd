@@ -1,0 +1,80 @@
+---
+execute:
+  echo: false
+---
+
+```{r, setup}
+#| output: false
+source("R/tbl_helpers.R")
+
+tbl_3 <- readr::read_csv("tables/table_3.csv") |>
+  dplyr::mutate(
+    proxy = dplyr::if_else(proxy, "Yes", "No"),
+    label = dplyr::if_else(new, paste0(label, " [new]"), label),
+    wt_intheme = formattable::percent(1/wt_intheme, 1),
+    wt_theme = formattable::percent(1/wt_theme, 1),
+    wt_total = formattable::percent(wt_intheme * wt_theme, 1)
+  )
+
+```
+
+# Regulation {#sec-method-regulation}
+
+<!-- This is chapter 3, section 7 in the original PDF -->
+
+The regulation indicator is defined as: the extent and quality of regulatory
+impact assessments and the degree of stakeholder engagement involved in them. The appropriate appraisal and evaluation of regulatory changes accompanied by
+sufficient stakeholder engagement is crucial to ensuring that any
+introductions are fully considered and fair, involving various stakeholders.
+This scrutiny is endorsed by many; the @oecd_recommendation_2012 for instance,
+"recognis[es] that regulations are one of the key levers by which governments
+act to promote economic prosperity, enhance welfare and pursue the public
+interest", and that "well designed regulations can generate significant social
+and economic benefits which out weigh the costs of regulation, and contribute
+to social well-being". The @international_monetary_fund_consultation_2016
+acknowledges the importance of regulatory frameworks to successful governance:
+"From the perspective of the IMF, countries with good governance have strong
+legal and regulatory frameworks in place". Additionally, in promoting best
+practice, "[the] Regulatory Impact Analysis (RIA) is a multiple stakeholder
+assessment of the economic, environmental and social impact of regulations.
+The OECD and European Union have strongly promoted this evidence-based
+approach towards legislation" [@boviard_public_2003].
+
+The regulation indicator is comprised of nine metrics, an increase of three
+from the 2017 Pilot. It uses the following sources:
+
+* The OECD's Indicators of Regulatory Policy and Governance (OECD) [2017].
+* The Bertelsmann Foundation's Sustainable Governance Indicators (SGI) [2018].
+
+```{r}
+#| label: tbl-comp-reg
+#| tbl-cap: Composition of the regulation indicator
+#| column: screen-inset-right
+#| classes: no-stripe .table-responsive
+
+tbl_3 |>
+  composition_table("REG") |>
+  gt::tab_footnote("Tables 3.7.A & 3.7.B in the original 2019 publication") |>
+  strip_gt()
+
+```
+
+## Imputation of missing data {#sec-regulation-imputation}
+
+None of the 38 countries selected for the 2019 edition of InCiSE have
+completely missing data for the regulation metrics. As a result the imputation
+of missing data for the regulation metrics is based solely on the data within
+the indicator.
+
+## Changes from the 2017 Pilot {#sec-regulation-changes}
+
+The regulation indicator has had three additional metrics added from the
+Bertelsmann Foundation's Sustainable Governance Indicators on the use and
+quality of regulatory impact assessments (RIA), and whether RIAs include
+sustainability checks.
+
+::: {.callout-note .crf title="Cross-referencing note" icon="false"}
+
+This chapter was presented as section 3.7 in the original 2019 publication.
+
+:::

@@ -1,0 +1,145 @@
+---
+execute:
+  echo: false
+---
+
+```{r, setup}
+#| output: false
+library(ggplot2)
+source("R/tbl_helpers.R")
+source("R/gg_helpers.R")
+
+tbl_3 <- readr::read_csv("tables/table_3.csv") |>
+  dplyr::mutate(
+    proxy = dplyr::if_else(proxy, "Yes", "No"),
+    label = dplyr::if_else(new, paste0(label, " [new]"), label),
+    wt_intheme = formattable::percent(1/wt_intheme, 1),
+    wt_theme = formattable::percent(1/wt_theme, 1),
+    wt_total = formattable::percent(wt_intheme * wt_theme, 1)
+  )
+
+tbl_egbr_nat <- read_md_tbl("tables/table_3-12-C.txt")
+
+tbl_egbr_nat <- tbl_egbr_nat |>
+  dplyr::mutate(
+    median_national = convert_percent(median_national)
+  )
+
+```
+
+# Digital services {#sec-method-digital}
+
+<!-- This is chapter 3, section 12 in the original PDF -->
+
+The digital services indicator in InCiSE is defined as the user-centricity
+and cross-border mobility of digitally-provided public services and the
+availability of 'key enablers'. A changing world and digital environment
+provide the impetus for a civil service to ensure modernity and remain
+user-centric for the public. In doing so, efficiencies should be achieved to
+enable cost savings in processes while also allowing for further
+accessibility of services. The OECD has supported this view of potential
+benefits: "ICT is increasingly used to support broader public sector
+development objectives ... by changing service delivery approaches by creating
+personalised, high quality services to users, thereby increasing user
+satisfaction and effective service delivery; facilitating major work
+organisation and management changes creating back-office coherence and
+efficiency gains; increasing transparency of government activities, and
+increasing citizen engagement" [@lonti_towards_2008].
+
+The source data for the digital services indicator is the European Commission's
+eGovernment Benchmark Report (eGBR) 2017 and 2018 reports, which provide data
+for 2016 and 2017 respectively. This is the same source that was used in the
+2017 Pilot, however significant changes have been made to the way in which the
+data is extracted and imported. The 2019 edition of the digital services
+indicator is composed of 13 metrics, compared to four in the 2017 Pilot.
+
+```{r}
+#| label: tbl-comp-dig
+#| tbl-cap: Composition of the digital services indicator
+#| column: screen-inset-right
+#| classes: no-stripe .table-responsive
+
+tbl_3 |>
+  composition_table("DIG") |>
+  gt::tab_footnote("Tables 3.12.A & 3.12.B in the original 2019 publication") |>
+  strip_gt()
+
+```
+
+## Imputation of missing data {#sec-digital-imputation}
+
+Nine of the 38 countries selected for the 2019 edition of InCiSE have
+completely missing data for the digital services indicator. The 2017 Pilot of
+the InCiSE Index set out the use of Online Services Index from the UN's
+biennial E-Government Survey as the external predictor for imputation. This
+approach is maintained for the 2019 edition of the InCiSE Index.
+
+## Changes from the 2017 Pilot {#sec-digital-changes}
+
+The data source used for the digital services indicator in the 2019 edition of
+InCiSE is the same as that used for the 2017 Pilot – the European Commission's
+eGovernment Benchmark Report (eGBR). However, further investigation of the data
+and methodology of the report has led to a change in the metrics used by
+InCiSE. While the 2017 Pilot took four high-level metrics, the 2019 edition of
+InCiSE will use 13 more granular metrics.
+
+The eGBR uses mystery shopping of eight 'life events' to assess the quality of
+digital public services in all 28 EU member countries and six other
+neighbouring/partner countries. These life events are designed to capture the
+majority of interactions that citizens and businesses have with public services
+in European nations. The services assessed by the eGBR include not only
+national level services but also those provided by sub-national and local
+governments. As InCiSE aims to look at the effectiveness of national-level
+civil services we investigated whether there was a way to exclude non-national
+services.
+
+While the European Commission publishes the full underlying data for the eGBR,
+it is not easy to calculate scores based solely on the assessments of
+national-level services. So, an analysis of the data from the 2016 and 2017
+reports was undertaken to look at the pattern of service delivery across the
+eight life events. The results of this analysis is presented in Table 3.12.C,
+and shows that for five of the eight life events more than half of the URLs
+assessed by the eGBR are recorded as 'national' level services. However, for
+the 'moving house', 'owning and driving a car' and 'studying' life events the
+analysis shows that in most countries the URLs being assessed are sub-national/
+local services.
+
+```{r}
+#| label: tbl-egbr-nat
+#| tbl-cap: Proportion of eGBR assessed services identified as 'national'
+#|   level services
+
+tbl_egbr_nat |>
+  gt::gt() |>
+  gt::cols_label(
+    life_event = "Life event",
+    median_national = "Median proportion of country assessed URLs that are for 'national' services",
+    low_national = "Number of countries where less than 50% of assessed URLs are for 'national' services (out of 34)"
+  ) |>
+  gt::tab_footnote("Table 3.12.C in the original 2019 publication") |>
+  strip_gt()
+
+```
+
+For each of the eight life events the mystery shopping exercise looks across
+three domains: 'user centric government', 'transparency' and 'key enablers';
+six of the eight life events are also assessed for the additional domain of
+'cross-border mobility'. As transparency is already covered in InCiSE through
+the openness indicator, including the eGBR transparency data could be seen as
+duplicating information already measured elsewhere in the InCiSE framework.
+
+Therefore, in the 2019 edition of InCiSE rather than use the high-level
+averages for the four domains (as used in the 2017Pilot), the model uses the
+'user centric', 'transparency' and 'key enablers' domain scores for the
+business start-up, regular business operations, family life, losing and
+finding a job, and small claims procedure life events. This approach removes
+scores for the three life events (moving house, owning and driving a car,
+and studying) where services are typically not delivered by national
+governments, and reduces potential overlap with the openness indicator by
+removing scores for the 'transparency' domain.
+
+::: {.callout-note .crf title="Cross-referencing note" icon="false"}
+
+This chapter was presented as section 3.12 in the original 2019 publication.
+
+:::

@@ -1,0 +1,99 @@
+---
+execute:
+  echo: false
+---
+
+```{r, setup}
+#| output: false
+library(ggplot2)
+source("R/tbl_helpers.R")
+source("R/gg_helpers.R")
+
+tbl_3 <- readr::read_csv("tables/table_3.csv") |>
+  dplyr::mutate(
+    proxy = dplyr::if_else(proxy, "Yes", "No"),
+    label = dplyr::if_else(new, paste0(label, " [new]"), label),
+    wt_intheme = formattable::percent(1/wt_intheme, 1),
+    wt_theme = formattable::percent(1/wt_theme, 1),
+    wt_total = formattable::percent(wt_intheme * wt_theme, 1)
+  )
+
+tbl_pemp_2017 <- read_md_tbl("tables/table_3-1-C.txt")
+tbl_pemp_2019 <- read_md_tbl("tables/table_3-1-D.txt")
+tbl_egbr_nat <- read_md_tbl("tables/table_3-12-C.txt")
+
+attain_chart_df <- readr::read_csv("tables/fig-3-1-data.csv")
+
+tbl_egbr_nat <- tbl_egbr_nat |>
+  dplyr::mutate(
+    median_national = convert_percent(median_national)
+  )
+
+```
+
+# Procurement {#sec-method-procurement}
+
+<!-- This is chapter 3, section 9 in the original PDF -->
+
+The procurement indicator is defined as: the extent to which the government's
+procurement processes are efficient, competitive, fair and pursues value for
+money. According to the @world_trade_organisation_government_2015 "government 
+procurement accounts for an average of 15 percent of more of a country's GDP".
+As procurement makes up such a large proportion of countries' GDP, it must be
+managed appropriately. Effective procurement management can streamline
+contracts and reduce outgoings, contributing to improved efficiencies in civil
+services. On public procurement, the @world_bank_benchmarking_2016 states it
+"is a key variable in determining development outcomes and, when carried out in
+an efficient and transparent manner, it can play a strategic role in delivering
+more effective public services. It can also act as a powerful tool for
+development with profoundly positive repercussions for both good governance
+and more rapid and inclusive growth".
+
+The procurement indicator is comprised of six metrics. This indicator is new
+for the 2019 edition of the index, and was not included in the 2017 Pilot
+edition. The sources for the procurement indicator are:
+
+* The OECD's Public Procurement Survey [2016].
+* Opentender (OT) analysis of European public procurement data by Digiwhist
+  (a collaboration of the University of Cambridge, Open Knowledge Foundation
+  Germany, Government Transparency Institute, Hertie School of Governance,
+  Datlab and Transcrime) [2016].
+
+```{r}
+#| label: tbl-comp-pro
+#| tbl-cap: Composition of the procurement indicator
+#| column: screen-inset-right
+#| classes: no-stripe .table-responsive
+
+tbl_3 |>
+  composition_table("PRO") |>
+  gt::tab_footnote("Tables 3.9.A & 3.9.B in the original 2019 publication") |>
+  strip_gt()
+
+```
+
+## Imputation of missing data {#sec-procurement-imputation}
+
+Two of the 38 countries selected for the 2019 edition of InCiSE have
+completely missing data for the procurement indicator.
+
+The procurement indicator is a new indicator for the 2019 edition, and there
+are no easily identifiable external predictors (e.g. tertiary education for
+Capabilities or the UN's E-Government survey for Digital Services), instead
+the correlations between the procurement metrics and the other metrics in the
+InCiSE model have been analysed to identify potential predictors. This
+analysis has selected three metrics: the use of data in HR administration from
+the HR management indicator; the publicised laws metric from the openness
+indicator; and, the collection cost metric from the tax administration
+indicator.
+
+## Changes from the 2017 Pilot {#sec-procurement-changes}
+
+The procurement indicator is a new indicator and was not covered by the 2017
+Pilot edition of the InCiSE Index.
+
+::: {.callout-note .crf title="Cross-referencing note" icon="false"}
+
+This chapter was presented as section 3.9 in the original 2019 publication.
+
+:::

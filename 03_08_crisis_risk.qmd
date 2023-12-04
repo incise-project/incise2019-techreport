@@ -1,0 +1,95 @@
+---
+execute:
+  echo: false
+---
+
+```{r, setup}
+#| output: false
+source("R/tbl_helpers.R")
+
+tbl_3 <- readr::read_csv("tables/table_3.csv") |>
+  dplyr::mutate(
+    proxy = dplyr::if_else(proxy, "Yes", "No"),
+    label = dplyr::if_else(new, paste0(label, " [new]"), label),
+    wt_intheme = formattable::percent(1/wt_intheme, 1),
+    wt_theme = formattable::percent(1/wt_theme, 1),
+    wt_total = formattable::percent(wt_intheme * wt_theme, 1)
+  )
+
+```
+
+# Crisis and risk management {#sec-method-crisis}
+
+<!-- This is chapter 3, section 8 in the original PDF -->
+
+The crisis and risk management indicator is defined as: the effectiveness with
+which the government engages the whole of society to better assess, prevent,
+respond to and recover from the effects of extreme events. The OECD Strategic
+Crisis Management report highlights crisis management as central to
+government's role and a "fundamental element of good governance"
+[@baubion_oecd_2013]. Studies have shown that credibility and trust in
+governments to deal with crises is vital both to reassure and encourage support
+from the private sector and general public, as outlined by
+@christensen_crisis_2011.
+
+The crisis and risk management indicator is made up of 13 metrics. This is an
+increase of four from the 2017 Pilot, however it has been restructured to
+allow for the inclusion of a new data source, with eight metrics continuing
+from the 2017 Pilot and five new metrics. The data for the indicator comes
+from:
+
+* The United Nation's Hyogo Framework for Action monitoring reports [2015].
+* The OECD's Survey on the Governance of Critical Risk [2016].
+
+Both the Hyogo Framework monitoring reports and the OECD survey are largely
+composed of binary yes/no questions. The InCiSE model has undertaken its own analysis and aggregation of these measures to produce metrics for the crisis and risk management indicator. These are listed in detail in @sec-composite-crm.
+
+```{r}
+#| label: tbl-comp-crm
+#| tbl-cap: Composition of the crisis and risk management indicator
+#| column: screen-inset-right
+#| classes: no-stripe .table-responsive
+
+tbl_3 |>
+  composition_table("CRM") |>
+  gt::tab_footnote("Tables 3.8.A & 3.8.B in the original 2019 publication") |>
+  strip_gt()
+
+```
+
+## Imputation of missing data {#sec-crisis-imputation}
+
+One of the 38 countries selected for the 2019 edition of InCiSE has completely
+missing data for all crisis and risk management metrics. This is an
+improvement on the 2017 Pilot of InCiSE where eight countries had completely
+missing data. The 2017 Pilot used median imputation to handle missing data for
+the crisis and risk management indicator (i.e. replacement of missing values
+with the median value of the included countries). As a result of the decision
+to move to fully predictive imputation for the 2019 edition, external
+predictors needed to be found. There are no easily identifiable external
+predictors (e.g. tertiary education for capabilities or the UN's E-Government
+survey for digital services), instead the correlations between the crisis and
+risk management metrics and other metrics in the InCiSE model have been
+analysed to identify potential predictors. This analysis has selected three
+metrics: the task discretion metric from the capabilities indicator; the use
+of data in HR administration from the HR management indicator; and, the Open
+Data Index from the openness indicator.
+
+## Changes from the 2017 Pilot {#sec-crisis-changes}
+
+The 2017 Pilot used data solely from the national monitoring and progress
+reports of the UN Hyogo Framework for Action. The Hyogo Framework for Action
+ended in 2015 and has been replaced by the Sendai Framework, however
+monitoring and reporting of this framework has only just begun. Furthermore,
+these frameworks focus on natural disaster risk rather than the full range of
+risks and civil contingencies issues that countries have to manage at a
+central government level. Since the publication of the pilot a further dataset
+has become available, the OECD's Survey of the Governance of Critical Risks.
+This dataset provides data on this wider array of risks that governments,
+especially OECD members, tend to manage.
+
+::: {.callout-note .crf title="Cross-referencing note" icon="false"}
+
+This chapter was presented as section 3.8 in the original 2019 publication.
+
+:::

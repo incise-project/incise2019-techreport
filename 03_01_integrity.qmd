@@ -1,0 +1,187 @@
+---
+execute:
+  echo: false
+---
+
+```{r, setup}
+#| output: false
+source("R/tbl_helpers.R")
+
+tbl_3 <- readr::read_csv("tables/table_3.csv") |>
+  dplyr::mutate(
+    proxy = dplyr::if_else(proxy, "Yes", "No"),
+    label = dplyr::if_else(new, paste0(label, " [new]"), label),
+    wt_intheme = formattable::percent(1/wt_intheme, 1),
+    wt_theme = formattable::percent(1/wt_theme, 1),
+    wt_total = formattable::percent(wt_intheme * wt_theme, 1)
+  )
+
+tbl_pemp_2017 <- read_md_tbl("tables/table_3-1-C.txt")
+tbl_pemp_2019 <- read_md_tbl("tables/table_3-1-D.txt")
+
+```
+
+# Integrity {#sec-method-integrity}
+
+<!-- This is chapter 3, section 1 in the original 2019 publication -->
+
+The integrity indicator is defined as: the extent to which civil servants
+behave with integrity, make decisions impartially and fairly, and strive to
+serve both citizens and ministers, and is one of the core values associated
+with a civil service. The International Civil Service Commission 
+[-@international_civil_service_commission_standards_2002] highlights
+the importance of integrity to the work of the United Nations (UN) common
+systems staff: "The concept of integrity ... embraces all aspects of behaviour
+of an international civil servant ... including  ... honesty, truthfulness,
+impartiality and incorruptibility. These qualities are as basic as those of
+competence and efficiency". Numerous studies aiming to establish good
+governance have utilised similar metrics in their analyses, for instance
+@muriithi_quantifying_2015. The inclusion of integrity in the InCiSE is
+therefore deemed necessary and crucial for the assessment of an effective
+civil service.
+
+The indicator for integrity is comprised of 17 metrics – an increase of one
+from the 2017 Pilot edition. A change has also been made in the metric on
+post-employment cooling-off in the way it has been coded from the source data.
+
+The following sources are used:
+
+* Transparency International's Global Corruption Barometer (GCB) [2017].
+* The World Economic Forum's Global Competitiveness Report Executive
+  Opinion Survey (WEF) [2016-2017].
+* The University of Gothenburg's Quality of Government Expert Survey
+  (QoG) [2015].
+* The OECD's Survey on Managing Conflict of Interest in the Executive Branch
+  and Whistleblower Protection [2014] and Survey on Lobbying Rules and
+  Guidelines [2013] as processed and published in their Government at a Glance
+  2015 report.
+* The Bertelsmann Foundation's Sustainable Governance Indicators (SGI) [2018].
+
+```{r}
+#| label: tbl-comp-int
+#| tbl-cap: Composition of the integrity indicator
+#| column: screen-inset-right
+#| classes: no-stripe .table-responsive
+
+tbl_3 |>
+  composition_table("INT") |>
+  gt::tab_footnote("Tables 3.1.A & 3.1.B in the original 2019 publication") |>
+  strip_gt()
+
+```
+
+## Imputation of missing data {#sec-integrity-imputation}
+
+None of the 38 countries selected for the 2019 edition of InCiSE have
+completely missing data for the integrity metrics. As a result the imputation
+of missing data for the integrity metrics is based solely on the data within
+the indicator.
+
+## Changes from the 2017 pilot {#sec-integrity-changes}
+
+There is one proposed change to the structure of the metrics used in the
+calculation of the integrity indicator: the inclusion of a measure from the
+Bertelsmann Foundation's Sustainable Governance Indicators on corruption
+prevention.
+
+A further change from the 2017 pilot methodology has been implemented in the
+processing of the OECD's data on post-employment cooling-off periods. The
+model now simply codes whether post-employment cooling-off periods and now
+ignores whether compensation is paid during this period.
+
+The OECD source data provides information on whether post-employment
+cooling-off periods exist for both senior civil servant sand other
+civil servants, and also includes information on whether a compensation period
+is paid during that period.
+
+These data are combined by the InCiSE model into a single scale, outlined
+below. In the 2017 Pilot, this scale creates the normative conditions that a
+post-employment cooling-off period with compensation for both groups of civil
+servants is "best" and no cooling-off period is "worst", @tbl-pemp-2017.
+
+```{r}
+#| label: tbl-pemp-2017
+#| tbl-cap: Coding of post-employment cooling-off in the 2017 Pilot edition
+#|   of InCiSE
+#| classes: no-stripe .table-responsive
+
+tbl_pemp_2017 |>
+  gt::gt(
+    groupname_col = "pemp_2017",
+    row_group_as_column = TRUE
+  ) |>
+  gt::tab_stubhead(label = "InCiSE 2017 post-employment scale value") |>
+  gt::cols_label(
+    scs_cool = "Cooling-off period?",
+    scs_comp = "With compensation?",
+    ocs_cool = "Cooling-off period?",
+    ocs_comp = "With compensation?"
+  ) |>
+  gt::tab_spanner(
+    label = "Senior civil servants", columns = c(scs_cool, scs_comp)
+  ) |>
+  gt::tab_spanner(
+    label = "Other civil servants", columns = c(ocs_cool, ocs_comp)
+  ) |>
+  gt::tab_footnote("Table 3.1.C in the original 2019 publication") |>
+  strip_gt()
+
+```
+
+Further examination of the data, as reported by the OECD, showed that only a
+limited number of officials in only a small number of countries received paid
+compensation during a cooling off period and that there was noticeable
+variation in how this was decided by country. This limited usage of
+post-employment compensation and high variability in its nature suggests that
+it may not be appropriate to code in the provision of post-employment
+compensation as normative "best" practice in the calculation of the integrity
+indicator.
+
+> *"During the cooling off period, only some categories of public officials in
+  Austria, Israel, Norway, Portugal and Spain receive compensation. For
+  instance, in Spain, public officials receive 80% of their basic salaries
+  as compensation and in Norway, compensation is awarded only for prohibitions
+  on taking up a specific appointment, the level of which is equivalent to the
+  salary received at the time of the public official left public office"*
+  [@oecd_government_2015 p. 116]
+
+Therefore, for the 2019 edition, InCiSE has adopted a new scale that measures
+only the existence of post-employment cooling-off periods for senior civil
+servants and other civil servants, ignoring the use/existence of compensation,
+@tbl-pemp-2019. The highest score will be awarded for those countries that have
+a cooling-off period for both groups of civil servants, the lowest score for
+those that do not have a cooling-off period for either group, while an
+intermediate score will be given to those countries that have a cooling-off
+period for one group but not the other – with cooling-off periods for senior
+civil servants preferred to those for non-senior civil servants.
+
+```{r}
+#| label: tbl-pemp-2019
+#| tbl-cap: Coding of post-employment cooling-off in the 2019 edition
+#|   of InCiSE
+#| classes: .table-responsive
+
+tbl_pemp_2019 |>
+  gt::gt(
+    groupname_col = "pemp_2019",
+    row_group_as_column = TRUE
+  ) |>
+  gt::tab_stubhead(label = "InCiSE 2019 post-employment scale value") |>
+  gt::cols_label(
+    scs_cool = "Senior civil servants",
+    ocs_cool = "Other civil servants"
+  ) |>
+  gt::tab_spanner(
+    label = "Does a post-employment cooling-off period exist for...?",
+    columns = c(scs_cool, ocs_cool)
+  ) |>
+  gt::tab_footnote("Table 3.1.D in the original 2019 publication") |>
+  strip_gt()
+
+```
+
+::: {.callout-note .crf title="Cross-referencing note" icon="false"}
+
+This chapter was presented as section 3.1 in the original 2019 publication.
+
+:::
