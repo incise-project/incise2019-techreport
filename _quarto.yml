@@ -7,18 +7,17 @@ book:
   date: "April 2019"
   chapters:
     - index.qmd
-    - contents.qmd
-    - readers-guide.qmd
-    - 1_introduction.qmd
-    - 2_index-methodology.qmd
-    - 3_indicators-methodology.qmd
-    - 4_changes.qmd
-    - 5_sensitivity.qmd
-    - 6_future-development.qmd
-    - references.qmd
+    - 00_contents.qmd
+    - 00_readers_guide.qmd
+    - 01_introduction.qmd
+    - 02_index.qmd
+    - 04_changes.qmd
+    - 05_sensitivity.qmd
+    - 06_future_development.qmd
+    - 99_references.qmd
   appendices: 
-    - A_composite-metrics.qmd
-    - B_sensitivity-detailed.qmd
+    - A_composite_metrics.qmd
+    - B_sensitivity_detailed.qmd
   cover-image: incise2019-techreport-cover.png
   favicon: incise2019-techreport-cover.png
   repo-url: https://github.com/incise-project/incise2019-techreport/
