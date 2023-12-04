@@ -192,6 +192,8 @@ tbl_sens_summary_group <- tbl_sens_group_mae |>
 
 # Sensitivity analysis {#sec-sensitivity}
 
+<!-- This is chapter 5 in the original 2019 publication -->
+
 Building statistical models and indices involves stages where subjective
 judgements have to be made. These can include the selection of individual
 data sets, the treatment of missing values, and the approach to weighting
@@ -320,8 +322,9 @@ themselves are weighted aggregations of the InCiSE metrics. @sec-calc-index
 set out the approach to weighting the InCiSE indicators to calculate the
 InCiSE Index. Two-thirds of an indicator's weight is based on an 'equal share'
 approach (i.e. 1/12), while one-third is based on the results of the data
-quality assessment. @sec-calc-indicators and @sec-indicators-methodology
-outline how the metrics are weighted to produce each of the 12 indicator scores.
+quality assessment. @sec-calc-indicators and 
+[Chapters 3-14](03_00_indicators.qmd) outline how the individual metrics are
+weighted to produce each of the 12 indicator scores.
 
 The first three sensitivity tests for alternative weighting look at the
 proportion of indicator weighting that is assigned to the 'equal share' and
@@ -478,7 +481,7 @@ render_svg(sens_plot, width = 700, height = 1200,
              "analysis. Each graph shows the InCiSE 2019 final index scores",
              "for each country compared to the results of each set of tests",
              "conducted in the sensitivity analysis."),
-           source_note = "Figures 5.1 to 5.5 in the original PDF publication."
+           source_note = "Figures 5.1 to 5.5 in the original 2019 publication."
            )
 
 ```
@@ -551,7 +554,7 @@ tbl_sens_summary_country |>
                               rank_base, rank_imp)) |>
   gt::cols_align(align = "center", columns = -cc_iso3c) |>
   gt::sub_missing() |>
-  gt::tab_footnote("Table 5.6.A in the original PDF publication") |>
+  gt::tab_footnote("Table 5.6.A in the original 2019 publication") |>
   strip_gt()
 
 ```
@@ -574,7 +577,13 @@ tbl_sens_summary_group |>
   ) |>
   gt::cols_align(align = "center", columns = -var) |>
   gt::sub_missing() |>
-  gt::tab_footnote("Table 5.6.A in the original PDF publication") |>
+  gt::tab_footnote("Table 5.6.A in the original 2019 publication") |>
   strip_gt()
 
 ```
+
+::: {.callout-note .crf title="Cross-referencing note" icon="false"}
+
+This was presented as chapter 5 in the original 2019 publication.
+
+:::

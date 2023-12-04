@@ -50,8 +50,9 @@ composite_metrics_table(tbl_A, "INT",
                         "Table A.1 in the original PDF publication")
 ```
 
-See @sec-method-integrity for more details about the coding of post-employment
-cooling-off periods.
+See @sec-method-integrity for the full composition of the integrity indicator,
+@sec-integrity-changes provides more in-depth discussion about the coding of
+post-employment cooling-off periods.
 
 ## Inclusiveness  {#sec-composite-inclusiveness}
 
@@ -63,6 +64,9 @@ composite_metrics_table(tbl_A, "INC",
                         "Table A.2 in the original PDF publication")
 ```
 
+See @sec-method-inclusiveness for the full composition of the inclusiveness
+indicator.
+
 ## Fiscal and financial management  {#sec-composite-ffm}
 
 ```{r}
@@ -73,6 +77,9 @@ composite_metrics_table(tbl_A, "FFM",
                         "Table A.3 in the original PDF publication")
 ```
 
+See @sec-method-fiscal for the full composition of the fiscal and financial
+management indicator.
+
 ## Tax administration {#sec-composite-tax}
 
 ```{r}
@@ -82,6 +89,9 @@ composite_metrics_table(tbl_A, "FFM",
 composite_metrics_table(tbl_A, "TAX",
                         "Table A.4 in the original PDF publication") 
 ```
+
+See @sec-method-tax for the full composition of the tax administration
+indicator.
 
 ## Procurement {#sec-composite-procurement}
 
@@ -101,6 +111,9 @@ systems of individual entities), where there is no functionality indicated in
 a national system but it is available in some individual entities this is coded
 as 0.5.
 
+See @sec-method-procurement for the full composition of the procurement
+indicator.
+
 ## Crisis and risk management {#sec-composite-crm}
 
 ```{r}
@@ -111,3 +124,5 @@ composite_metrics_table(tbl_A, "CRM",
                         "Table A.6 in the original PDF publication")
 ```
 
+See @sec-method-crisis for the full composition of the crisis and risk
+management indicator.

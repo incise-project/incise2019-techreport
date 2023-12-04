@@ -3,14 +3,9 @@ execute:
   echo: false
 ---
 
-```{r, setup}
-#| output: false
-
-tbl_scope <- readr::read_delim("tables/table_1-2-A.txt", delim = "|")
-
-```
-
 # Summary of changes from the 2017 pilot edition of the InCiSE Index {#sec-changes}
+
+<!-- This is chapter 4 in the original 2019 publication -->
 
 The 2019 edition of InCiSE incorporates a number of methodological
 changes and improvement since the 2017 Pilot, which are the result of
@@ -126,3 +121,9 @@ significant quality issues with the metric used. No alternative metrics for
 the indicator were identified, therefore it was decided to depreciate the
 indicator from the model. Further discussion of this is provided in
 @sec-future-development. 
+
+::: {.callout-note .crf title="Cross-referencing note" icon="false"}
+
+This was chapter 4 in the original 2019 publication.
+
+:::

@@ -81,8 +81,9 @@ modelling process to produce the Index is as follows:
 
 This chapter outlines the methodology for each of these different stages, and
 finishes with a discussion of key data quality considerations
-in [@sec-considerations] and comparisons over time in [@sec-time-series], while @sec-indicators-methodology provides details on
-the specific methodology of each of the InCiSE indicators.
+in [@sec-considerations] and comparisons over time in [@sec-time-series], while
+[Chapters 3-14](03_00_indicators.qmd) provide details on the specific methodology
+of each of the InCiSE indicators.
 
 ## Data preparation {#sec-data-prep}
 
@@ -93,7 +94,7 @@ The InCiSE partnership does not produce any of the source data itself or engage
 in primary data collection.
 
 [^data]: A full list of data sources can be found in the
-[References](references.qmd) section at the end of this report.
+[References](99_references.qmd) section at the end of this report.
 
 The data for the 2019 edition of InCiSE is the latest available as of 30
 November 2018. As well as the source metrics some additional data are collected
@@ -125,10 +126,10 @@ the InCiSE calculations and modelling. For example:
   raw data. InCiSE uses rates based on these data which must therefore be
   calculated.
 
-@sec-indicators-methodology outlines the underlying source data for each of the
-indicators, and covers the specific transformations that are applied to the
-source data. @sec-composite-metrics outlines the construction and calculation
-of composite metrics.
+[Chapters 3-14](03_00_indicators.qmd) outline the underlying source data for each
+of the indicators, and covers the specific transformations that are applied to
+the source data. @sec-composite-metrics outlines the construction and
+calculation of composite metrics.
 
 When importing data to the InCiSE model, data is matched against a reference
 list of 249 countries and territories produced by
@@ -412,7 +413,7 @@ Imputation is handled on a per-indicator basis – in most cases imputation will
 be solely from within the metrics of that indicator. However, a few indicators
 have external predictors, either data from elsewhere in the InCiSE model or
 from an external data source. Full details of the imputation approach for each
-indicator is described in @sec-indicators-methodology.
+indicator are described in [Chapters 3-14](03_00_indicators.qmd).
 
 ## Data normalisation {#sec-normalisation}
 
@@ -470,8 +471,8 @@ A country's raw score for an indicator ($i_c$) is calculated as the sum of the
 product of each metric within the indicator for that country ($m_{i,c}$) with
 the weight of that metric within its theme ($w_m$) and the weight of that
 theme within the indicator ($w_t$). The weighting structure for each indicator
-is listed in detail in @sec-indicators-methodology. After the raw scores are
-calculated they are normalised as described in @sec-normalisation above.
+are listed in detail in [Chapters 3-14](03_00_indicators.qmd). After the raw scores
+are calculated they are normalised as described in @sec-normalisation above.
 
 
 ## Calculation of the InCiSE Index {#sec-calc-index}

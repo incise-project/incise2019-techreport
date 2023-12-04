@@ -91,7 +91,7 @@ tbl_future |>
     fns = rag_image
   ) |>
   gt::cols_align(align = "center", columns = final_rag) |>
-  gt::tab_footnote("Table 6.3.A in the original PDF publication") |>
+  gt::tab_footnote("Table 6.3.A in the original 2019 publication") |>
   strip_gt()
 
 ```
@@ -124,3 +124,9 @@ Brazil and Nigeria to inform future thinking.
 While extending country coverage will generate a greater set of results,
 careful consideration will be needed on developing alternative versions of the
 index and how (if at all) to compare between them. 
+
+::: {.callout-note .crf title="Cross-referencing note" icon="false"}
+
+This was presented as chapter 6 in the original 2019 publication.
+
+:::

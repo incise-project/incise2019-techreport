@@ -253,13 +253,13 @@ performance across all functions.
   are able to freely develop. 
 
 The 2019 edition of InCiSE measures 12 of the 17 functions and attributes
-defined by the framework. @sec-indicators-methodology provides further detail
-of the definition and measurement of each of these indicators. Four of the five
-indicators (IT for officials, internal finance, staff engagement, and
-innovation) are not included because it has not been possible to identify
-suitable or sufficient data for cross-country measurement. One of the five
-indicators (social security administration) was measured in the 2017 Pilot but
-has been depreciated due to data quality concerns.
+defined by the framework. [Chapters 3-14](03_00_indicators.qmd) provides
+further detail of the definition and measurement of each of these indicators.
+Four of the five indicators (IT for officials, internal finance, staff
+engagement, and innovation) are not included because it has not been possible
+to identify suitable or sufficient data for cross-country measurement. One of
+the five indicators (social security administration) was measured in the 2017
+Pilot but has been depreciated due to data quality concerns.
 
 ## The InCiSE data model {#sec-incise-datamodel}
 
@@ -338,7 +338,7 @@ the UK Government Digital Service [@gregory_rap_2017]. The technical
 approach to coding and data management/processing was also influenced by the
 "tidyverse" principles [@wickham_r_2017, @wickham_r_2015]. A full list of the
 software packages used to develop and implement the modelling are listed in the
-[References](references.qmd) section at the end of this report.
+[References](99_references.qmd) section at the end of this report.
 
 ## Quality considerations and limitations {#sec-quality-limitations}
 
@@ -430,7 +430,7 @@ domestic data from within a country about performance across the various
 indicators.
 
 Further considerations about the specific data quality of the InCiSE data and
-results is provided in @sec-index-methodology.
+results is provided in [Chapters 3-14](03_00_indicators.qmd).
 
 ## Structure of this report {#sec-report-structure}
 

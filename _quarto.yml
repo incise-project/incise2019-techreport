@@ -53,3 +53,4 @@ format:
     fig-responsive: true
     tbl-cap-location: top
     reference-location: margin
+    strip-comments: true
