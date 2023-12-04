@@ -5,17 +5,17 @@ execute:
 
 # References {#sec-references .unnumbered}
 
-```{r}
+```{r, setup}
 #| output: false
 
 source("R/references.R")
 
 ```
 
-## Data sources
+## Data sources {#sec-data-sources}
 
 ::: {#data-source-refs .references .hanging-indent}
-```{r}
+```{r, list-data}
 #| output: asis
 
 gen_ds_refs("references/data_sources.bib")
@@ -23,10 +23,10 @@ gen_ds_refs("references/data_sources.bib")
 ```
 :::
 
-## Software packages
+## Software packages {#sec-software}
 
 ::: {#data-source-refs .references .hanging-indent}
-```{r}
+```{r, list-software}
 #| output: asis
 
 gen_sw_refs("references/software.bib") 
@@ -34,7 +34,7 @@ gen_sw_refs("references/software.bib")
 ```
 :::
 
-## Published works and other materials
+## Published works and other materials {#sec-published-works}
 
 ::: {#refs}
 :::
