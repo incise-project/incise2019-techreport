@@ -103,8 +103,8 @@ main ol li::before {
   content: counters(li, ".") ".";
   color: $incise-blue;
   display: inline-block;
-  width: 2em;
-  margin-left: -2em;
+  width: 1.75em;
+  margin-left: -1.75em;
 }
 
 main ol li {
@@ -123,6 +123,15 @@ main .nobullet ul li::before {
 
 main li p {
   display: contents;
+}
+
+main ol ol, main ul ul {
+  margin-left: 1.5em;
+}
+
+main ol ol li::before {
+  width: 2.25rem;
+  margin-left: -2.25rem;
 }
 
 
@@ -356,4 +365,8 @@ div.callout-note.callout-style-default>.callout-header {
 
 .callout {
   border-radius: unset;
+}
+
+.crf {
+  margin-top: 2rem;
 }
