@@ -23,7 +23,8 @@ gen_ds_refs <- function(x) {
       output = glue::glue(
         "* {author} ({year}) *{title}*, {place}: {publisher}, [{url}](url)"
       )
-    )
+    ) |>
+    dplyr::arrange(tolower(output))
   
   out$output
   
@@ -68,7 +69,8 @@ gen_sw_refs <- function(x) {
           "* {author} ({year}) *{title}*, {place}: {publisher}, [{url}](url)"
         )
       )
-    )
+    ) |>
+    dplyr::arrange(tolower(output))
   
   out$output
   
