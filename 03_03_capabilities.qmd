@@ -32,7 +32,8 @@ is vital for the successful operation of any organisation, civil services
 included. The standards for good governance set out by @opm_good_2004 include
 leadership as a core skill, it goes on to list necessary skills as "the ability
 to scrutinise and challenge information ...including skills in financial
-management and the ability to recognise when outside expert advice is needed". @fukuyama_what_2013 acknowledges the importance of educational attainment of
+management and the ability to recognise when outside expert advice is needed".
+@fukuyama_what_2013 acknowledges the importance of educational attainment of
 civil servants: "another critical measure of capacity is the level of education
 and professionalisation of government officials", along with the importance of
 digital capability: "what level of technical expertise they are required to
@@ -237,7 +238,7 @@ across countries than using the large "public sector" basis.
 
 Further details on the structure of the activities included in the
 "public administration" industrial sector can be found in the UN's registry of
-Statistical Classifications ([unsd_statistical_2018]).
+Statistical Classifications [@unsd_statistical_2018].
 
 ### Updated coding of tertiary education
 
@@ -267,7 +268,7 @@ This chapter was presented as section 3.3 in the original 2019 publication.
 :::
 
 
-[^caprec]: @lutz_reconstruction_2007 and goujon_harmonized_2016 utilise this
+[^caprec]: @lutz_reconstruction_2007 and @goujon_harmonized_2016 utilise this
 principle to develop "back-projections" of educational attainment, and hold a
 general assumption that 'transition' to different levels of education tend to
 be limited after the age of 34.
