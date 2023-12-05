@@ -14,7 +14,8 @@ source("R/gen_contents.R")
 
 ## Contents of the report
 
-This report is structured into six chapters and two appendices.
+This web book version of the report is structured into 17 chapters and two
+appendices.
 
 :::{.custom-toc .report-contents}
 
@@ -22,6 +23,17 @@ This report is structured into six chapters and two appendices.
 #| output: asis
 cat(get_content_list("sec"), sep = "\n")
 ```
+
+::: {.callout-note .crf title="Cross-referencing note" icon="false"}
+
+[Chapters 3-14](03_00_indicators.qmd) of this web book were presented as a
+single chapter (Chapter 3) in the original 2019 publication. For improved
+navigation and readability this part of the report has been split into separate
+chapters. Footnotes have been added to charts, tables and chapters to indicate
+the resulting differences in numbering between this web book and the original
+PDF publication.
+
+:::
 
 :::
 
