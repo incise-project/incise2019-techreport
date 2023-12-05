@@ -129,7 +129,9 @@ the InCiSE calculations and modelling. For example:
 [Chapters 3-14](03_00_indicators.qmd) outline the underlying source data for each
 of the indicators, and covers the specific transformations that are applied to
 the source data. @sec-composite-metrics outlines the construction and
-calculation of composite metrics.
+calculation of the composite metrics (metrics calculated from more than a
+single data point in the original source) that are included in some of the
+indicators.
 
 When importing data to the InCiSE model, data is matched against a reference
 list of 249 countries and territories produced by
