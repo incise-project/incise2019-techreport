@@ -23,12 +23,17 @@ is republishing the 2019 project outputs (this Technical Report, the Results
 Report and interactive visualisations) to help foster engagement with
 stakeholders as work progresses towards a new edition of the InCiSE index.
 
-Please note, some typographic errors have been corrected as part of the
-re-publication of this report. There have also been some changes to the tables
-and figures when compared to the original report, these are largely for layout
-purposes (except in the case of one chart where external source data
-availability has changed). Footnotes have been added to charts and tables to
-indicate these changes.
+### Differences from the original 2019 publication
+
+Please note, as part of the re-publication of this report into a web format
+Chapter 3 of the original report has had its constituent sections split into
+individual chapters to improve readability and navigation. Some typographic
+errors have been corrected as part of the re-publication of this report. There
+have also been some changes to the tables and figures when compared to the
+original report, these are largely for layout purposes (except in the case of
+one chart where external source data availability has changed). Footnotes have
+been added to charts, tables and chapters to indicate changes in content and
+differences in numbering.
 
 ## Citation
 
