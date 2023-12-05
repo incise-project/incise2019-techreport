@@ -45,6 +45,7 @@ variables from the same dataset from the same author/publisher).
 ```{r}
 #| label: tbl-composite-int
 #| tbl-cap: Composite metrics in the integrity indicator
+#| classes: .no-stripe
 
 composite_metrics_table(tbl_A, "INT",
                         "Table A.1 in the original PDF publication")
@@ -59,6 +60,7 @@ post-employment cooling-off periods.
 ```{r}
 #| label: tbl-composite-inc
 #| tbl-cap: Composite metrics in the inclusiveness indicator
+#| classes: .no-stripe
 
 composite_metrics_table(tbl_A, "INC",
                         "Table A.2 in the original PDF publication")
@@ -72,6 +74,7 @@ indicator.
 ```{r}
 #| label: tbl-composite-ffm
 #| tbl-cap: Composite metrics in the fiscal and financial management indicator
+#| classes: .no-stripe
 
 composite_metrics_table(tbl_A, "FFM",
                         "Table A.3 in the original PDF publication")
@@ -85,6 +88,7 @@ management indicator.
 ```{r}
 #| label: tbl-composite-tax
 #| tbl-cap: Composite metrics in the tax administration indicator
+#| classes: .no-stripe
 
 composite_metrics_table(tbl_A, "TAX",
                         "Table A.4 in the original PDF publication") 
@@ -98,6 +102,7 @@ indicator.
 ```{r}
 #| label: tbl-composite-pro
 #| tbl-cap: Composite metrics in the procurement indicator
+#| classes: .no-stripe
 
 composite_metrics_table(tbl_A, "PRO",
                         "Table A.5 in the original PDF publication")
@@ -119,6 +124,7 @@ indicator.
 ```{r}
 #| label: tbl-composite-crm
 #| tbl-cap: Composite metrics in the crisis and risk management indicator
+#| classes: .no-stripe
 
 composite_metrics_table(tbl_A, "CRM",
                         "Table A.6 in the original PDF publication")
