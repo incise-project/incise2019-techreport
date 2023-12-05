@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2019-04-01">
 
-<title>InCiSE 2019: Technical Report</title>
+<title>InCiSE 2019: Technical Report - Methodology of the InCiSE indicators</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./00_contents.html" rel="next">
+<link href="./03_01_integrity.html" rel="next">
+<link href="./02_index.html" rel="prev">
 <link href="./incise2019-techreport-cover.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -76,7 +76,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03_00_indicators.html">Methodology of the InCiSE indicators</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -107,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -137,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./03_00_indicators.html" class="sidebar-item-text sidebar-link">
+            <a href="./03_00_indicators.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Methodology of the InCiSE indicators</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -271,25 +271,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a>
-  <ul class="collapse">
-  <li><a href="#preface-to-the-original-report" id="toc-preface-to-the-original-report" class="nav-link" data-scroll-target="#preface-to-the-original-report">Preface to the original report</a></li>
-  <li><a href="#citation" id="toc-citation" class="nav-link" data-scroll-target="#citation">Citation</a></li>
-  <li><a href="#acknoweldgements" id="toc-acknoweldgements" class="nav-link" data-scroll-target="#acknoweldgements">Acknoweldgements</a></li>
-  </ul></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">InCiSE 2019: Technical Report</h1>
+<h1 class="title"><span id="sec-method-indicators" class="quarto-section-identifier">Methodology of the InCiSE indicators</span></h1>
 </div>
 
 
@@ -297,12 +286,6 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">April 1, 2019</p>
-    </div>
-  </div>
   
     
   </div>
@@ -310,40 +293,41 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-
-<section id="preface" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="preface">Preface</h2><p><img src="incise2019-techreport-cover.png" title="InCiSE 2019: Technical Report" class="quarto-cover-image img-fluid"></p>
-<p>From 2016 to 2019, the <a href="https://www.bsg.ox.ac.uk/incise">International Civil Service Effectiveness (InCiSE) project</a> was a collaboration between the <a href="https://www.bsg.ox.ac.uk">Blavatnik School of Government</a> and the <a href="http://instituteforgovernment.org.uk">Institute for Government</a>. It was supported by the UK Civil Service (through the <a href="https://www.gov.uk/cabinetoffice">Cabinet Office</a>) and funded by the <a href="https://www.opensocietyfoundations.org">Open Society Foundations</a>.</p>
-<p>The Blavatnik School of Government is re-establishing the project, aiming to publish a new edition of the InCiSE Index in 2024. To support this, the School is republishing the 2019 project outputs (this Technical Report, the Results Report and interactive visualisations) to help foster engagement with stakeholders as work progresses towards a new edition of the InCiSE index.</p>
-<p>This web publication has been made using <a href="https://quarto.org">Quarto</a>, the source code is available on <a href="https://github.com/incise-project/incise2019-techreport">GitHub</a>.</p>
-<section id="differences-from-the-original-2019-publication" class="level4">
-<h4 class="anchored" data-anchor-id="differences-from-the-original-2019-publication">Differences from the original 2019 publication</h4>
-<p>Please note, as part of the re-publication of this report into a web format Chapter 3 of the original report has had its constituent sections split into individual chapters to improve readability and navigation. Some typographic errors have been corrected as part of the re-publication of this report. There have also been some changes to the tables and figures when compared to the original report, these are largely for layout purposes (except in the case of one chart where external source data availability has changed). Footnotes have been added to charts, tables and chapters to indicate changes in content and differences in numbering.</p>
-</section>
-<section id="preface-to-the-original-report" class="level3">
-<h3 class="anchored" data-anchor-id="preface-to-the-original-report">Preface to the original report</h3>
-<p>Two reports have been published covering the 2019 edition of the InCiSE Index:</p>
+<p>The sections of this chapter set out the methodology for each of the 12 indicators that make up the 2019 edition of the InCiSE Index. For each indicator the section outlines: the source data; the indicator structure and weighting; the nature and definition of the imported source data and any transformations; the approach to imputation of missing data; and, the rationale for any changes from the 2017 Pilot methodology.</p>
+<p>The source data for InCiSE comes from a variety of sources which use different methodologies, we have applied the following taxonomy to describe the different types of data sources:</p>
 <ul>
-<li>The Results Report provides an overview of the overall results of the InCiSE Index, and a summary for each country covered by the Index.</li>
-<li>The Technical Report (this report) provides the methodology of the InCiSE Index, it includes details fo the data sources, transformations, imputation, and weightings.</li>
+<li>Subjective data:
+<ul>
+<li><em>Public opinion survey</em> – a survey of the opinion/attitudes of the general population/households within a country (e.g.&nbsp;Transparency International’s Global Corruption Barometer)</li>
+<li><em>Business opinion survey</em> – a survey of the opinion/attitudes of business owners/executives within a country (e.g.&nbsp;the World Economic Forum’s Executive Opinion Survey)</li>
+<li><em>Expert assessment</em> – a survey/assessment of a country made by a small number of experts/researchers (e.g the Quality of Government Institute’s Expert Opinion Survey)</li>
+</ul></li>
+<li>Objective data:
+<ul>
+<li><em>Analysis of published data</em> – secondary analysis of information/data published by governments</li>
+<li><em>Social survey</em> – studies that use scientific social survey methods to collect representative information about the population, but are not opinion surveys (e.g.&nbsp;the OECD’s Programme for the International Assessment of Adult Skills)</li>
+<li><em>Government assessments</em> – official responses from governments to data collection exercises by international organisations (e.g.&nbsp;OECD surveys)</li>
+</ul></li>
 </ul>
-<p>Users are free to copy, download and print InCiSE content and findings for their own use. Excerpts from InCiSE reports and publications may also be used, but must be appropriately referenced.</p>
-<p>The Index is comprised of a variety of other data sources. Reuse is not applicable to data subject to intellectual property rights of third parties. Please refer to other organisations’ corresponding websites and data licensing restrictions to ensure compliance with their data limitations. Details of data sources can be found in the References section at the end of this report. Every effort has been made to adhere to third party data regulations.</p>
-</section>
-<section id="citation" class="level3">
-<h3 class="anchored" data-anchor-id="citation">Citation</h3>
-<p>Please refer to and cite the original PDF publication:</p>
-<blockquote class="blockquote">
-<p>InCiSE Partners (2019) The International Civil Service Effectiveness (InCiSE) Index: Technical Report 2019, Oxford: Blavatnik School of Government, University of Oxford, https://www.bsg.ox.ac.uk/incise</p>
-</blockquote>
-</section>
-<section id="acknoweldgements" class="level3">
-<h3 class="anchored" data-anchor-id="acknoweldgements">Acknoweldgements</h3>
-<p>Our thanks go to those who have given their time to shape this second publication of the InCiSE Index. This has included substantial contributions made by academics, think-tanks and civil servants, past and present. Thanks also go to those organisations who have allowed us once again to use their data in the InCiSE Index, as well as their ideas and support for the overall project.</p>
+<p>Each of these types has its strengths and limitations, and some types of data are more appropriate in certain cases than others. The InCiSE model places equal value on these different types of data and does not attempt to make ‘quality adjustments’, e.g.&nbsp;through weighting, to distinguish between the different types of data.</p>
+<p>Critiques of subjective measures can include that they measure perceptions and other ‘subjective’ positions which may be influenced by considerations beyond just the specific item being measured – e.g.&nbsp;business perceptions of how effective the civil service is at delivering services may be influenced by their perceptions of how business-friendly the government’s political programme is. Another critique is through the use of expert assessments, which often rely on a small number of experts/researchers to assess government performance on a given topic or area. However, expert assessments often focus on niche areas which the general public/businesses may not be able to make a judgement about.</p>
+<p>Objective data is also not without its own limitations. It can be argued that it is rare for any data to be truly ‘objective’ even if it is not directly ‘subjective’. Even if the data does not aim to measure perceptions or another form of subjective position, it is collected and analysed to fulfil a particular purpose, defined by a particular group of individuals, with a particular agenda. While efforts can be made to minimise biases and particular normative assumptions, in any study there are implicit or explicit subjective decisions made about the collection and analysis of data. The decisions a researcher or analyst makes, such as whether to collect one piece of data over another, which methods of collection and analysis to use, or what to consider in scope or out of scope, are all subjective and therefore will influence the results.</p>
+<p>Each of the chapters in this part (3-14) list the data sources used to supply the input data for the InCiSE metrics of each indicator. For ease of reference in each section’s tables, the data sources are given an acronym. Figures in square brackets next to a data source indicate the reference year for the data (i.e.&nbsp;the year the data was collected/relates to) rather than the year of publication. A complete reference list of the data sources used for InCiSE is provided in the <a href="./99_references.html">References</a> chapter. Some metrics are calculated as aggregations of multiple data points, details of these calculations are provided in <a href="A_composite_metrics.html"><span>Appendix&nbsp;A</span></a>.</p>
+<div class="crf callout callout-style-default callout-note no-icon callout-titled" title="Cross-referencing note">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cross-referencing note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the original 2019 publication this part of the report (this introduction and chapters 3-14) was presented as a single chapter (3). For improved readability in this web version, chapter 3 has been split into separate chapters.</p>
+</div>
+</div>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -579,13 +563,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./02_index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Methodology of the InCiSE index</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./00_contents.html" class="pagination-link">
-        <span class="nav-page-text">Contents, figures and tables</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./03_01_integrity.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Integrity</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

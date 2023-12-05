@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2019-04-01">
 
-<title>InCiSE 2019: Technical Report</title>
+<title>InCiSE 2019: Technical Report - 13&nbsp; Tax administration</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -31,7 +49,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./00_contents.html" rel="next">
+<link href="./03_12_digital.html" rel="next">
+<link href="./03_10_hrm.html" rel="prev">
 <link href="./incise2019-techreport-cover.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -76,7 +95,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03_00_indicators.html">Methodology of the InCiSE indicators</a></li><li class="breadcrumb-item"><a href="./03_11_tax.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Tax administration</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -107,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -206,7 +225,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_11_tax.html" class="sidebar-item-text sidebar-link">
+  <a href="./03_11_tax.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Tax administration</span></span></a>
   </div>
 </li>
@@ -275,21 +294,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a>
-  <ul class="collapse">
-  <li><a href="#preface-to-the-original-report" id="toc-preface-to-the-original-report" class="nav-link" data-scroll-target="#preface-to-the-original-report">Preface to the original report</a></li>
-  <li><a href="#citation" id="toc-citation" class="nav-link" data-scroll-target="#citation">Citation</a></li>
-  <li><a href="#acknoweldgements" id="toc-acknoweldgements" class="nav-link" data-scroll-target="#acknoweldgements">Acknoweldgements</a></li>
-  </ul></li>
+  <li><a href="#sec-tax-imputation" id="toc-sec-tax-imputation" class="nav-link active" data-scroll-target="#sec-tax-imputation"><span class="header-section-number">13.1</span> Imputation of missing data</a></li>
+  <li><a href="#sec-tax-changes" id="toc-sec-tax-changes" class="nav-link" data-scroll-target="#sec-tax-changes"><span class="header-section-number">13.2</span> Changes from the 2017 Pilot</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">InCiSE 2019: Technical Report</h1>
+<h1 class="title"><span id="sec-method-tax" class="quarto-section-identifier"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Tax administration</span></span></h1>
 </div>
 
 
@@ -297,12 +312,6 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">April 1, 2019</p>
-    </div>
-  </div>
   
     
   </div>
@@ -310,39 +319,152 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-
-<section id="preface" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="preface">Preface</h2><p><img src="incise2019-techreport-cover.png" title="InCiSE 2019: Technical Report" class="quarto-cover-image img-fluid"></p>
-<p>From 2016 to 2019, the <a href="https://www.bsg.ox.ac.uk/incise">International Civil Service Effectiveness (InCiSE) project</a> was a collaboration between the <a href="https://www.bsg.ox.ac.uk">Blavatnik School of Government</a> and the <a href="http://instituteforgovernment.org.uk">Institute for Government</a>. It was supported by the UK Civil Service (through the <a href="https://www.gov.uk/cabinetoffice">Cabinet Office</a>) and funded by the <a href="https://www.opensocietyfoundations.org">Open Society Foundations</a>.</p>
-<p>The Blavatnik School of Government is re-establishing the project, aiming to publish a new edition of the InCiSE Index in 2024. To support this, the School is republishing the 2019 project outputs (this Technical Report, the Results Report and interactive visualisations) to help foster engagement with stakeholders as work progresses towards a new edition of the InCiSE index.</p>
-<p>This web publication has been made using <a href="https://quarto.org">Quarto</a>, the source code is available on <a href="https://github.com/incise-project/incise2019-techreport">GitHub</a>.</p>
-<section id="differences-from-the-original-2019-publication" class="level4">
-<h4 class="anchored" data-anchor-id="differences-from-the-original-2019-publication">Differences from the original 2019 publication</h4>
-<p>Please note, as part of the re-publication of this report into a web format Chapter 3 of the original report has had its constituent sections split into individual chapters to improve readability and navigation. Some typographic errors have been corrected as part of the re-publication of this report. There have also been some changes to the tables and figures when compared to the original report, these are largely for layout purposes (except in the case of one chart where external source data availability has changed). Footnotes have been added to charts, tables and chapters to indicate changes in content and differences in numbering.</p>
-</section>
-<section id="preface-to-the-original-report" class="level3">
-<h3 class="anchored" data-anchor-id="preface-to-the-original-report">Preface to the original report</h3>
-<p>Two reports have been published covering the 2019 edition of the InCiSE Index:</p>
+<p>The tax administration indicator is defined as: the efficiency and effectiveness of tax collection (at the central/federal level). Effective tax systems can be viewed as a critical building block for increased domestic resource mobilisation which is essential for civil service effectiveness and good governance. “Successful tax extraction provides resources that enable the government to operate in other domains”, <span class="citation" data-cites="fukuyama_what_2013">Fukuyama (<a href="99_references.html#ref-fukuyama_what_2013" role="doc-biblioref">2013</a>)</span> highlights “it is a necessary function of all states, and one for which considerable data exist”. The role of tax administration as the basis of government operations is made clear by the <span class="citation" data-cites="oecd_building_nodate">OECD (<a href="99_references.html#ref-oecd_building_nodate" role="doc-biblioref">n.d.</a>)</span>: “Strong tax administrations and sound public financial management help maximise the domestic resources that are necessary for government to function, to sustain social safety nets, to maintain long-term fiscal sustainability, and to free up fiscal space for pursuing socio-economics objectives”. Although priorities and circumstances vary widely across countries, the drive to elevate the collective standard of tax administration is of great importance. Holt and Manning highlight the importance of tax administration in measuring the effectiveness of public administration and it is one of the key functions highlighted by the <span class="citation" data-cites="world_bank_indicators_2012">World Bank (<a href="99_references.html#ref-world_bank_indicators_2012" role="doc-biblioref">2012</a>)</span>.</p>
+<p>The tax administration indicator is comprised of six metrics and its structure is unchanged from the 2017 Pilot edition of InCiSE. The data sources for the indicator are:</p>
 <ul>
-<li>The Results Report provides an overview of the overall results of the InCiSE Index, and a summary for each country covered by the Index.</li>
-<li>The Technical Report (this report) provides the methodology of the InCiSE Index, it includes details fo the data sources, transformations, imputation, and weightings.</li>
+<li>OECD’s Tax Administration Comparative Information Series [2015].</li>
+<li>The World Bank’s ‘Doing Business’ Index (WB) [2018].</li>
 </ul>
-<p>Users are free to copy, download and print InCiSE content and findings for their own use. Excerpts from InCiSE reports and publications may also be used, but must be appropriately referenced.</p>
-<p>The Index is comprised of a variety of other data sources. Reuse is not applicable to data subject to intellectual property rights of third parties. Please refer to other organisations’ corresponding websites and data licensing restrictions to ensure compliance with their data limitations. Details of data sources can be found in the References section at the end of this report. Every effort has been made to adhere to third party data regulations.</p>
+<div class="cell no-stripe table-responsive page-columns page-full">
+<div class="cell-output-display column-screen-inset-right">
+<div id="tbl-comp-tax" class="anchored">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Table&nbsp;13.1: Composition of the tax administration indicator</caption>
+<thead>
+<tr class="header gt_col_headings gt_spanner_row">
+<th rowspan="2" id="Metric" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Metric</th>
+<th rowspan="2" id="Source" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Source</th>
+<th rowspan="2" id="Type" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Type</th>
+<th rowspan="2" id="Public sector proxy" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Public sector proxy</th>
+<th rowspan="2" id="Data transformation" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Data transformation</th>
+<th colspan="3" id="Weighting within indicator" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><span class="gt_column_spanner">Weighting within indicator</span></th>
+<th rowspan="2" id="Definition of the source metric (e.g. question wording)" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Definition of the source metric (e.g. question wording)</th>
+</tr>
+<tr class="odd gt_col_headings">
+<th id="In theme (A)" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">In theme (A)</th>
+<th id="Theme (B)" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Theme (B)</th>
+<th id="Total (C=A*B)" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Total (C=A*B)</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd gt_group_heading_row">
+<td colspan="9" id="Efficiency of collection" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">Efficiency of collection</td>
+</tr>
+<tr class="even gt_row_group_first">
+<td class="gt_row gt_left" headers="Efficiency of collection  label">Cost of tax administration</td>
+<td class="gt_row gt_center" headers="Efficiency of collection  source_out">OECD</td>
+<td class="gt_row gt_left" headers="Efficiency of collection  type">Government assessment</td>
+<td class="gt_row gt_left" headers="Efficiency of collection  proxy">No</td>
+<td class="gt_row gt_left" headers="Efficiency of collection  transform">Inverted</td>
+<td class="gt_row gt_center" headers="Efficiency of collection  wt_intheme">50.0%</td>
+<td class="gt_row gt_center" headers="Efficiency of collection  wt_theme">33.3%</td>
+<td class="gt_row gt_center" headers="Efficiency of collection  wt_total">16.7%</td>
+<td class="gt_row gt_left" headers="Efficiency of collection  source_definition">Administrative costs as a proportion of net revenue</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Efficiency of collection  label">Tax debt</td>
+<td class="gt_row gt_center" headers="Efficiency of collection  source_out">OECD</td>
+<td class="gt_row gt_left" headers="Efficiency of collection  type">Government assessment</td>
+<td class="gt_row gt_left" headers="Efficiency of collection  proxy">No</td>
+<td class="gt_row gt_left" headers="Efficiency of collection  transform">Inverted</td>
+<td class="gt_row gt_center" headers="Efficiency of collection  wt_intheme">50.0%</td>
+<td class="gt_row gt_center" headers="Efficiency of collection  wt_theme">33.3%</td>
+<td class="gt_row gt_center" headers="Efficiency of collection  wt_total">16.7%</td>
+<td class="gt_row gt_left" headers="Efficiency of collection  source_definition">Total tax debt as a proportion of net revenue</td>
+</tr>
+<tr class="even gt_group_heading_row">
+<td colspan="9" id="Taxpayer experience" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">Taxpayer experience</td>
+</tr>
+<tr class="odd gt_row_group_first">
+<td class="gt_row gt_left" headers="Taxpayer experience  label">Time to pay (business)</td>
+<td class="gt_row gt_center" headers="Taxpayer experience  source_out">WB</td>
+<td class="gt_row gt_left" headers="Taxpayer experience  type">Expert assessment</td>
+<td class="gt_row gt_left" headers="Taxpayer experience  proxy">No</td>
+<td class="gt_row gt_left" headers="Taxpayer experience  transform">Inverted</td>
+<td class="gt_row gt_center" headers="Taxpayer experience  wt_intheme">100.0%</td>
+<td class="gt_row gt_center" headers="Taxpayer experience  wt_theme">33.3%</td>
+<td class="gt_row gt_center" headers="Taxpayer experience  wt_total">33.3%</td>
+<td class="gt_row gt_left" headers="Taxpayer experience  source_definition">The time it takes businesses to pay taxes</td>
+</tr>
+<tr class="even gt_group_heading_row">
+<td colspan="9" id="Digital tax services" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">Digital tax services</td>
+</tr>
+<tr class="odd gt_row_group_first">
+<td class="gt_row gt_left" headers="Digital tax services  label">Online personal tax returns</td>
+<td class="gt_row gt_center" headers="Digital tax services  source_out">OECD</td>
+<td class="gt_row gt_left" headers="Digital tax services  type">Government assessment</td>
+<td class="gt_row gt_left" headers="Digital tax services  proxy">No</td>
+<td class="gt_row gt_left" headers="Digital tax services  transform">None</td>
+<td class="gt_row gt_center" headers="Digital tax services  wt_intheme">33.3%</td>
+<td class="gt_row gt_center" headers="Digital tax services  wt_theme">33.3%</td>
+<td class="gt_row gt_center" headers="Digital tax services  wt_total">11.1%</td>
+<td class="gt_row gt_left" headers="Digital tax services  source_definition">The percentage of tax returns e-filed during the last fiscal year for personal taxes</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Digital tax services  label">Online corporate tax returns</td>
+<td class="gt_row gt_center" headers="Digital tax services  source_out">OECD</td>
+<td class="gt_row gt_left" headers="Digital tax services  type">Government assessment</td>
+<td class="gt_row gt_left" headers="Digital tax services  proxy">No</td>
+<td class="gt_row gt_left" headers="Digital tax services  transform">None</td>
+<td class="gt_row gt_center" headers="Digital tax services  wt_intheme">33.3%</td>
+<td class="gt_row gt_center" headers="Digital tax services  wt_theme">33.3%</td>
+<td class="gt_row gt_center" headers="Digital tax services  wt_total">11.1%</td>
+<td class="gt_row gt_left" headers="Digital tax services  source_definition">The percentage of tax returns e-filed during the last fiscal year for corporate taxes</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Digital tax services  label">Online VAT returns</td>
+<td class="gt_row gt_center" headers="Digital tax services  source_out">OECD</td>
+<td class="gt_row gt_left" headers="Digital tax services  type">Government assessment</td>
+<td class="gt_row gt_left" headers="Digital tax services  proxy">No</td>
+<td class="gt_row gt_left" headers="Digital tax services  transform">None</td>
+<td class="gt_row gt_center" headers="Digital tax services  wt_intheme">33.3%</td>
+<td class="gt_row gt_center" headers="Digital tax services  wt_theme">33.3%</td>
+<td class="gt_row gt_center" headers="Digital tax services  wt_total">11.1%</td>
+<td class="gt_row gt_left" headers="Digital tax services  source_definition">The percentage of tax returns e-filed during the last fiscal year for VAT taxes</td>
+</tr>
+</tbody><tfoot class="gt_footnotes">
+<tr class="odd">
+<td colspan="9" class="gt_footnote">Tables 3.11.A &amp; 3.11.B in the original 2019 publication</td>
+</tr>
+</tfoot>
+
+</table>
+</div>
+</div>
+</div>
+<section id="sec-tax-imputation" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="sec-tax-imputation"><span class="header-section-number">13.1</span> Imputation of missing data</h2>
+<p>None of the 38 countries selected for the 2019 edition of InCiSE have completely missing data for the tax administration metrics. As a result the imputation of missing data for the tax administration metrics is based solely on the data within the indicator.</p>
 </section>
-<section id="citation" class="level3">
-<h3 class="anchored" data-anchor-id="citation">Citation</h3>
-<p>Please refer to and cite the original PDF publication:</p>
-<blockquote class="blockquote">
-<p>InCiSE Partners (2019) The International Civil Service Effectiveness (InCiSE) Index: Technical Report 2019, Oxford: Blavatnik School of Government, University of Oxford, https://www.bsg.ox.ac.uk/incise</p>
-</blockquote>
-</section>
-<section id="acknoweldgements" class="level3">
-<h3 class="anchored" data-anchor-id="acknoweldgements">Acknoweldgements</h3>
-<p>Our thanks go to those who have given their time to shape this second publication of the InCiSE Index. This has included substantial contributions made by academics, think-tanks and civil servants, past and present. Thanks also go to those organisations who have allowed us once again to use their data in the InCiSE Index, as well as their ideas and support for the overall project.</p>
+<section id="sec-tax-changes" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="sec-tax-changes"><span class="header-section-number">13.2</span> Changes from the 2017 Pilot</h2>
+<p>There are no changes to the structure of the tax administration indicator.</p>
+<div class="crf callout callout-style-default callout-note no-icon callout-titled" title="Cross-referencing note">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cross-referencing note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This chapter was presented as section 3.11 in the original 2019 publication.</p>
+</div>
+</div>
 
 
-</section>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-fukuyama_what_2013" class="csl-entry" role="listitem">
+Fukuyama, F. (2013). What <span>Is</span> <span>Governance</span>? <em>Governance</em> <em>26</em>(3): 347–368. Retrieved from <a href="https://onlinelibrary.wiley.com/doi/10.1111/gove.12035">https://onlinelibrary.wiley.com/doi/10.1111/gove.12035</a>
+</div>
+<div id="ref-oecd_building_nodate" class="csl-entry" role="listitem">
+OECD. (n.d.). <em>Building more effective, accountable, and inclusive institutions for all</em>. Paris. Retrieved from <a href="https://www.oecd.org/dac/post-2015.htm">https://www.oecd.org/dac/post-2015.htm</a>
+</div>
+<div id="ref-world_bank_indicators_2012" class="csl-entry" role="listitem">
+World Bank. (2012). <em>Indicators of the <span>Strength</span> of <span>Public</span> <span>Management</span> <span>Systems</span>: <span>A</span> key part of the <span>Public</span> <span>Sector</span> results story</em>. Washington DC: The World Bank. Retrieved from <a href="http://siteresources.worldbank.org/PUBLICSECTORANDGOVERNANCE/ Resources/285741-1354024300711/ISPMS.pdf">http://siteresources.worldbank.org/PUBLICSECTORANDGOVERNANCE/ Resources/285741-1354024300711/ISPMS.pdf</a>
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -579,13 +701,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./03_10_hrm.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">HR management</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./00_contents.html" class="pagination-link">
-        <span class="nav-page-text">Contents, figures and tables</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./03_12_digital.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Digital services</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

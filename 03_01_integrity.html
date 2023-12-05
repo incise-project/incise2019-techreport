@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>InCiSE 2019: Technical Report - 3&nbsp; Integrity</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./03_02_openness.html" rel="next">
+<link href="./03_00_indicators.html" rel="prev">
+<link href="./incise2019-techreport-cover.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03_00_indicators.html">Methodology of the InCiSE indicators</a></li><li class="breadcrumb-item"><a href="./03_01_integrity.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Integrity</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">InCiSE 2019: Technical Report</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/incise-project/incise2019-techreport/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./InCiSE-2019--Technical-Report.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00_contents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Contents, figures and tables</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00_readers_guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reader’s guide</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Methodology of the InCiSE index</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./03_00_indicators.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Methodology of the InCiSE indicators</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_01_integrity.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Integrity</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_02_openness.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Openness</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_03_capabilities.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Capabilities</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_04_inclusiveness.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Inclusiveness</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_05_policy_making.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Policy making</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_06_fiscal_financial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Fiscal and financial management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_07_regulation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Regulation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_08_crisis_risk.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Crisis and risk management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_09_procurement.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Procurement</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_10_hrm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">HR management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_11_tax.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Tax administration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_12_digital.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Digital services</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_changes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Summary of changes from the 2017 pilot edition of the InCiSE Index</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_sensitivity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Sensitivity analysis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_future_development.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Future development</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./99_references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A_composite_metrics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Composite metrics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./B_sensitivity_detailed.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Sensitivity analysis – detailed results</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-integrity-imputation" id="toc-sec-integrity-imputation" class="nav-link active" data-scroll-target="#sec-integrity-imputation"><span class="header-section-number">3.1</span> Imputation of missing data</a></li>
+  <li><a href="#sec-integrity-changes" id="toc-sec-integrity-changes" class="nav-link" data-scroll-target="#sec-integrity-changes"><span class="header-section-number">3.2</span> Changes from the 2017 pilot</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-method-integrity" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Integrity</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>The integrity indicator is defined as: the extent to which civil servants behave with integrity, make decisions impartially and fairly, and strive to serve both citizens and ministers, and is one of the core values associated with a civil service. The International Civil Service Commission <span class="citation" data-cites="international_civil_service_commission_standards_2002">(<a href="99_references.html#ref-international_civil_service_commission_standards_2002" role="doc-biblioref">2002</a>)</span> highlights the importance of integrity to the work of the United Nations (UN) common systems staff: “The concept of integrity … embraces all aspects of behaviour of an international civil servant … including … honesty, truthfulness, impartiality and incorruptibility. These qualities are as basic as those of competence and efficiency”. Numerous studies aiming to establish good governance have utilised similar metrics in their analyses, for instance <span class="citation" data-cites="muriithi_quantifying_2015">Muriithi et al. (<a href="99_references.html#ref-muriithi_quantifying_2015" role="doc-biblioref">2015</a>)</span>. The inclusion of integrity in the InCiSE is therefore deemed necessary and crucial for the assessment of an effective civil service.</p>
+<p>The indicator for integrity is comprised of 17 metrics – an increase of one from the 2017 Pilot edition. A change has also been made in the metric on post-employment cooling-off in the way it has been coded from the source data.</p>
+<p>The following sources are used:</p>
+<ul>
+<li>Transparency International’s Global Corruption Barometer (GCB) [2017].</li>
+<li>The World Economic Forum’s Global Competitiveness Report Executive Opinion Survey (WEF) [2016-2017].</li>
+<li>The University of Gothenburg’s Quality of Government Expert Survey (QoG) [2015].</li>
+<li>The OECD’s Survey on Managing Conflict of Interest in the Executive Branch and Whistleblower Protection [2014] and Survey on Lobbying Rules and Guidelines [2013] as processed and published in their Government at a Glance 2015 report.</li>
+<li>The Bertelsmann Foundation’s Sustainable Governance Indicators (SGI) [2018].</li>
+</ul>
+<div class="cell no-stripe table-responsive page-columns page-full">
+<div class="cell-output-display column-screen-inset-right">
+<div id="tbl-comp-int" class="anchored">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Table&nbsp;3.1: Composition of the integrity indicator</caption>
+<thead>
+<tr class="header gt_col_headings gt_spanner_row">
+<th rowspan="2" id="Metric" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Metric</th>
+<th rowspan="2" id="Source" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Source</th>
+<th rowspan="2" id="Type" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Type</th>
+<th rowspan="2" id="Public sector proxy" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Public sector proxy</th>
+<th rowspan="2" id="Data transformation" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Data transformation</th>
+<th colspan="3" id="Weighting within indicator" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><span class="gt_column_spanner">Weighting within indicator</span></th>
+<th rowspan="2" id="Definition of the source metric (e.g. question wording)" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Definition of the source metric (e.g. question wording)</th>
+</tr>
+<tr class="odd gt_col_headings">
+<th id="In theme (A)" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">In theme (A)</th>
+<th id="Theme (B)" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Theme (B)</th>
+<th id="Total (C=A*B)" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Total (C=A*B)</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd gt_group_heading_row">
+<td colspan="9" id="Levels/perception of corruption" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">Levels/perception of corruption</td>
+</tr>
+<tr class="even gt_row_group_first">
+<td class="gt_row gt_left" headers="Levels/perception of corruption  label">Official corrupt</td>
+<td class="gt_row gt_center" headers="Levels/perception of corruption  source_out">GCB</td>
+<td class="gt_row gt_left" headers="Levels/perception of corruption  type">Public opinion survey</td>
+<td class="gt_row gt_left" headers="Levels/perception of corruption  proxy">No</td>
+<td class="gt_row gt_left" headers="Levels/perception of corruption  transform">None</td>
+<td class="gt_row gt_center" headers="Levels/perception of corruption  wt_intheme">25.0%</td>
+<td class="gt_row gt_center" headers="Levels/perception of corruption  wt_theme">30.0%</td>
+<td class="gt_row gt_center" headers="Levels/perception of corruption  wt_total">7.5%</td>
+<td class="gt_row gt_left" headers="Levels/perception of corruption  source_definition">How many [government officials] do you think are involved in corruption, or haven’t you heard enough about them to say? [None, Some of them, Most of them, All of them; % saying none/some ]</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Levels/perception of corruption  label">Business favouritism</td>
+<td class="gt_row gt_center" headers="Levels/perception of corruption  source_out">WEF</td>
+<td class="gt_row gt_left" headers="Levels/perception of corruption  type">Business opinion survey</td>
+<td class="gt_row gt_left" headers="Levels/perception of corruption  proxy">Yes</td>
+<td class="gt_row gt_left" headers="Levels/perception of corruption  transform">None</td>
+<td class="gt_row gt_center" headers="Levels/perception of corruption  wt_intheme">25.0%</td>
+<td class="gt_row gt_center" headers="Levels/perception of corruption  wt_theme">30.0%</td>
+<td class="gt_row gt_center" headers="Levels/perception of corruption  wt_total">7.5%</td>
+<td class="gt_row gt_left" headers="Levels/perception of corruption  source_definition">In your country, to what extent do government officials show favoritism to well-connected firms and individuals when deciding upon policies and contracts? [Rated 1-7; mean score]</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Levels/perception of corruption  label">Officals embezzle funds</td>
+<td class="gt_row gt_center" headers="Levels/perception of corruption  source_out">QoG</td>
+<td class="gt_row gt_left" headers="Levels/perception of corruption  type">Expert assessment</td>
+<td class="gt_row gt_left" headers="Levels/perception of corruption  proxy">Yes</td>
+<td class="gt_row gt_left" headers="Levels/perception of corruption  transform">Inverted</td>
+<td class="gt_row gt_center" headers="Levels/perception of corruption  wt_intheme">25.0%</td>
+<td class="gt_row gt_center" headers="Levels/perception of corruption  wt_theme">30.0%</td>
+<td class="gt_row gt_center" headers="Levels/perception of corruption  wt_total">7.5%</td>
+<td class="gt_row gt_left" headers="Levels/perception of corruption  source_definition">Public sector employees steal, embezzle or misappropriate public funds or other state resources for personal or family use [Rated 1-7; mean score]</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Levels/perception of corruption  label">Officials grant favours</td>
+<td class="gt_row gt_center" headers="Levels/perception of corruption  source_out">QoG</td>
+<td class="gt_row gt_left" headers="Levels/perception of corruption  type">Expert assessment</td>
+<td class="gt_row gt_left" headers="Levels/perception of corruption  proxy">Yes</td>
+<td class="gt_row gt_left" headers="Levels/perception of corruption  transform">Inverted</td>
+<td class="gt_row gt_center" headers="Levels/perception of corruption  wt_intheme">25.0%</td>
+<td class="gt_row gt_center" headers="Levels/perception of corruption  wt_theme">30.0%</td>
+<td class="gt_row gt_center" headers="Levels/perception of corruption  wt_total">7.5%</td>
+<td class="gt_row gt_left" headers="Levels/perception of corruption  source_definition">Public sector employees grant favors in exchange for bribes, kickbacks or other material inducements [Rated 1-7; mean score]</td>
+</tr>
+<tr class="even gt_group_heading_row">
+<td colspan="9" id="Fairness and impartiality" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">Fairness and impartiality</td>
+</tr>
+<tr class="odd gt_row_group_first">
+<td class="gt_row gt_left" headers="Fairness and impartiality  label">Fair treatment</td>
+<td class="gt_row gt_center" headers="Fairness and impartiality  source_out">QoG</td>
+<td class="gt_row gt_left" headers="Fairness and impartiality  type">Expert assessment</td>
+<td class="gt_row gt_left" headers="Fairness and impartiality  proxy">Yes</td>
+<td class="gt_row gt_left" headers="Fairness and impartiality  transform">Inverted</td>
+<td class="gt_row gt_center" headers="Fairness and impartiality  wt_intheme">50.0%</td>
+<td class="gt_row gt_center" headers="Fairness and impartiality  wt_theme">12.5%</td>
+<td class="gt_row gt_center" headers="Fairness and impartiality  wt_total">6.2%</td>
+<td class="gt_row gt_left" headers="Fairness and impartiality  source_definition">When deciding how to implement policies in individual cases, public sector employees treat some groups in society unfairly [Rated 1-7; mean score]</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Fairness and impartiality  label">Officals act impartially</td>
+<td class="gt_row gt_center" headers="Fairness and impartiality  source_out">QoG</td>
+<td class="gt_row gt_left" headers="Fairness and impartiality  type">Expert assessment</td>
+<td class="gt_row gt_left" headers="Fairness and impartiality  proxy">Yes</td>
+<td class="gt_row gt_left" headers="Fairness and impartiality  transform">None</td>
+<td class="gt_row gt_center" headers="Fairness and impartiality  wt_intheme">50.0%</td>
+<td class="gt_row gt_center" headers="Fairness and impartiality  wt_theme">12.5%</td>
+<td class="gt_row gt_center" headers="Fairness and impartiality  wt_total">6.2%</td>
+<td class="gt_row gt_left" headers="Fairness and impartiality  source_definition">Generally speaking, how often would you say that public sector employees today, in your chosen country, act impartially when deciding how to implement a policy in an individual case? [Rated 1-7; mean score]</td>
+</tr>
+<tr class="odd gt_group_heading_row">
+<td colspan="9" id="Adherence to rules/procedures" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">Adherence to rules/procedures</td>
+</tr>
+<tr class="even gt_row_group_first">
+<td class="gt_row gt_left" headers="Adherence to rules/procedures  label">Officials follow rules</td>
+<td class="gt_row gt_center" headers="Adherence to rules/procedures  source_out">QoG</td>
+<td class="gt_row gt_left" headers="Adherence to rules/procedures  type">Expert assessment</td>
+<td class="gt_row gt_left" headers="Adherence to rules/procedures  proxy">Yes</td>
+<td class="gt_row gt_left" headers="Adherence to rules/procedures  transform">None</td>
+<td class="gt_row gt_center" headers="Adherence to rules/procedures  wt_intheme">50.0%</td>
+<td class="gt_row gt_center" headers="Adherence to rules/procedures  wt_theme">12.5%</td>
+<td class="gt_row gt_center" headers="Adherence to rules/procedures  wt_total">6.2%</td>
+<td class="gt_row gt_left" headers="Adherence to rules/procedures  source_definition">Public sector employees strive to follow rules [Rated 1-7; mean score]</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Adherence to rules/procedures  label">Corruption prevention [new]</td>
+<td class="gt_row gt_center" headers="Adherence to rules/procedures  source_out">SGI</td>
+<td class="gt_row gt_left" headers="Adherence to rules/procedures  type">Expert assessment</td>
+<td class="gt_row gt_left" headers="Adherence to rules/procedures  proxy">Yes</td>
+<td class="gt_row gt_left" headers="Adherence to rules/procedures  transform">None</td>
+<td class="gt_row gt_center" headers="Adherence to rules/procedures  wt_intheme">50.0%</td>
+<td class="gt_row gt_center" headers="Adherence to rules/procedures  wt_theme">12.5%</td>
+<td class="gt_row gt_center" headers="Adherence to rules/procedures  wt_total">6.2%</td>
+<td class="gt_row gt_left" headers="Adherence to rules/procedures  source_definition">To what extent are public officeholders prevented from abusing their position for private interests? [Rated 1 to 10; mean score]</td>
+</tr>
+<tr class="even gt_group_heading_row">
+<td colspan="9" id="Serving government and citizens" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">Serving government and citizens</td>
+</tr>
+<tr class="odd gt_row_group_first">
+<td class="gt_row gt_left" headers="Serving government and citizens  label">Officials strive to help citizens</td>
+<td class="gt_row gt_center" headers="Serving government and citizens  source_out">QoG</td>
+<td class="gt_row gt_left" headers="Serving government and citizens  type">Expert assessment</td>
+<td class="gt_row gt_left" headers="Serving government and citizens  proxy">Yes</td>
+<td class="gt_row gt_left" headers="Serving government and citizens  transform">None</td>
+<td class="gt_row gt_center" headers="Serving government and citizens  wt_intheme">33.3%</td>
+<td class="gt_row gt_center" headers="Serving government and citizens  wt_theme">12.5%</td>
+<td class="gt_row gt_center" headers="Serving government and citizens  wt_total">4.2%</td>
+<td class="gt_row gt_left" headers="Serving government and citizens  source_definition">Public sector employees strive to help citizens [Rated 1-7; mean score]</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Serving government and citizens  label">Officials implement ministerial policies</td>
+<td class="gt_row gt_center" headers="Serving government and citizens  source_out">QoG</td>
+<td class="gt_row gt_left" headers="Serving government and citizens  type">Expert assessment</td>
+<td class="gt_row gt_left" headers="Serving government and citizens  proxy">Yes</td>
+<td class="gt_row gt_left" headers="Serving government and citizens  transform">None</td>
+<td class="gt_row gt_center" headers="Serving government and citizens  wt_intheme">33.3%</td>
+<td class="gt_row gt_center" headers="Serving government and citizens  wt_theme">12.5%</td>
+<td class="gt_row gt_center" headers="Serving government and citizens  wt_total">4.2%</td>
+<td class="gt_row gt_left" headers="Serving government and citizens  source_definition">Public sector employees strive to implement the policies decided upon by the top political leadership [Rated 1-7; mean score]</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Serving government and citizens  label">Officials implement the government's programme</td>
+<td class="gt_row gt_center" headers="Serving government and citizens  source_out">QoG</td>
+<td class="gt_row gt_left" headers="Serving government and citizens  type">Expert assessment</td>
+<td class="gt_row gt_left" headers="Serving government and citizens  proxy">Yes</td>
+<td class="gt_row gt_left" headers="Serving government and citizens  transform">None</td>
+<td class="gt_row gt_center" headers="Serving government and citizens  wt_intheme">33.3%</td>
+<td class="gt_row gt_center" headers="Serving government and citizens  wt_theme">12.5%</td>
+<td class="gt_row gt_center" headers="Serving government and citizens  wt_total">4.2%</td>
+<td class="gt_row gt_left" headers="Serving government and citizens  source_definition">Public sector employees strive to fulfill the ideology of the party/parties in government [Rated 1-7; mean score]</td>
+</tr>
+<tr class="even gt_group_heading_row">
+<td colspan="9" id="Work ethic" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">Work ethic</td>
+</tr>
+<tr class="odd gt_row_group_first">
+<td class="gt_row gt_left" headers="Work ethic  label">Unathorised absence</td>
+<td class="gt_row gt_center" headers="Work ethic  source_out">QoG</td>
+<td class="gt_row gt_left" headers="Work ethic  type">Expert assessment</td>
+<td class="gt_row gt_left" headers="Work ethic  proxy">Yes</td>
+<td class="gt_row gt_left" headers="Work ethic  transform">Inverted</td>
+<td class="gt_row gt_center" headers="Work ethic  wt_intheme">50.0%</td>
+<td class="gt_row gt_center" headers="Work ethic  wt_theme">12.5%</td>
+<td class="gt_row gt_center" headers="Work ethic  wt_total">6.2%</td>
+<td class="gt_row gt_left" headers="Work ethic  source_definition">Public employees are absent from work with- out permission [Rated 1-7; mean score]</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Work ethic  label">Officials strive to be efficient</td>
+<td class="gt_row gt_center" headers="Work ethic  source_out">QoG</td>
+<td class="gt_row gt_left" headers="Work ethic  type">Expert assessment</td>
+<td class="gt_row gt_left" headers="Work ethic  proxy">Yes</td>
+<td class="gt_row gt_left" headers="Work ethic  transform">None</td>
+<td class="gt_row gt_center" headers="Work ethic  wt_intheme">50.0%</td>
+<td class="gt_row gt_center" headers="Work ethic  wt_theme">12.5%</td>
+<td class="gt_row gt_center" headers="Work ethic  wt_total">6.2%</td>
+<td class="gt_row gt_left" headers="Work ethic  source_definition">Public sector employees strive to be efficient [Rated 1-7; mean score]</td>
+</tr>
+<tr class="odd gt_group_heading_row">
+<td colspan="9" id="Preserving intetgrity and preventing conflict of interest" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">Preserving intetgrity and preventing conflict of interest</td>
+</tr>
+<tr class="even gt_row_group_first">
+<td class="gt_row gt_left" headers="Preserving intetgrity and preventing conflict of interest  label">Post-employment cooling-off</td>
+<td class="gt_row gt_center" headers="Preserving intetgrity and preventing conflict of interest  source_out">OECD</td>
+<td class="gt_row gt_left" headers="Preserving intetgrity and preventing conflict of interest  type">Government assessment</td>
+<td class="gt_row gt_left" headers="Preserving intetgrity and preventing conflict of interest  proxy">No</td>
+<td class="gt_row gt_left" headers="Preserving intetgrity and preventing conflict of interest  transform">None</td>
+<td class="gt_row gt_center" headers="Preserving intetgrity and preventing conflict of interest  wt_intheme">25.0%</td>
+<td class="gt_row gt_center" headers="Preserving intetgrity and preventing conflict of interest  wt_theme">20.0%</td>
+<td class="gt_row gt_center" headers="Preserving intetgrity and preventing conflict of interest  wt_total">5.0%</td>
+<td class="gt_row gt_left" headers="Preserving intetgrity and preventing conflict of interest  source_definition">Existence of post-employment cooling-off period for senior civil servants and all other civil servants</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Preserving intetgrity and preventing conflict of interest  label">Lobbyist protections</td>
+<td class="gt_row gt_center" headers="Preserving intetgrity and preventing conflict of interest  source_out">OECD</td>
+<td class="gt_row gt_left" headers="Preserving intetgrity and preventing conflict of interest  type">Government assessment</td>
+<td class="gt_row gt_left" headers="Preserving intetgrity and preventing conflict of interest  proxy">No</td>
+<td class="gt_row gt_left" headers="Preserving intetgrity and preventing conflict of interest  transform">None</td>
+<td class="gt_row gt_center" headers="Preserving intetgrity and preventing conflict of interest  wt_intheme">25.0%</td>
+<td class="gt_row gt_center" headers="Preserving intetgrity and preventing conflict of interest  wt_theme">20.0%</td>
+<td class="gt_row gt_center" headers="Preserving intetgrity and preventing conflict of interest  wt_total">5.0%</td>
+<td class="gt_row gt_left" headers="Preserving intetgrity and preventing conflict of interest  source_definition">Three binary (yes/no) variables on lobbyist protections</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Preserving intetgrity and preventing conflict of interest  label">Coverage of whistleblower protections</td>
+<td class="gt_row gt_center" headers="Preserving intetgrity and preventing conflict of interest  source_out">OECD</td>
+<td class="gt_row gt_left" headers="Preserving intetgrity and preventing conflict of interest  type">Government assessment</td>
+<td class="gt_row gt_left" headers="Preserving intetgrity and preventing conflict of interest  proxy">Yes</td>
+<td class="gt_row gt_left" headers="Preserving intetgrity and preventing conflict of interest  transform">None</td>
+<td class="gt_row gt_center" headers="Preserving intetgrity and preventing conflict of interest  wt_intheme">25.0%</td>
+<td class="gt_row gt_center" headers="Preserving intetgrity and preventing conflict of interest  wt_theme">20.0%</td>
+<td class="gt_row gt_center" headers="Preserving intetgrity and preventing conflict of interest  wt_total">5.0%</td>
+<td class="gt_row gt_left" headers="Preserving intetgrity and preventing conflict of interest  source_definition">Six binary (yes/no) variables on whistleblower protections</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Preserving intetgrity and preventing conflict of interest  label">Degree of whistleblower protections</td>
+<td class="gt_row gt_center" headers="Preserving intetgrity and preventing conflict of interest  source_out">QoG</td>
+<td class="gt_row gt_left" headers="Preserving intetgrity and preventing conflict of interest  type">Expert assessment</td>
+<td class="gt_row gt_left" headers="Preserving intetgrity and preventing conflict of interest  proxy">Yes</td>
+<td class="gt_row gt_left" headers="Preserving intetgrity and preventing conflict of interest  transform">Inverted</td>
+<td class="gt_row gt_center" headers="Preserving intetgrity and preventing conflict of interest  wt_intheme">25.0%</td>
+<td class="gt_row gt_center" headers="Preserving intetgrity and preventing conflict of interest  wt_theme">20.0%</td>
+<td class="gt_row gt_center" headers="Preserving intetgrity and preventing conflict of interest  wt_total">5.0%</td>
+<td class="gt_row gt_left" headers="Preserving intetgrity and preventing conflict of interest  source_definition">Public officials face negative consequences for whistleblowing to media [Rated 1-7; mean score]</td>
+</tr>
+</tbody><tfoot class="gt_footnotes">
+<tr class="odd">
+<td colspan="9" class="gt_footnote">Tables 3.1.A &amp; 3.1.B in the original 2019 publication</td>
+</tr>
+</tfoot>
+
+</table>
+</div>
+</div>
+</div>
+<section id="sec-integrity-imputation" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="sec-integrity-imputation"><span class="header-section-number">3.1</span> Imputation of missing data</h2>
+<p>None of the 38 countries selected for the 2019 edition of InCiSE have completely missing data for the integrity metrics. As a result the imputation of missing data for the integrity metrics is based solely on the data within the indicator.</p>
+</section>
+<section id="sec-integrity-changes" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="sec-integrity-changes"><span class="header-section-number">3.2</span> Changes from the 2017 pilot</h2>
+<p>There is one proposed change to the structure of the metrics used in the calculation of the integrity indicator: the inclusion of a measure from the Bertelsmann Foundation’s Sustainable Governance Indicators on corruption prevention.</p>
+<p>A further change from the 2017 pilot methodology has been implemented in the processing of the OECD’s data on post-employment cooling-off periods. The model now simply codes whether post-employment cooling-off periods and now ignores whether compensation is paid during this period.</p>
+<p>The OECD source data provides information on whether post-employment cooling-off periods exist for both senior civil servant sand other civil servants, and also includes information on whether a compensation period is paid during that period.</p>
+<p>These data are combined by the InCiSE model into a single scale, outlined below. In the 2017 Pilot, this scale creates the normative conditions that a post-employment cooling-off period with compensation for both groups of civil servants is “best” and no cooling-off period is “worst”, <a href="#tbl-pemp-2017">Table&nbsp;<span>3.2</span></a>.</p>
+<div class="cell no-stripe table-responsive">
+<div class="cell-output-display">
+<div id="tbl-pemp-2017" class="anchored">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Table&nbsp;3.2: Coding of post-employment cooling-off in the 2017 Pilot edition of InCiSE</caption>
+<thead>
+<tr class="header gt_col_headings gt_spanner_row">
+<th rowspan="2" id="InCiSE 2017 post-employment scale value" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">InCiSE 2017 post-employment scale value</th>
+<th colspan="2" id="Senior civil servants" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><span class="gt_column_spanner">Senior civil servants</span></th>
+<th colspan="2" id="Other civil servants" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><span class="gt_column_spanner">Other civil servants</span></th>
+</tr>
+<tr class="odd gt_col_headings">
+<th id="Cooling-off period?" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Cooling-off period?</th>
+<th id="With compensation?" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">With compensation?</th>
+<th id="Cooling-off period?" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Cooling-off period?</th>
+<th id="With compensation?" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">With compensation?</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd gt_row_group_first">
+<td class="gt_row gt_left gt_stub_row_group" headers="4 stub_1_1 stub_1">4</td>
+<td class="gt_row gt_left" headers="4 stub_1_1 scs_cool">Yes</td>
+<td class="gt_row gt_left" headers="4 stub_1_1 scs_comp">Yes</td>
+<td class="gt_row gt_left" headers="4 stub_1_1 ocs_cool">Yes</td>
+<td class="gt_row gt_left" headers="4 stub_1_1 ocs_comp">Yes</td>
+</tr>
+<tr class="even gt_row_group_first">
+<td rowspan="2" class="gt_row gt_left gt_stub_row_group" headers="3 stub_1_2 stub_1">3</td>
+<td class="gt_row gt_left" headers="3 stub_1_2 scs_cool">Yes</td>
+<td class="gt_row gt_left" headers="3 stub_1_2 scs_comp">Yes</td>
+<td class="gt_row gt_left" headers="3 stub_1_2 ocs_cool">Yes</td>
+<td class="gt_row gt_left" headers="3 stub_1_2 ocs_comp">No</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="3 scs_cool_3 scs_cool">Yes</td>
+<td class="gt_row gt_left" headers="3 scs_cool_3 scs_comp">No</td>
+<td class="gt_row gt_left" headers="3 scs_cool_3 ocs_cool">Yes</td>
+<td class="gt_row gt_left" headers="3 scs_cool_3 ocs_comp">Yes</td>
+</tr>
+<tr class="even gt_row_group_first">
+<td rowspan="3" class="gt_row gt_left gt_stub_row_group" headers="2 stub_1_4 stub_1">2</td>
+<td class="gt_row gt_left" headers="2 stub_1_4 scs_cool">Yes</td>
+<td class="gt_row gt_left" headers="2 stub_1_4 scs_comp">Yes</td>
+<td class="gt_row gt_left" headers="2 stub_1_4 ocs_cool">No</td>
+<td class="gt_row gt_left" headers="2 stub_1_4 ocs_comp">N/A</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="2 scs_cool_5 scs_cool">No</td>
+<td class="gt_row gt_left" headers="2 scs_cool_5 scs_comp">N/A</td>
+<td class="gt_row gt_left" headers="2 scs_cool_5 ocs_cool">Yes</td>
+<td class="gt_row gt_left" headers="2 scs_cool_5 ocs_comp">Yes</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="2 scs_cool_6 scs_cool">Yes</td>
+<td class="gt_row gt_left" headers="2 scs_cool_6 scs_comp">No</td>
+<td class="gt_row gt_left" headers="2 scs_cool_6 ocs_cool">Yes</td>
+<td class="gt_row gt_left" headers="2 scs_cool_6 ocs_comp">No</td>
+</tr>
+<tr class="odd gt_row_group_first">
+<td rowspan="2" class="gt_row gt_left gt_stub_row_group" headers="1 stub_1_7 stub_1">1</td>
+<td class="gt_row gt_left" headers="1 stub_1_7 scs_cool">Yes</td>
+<td class="gt_row gt_left" headers="1 stub_1_7 scs_comp">No</td>
+<td class="gt_row gt_left" headers="1 stub_1_7 ocs_cool">No</td>
+<td class="gt_row gt_left" headers="1 stub_1_7 ocs_comp">N/A</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="1 scs_cool_8 scs_cool">No</td>
+<td class="gt_row gt_left" headers="1 scs_cool_8 scs_comp">N/A</td>
+<td class="gt_row gt_left" headers="1 scs_cool_8 ocs_cool">Yes</td>
+<td class="gt_row gt_left" headers="1 scs_cool_8 ocs_comp">No</td>
+</tr>
+<tr class="odd gt_row_group_first">
+<td class="gt_row gt_left gt_stub_row_group" headers="0 stub_1_9 stub_1">0</td>
+<td class="gt_row gt_left" headers="0 stub_1_9 scs_cool">No</td>
+<td class="gt_row gt_left" headers="0 stub_1_9 scs_comp">N/A</td>
+<td class="gt_row gt_left" headers="0 stub_1_9 ocs_cool">No</td>
+<td class="gt_row gt_left" headers="0 stub_1_9 ocs_comp">N/A</td>
+</tr>
+</tbody><tfoot class="gt_footnotes">
+<tr class="odd">
+<td colspan="5" class="gt_footnote">Table 3.1.C in the original 2019 publication</td>
+</tr>
+</tfoot>
+
+</table>
+</div>
+</div>
+</div>
+<p>Further examination of the data, as reported by the OECD, showed that only a limited number of officials in only a small number of countries received paid compensation during a cooling off period and that there was noticeable variation in how this was decided by country. This limited usage of post-employment compensation and high variability in its nature suggests that it may not be appropriate to code in the provision of post-employment compensation as normative “best” practice in the calculation of the integrity indicator.</p>
+<blockquote class="blockquote">
+<p><em>“During the cooling off period, only some categories of public officials in Austria, Israel, Norway, Portugal and Spain receive compensation. For instance, in Spain, public officials receive 80% of their basic salaries as compensation and in Norway, compensation is awarded only for prohibitions on taking up a specific appointment, the level of which is equivalent to the salary received at the time of the public official left public office”</em> <span class="citation" data-cites="oecd_government_2015">(<a href="99_references.html#ref-oecd_government_2015" role="doc-biblioref">OECD, 2015, p. 116</a>)</span></p>
+</blockquote>
+<p>Therefore, for the 2019 edition, InCiSE has adopted a new scale that measures only the existence of post-employment cooling-off periods for senior civil servants and other civil servants, ignoring the use/existence of compensation, <a href="#tbl-pemp-2019">Table&nbsp;<span>3.3</span></a>. The highest score will be awarded for those countries that have a cooling-off period for both groups of civil servants, the lowest score for those that do not have a cooling-off period for either group, while an intermediate score will be given to those countries that have a cooling-off period for one group but not the other – with cooling-off periods for senior civil servants preferred to those for non-senior civil servants.</p>
+<div class="cell table-responsive">
+<div class="cell-output-display">
+<div id="tbl-pemp-2019" class="anchored">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Table&nbsp;3.3: Coding of post-employment cooling-off in the 2019 edition of InCiSE</caption>
+<thead>
+<tr class="header gt_col_headings gt_spanner_row">
+<th rowspan="2" id="InCiSE 2019 post-employment scale value" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">InCiSE 2019 post-employment scale value</th>
+<th colspan="2" id="Does a post-employment cooling-off period exist for...?" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><span class="gt_column_spanner">Does a post-employment cooling-off period exist for...?</span></th>
+</tr>
+<tr class="odd gt_col_headings">
+<th id="Senior civil servants" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Senior civil servants</th>
+<th id="Other civil servants" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Other civil servants</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd gt_row_group_first">
+<td class="gt_row gt_left gt_stub_row_group" headers="3 stub_1_1 stub_1">3</td>
+<td class="gt_row gt_left" headers="3 stub_1_1 scs_cool">Yes</td>
+<td class="gt_row gt_left" headers="3 stub_1_1 ocs_cool">Yes</td>
+</tr>
+<tr class="even gt_row_group_first">
+<td class="gt_row gt_left gt_stub_row_group" headers="2 stub_1_2 stub_1">2</td>
+<td class="gt_row gt_left" headers="2 stub_1_2 scs_cool">Yes</td>
+<td class="gt_row gt_left" headers="2 stub_1_2 ocs_cool">No</td>
+</tr>
+<tr class="odd gt_row_group_first">
+<td class="gt_row gt_left gt_stub_row_group" headers="1 stub_1_3 stub_1">1</td>
+<td class="gt_row gt_left" headers="1 stub_1_3 scs_cool">No</td>
+<td class="gt_row gt_left" headers="1 stub_1_3 ocs_cool">Yes</td>
+</tr>
+<tr class="even gt_row_group_first">
+<td class="gt_row gt_left gt_stub_row_group" headers="0 stub_1_4 stub_1">0</td>
+<td class="gt_row gt_left" headers="0 stub_1_4 scs_cool">No</td>
+<td class="gt_row gt_left" headers="0 stub_1_4 ocs_cool">No</td>
+</tr>
+</tbody><tfoot class="gt_footnotes">
+<tr class="even">
+<td colspan="3" class="gt_footnote">Table 3.1.D in the original 2019 publication</td>
+</tr>
+</tfoot>
+
+</table>
+</div>
+</div>
+</div>
+<div class="crf callout callout-style-default callout-note no-icon callout-titled" title="Cross-referencing note">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cross-referencing note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This chapter was presented as section 3.1 in the original 2019 publication.</p>
+</div>
+</div>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-international_civil_service_commission_standards_2002" class="csl-entry" role="listitem">
+International Civil Service Commission. (2002). <em>Standards of conduct for the international civil service</em>. New York: United Nations. Retrieved from <a href="https://icsc.un.org/resources/pdfs/general/standards.pdf">https://icsc.un.org/resources/pdfs/general/standards.pdf</a>
+</div>
+<div id="ref-muriithi_quantifying_2015" class="csl-entry" role="listitem">
+Muriithi, K., Jimenez, M., Jannin, N., Sajid, N., Singh, S. &amp; Sharma, S. (2015). <em>Quantifying <span>Governance</span>: An indicator-based approach</em>. London: LSE/DFID.
+</div>
+<div id="ref-oecd_government_2015" class="csl-entry" role="listitem">
+OECD. (2015). <em>Government at a <span>Glance</span> 2015</em>. Paris: Organisation for Economic Cooperation; Development. Retrieved from <a href="https://www.oecd-ilibrary.org/governance/government-at-a-glance-2015_gov_glance-2015-en">https://www.oecd-ilibrary.org/governance/government-at-a-glance-2015_gov_glance-2015-en</a>
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./03_00_indicators.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Methodology of the InCiSE indicators</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./03_02_openness.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Openness</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
