@@ -4,7 +4,6 @@ project:
 
 book:
   title: "InCiSE 2019: Technical Report"
-  date: "April 2019"
   chapters:
     - index.qmd
     - 00_contents.qmd
@@ -34,8 +33,11 @@ book:
     - B_sensitivity_detailed.qmd
   cover-image: incise2019-techreport-cover.png
   favicon: incise2019-techreport-cover.png
+  url: https://incise-project.github.io/incise2019-techreport/
   repo-url: https://github.com/incise-project/incise2019-techreport/
   downloads: pdf
+  keyword: international civil service effectiveness, civil service, government,
+    effectiveness, performance, public management, public governance
 
 execute:
   freeze: auto

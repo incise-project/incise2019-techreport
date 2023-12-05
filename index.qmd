@@ -1,4 +1,7 @@
 
+This is an HTML version of the InCiSE 2019 Technical Report, originally
+published in [April 2019](https://www.bsg.ox.ac.uk/news/new-index-ranks-uk-civil-service-top-followed-new-zealand-and-canada).
+
 ## Preface {.unnumbered}
 
 From 2016 to 2019, the
@@ -10,16 +13,15 @@ It was supported by the UK Civil Service (through the
 [Cabinet Office](https://www.gov.uk/cabinetoffice)) and funded by the
 [Open Society Foundations](https://www.opensocietyfoundations.org).
 
-The Blavatnik School of Government is re-establishing the project, aiming to
-publish a new edition of the InCiSE Index in 2024. To support this, the School
-is republishing the 2019 project outputs (this Technical Report, the Results
-Report and interactive visualisations) to help foster engagement with
-stakeholders as work progresses towards a new edition of the InCiSE index.
+The Blavatnik School of Government is re-establishing the InCiSE project with
+the aim of publishing a new edition of the InCiSE Index in 2024. To support
+engagement with stakeholders the School is re-publishing the 2019 project
+outputs (this Technical Report, the Results Report and interactive data
+visualisations) in more modern and user friendly formats.
 
-This web publication has been made using [Quarto](https://quarto.org), the
-source code is available on [GitHub](https://github.com/incise-project/incise2019-techreport).
+This HTML version was made using [Quarto](https://quarto.org).
 
-#### Differences from the original 2019 publication
+### Differences from the original 2019 publication
 
 Please note, as part of the re-publication of this report into a web format
 Chapter 3 of the original report has had its constituent sections split into
@@ -31,7 +33,10 @@ one chart where external source data availability has changed). Footnotes have
 been added to charts, tables and chapters to indicate changes in content and
 differences in numbering.
 
-### Preface to the original report
+You can also download and read the
+[original PDF publication](https://incise-project.github.io/incise2019-technical-report/InCiSE-2019--Technical-Report.pdf).
+
+## Preface to the original report
 
 Two reports have been published covering the 2019 edition of the InCiSE Index:
 
