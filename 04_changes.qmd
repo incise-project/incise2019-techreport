@@ -112,15 +112,15 @@ Opentender project, supported by an academic consortium, which analyses the
 tender and contract notices for procurement exercises using the European
 Union's Tenders Electronic Daily service. 
 
-## Social security {#sec-change-social-security}
+## Social security administration {#sec-change-social-security}
 
-The 2017 Pilot included an indicator for social security. This was based on a
-single metric: administrative costs as a proportion of total social protection
-spending. Feedback received following the publication of the pilot identified
-significant quality issues with the metric used. No alternative metrics for
-the indicator were identified, therefore it was decided to depreciate the
-indicator from the model. Further discussion of this is provided in
-@sec-future-development. 
+The 2017 Pilot included an indicator for social security administration. This
+was based on a single metric: administrative costs as a proportion of total
+social protection spending. Feedback received following the publication of the
+pilot identified significant quality issues with the metric used. No
+alternative metrics for the indicator were identified, therefore it was
+decided to depreciate the indicator from the model. Further discussion of this
+is provided in @sec-future-development. 
 
 ::: {.callout-note .crf title="Cross-referencing note" icon="false"}
 

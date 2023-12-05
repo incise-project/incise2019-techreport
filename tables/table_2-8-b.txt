@@ -15,5 +15,5 @@ Tax administration | 0.77 | 6 | Green | The indicator has a small number of metr
 Innovation |  | 0 | X | No data available: indicator not measured. | X
 Internal finance |  | 0 | X | No data available: indicator not measured. | X
 IT for officials |  | 0 | X | No data available: indicator not measured. | X
-Social security |  | 0 | X | The social security indicator has been depreciated following an in-depth review. | X
+Social security administration |  | 0 | X | The social security administration indicator has been depreciated following an in-depth review. | X
 Staff engagement |  | 0 | X | No data available: indicator not measured. | X
