@@ -4,6 +4,8 @@ project:
 
 book:
   title: "InCiSE 2019: Technical Report"
+  date: "25 April 2019"
+  date-format: "D MMMM YYYY"
   chapters:
     - index.qmd
     - 00_contents.qmd
@@ -31,6 +33,7 @@ book:
   appendices: 
     - A_composite_metrics.qmd
     - B_sensitivity_detailed.qmd
+    - C_dqa_detailed.qmd
   cover-image: incise2019-techreport-cover.png
   favicon: incise2019-techreport-cover.png
   url: https://incise-project.github.io/incise2019-techreport/

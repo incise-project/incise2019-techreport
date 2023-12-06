@@ -1,0 +1,150 @@
+---
+date: "2023-12-06"
+date-format: "D MMMM YYYY"
+execute:
+  echo: false
+---
+
+```{r, setup}
+#| output: false
+
+source("R/tbl_helpers.R")
+
+dqa_results <- readr::read_csv("tables/table_C.csv")
+
+dq_rag <- function(x) {
+  y <- scales::rescale(x)
+  rag <- dplyr::case_when(
+    y == 0   ~ "X",
+    y == 1   ~ "G",
+    y >= 0.5 ~ "A",
+    y < 0.5  ~ "R"
+  )
+  rag_image(rag)
+}
+
+tbl_dqa <- dqa_results |>
+  dplyr::mutate(
+    cc_name = stringr::str_wrap(
+      countrycode::countrycode(cc_iso3c, "iso3c", "iso.name.en"),
+      width = 15
+    ),
+    across(ends_with("dqi"), dq_rag),
+    dqa_overall = formattable::digits(dqa_overall, 3),
+    dqa_avl_smpl = formattable::percent(dqa_avl_smpl, 0)
+  ) |>
+  dplyr::select(
+    cc_iso3c, cc_name, dqa_overall, dqa_avl_smpl, ends_with("dqi")
+  )
+
+no_data <- gsub("\\n", " ", tbl_dqa$cc_name[tbl_dqa$dqa_overall == 0])
+
+tbl_dqa_out <- tbl_dqa |>
+  dplyr::filter(dqa_overall != 0) |>
+  dplyr::arrange(-dqa_overall, cc_iso3c)
+
+```
+
+# Data quality assessment &ndash; detailed results {#sec-dqa-detailed}
+
+::: {.callout-tip title="New content" icon="false"}
+This content was not included in the original 2019 publication. It has been
+included to provide more details on the results of the data quality assessment
+that was used in the 2019 modelling.
+:::
+
+@sec-index-methodology outlines the data quality assessment used in the
+statistical modelling of the 2019 InCiSE Index including summaries of the
+results as well as the use of the assessment results in country coverage
+selection and indicator weighting. This appendix provides more detailed output
+from the data quality assessment for all countries and territories included in
+the original data sources.
+
+As discussed in @sec-data-prep, each set of source data was matched against a
+code list of 249 countries and territories produced by the "countrycode" package [@arel-bundock_countrycode_2018]. Of these entities, `r length(no_data)` have
+no data, with the exception of the Holy See/Vatican City all of these are
+overseas or dependent territories.
+
+::: {.callout-note title="Geographic entities without data" icon="false" collapse="true"}
+
+The following geographic entities had no entry in the any of the data sources
+used by the InCiSE 2019 Index.
+
+::: {.two-col}
+```{r}
+#| label: no-data
+#| output: asis
+
+cat(paste("*", no_data), sep = "\n")
+
+```
+:::
+
+:::
+
+@sec-coverage summarises the data quality assessment results for the 200
+countries and territories which had an entry in at least one of the data
+sources used by the InCiSE 2019 Index. The table below shows for each
+geographic entity the overall data quality assessment score, the percentage of
+all metrics the entity has data for, and an icon summarising the data quality
+for each of the 12 indicators measured in InCiSE 2019.
+
+The data quality of each indicator is summarised as follows:
+
+* A 'green' rating is given to those countries with a normalised indicator
+  data quality score of 1 – the country has the best possible data available
+  for this indicator.
+* An 'amber' rating is given to those countries with a normalised indicator
+  data quality score of greater than or equal to 0.5 – the country's data
+  quality is at least half as good as the ‘best' possible data for that
+  indicator.
+* A ‘red' rating is given to those countries with a normalised indicator data
+  quality score of less than 0.5 – the country's data quality is less than
+  half as good as the 'best' possible data for that indicator.
+* An ‘X' rating is given to those countries which have no data at all for that
+  metric.
+
+Note only the 38 countries with an overall data quality score of 0.5 or greater
+were included in the 2019 InCiSE Index.
+
+::: {.quarto-dt}
+
+::: {.quarto-dt-caption}
+Data quality assessment results for all countries
+:::
+
+```{r}
+#| label: dt-tbl-dqa-full
+#| column: body-outset-right
+
+tbl_dqa_out |>
+  DT::datatable(
+    colnames = c(
+      "Country code", "Country name",
+      "Overall data quality score", "Percent of metrics available",
+      "CAP", "CRM", "DIG", "FFM", "HRM", "INC",
+      "INT", "OPN", "POL", "PRO", "REG", "TAX"
+    ),
+    escape = FALSE,
+    style = "jqueryUI",
+    class = "table table-sm",
+    options = list(
+      columnDefs = list(list(className = 'dt-center', targets = 3:16),
+                        list(orderable = FALSE, targets = 5:16)),
+      pageLength = 20,
+      lengthMenu = c(10, 20, 50)
+    )
+  ) |>
+  DT::formatRound(columns = "dqa_overall", digits = 3) |>
+  DT::formatPercentage(columns = "dqa_avl_smpl", digits = 0)
+
+```
+
+:::{.rag-key .nobullet}
+- ![Green](figures/green-circle.png){.img_h15} Green rating icon
+- ![Amber](figures/amber-circle.png){.img_h15} Amber rating icon
+- ![Red](figures/red-circle.png){.img_h15} Red rating icon
+- ![X](figures/grey-x.png){.img_h15} X rating icon
+:::
+
+:::

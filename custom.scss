@@ -198,7 +198,7 @@ figure .source-note {
 
 /* table formatting */
 
-table.table caption, figcaption.figure-caption {
+table.table caption, figcaption.figure-caption, .quarto-dt-caption {
   color: $incise-blue;
   text-align: left;
   font-size: 1rem;
@@ -338,10 +338,26 @@ main a:hover {
 
 /*-- callout boxes --*/
 
+.callout {
+  margin: 0px;
+  margin-top: 0.25rem;
+  margin-bottom: 1.25rem;
+}
+
+div.callout.callout-style-default>.callout-header {
+  background-color: unset;
+}
+
 div.callout-note.callout {
-  border-left-color: #dee2e6;
+  border-left-color: #dddddd;
   background-color: unset;
   color: $note-color;
+}
+
+div.callout-tip.callout {
+  border-left-color: $incise-blue;
+  background-color: $incise-blue-tint;
+  color: $incise-blue;
 }
 
 .callout.callout-style-default .callout-body {
@@ -355,9 +371,6 @@ div.callout-note.callout {
     border-bottom: 0px;
 }
 
-div.callout-note.callout-style-default>.callout-header {
-  background-color: unset;
-}
 
 .callout .callout-title-container {
   font-size: 0.65rem;
@@ -366,6 +379,10 @@ div.callout-note.callout-style-default>.callout-header {
 
 .callout {
   border-radius: unset;
+}
+
+.callout li::before {
+  color: $note-color;
 }
 
 .crf {
@@ -379,3 +396,111 @@ div.callout-note.callout-style-default>.callout-header {
 #preface h2 {
   width: 60%;
 }
+
+@media (min-width: 768px) {
+  .two-col {
+    column-count: 2;
+  }
+}
+
+.datatables {
+  font-size: 0.8rem;
+}
+
+.datatables .table-sm th, .datatables .table-sm td {
+  padding: 0.25rem;
+}
+
+.datatables th {
+  border-left: 0px;
+}
+
+.datatables tbody tr.odd, .datatables tbody tr.odd td {
+  background-color: $incise-blue-tint;
+}
+
+.datatables thead th {
+  border-top: 1px solid $incise-blue !important;
+  border-bottom: 1px solid $incise-blue !important;
+}
+
+.datatables table {
+  border-bottom: 0px !important;
+}
+
+.datatables .ui-toolbar {
+  min-height: 50px;
+  color: $note-color;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+.rag-key ul {
+  display: inline-flex;
+  font-size: 0.7rem;
+  color: $note-color;
+  padding: 8px;
+  text-transform: uppercase;
+}
+
+.rag-key ul::before {
+  content: "Icon key: ";
+  padding-right: 1rem;
+}
+
+.rag-key li {
+  padding-right: 1rem;
+}
+
+.dataTables_paginate .previous.ui-state-disabled,
+.dataTables_paginate .next.ui-state-disabled {
+  display: none !important;
+}
+
+.dataTables_paginate .ui-button {
+  color: $body-color;
+  font-weight: 600;
+  margin: 0px 3px;
+}
+
+.dataTables_paginate .ui-button.ui-state-disabled {
+  color: $incise-blue;
+  font-weight: 600;
+  border-bottom: 2px solid $incise-blue !important;
+}
+
+.dataTables_paginate .ui-button:hover {
+  background-color: $incise-blue;
+  color: #fff;
+  font-weight: 600;
+}
+
+.dataTables_filter label {
+  font-weight: 600;
+}
+
+.dataTables_filter input {
+  border: 1px solid #dddddd !important;
+  border-radius: 0px !important;
+  background-color: #fafafa !important;
+  color: $body-color !important;
+  font-weight: 600 !important;
+}
+
+.quarto-title-meta div {
+  margin-top: 0.25rem;
+  display: flex;
+}
+
+.quarto-title-meta-heading, .quarto-title-meta-contents {
+  opacity: 1.0 !important;
+  font-size: 0.8em !important;
+  color: $note-color !important;
+  text-transform: uppercase;
+  margin: 0px !important;
+}
+
+.quarto-title-meta-heading {
+  padding-right: 0.5rem;
+}
+

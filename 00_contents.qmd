@@ -24,7 +24,9 @@ appendices.
 cat(get_content_list("sec"), sep = "\n")
 ```
 
-::: {.callout-note .crf title="Cross-referencing note" icon="false"}
+:::
+
+### Changes compared to the original 2019 publication
 
 [Chapters 3-14](03_00_indicators.qmd) of this web book were presented as a
 single chapter (Chapter 3) in the original 2019 publication. For improved
@@ -33,9 +35,10 @@ chapters. Footnotes have been added to charts, tables and chapters to indicate
 the resulting differences in numbering between this web book and the original
 PDF publication.
 
-:::
-
-:::
+@sec-dqa-detailed was not included in the original 2019 publication. It
+has been added to this web publication of the report to provide more details
+for stakeholders on the results of the data quality assessment that was used in
+the 2019 modelling.
 
 ## List of figures
 
