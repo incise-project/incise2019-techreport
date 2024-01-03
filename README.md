@@ -4,7 +4,7 @@ This repository contains source code needed to produce an HTML version of the
 2019 Technical Report of the InCiSE project. You can read the rendered HTML
 book [here](https://incise-project.github.io/incise2019-technical-report). You
 can also download the
-[original PDF publication](https://incise-project.github.io/incise2019-technical-report/InCiSE-2019--Technical-Report.pdf).
+[original PDF publication](https://incise-project.github.io/incise2019-technical-report/incise2019_technical_report.pdf).
 
 ## About
 
