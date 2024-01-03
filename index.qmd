@@ -2,6 +2,10 @@
 This is an HTML version of the InCiSE 2019 Technical Report, originally
 published in [April 2019](https://www.bsg.ox.ac.uk/news/new-index-ranks-uk-civil-service-top-followed-new-zealand-and-canada).
 
+This report provides a detailed discussion of the methodology behind the
+InCiSE Index. For the results of the 2019 edition of the InCiSE Index please see
+the [Results Report](https://incise-project.github.io/incise2019-results/).
+
 ## Preface {.unnumbered}
 
 From 2016 to 2019, the
@@ -16,8 +20,9 @@ It was supported by the UK Civil Service (through the
 The Blavatnik School of Government is re-establishing the InCiSE project with
 the aim of publishing a new edition of the InCiSE Index in 2024. To support
 engagement with stakeholders the School is re-publishing the 2019 project
-outputs (this Technical Report, the Results Report and interactive data
-visualisations) in more modern and user friendly formats.
+outputs (this Technical Report, the 
+[Results Report](https://incise-project.github.io/incise2019-results/) and
+interactive data visualisations) in more modern and user friendly formats.
 
 This HTML version was made using [Quarto](https://quarto.org).
 
@@ -57,14 +62,6 @@ restrictions to ensure compliance with their data limitations. Details of data
 sources can be found in the References section at the end of this report.
 Every effort has been made to adhere to third party data regulations.
 
-### Citation
-
-Please refer to and cite the original PDF publication:
-
-> InCiSE Partners (2019) The International Civil Service Effectiveness (InCiSE)
-> Index: Technical Report 2019, Oxford: Blavatnik School of Government,
-> University of Oxford, https://www.bsg.ox.ac.uk/incise
-
 ### Acknoweldgements
 
 Our thanks go to those who have given their time to shape this second
@@ -72,3 +69,11 @@ publication of the InCiSE Index. This has included substantial contributions
 made by academics, think-tanks and civil servants, past and present. Thanks
 also go to those organisations who have allowed us once again to use their data
 in the InCiSE Index, as well as their ideas and support for the overall project.
+
+## Citation
+
+Please refer to and cite the original PDF publication:
+
+> InCiSE Partners (2019) The International Civil Service Effectiveness (InCiSE)
+> Index: Technical Report 2019, Oxford: Blavatnik School of Government,
+> University of Oxford, https://www.bsg.ox.ac.uk/incise

@@ -20,8 +20,9 @@ It was supported by the UK Civil Service (through the
 The Blavatnik School of Government is re-establishing the InCiSE project with
 the aim of publishing a new edition of the InCiSE Index in 2024. To support
 engagement with stakeholders the School is re-publishing the 2019 project
-outputs (this Technical Report, the Results Report and interactive data
-visualisations) in more modern and user friendly formats.
+outputs (this Technical Report, the
+[Results Report](https://incise-project.github.io/incise2019-results/) and
+interactive data visualisations) in more modern and user friendly formats.
 
 ### Differences from the original 2019 publication
 
