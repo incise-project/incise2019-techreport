@@ -41,6 +41,11 @@ differences in numbering.
 You can also download and read the
 [original PDF publication](incise2019_technical_report.pdf).
 
+To support the future development of the Index a supplementary appendix was
+published in December 2023, @sec-dqa-detailed, that summarises the data quality
+results for all countries and territories which have at least one data point
+in the data sources that were used by the 2019 InCiSE Index.
+
 ## Preface to the original report
 
 Two reports have been published covering the 2019 edition of the InCiSE Index:
