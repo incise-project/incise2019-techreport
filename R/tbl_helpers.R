@@ -110,10 +110,10 @@ composite_metrics_table <- function(df, ind, footnote) {
       "<col span=\"1\" style=\"width: 20%;\">",
       "</colgroup>",
       "<thead>\n<tr class=\"header gt_col_headings\">",
-      "<th class=\"gt_col_heading gt_columns_bottom_boder\" scope=\"col\">InCiSE metric</th>",
-      "<th class=\"gt_col_heading gt_columns_bottom_boder\" scope=\"col\">Source variables</th>",
-      "<th class=\"gt_col_heading gt_columns_bottom_boder\" scope=\"col\">Coding</th>",
-      "<th class=\"gt_col_heading gt_columns_bottom_boder\" scope=\"col\">Calculation</th>",
+      "<th class=\"gt_col_heading gt_columns_bottom_border\" scope=\"col\">InCiSE metric</th>",
+      "<th class=\"gt_col_heading gt_columns_bottom_border\" scope=\"col\">Source variables</th>",
+      "<th class=\"gt_col_heading gt_columns_bottom_border\" scope=\"col\">Coding</th>",
+      "<th class=\"gt_col_heading gt_columns_bottom_border\" scope=\"col\">Calculation</th>",
       "</tr>\n</thead>\n<tbody class=\"gt_table_body\">\n"), 
     collapse = "\n"
   )
