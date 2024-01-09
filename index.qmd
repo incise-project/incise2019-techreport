@@ -50,8 +50,9 @@ in the data sources that were used by the 2019 InCiSE Index.
 
 Two reports have been published covering the 2019 edition of the InCiSE Index:
 
-* The Results Report provides an overview of the overall results of the InCiSE
-  Index, and a summary for each country covered by the Index.
+* The [Results Report](https://incise-project.github.io/incise2019-results/)
+  provides an overview of the overall results of the InCiSE Index, and a
+  summary for each country covered by the Index.
 * The Technical Report (this report) provides the methodology of the InCiSE
   Index, it includes details fo the data sources, transformations, imputation,
   and weightings.
