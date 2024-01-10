@@ -44,6 +44,21 @@ Please refer to and cite the original PDF publication:
 > Index: Technical Report 2019, Oxford: Blavatnik School of Government,
 > University of Oxford, https://www.bsg.ox.ac.uk/incise
 
+## Copyright & licensing
+
+The original report content and data are the joint copyright of the InCiSE
+Partners - the Blavatnik School of Government (University of Oxford),
+the Institute for Government, and the UK Civil Service (through the Cabinet
+Office). The report content contained in this reproduction is released under
+the [CC-BY-4.0](LICENSE) license.
+
+New content included in this publication (i.e. content not included in the
+original report) is the sole copyright of the Blavatnik School of Government,
+University of Oxford and is also released under the [CC-BY-4.0](LICENSE).
+
+The source code to process data and produce the report is released under the
+[MIT License](LICENSE-CODE).
+
 ## Developer notes
 
 This re-production of the report has been made in [Quarto](http://quarto.org)
