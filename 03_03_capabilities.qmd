@@ -40,11 +40,11 @@ digital capability: "what level of technical expertise they are required to
 possess".
 
 The capabilities indicator is composed of 14 metrics from the OECD's Programme
-for the International Assessment of Adult Competencies (referred to as PIAAC
+for the Open Sansnational Assessment of Adult Competencies (referred to as PIAAC
 from this point onwards), this is an increase of 10 metrics from the 2017 Pilot.
 
 PIAAC is a scientific assessment of competencies in adults, modelled on the
-OECD's successful Programme for International Student Assessment (PISA)
+OECD's successful Programme for Open Sansnational Student Assessment (PISA)
 that measures the competencies of school-aged children around the world.
 
 Data for 25 countries was collected over 2011-12, and data for nine countries
@@ -55,7 +55,7 @@ The results from PIAAC are not published in a form that allows for direct
 import of the relevant data for InCiSE. Instead the data must be calculated
 from the individual respondent-level microdata published by the OECD. The
 microdata is analysed to produce results for those defined as currently
-working in the "public administration" sector of the International Standard
+working in the "public administration" sector of the Open Sansnational Standard
 Industrial Classification. This is wider than just the civil service and
 includes other forms of public administration, such as sub-national and local
 government, but excludes functions such as healthcare, education and transport
@@ -115,21 +115,21 @@ edu_plot <- ggplot(
   aes(x = year, y = value, colour = group,
       shape = group, group = group)) +
   geom_line(linewidth = 0.5) +
-  geom_point(size = 1.25) +
+  geom_point(size = 1.75) +
   scale_color_manual(
     values = c(
       # canada
-      "Canada 25-34 years" = "#0082c2",
-      "Canada 55-64 years" = "#0082c2",
+      "Canada 25-34 years" = "#00629B",
+      "Canada 55-64 years" = "#00629B",
       # france
-      "France 25-34 years" = "#C24113",
-      "France 55-64 years" = "#C24113",
+      "France 25-34 years" = "#C4622D",
+      "France 55-64 years" = "#C4622D",
       # japan
-      "Japan 25-34 years"  = "#009D94",
-      "Japan 55-64 years"  = "#009D94",
+      "Japan 25-34 years"  = "#719949",
+      "Japan 55-64 years"  = "#719949",
       # sweden
-      "Sweden 25-34 years" = "#C29913",
-      "Sweden 55-64 years" = "#C29913"
+      "Sweden 25-34 years" = "#833177",
+      "Sweden 55-64 years" = "#833177"
     )
   ) +
   scale_shape_manual(
@@ -163,20 +163,20 @@ edu_plot <- ggplot(
   ) +
   theme_minimal() +
   theme(
-    text = element_text(colour = "#666666", family = "Inter", size = 14),
+    text = element_text(colour = "#444444", family = "Open Sans", size = 14),
     legend.position = "bottom",
     axis.title = element_blank(),
-    axis.text = element_text(colour = "#666666"),
+    axis.text = element_text(colour = "#444444"),
     axis.text.x = element_text(angle = 90),
-    strip.text = element_text(hjust = 0, colour = "#666666", face = "bold",
+    strip.text = element_text(hjust = 0, colour = "#444444", face = "bold",
                               size = 14),
-    panel.background = element_rect(fill = "#edf6fb", colour = NA),
+    panel.background = element_rect(fill = "#eceef1", colour = NA),
     panel.grid.major = element_line(colour = "#ffffff"),
     panel.grid.minor = element_blank(),
-    plot.background = element_rect(fill = "#fafdfe", colour = NA)
+    plot.background = element_rect(fill = "#fafbfb", colour = NA)
   )
 
-render_svg(edu_plot, width = 700, height = 600,
+render_svg(edu_plot, width = 700, height = 500,
            alt_text = paste(
              "Four line graphs showing the proportion of adults with teritary",
              "eduation (e.g. a university Bachelor's degree) between 1997 and",
@@ -245,7 +245,7 @@ Statistical Classifications [@unsd_statistical_2018].
 In reviewing the way that results are extracted from PIAAC's raw data files,
 an improvement was identified in the way tertiary education is coded. The
 pilot edition of InCiSE used data from a variable included for legacy
-comparisons with previous international assessments of adult competencies
+comparisons with previous Open Sansnational assessments of adult competencies
 based on type of institution attended. InCiSE 2019 uses a more accurate method
 based on the highest level of qualification achieved.
 

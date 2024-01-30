@@ -1,3 +1,7 @@
+---
+title-block-banner: true
+format: html
+---
 
 This is an HTML version of the InCiSE 2019 Technical Report, originally
 published in [April 2019](https://www.bsg.ox.ac.uk/news/new-index-ranks-uk-civil-service-top-followed-new-zealand-and-canada).

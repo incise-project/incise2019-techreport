@@ -243,7 +243,7 @@ also achieve the 75% threshold but the country coverage differs to the set of
 countries in the 2017 Pilot.
 
 [^pilot-coverage]: One further country in 2017 met this criteria but was not an
-OECD member so was excluded to simplify interpretation of results.
+OECD member so was excluded to simplify Open Sanspretation of results.
 
 The first two sensitivity tests for country coverage altered the DQA threshold
 used to determine country inclusion. The first test used a DQA score of 0.55
@@ -414,7 +414,7 @@ sens_graph_df <- tbl_sens |>
       "sens_5050" ~ "50:50",
       "sens_equal" ~ "Equal\nweights",
       "sens_DQA" ~ "DQA\nweights",
-      "sens_internal" ~ "No internal\nweights",
+      "sens_Open Sansnal" ~ "No Open Sansnal\nweights",
       "sens_sum" ~ "Sum of\nmetrics",
       "sens_rank" ~ "Ranked\ndata",
       "sens_rescale" ~ "Rescaled\ndata",
@@ -437,7 +437,7 @@ sens_graph_df <- tbl_sens |>
       "50:50",
       "Equal\nweights",
       "DQA\nweights",
-      "No internal\nweights",
+      "No Open Sansnal\nweights",
       "Sum of\nmetrics",
       "Ranked\ndata",
       "Rescaled\ndata",
@@ -452,17 +452,17 @@ sens_graph_df <- tbl_sens |>
 
 plot_theme <- theme_minimal() +
   theme(
-    text = element_text(colour = "#666666", family = "Inter", size = 14),
+    text = element_text(colour = "#444444", family = "Open Sans", size = 14),
     legend.position = "bottom",
     axis.title = element_blank(),
-    axis.text = element_text(colour = "#666666"),
+    axis.text = element_text(colour = "#444444"),
     axis.text.x = element_text(angle = 90, hjust = 1),
-    strip.text = element_text(hjust = 0, colour = "#666666", face = "bold",
+    strip.text = element_text(hjust = 0, colour = "#444444", face = "bold",
                               size = 14),
-    panel.background = element_rect(fill = "#edf6fb", colour = NA),
+    panel.background = element_rect(fill = "#eceef1", colour = NA),
     panel.grid.major = element_line(colour = "#ffffff"),
     panel.grid.minor = element_blank(),
-    plot.background = element_rect(fill = "#fafdfe", colour = NA),
+    plot.background = element_rect(fill = "#fafbfb", colour = NA),
     plot.title.position = "plot",
     aspect.ratio = 1
   )
@@ -470,8 +470,8 @@ plot_theme <- theme_minimal() +
 sens_plot <- ggplot(sens_graph_df, aes(x = analysis,
                                        y = value,
                                        group = cc_iso3c)) +
-  geom_line(colour = "#666666", linewidth = 0.5) +
-  geom_point(shape = 21, fill = "#ffffff", colour = "#666666", stroke = 1) +
+  geom_line(colour = "#002147", linewidth = 0.5) +
+  geom_point(shape = 21, fill = "#ffffff", colour = "#002147", stroke = 1) +
   facet_wrap(vars(sens_set), scales = "free_x", ncol = 2) +
   plot_theme
 

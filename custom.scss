@@ -1,44 +1,103 @@
 /*-- font import --*/
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300&family=Inter:wght@300;400;600');
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300&family=Inter:wght@300;400;600;800');
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/*-- Blavatnik corporate font --*/
+@font-face {
+    font-family: "Brandon Text";
+    src: url(https://www.bsg.ox.ac.uk/themes/custom/olamalu_bsg_emulsify/font/bsg/fonts/Brandon-Text-Web-Regular.eot) format("eot"), url(https://www.bsg.ox.ac.uk/themes/custom/olamalu_bsg_emulsify/font/bsg/fonts/Brandon-Text-Web-Regular.woff) format("woff"), url(https://www.bsg.ox.ac.uk/themes/custom/olamalu_bsg_emulsify/font/bsg/fonts/Brandon-Text-Web-Regular.woff2) format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Brandon Text";
+    src: url(https://www.bsg.ox.ac.uk/themes/custom/olamalu_bsg_emulsify/font/bsg/fonts/Brandon-Text-Web-Thin.eot) format("eot"), url(https://www.bsg.ox.ac.uk/themes/custom/olamalu_bsg_emulsify/font/bsg/fonts/Brandon-Text-Web-Thin.woff) format("woff"), url(https://www.bsg.ox.ac.uk/themes/custom/olamalu_bsg_emulsify/font/bsg/fonts/Brandon-Text-Web-Thin.woff2) format("woff2");
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Brandon Text";
+    src: url(https://www.bsg.ox.ac.uk//themes/custom/olamalu_bsg_emulsify/font/bsg/fonts/Brandon-Text-Web-Light.eot) format("eot"), url(https://www.bsg.ox.ac.uk//themes/custom/olamalu_bsg_emulsify/font/bsg/fonts/Brandon-Text-Web-Light.woff) format("woff"), url(https://www.bsg.ox.ac.uk//themes/custom/olamalu_bsg_emulsify/font/bsg/fonts/Brandon-Text-Web-Light.woff2) format("woff2");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Brandon Text";
+    src: url(https://www.bsg.ox.ac.uk/themes/custom/olamalu_bsg_emulsify/font/bsg/fonts/Brandon-Text-Web-Medium.eot) format("eot"), url(https://www.bsg.ox.ac.uk/themes/custom/olamalu_bsg_emulsify/font/bsg/fonts/Brandon-Text-Web-Medium.woff) format("woff"), url(https://www.bsg.ox.ac.uk/themes/custom/olamalu_bsg_emulsify/font/bsg/fonts/Brandon-Text-Web-Medium.woff2) format("woff2");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Brandon Text";
+    src: url(https://www.bsg.ox.ac.uk/themes/custom/olamalu_bsg_emulsify/font/bsg/fonts/Brandon-Text-Web-Regular-Italic.eot) format("eot"), url(https://www.bsg.ox.ac.uk/themes/custom/olamalu_bsg_emulsify/font/bsg/fonts/Brandon-Text-Web-Regular-Italic.woff) format("woff"), url(https://www.bsg.ox.ac.uk/themes/custom/olamalu_bsg_emulsify/font/bsg/fonts/Brandon-Text-Web-Regular-Italic.woff2) format("woff2");
+    font-weight: normal;
+    font-style: italic;
+}
 
 /*-- scss:defaults --*/
+
+$bsg-dark-blue:           #002147;
+$bsg-mid-blue:            #00629B;
+$bsg-light-blue:          #41B6E6;
+$bsg-warm-grey6:          #A59C94;
+$bsg-warm-grey1:          #D7D2CB;
+$bsg-beige:               #C6AA76;
+$bsg-orange:              #C4622D;
+$bsg-purple:              #833177;
+$bsg-burgundy:            #76232F;
+$bsg-green:               #719949;
+
+$bsg-bg-beige:            #f7f5f4;
+$bsg-bg-section:          #e5e5e5;
+
+$bsg-bg-blue:        tint-color($bsg-mid-blue, 95%) !default;
+
+/*
 $incise-blue:             #0082c2;
 $incise-blue-tint:        tint-color($incise-blue, 95%) !default;
 $incise-green:            #009d94;
-$note-color:              #848484;
+$incise-green-tint:        tint-color($incise-green, 95%) !default;
+*/
+
+$note-color:              #666666;
 
 $h2-font-size:            1.25rem !default;
 $h3-font-size:            1.1rem !default;
-$headings-font-weight:    600 !default;
+$headings-font-weight:    400 !default;
 $body-color:              #444444 !default;
 
-$headings-font-family:    "Inter", "Helvetica Neue", "Noto Sans", "Arial", sans-serif !default;
+$headings-font-family:    "Brandon Text", "Open Sans", "Lato", "Helvetica Neue", Helvetica, sans-serif !default;
 $headings-font-style:     null !default;
 $headings-font-weight:    600 !default;
 $headings-line-height:    1.2 !default;
-$headings-color:          $incise-blue !default;
+$headings-color:          $bsg-dark-blue !default;
 
-$font-family-sans-serif:  "Inter", "Helvetica Neue", "Noto Sans", "Arial", sans-serif !default;
+$font-family-sans-serif:  "Open Sans", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $font-weight-normal:      400 !default;
 $font-size-base:          0.9rem !default;
 
-$table-th-font-weight:    600 !default;
-$table-striped-bg:        $incise-blue-tint;
+$table-th-font-weight:    700 !default;
+$table-striped-bg:        $bsg-bg-blue;
 
 /*-- scss:rules --*/
 
 strong {
-  color: $incise-blue;
+  color: $bsg-mid-blue;
   font-weight: 600;
 }
 
 em {
-  color: $incise-blue;
+  color: $bsg-mid-blue;
   font-style: normal;
 }
 
 h1, h2, h3, h4 {
-  font-weight: 600;
+  font-weight: 400;
 }
 
 h4 {
@@ -47,35 +106,96 @@ h4 {
   font-size: calc(var(--bs-body-font-size) * 1.1);
 }
 
-h1 .chapter-number, h2 .header-section-number, h3 .header-section-number {
-  color: $incise-blue;
+h1 .chapter-number {
+  color: $bsg-dark-blue;
+}
+
+h2 .header-section-number, h3 .header-section-number {
+  color: $bsg-warm-grey6;
+}
+
+h1 .chapter-number::after, h2 .header-section-number::after,
+h3 .header-section-number::after {
+  content: ".";
+}
+
+main h2 {
+  border-bottom: 1px solid $bsg-warm-grey1;
+}
+
+main a {
+  color: $bsg-mid-blue;
+}
+
+main a:hover {
+  background-color: $bsg-bg-blue;
+  color: $bsg-mid-blue;
+}
+
+a.anchorjs-link:hover {
+  background-color: unset;
+}
+
+
+.lead{
+  font-weight:  600;
+}
+
+.cell {
+  margin-block-start: 1em;
+  margin-block-end: 1em;
 }
 
 .sidebar-title {
-  color: $incise-blue;
+  color: $bsg-dark-blue;
   font-weight: 600;
 }
 
 .sidebar .chapter-title, .sidebar .chapter-number, .sidebar .menu-text {
-  color: $body-color;
+  color: $note-color;
+  font-weight: 400;
+  font-size: 0.85rem;
 }
 
 .sidebar .active .chapter-title, .sidebar .active .chapter-number,
 .sidebar .active .menu-text {
-  color: $incise-blue;
+  color: $bsg-mid-blue;
+  font-weight: 500;
 }
+
+nav[role=doc-toc] {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: $bsg-warm-grey6;
+}
+
+nav[role=doc-toc] a {
+  border-left: 1px solid $bsg-warm-grey1 !important;
+  color: $bsg-warm-grey6 !important;
+  font-weight: 400;
+}
+
+.sidebar nav[role=doc-toc] ul>li>a.active,
+.sidebar nav[role=doc-toc] ul>li>ul>li>a.active {
+  padding-left: calc(.6rem - 1px);
+  border-left: 2px solid $bsg-dark-blue !important;
+  color: $bsg-dark-blue !important;
+  font-weight: 400;
+}
+
+.sidebar nav[role=doc-toc] ul>li>a:hover,
+.sidebar nav[role=doc-toc] ul>li>ul>li>a:hover,
+.sidebar nav[role=doc-toc] a.active:hover,
+.sidebar nav[role=doc-toc] a span:hover {
+  background-color: unset;
+  color: $bsg-dark-blue !important;
+  font-weight: 500;
+}
+
 
 h2#toc-title {
   color: $body-color;
   font-weight: 400;
-}
-
-.header-section-number {
-  color: $body-color;
-}
-
-.active .header-section-number {
-  color: $incise-blue;
 }
 
 .img_h15 {
@@ -88,7 +208,7 @@ main ul {
 
 main ul li::before {
   content: "▪";
-  color: $incise-blue;
+  color: $bsg-mid-blue;
   display: inline-block;
   width: 1em;
   margin-left: -1em;
@@ -101,7 +221,7 @@ main ol {
 
 main ol li::before {
   content: counters(li, ".") ".";
-  color: $incise-blue;
+  color: $bsg-mid-blue;
   display: inline-block;
   width: 1.75em;
   margin-left: -1.75em;
@@ -132,18 +252,6 @@ main ol ol, main ul ul {
 main ol ol li::before {
   width: 2.25rem;
   margin-left: -2.25rem;
-}
-
-
-#incise-project-note {
-  border: 1px solid $incise-blue;
-  display: table-cell;
-  background-color: $incise-blue-tint;
-  padding: 1rem;
-}
-
-#incise-project-note p:last-child {
-  margin-bottom: 0px;
 }
 
 .incise-separator {
@@ -190,19 +298,20 @@ svg text {
   font-family: $font-family-sans-serif !important;
 }
 
-figure .source-note {
+.source-note {
   color: $note-color;
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   text-align: left !important;
+  padding-top: 0.2rem;
 }
 
 /* table formatting */
 
 table.table caption, figcaption.figure-caption, .quarto-dt-caption {
-  color: $incise-blue;
+  color: $bsg-mid-blue;
   text-align: left;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 table.table td {
@@ -210,7 +319,7 @@ table.table td {
 }
 
 table.table th {
-  color: $incise-blue;
+  color: $bsg-mid-blue;
   vertical-align: top;
   border-top-width: 0px !important;
   border-bottom-width: 0px !important;
@@ -227,8 +336,8 @@ table.table thead {
 }
 
 table.table td, table.table th, table.table tr, table.table thead {
-  border-color: $incise-blue !important;
-  border-bottom-color: $incise-blue !important;
+  border-color: $bsg-mid-blue !important;
+  border-bottom-color: $bsg-mid-blue !important;
 }
 
 table.table td img {
@@ -240,19 +349,21 @@ table.table td, table.table th {
 }
 
 table.table tbody tr.odd {
-  background-color: $incise-blue-tint;
+  background-color: $bsg-bg-beige;
 }
 
 .no-stripe table.table.table-striped tbody tr.odd,
 .no-stripe table.table.table-striped tbody tr.odd td {
   --bs-table-striped-bg: transparent;
+  background-color: #fff !important;
 }
 
 /* gt classes */
 
-.gt_group_heading {
-  background-color: $incise-blue-tint !important;
-  color: $incise-blue !important;
+.gt_group_heading,
+.no-stripe table.table.table-striped tbody tr.odd td.gt_group_heading {
+  background-color: $bsg-bg-blue !important;
+  color: $bsg-mid-blue !important;
   font-weight: 600;
 }
 
@@ -282,7 +393,7 @@ table.table tbody tr.odd {
 
 .gt_footnote {
   color: $note-color;
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   border-bottom: none;
 }
 
@@ -301,7 +412,7 @@ table.table tbody tr.odd {
 #tbl-sens-weight table tbody tr:last-child td,
 #tbl-sens-adjust table tbody tr:last-child td,
 #tbl-sens-impute table tbody tr:last-child td, {
-  color: $incise-blue;
+  color: $bsg-mid-blue;
   font-weight: 600;
 }
 
@@ -328,13 +439,49 @@ table.table.composite-metrics-tbl td {
   color: $body-color;
 }
 
-main a:hover {
-  background-color: $incise-blue-tint;
-}
-
 .references li::before {
   display: none;
 }
+
+nav.navbar {
+  background-color: $bsg-dark-blue;
+}
+
+nav.navbar {
+  font-family: $headings-font-family;
+  font-weight: 500;
+}
+
+.navbar-title {
+  color: #ffffff;
+}
+
+.navbar-nav {
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+nav.navbar ul.dropdown-menu {
+  background-color: $bsg-dark-blue;
+}
+
+nav.navbar .dropdown-item {
+  text-transform: none;
+  color: #ffffff;
+}
+
+nav.navbar .nav-item, nav.navbar .nav-link {
+  color: #ffffff;
+}
+
+nav.navbar .dropdown-item:hover, .dropdown-item:focus {
+  background-color: $bsg-mid-blue;
+}
+
+nav.navbar .dropdown-menu {
+  border-top: 3px solid $bsg-orange;
+}
+
 
 /*-- callout boxes --*/
 
@@ -344,24 +491,8 @@ main a:hover {
   margin-bottom: 1.25rem;
 }
 
-div.callout.callout-style-default>.callout-header {
-  background-color: unset;
-}
-
-div.callout-note.callout {
-  border-left-color: #dddddd;
-  background-color: unset;
-  color: $note-color;
-}
-
-div.callout-tip.callout {
-  border-left-color: $incise-blue;
-  background-color: $incise-blue-tint;
-  color: $incise-blue;
-}
-
 .callout.callout-style-default .callout-body {
-  font-size: 0.65rem;
+  font-size: 0.75rem;
 }
 
 .callout.callout-style-default {
@@ -371,9 +502,8 @@ div.callout-tip.callout {
     border-bottom: 0px;
 }
 
-
 .callout .callout-title-container {
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
 }
 
@@ -383,6 +513,36 @@ div.callout-tip.callout {
 
 .callout li::before {
   color: $note-color;
+}
+
+div.callout.callout-style-default.callout-note>.callout-header{
+  background-color: unset;
+}
+
+.callout-header {
+  padding: 5px;
+}
+
+div.callout-note.callout {
+  border-left-color: #dddddd;
+  background-color: unset;
+  color: $note-color;
+}
+
+div.callout-tip.callout {
+  border-left-color: $bsg-beige;
+  background-color: unset;
+  color: $body-color;
+}
+
+div.callout-tip.callout .callout-header {
+  background-color: $bsg-bg-beige;
+}
+
+div.callout-important.callout {
+  border-left-color: $bsg-mid-blue;
+  background-color: unset;
+  color: $bsg-mid-blue;
 }
 
 .crf {
@@ -416,12 +576,11 @@ div.callout-tip.callout {
 }
 
 .datatables tbody tr.odd, .datatables tbody tr.odd td {
-  background-color: $incise-blue-tint;
+  background-color: $bsg-bg-blue;
 }
 
 .datatables thead th {
-  border-top: 1px solid $incise-blue !important;
-  border-bottom: 1px solid $incise-blue !important;
+  border-top: 1px solid $bsg-mid-blue !important;
 }
 
 .datatables table {
@@ -464,13 +623,13 @@ div.callout-tip.callout {
 }
 
 .dataTables_paginate .ui-button.ui-state-disabled {
-  color: $incise-blue;
+  color: $bsg-mid-blue;
   font-weight: 600;
-  border-bottom: 2px solid $incise-blue !important;
+  border-bottom: 2px solid $bsg-warm-grey6 !important;
 }
 
 .dataTables_paginate .ui-button:hover {
-  background-color: $incise-blue;
+  background-color: $bsg-mid-blue;
   color: #fff;
   font-weight: 600;
 }
@@ -493,9 +652,11 @@ div.callout-tip.callout {
 }
 
 .quarto-title-meta-heading, .quarto-title-meta-contents {
+  font-family: $headings-font-style;
+  font-weight: 400;
   opacity: 1.0 !important;
   font-size: 0.8em !important;
-  color: $note-color !important;
+  color: $bsg-orange !important;
   text-transform: uppercase;
   margin: 0px !important;
 }
@@ -504,3 +665,59 @@ div.callout-tip.callout {
   padding-right: 0.5rem;
 }
 
+svg text[style*="bold"] {
+  font-weight: 600 !important;
+}
+
+div.cell p.lead {
+  margin: 0px;
+}
+
+div.cell.quarto-layout-cell {
+  margin: 0px;
+}
+
+.profile-crf {
+  margin-top: 0px;
+}
+
+.quarto-title-banner {
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  background-color: $bsg-dark-blue;
+  padding: 10px;
+}
+
+.quarto-title-banner h1 {
+  font-size: 3rem;
+  font-weight: 300 !important;
+  color: #ffffff;
+}
+
+#quarto-sidebar > div.mt-2.flex-shrink-0.align-items-center {
+  display: none;
+}
+
+/*-- specific tables --*/
+
+#tbl-scope tbody td {
+  vertical-align: top;
+}
+
+#tbl-dqa-all table tbody tr:last-child td,
+#tbl-dqa-incise table tbody tr:last-child td,
+#tbl-dqa-countries1 table tbody tr:last-child td,
+#tbl-ind-weights table tbody tr:last-child td,
+#tbl-sens-country table tbody tr:last-child td,
+#tbl-sens-date table tbody tr:last-child td,
+#tbl-sens-weight table tbody tr:last-child td,
+#tbl-sens-adjust table tbody tr:last-child td,
+#tbl-sens-impute table tbody tr:last-child td, {
+  color: $bsg-mid-blue;
+  font-weight: 600;
+}
+
+table.table.composite-metrics-tbl td {
+  vertical-align: top !important;
+}
