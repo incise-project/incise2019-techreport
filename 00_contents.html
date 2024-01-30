@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -32,7 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <link href="./00_readers_guide.html" rel="next">
 <link href="./index.html" rel="prev">
-<link href="./figures/incise_logo_blue.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -48,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -57,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -68,15 +74,11 @@ ul.task-list li input[type="checkbox"] {
 
 <body class="nav-sidebar floating nav-fixed">
 
-
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./figures/incise_wordmark_blue.png" alt="InCiSE project logo" class="navbar-logo">
-    </a>
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">InCiSE 2019: Technical Report</span>
     </a>
@@ -88,56 +90,53 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-more" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-more" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">More</span>
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-more">    
         <li>
-    <a class="dropdown-item" href="https://incise-project.github.io/incise2019-results/" rel="" target=""><i class="bi bi-gear-wide-connected" role="img">
+    <a class="dropdown-item" href="https://incise-project.github.io/incise2019-results/"><i class="bi bi-book-half" role="img">
 </i> 
  <span class="dropdown-text">Read the InCiSE 2019 Results Report</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./incise2019_technical_report.pdf" rel="" target=""><i class="bi bi-file-earmark-pdf" role="img">
+    <a class="dropdown-item" href="./incise2019_technical_report.pdf"><i class="bi bi-file-earmark-pdf" role="img">
 </i> 
  <span class="dropdown-text">Download the PDF of this report</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://github.com/incise-project/incise2019-techreport/" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="dropdown-item" href="https://github.com/incise-project/incise2019-techreport/"><i class="bi bi-github" role="img">
 </i> 
  <span class="dropdown-text">View the source code of this report</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://incise-project.github.io/"><i class="bi bi-house-fill" role="img">
+</i> 
+ <span class="dropdown-text">Go to the InCiSE Project homepage</span></a>
   </li>  
     </ul>
   </li>
 </ul>
-            <div class="quarto-navbar-tools">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00_contents.html">Contents, figures and tables</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00_contents.html">Contents, figures and tables</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -174,11 +173,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="./03_00_indicators.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Methodology of the InCiSE indicators</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03_01_integrity.html" class="sidebar-item-text sidebar-link">
@@ -279,13 +278,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A_composite_metrics.html" class="sidebar-item-text sidebar-link">
@@ -309,11 +308,11 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">In this chapter</h2>
    
   <ul>
   <li><a href="#contents-of-the-report" id="toc-contents-of-the-report" class="nav-link active" data-scroll-target="#contents-of-the-report">Contents of the report</a>
@@ -343,126 +342,128 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <section id="contents-of-the-report" class="level2">
 <h2 class="anchored" data-anchor-id="contents-of-the-report">Contents of the report</h2>
 <p>This web book version of the report is structured into 17 chapters and two appendices.</p>
 <div class="custom-toc report-contents">
 <ul>
-<li><a href="01_introduction.html"><span>Chapter&nbsp;1</span></a>: Introduction
+<li><a href="01_introduction.html" class="quarto-xref"><span>1&nbsp; Introduction</span></a>: Introduction
 <ul>
-<li><a href="01_introduction.html#sec-why-needed"><span>Section&nbsp;1.1</span></a>: Why InCiSE is needed</li>
-<li><a href="01_introduction.html#sec-define-civil-service"><span>Section&nbsp;1.2</span></a>: Defining the civil service</li>
-<li><a href="01_introduction.html#sec-incise-framework"><span>Section&nbsp;1.3</span></a>: The InCiSE framework</li>
-<li><a href="01_introduction.html#sec-incise-datamodel"><span>Section&nbsp;1.4</span></a>: The InCiSE data model</li>
-<li><a href="01_introduction.html#sec-metric-eligibility"><span>Section&nbsp;1.5</span></a>: Eligibility of metrics</li>
-<li><a href="01_introduction.html#sec-technical-approach"><span>Section&nbsp;1.6</span></a>: Technical approach</li>
-<li><a href="01_introduction.html#sec-quality-limitations"><span>Section&nbsp;1.7</span></a>: Quality considerations and limitations</li>
-<li><a href="01_introduction.html#sec-relationship"><span>Section&nbsp;1.8</span></a>: Relationship with other indicators and data collections</li>
-<li><a href="01_introduction.html#sec-report-structure"><span>Section&nbsp;1.9</span></a>: Structure of this report</li>
+<li><a href="01_introduction.html#sec-why-needed" class="quarto-xref"><span>1.1 Why InCiSE is needed</span></a>: Why InCiSE is needed</li>
+<li><a href="01_introduction.html#sec-define-civil-service" class="quarto-xref"><span>1.2 Defining the civil service</span></a>: Defining the civil service</li>
+<li><a href="01_introduction.html#sec-incise-framework" class="quarto-xref"><span>1.3 The InCiSE framework</span></a>: The InCiSE framework</li>
+<li><a href="01_introduction.html#sec-incise-datamodel" class="quarto-xref"><span>1.4 The InCiSE data model</span></a>: The InCiSE data model</li>
+<li><a href="01_introduction.html#sec-metric-eligibility" class="quarto-xref"><span>1.5 Eligibility of metrics</span></a>: Eligibility of metrics</li>
+<li><a href="01_introduction.html#sec-technical-approach" class="quarto-xref"><span>1.6 Technical approach</span></a>: Technical approach</li>
+<li><a href="01_introduction.html#sec-quality-limitations" class="quarto-xref"><span>1.7 Quality considerations and limitations</span></a>: Quality considerations and limitations</li>
+<li><a href="01_introduction.html#sec-relationship" class="quarto-xref"><span>1.8 Relationship with other indicators and data collections</span></a>: Relationship with other indicators and data collections</li>
+<li><a href="01_introduction.html#sec-report-structure" class="quarto-xref"><span>1.9 Structure of this report</span></a>: Structure of this report</li>
 </ul></li>
-<li><a href="02_index.html"><span>Chapter&nbsp;2</span></a>: Methodology of the InCiSE index
+<li><a href="02_index.html" class="quarto-xref"><span>2&nbsp; Methodology of the InCiSE index</span></a>: Methodology of the InCiSE index
 <ul>
-<li><a href="02_index.html#sec-data-prep"><span>Section&nbsp;2.1</span></a>: Data preparation</li>
-<li><a href="02_index.html#sec-data-quality"><span>Section&nbsp;2.2</span></a>: Data quality assessment</li>
-<li><a href="02_index.html#sec-coverage"><span>Section&nbsp;2.3</span></a>: Country coverage selection</li>
-<li><a href="02_index.html#sec-imputation"><span>Section&nbsp;2.4</span></a>: Imputation of missing data</li>
-<li><a href="02_index.html#sec-normalisation"><span>Section&nbsp;2.5</span></a>: Data normalisation</li>
-<li><a href="02_index.html#sec-calc-indicators"><span>Section&nbsp;2.6</span></a>: Calculation of the InCiSE indicators</li>
-<li><a href="02_index.html#sec-calc-index"><span>Section&nbsp;2.7</span></a>: Calculation of the InCiSE Index</li>
-<li><a href="02_index.html#sec-considerations"><span>Section&nbsp;2.8</span></a>: Data quality considerations</li>
-<li><a href="02_index.html#sec-time-series"><span>Section&nbsp;2.9</span></a>: Comparisons over time</li>
+<li><a href="02_index.html#sec-data-prep" class="quarto-xref"><span>2.1 Data preparation</span></a>: Data preparation</li>
+<li><a href="02_index.html#sec-data-quality" class="quarto-xref"><span>2.2 Data quality assessment</span></a>: Data quality assessment</li>
+<li><a href="02_index.html#sec-coverage" class="quarto-xref"><span>2.3 Country coverage selection</span></a>: Country coverage selection</li>
+<li><a href="02_index.html#sec-imputation" class="quarto-xref"><span>2.4 Imputation of missing data</span></a>: Imputation of missing data</li>
+<li><a href="02_index.html#sec-normalisation" class="quarto-xref"><span>2.5 Data normalisation</span></a>: Data normalisation</li>
+<li><a href="02_index.html#sec-calc-indicators" class="quarto-xref"><span>2.6 Calculation of the InCiSE indicators</span></a>: Calculation of the InCiSE indicators</li>
+<li><a href="02_index.html#sec-calc-index" class="quarto-xref"><span>2.7 Calculation of the InCiSE Index</span></a>: Calculation of the InCiSE Index</li>
+<li><a href="02_index.html#sec-considerations" class="quarto-xref"><span>2.8 Data quality considerations</span></a>: Data quality considerations</li>
+<li><a href="02_index.html#sec-time-series" class="quarto-xref"><span>2.9 Comparisons over time</span></a>: Comparisons over time</li>
 </ul></li>
 <li><a href="./03_00_indicators.html">Methodology of the InCiSE indicators</a>
 <ul>
-<li><a href="03_01_integrity.html"><span>Chapter&nbsp;3</span></a>: Integrity
+<li><a href="03_01_integrity.html" class="quarto-xref"><span>3&nbsp; Integrity</span></a>: Integrity
 <ul>
-<li><a href="03_01_integrity.html#sec-integrity-imputation"><span>Section&nbsp;3.1</span></a>: Imputation of missing data</li>
-<li><a href="03_01_integrity.html#sec-integrity-changes"><span>Section&nbsp;3.2</span></a>: Changes from the 2017 pilot</li>
+<li><a href="03_01_integrity.html#sec-integrity-imputation" class="quarto-xref"><span>3.1 Imputation of missing data</span></a>: Imputation of missing data</li>
+<li><a href="03_01_integrity.html#sec-integrity-changes" class="quarto-xref"><span>3.2 Changes from the 2017 pilot</span></a>: Changes from the 2017 pilot</li>
 </ul></li>
-<li><a href="03_02_openness.html"><span>Chapter&nbsp;4</span></a>: Openness
+<li><a href="03_02_openness.html" class="quarto-xref"><span>4&nbsp; Openness</span></a>: Openness
 <ul>
-<li><a href="03_02_openness.html#sec-openness-imputation"><span>Section&nbsp;4.1</span></a>: Imputation of missing data</li>
-<li><a href="03_02_openness.html#sec-openness-changes"><span>Section&nbsp;4.2</span></a>: Changes from the 2017 Pilot</li>
+<li><a href="03_02_openness.html#sec-openness-imputation" class="quarto-xref"><span>4.1 Imputation of missing data</span></a>: Imputation of missing data</li>
+<li><a href="03_02_openness.html#sec-openness-changes" class="quarto-xref"><span>4.2 Changes from the 2017 Pilot</span></a>: Changes from the 2017 Pilot</li>
 </ul></li>
-<li><a href="03_03_capabilities.html"><span>Chapter&nbsp;5</span></a>: Capabilities
+<li><a href="03_03_capabilities.html" class="quarto-xref"><span>5&nbsp; Capabilities</span></a>: Capabilities
 <ul>
-<li><a href="03_03_capabilities.html#sec-capabilities-imputation"><span>Section&nbsp;5.1</span></a>: Imputation of missing data</li>
-<li><a href="03_03_capabilities.html#sec-capabilities-changes"><span>Section&nbsp;5.2</span></a>: Changes from the 2017 Pilot</li>
+<li><a href="03_03_capabilities.html#sec-capabilities-imputation" class="quarto-xref"><span>5.1 Imputation of missing data</span></a>: Imputation of missing data</li>
+<li><a href="03_03_capabilities.html#sec-capabilities-changes" class="quarto-xref"><span>5.2 Changes from the 2017 Pilot</span></a>: Changes from the 2017 Pilot</li>
 </ul></li>
-<li><a href="03_04_inclusiveness.html"><span>Chapter&nbsp;6</span></a>: Inclusiveness
+<li><a href="03_04_inclusiveness.html" class="quarto-xref"><span>6&nbsp; Inclusiveness</span></a>: Inclusiveness
 <ul>
-<li><a href="03_04_inclusiveness.html#sec-inclusiveness-imputation"><span>Section&nbsp;6.1</span></a>: Imputation of missing data</li>
-<li><a href="03_04_inclusiveness.html#sec-inclusiveness-changes"><span>Section&nbsp;6.2</span></a>: Changes from the 2017 Pilot</li>
+<li><a href="03_04_inclusiveness.html#sec-inclusiveness-imputation" class="quarto-xref"><span>6.1 Imputation of missing data</span></a>: Imputation of missing data</li>
+<li><a href="03_04_inclusiveness.html#sec-inclusiveness-changes" class="quarto-xref"><span>6.2 Changes from the 2017 Pilot</span></a>: Changes from the 2017 Pilot</li>
 </ul></li>
-<li><a href="03_05_policy_making.html"><span>Chapter&nbsp;7</span></a>: Policy making
+<li><a href="03_05_policy_making.html" class="quarto-xref"><span>7&nbsp; Policy making</span></a>: Policy making
 <ul>
-<li><a href="03_05_policy_making.html#sec-policy-imputation"><span>Section&nbsp;7.1</span></a>: Imputation of missing data</li>
-<li><a href="03_05_policy_making.html#sec-policy-changes"><span>Section&nbsp;7.2</span></a>: Changes from the 2017 Pilot</li>
+<li><a href="03_05_policy_making.html#sec-policy-imputation" class="quarto-xref"><span>7.1 Imputation of missing data</span></a>: Imputation of missing data</li>
+<li><a href="03_05_policy_making.html#sec-policy-changes" class="quarto-xref"><span>7.2 Changes from the 2017 Pilot</span></a>: Changes from the 2017 Pilot</li>
 </ul></li>
-<li><a href="03_06_fiscal_financial.html"><span>Chapter&nbsp;8</span></a>: Fiscal and financial management
+<li><a href="03_06_fiscal_financial.html" class="quarto-xref"><span>8&nbsp; Fiscal and financial management</span></a>: Fiscal and financial management
 <ul>
-<li><a href="03_06_fiscal_financial.html#sec-fiscal-imputation"><span>Section&nbsp;8.1</span></a>: Imputation of missing data</li>
-<li><a href="03_06_fiscal_financial.html#sec-fiscal-changes"><span>Section&nbsp;8.2</span></a>: Changes from the 2017 Pilot</li>
+<li><a href="03_06_fiscal_financial.html#sec-fiscal-imputation" class="quarto-xref"><span>8.1 Imputation of missing data</span></a>: Imputation of missing data</li>
+<li><a href="03_06_fiscal_financial.html#sec-fiscal-changes" class="quarto-xref"><span>8.2 Changes from the 2017 Pilot</span></a>: Changes from the 2017 Pilot</li>
 </ul></li>
-<li><a href="03_07_regulation.html"><span>Chapter&nbsp;9</span></a>: Regulation
+<li><a href="03_07_regulation.html" class="quarto-xref"><span>9&nbsp; Regulation</span></a>: Regulation
 <ul>
-<li><a href="03_07_regulation.html#sec-regulation-imputation"><span>Section&nbsp;9.1</span></a>: Imputation of missing data</li>
-<li><a href="03_07_regulation.html#sec-regulation-changes"><span>Section&nbsp;9.2</span></a>: Changes from the 2017 Pilot</li>
+<li><a href="03_07_regulation.html#sec-regulation-imputation" class="quarto-xref"><span>9.1 Imputation of missing data</span></a>: Imputation of missing data</li>
+<li><a href="03_07_regulation.html#sec-regulation-changes" class="quarto-xref"><span>9.2 Changes from the 2017 Pilot</span></a>: Changes from the 2017 Pilot</li>
 </ul></li>
-<li><a href="03_08_crisis_risk.html"><span>Chapter&nbsp;10</span></a>: Crisis and risk management
+<li><a href="03_08_crisis_risk.html" class="quarto-xref"><span>10&nbsp; Crisis and risk management</span></a>: Crisis and risk management
 <ul>
-<li><a href="03_08_crisis_risk.html#sec-crisis-imputation"><span>Section&nbsp;10.1</span></a>: Imputation of missing data</li>
-<li><a href="03_08_crisis_risk.html#sec-crisis-changes"><span>Section&nbsp;10.2</span></a>: Changes from the 2017 Pilot</li>
+<li><a href="03_08_crisis_risk.html#sec-crisis-imputation" class="quarto-xref"><span>10.1 Imputation of missing data</span></a>: Imputation of missing data</li>
+<li><a href="03_08_crisis_risk.html#sec-crisis-changes" class="quarto-xref"><span>10.2 Changes from the 2017 Pilot</span></a>: Changes from the 2017 Pilot</li>
 </ul></li>
-<li><a href="03_09_procurement.html"><span>Chapter&nbsp;11</span></a>: Procurement
+<li><a href="03_09_procurement.html" class="quarto-xref"><span>11&nbsp; Procurement</span></a>: Procurement
 <ul>
-<li><a href="03_09_procurement.html#sec-procurement-imputation"><span>Section&nbsp;11.1</span></a>: Imputation of missing data</li>
-<li><a href="03_09_procurement.html#sec-procurement-changes"><span>Section&nbsp;11.2</span></a>: Changes from the 2017 Pilot</li>
+<li><a href="03_09_procurement.html#sec-procurement-imputation" class="quarto-xref"><span>11.1 Imputation of missing data</span></a>: Imputation of missing data</li>
+<li><a href="03_09_procurement.html#sec-procurement-changes" class="quarto-xref"><span>11.2 Changes from the 2017 Pilot</span></a>: Changes from the 2017 Pilot</li>
 </ul></li>
-<li><a href="03_10_hrm.html"><span>Chapter&nbsp;12</span></a>: HR management
+<li><a href="03_10_hrm.html" class="quarto-xref"><span>12&nbsp; HR management</span></a>: HR management
 <ul>
-<li><a href="03_10_hrm.html#sec-hrm-imputation"><span>Section&nbsp;12.1</span></a>: Imputation of missing data</li>
-<li><a href="03_10_hrm.html#sec-hrm-changes"><span>Section&nbsp;12.2</span></a>: Changes from the 2017 Pilot</li>
+<li><a href="03_10_hrm.html#sec-hrm-imputation" class="quarto-xref"><span>12.1 Imputation of missing data</span></a>: Imputation of missing data</li>
+<li><a href="03_10_hrm.html#sec-hrm-changes" class="quarto-xref"><span>12.2 Changes from the 2017 Pilot</span></a>: Changes from the 2017 Pilot</li>
 </ul></li>
-<li><a href="03_11_tax.html"><span>Chapter&nbsp;13</span></a>: Tax administration
+<li><a href="03_11_tax.html" class="quarto-xref"><span>13&nbsp; Tax administration</span></a>: Tax administration
 <ul>
-<li><a href="03_11_tax.html#sec-tax-imputation"><span>Section&nbsp;13.1</span></a>: Imputation of missing data</li>
-<li><a href="03_11_tax.html#sec-tax-changes"><span>Section&nbsp;13.2</span></a>: Changes from the 2017 Pilot</li>
+<li><a href="03_11_tax.html#sec-tax-imputation" class="quarto-xref"><span>13.1 Imputation of missing data</span></a>: Imputation of missing data</li>
+<li><a href="03_11_tax.html#sec-tax-changes" class="quarto-xref"><span>13.2 Changes from the 2017 Pilot</span></a>: Changes from the 2017 Pilot</li>
 </ul></li>
-<li><a href="03_12_digital.html"><span>Chapter&nbsp;14</span></a>: Digital services
+<li><a href="03_12_digital.html" class="quarto-xref"><span>14&nbsp; Digital services</span></a>: Digital services
 <ul>
-<li><a href="03_12_digital.html#sec-digital-imputation"><span>Section&nbsp;14.1</span></a>: Imputation of missing data</li>
-<li><a href="03_12_digital.html#sec-digital-changes"><span>Section&nbsp;14.2</span></a>: Changes from the 2017 Pilot</li>
+<li><a href="03_12_digital.html#sec-digital-imputation" class="quarto-xref"><span>14.1 Imputation of missing data</span></a>: Imputation of missing data</li>
+<li><a href="03_12_digital.html#sec-digital-changes" class="quarto-xref"><span>14.2 Changes from the 2017 Pilot</span></a>: Changes from the 2017 Pilot</li>
 </ul></li>
 </ul></li>
-<li><a href="04_changes.html"><span>Chapter&nbsp;15</span></a>: Summary of changes from the 2017 pilot edition of the InCiSE Index
+<li><a href="04_changes.html" class="quarto-xref"><span>15&nbsp; Summary of changes from the 2017 pilot edition of the InCiSE Index</span></a>: Summary of changes from the 2017 pilot edition of the InCiSE Index
 <ul>
-<li><a href="04_changes.html#sec-changes-methodology"><span>Section&nbsp;15.1</span></a>: Changes in the overarching methodology</li>
-<li><a href="04_changes.html#sec-no-change"><span>Section&nbsp;15.2</span></a>: Indicators with no changes</li>
-<li><a href="04_changes.html#sec-minor-changes"><span>Section&nbsp;15.3</span></a>: Indicators with minor changes</li>
-<li><a href="04_changes.html#sec-change-crisis"><span>Section&nbsp;15.4</span></a>: Crisis and risk management</li>
-<li><a href="04_changes.html#sec-change-capabilities"><span>Section&nbsp;15.5</span></a>: Capabilities</li>
-<li><a href="04_changes.html#sec-change-digital"><span>Section&nbsp;15.6</span></a>: Digital services</li>
-<li><a href="04_changes.html#sec-change-procurement"><span>Section&nbsp;15.7</span></a>: Procurement</li>
-<li><a href="04_changes.html#sec-change-social-security"><span>Section&nbsp;15.8</span></a>: Social security administration</li>
+<li><a href="04_changes.html#sec-changes-methodology" class="quarto-xref"><span>15.1 Changes in the overarching methodology</span></a>: Changes in the overarching methodology</li>
+<li><a href="04_changes.html#sec-no-change" class="quarto-xref"><span>15.2 Indicators with no changes</span></a>: Indicators with no changes</li>
+<li><a href="04_changes.html#sec-minor-changes" class="quarto-xref"><span>15.3 Indicators with minor changes</span></a>: Indicators with minor changes</li>
+<li><a href="04_changes.html#sec-change-crisis" class="quarto-xref"><span>15.4 Crisis and risk management</span></a>: Crisis and risk management</li>
+<li><a href="04_changes.html#sec-change-capabilities" class="quarto-xref"><span>15.5 Capabilities</span></a>: Capabilities</li>
+<li><a href="04_changes.html#sec-change-digital" class="quarto-xref"><span>15.6 Digital services</span></a>: Digital services</li>
+<li><a href="04_changes.html#sec-change-procurement" class="quarto-xref"><span>15.7 Procurement</span></a>: Procurement</li>
+<li><a href="04_changes.html#sec-change-social-security" class="quarto-xref"><span>15.8 Social security administration</span></a>: Social security administration</li>
 </ul></li>
-<li><a href="05_sensitivity.html"><span>Chapter&nbsp;16</span></a>: Sensitivity analysis
+<li><a href="05_sensitivity.html" class="quarto-xref"><span>16&nbsp; Sensitivity analysis</span></a>: Sensitivity analysis
 <ul>
-<li><a href="05_sensitivity.html#sec-sens-country"><span>Section&nbsp;16.1</span></a>: Country selection</li>
-<li><a href="05_sensitivity.html#sec-sens-date"><span>Section&nbsp;16.2</span></a>: Reference date</li>
-<li><a href="05_sensitivity.html#sec-sens-weight"><span>Section&nbsp;16.3</span></a>: Alternative approaches to weighting</li>
-<li><a href="05_sensitivity.html#sec-sens-base"><span>Section&nbsp;16.4</span></a>: Adjusting the base data</li>
-<li><a href="05_sensitivity.html#sec-sens-impute"><span>Section&nbsp;16.5</span></a>: Alternative imputation methods</li>
-<li><a href="05_sensitivity.html#sec-sens-results"><span>Section&nbsp;16.6</span></a>: Results of the sensitivity analysis</li>
+<li><a href="05_sensitivity.html#sec-sens-country" class="quarto-xref"><span>16.1 Country selection</span></a>: Country selection</li>
+<li><a href="05_sensitivity.html#sec-sens-date" class="quarto-xref"><span>16.2 Reference date</span></a>: Reference date</li>
+<li><a href="05_sensitivity.html#sec-sens-weight" class="quarto-xref"><span>16.3 Alternative approaches to weighting</span></a>: Alternative approaches to weighting</li>
+<li><a href="05_sensitivity.html#sec-sens-base" class="quarto-xref"><span>16.4 Adjusting the base data</span></a>: Adjusting the base data</li>
+<li><a href="05_sensitivity.html#sec-sens-impute" class="quarto-xref"><span>16.5 Alternative imputation methods</span></a>: Alternative imputation methods</li>
+<li><a href="05_sensitivity.html#sec-sens-results" class="quarto-xref"><span>16.6 Results of the sensitivity analysis</span></a>: Results of the sensitivity analysis</li>
 </ul></li>
-<li><a href="06_future_development.html"><span>Chapter&nbsp;17</span></a>: Future development
+<li><a href="06_future_development.html" class="quarto-xref"><span>17&nbsp; Future development</span></a>: Future development
 <ul>
-<li><a href="06_future_development.html#sec-future-ssa"><span>Section&nbsp;17.1</span></a>: Social security administration</li>
-<li><a href="06_future_development.html#sec-future-notmeasured"><span>Section&nbsp;17.2</span></a>: Functions and attributes not yet measured</li>
-<li><a href="06_future_development.html#sec-future-measured"><span>Section&nbsp;17.3</span></a>: Functions and attributes already measured</li>
-<li><a href="06_future_development.html#sec-future-country"><span>Section&nbsp;17.4</span></a>: Extending country coverage</li>
+<li><a href="06_future_development.html#sec-future-ssa" class="quarto-xref"><span>17.1 Social security administration</span></a>: Social security administration</li>
+<li><a href="06_future_development.html#sec-future-notmeasured" class="quarto-xref"><span>17.2 Functions and attributes not yet measured</span></a>: Functions and attributes not yet measured</li>
+<li><a href="06_future_development.html#sec-future-measured" class="quarto-xref"><span>17.3 Functions and attributes already measured</span></a>: Functions and attributes already measured</li>
+<li><a href="06_future_development.html#sec-future-country" class="quarto-xref"><span>17.4 Extending country coverage</span></a>: Extending country coverage</li>
 </ul></li>
 <li><a href="./99_references.html">References</a>
 <ul>
@@ -472,34 +473,34 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 <li>Appendices
 <ul>
-<li><a href="A_composite_metrics.html"><span>Appendix&nbsp;A</span></a>: Composite metrics
+<li><a href="A_composite_metrics.html" class="quarto-xref"><span>Appendix A — Composite metrics</span></a>: Composite metrics
 <ul>
-<li><a href="A_composite_metrics.html#sec-composite-integrity"><span>Section&nbsp;A.1</span></a>: Integrity</li>
-<li><a href="A_composite_metrics.html#sec-composite-inclusiveness"><span>Section&nbsp;A.2</span></a>: Inclusiveness</li>
-<li><a href="A_composite_metrics.html#sec-composite-ffm"><span>Section&nbsp;A.3</span></a>: Fiscal and financial management</li>
-<li><a href="A_composite_metrics.html#sec-composite-tax"><span>Section&nbsp;A.4</span></a>: Tax administration</li>
-<li><a href="A_composite_metrics.html#sec-composite-procurement"><span>Section&nbsp;A.5</span></a>: Procurement</li>
-<li><a href="A_composite_metrics.html#sec-composite-crm"><span>Section&nbsp;A.6</span></a>: Crisis and risk management</li>
+<li><a href="A_composite_metrics.html#sec-composite-integrity" class="quarto-xref"><span>A.1 Integrity</span></a>: Integrity</li>
+<li><a href="A_composite_metrics.html#sec-composite-inclusiveness" class="quarto-xref"><span>A.2 Inclusiveness</span></a>: Inclusiveness</li>
+<li><a href="A_composite_metrics.html#sec-composite-ffm" class="quarto-xref"><span>A.3 Fiscal and financial management</span></a>: Fiscal and financial management</li>
+<li><a href="A_composite_metrics.html#sec-composite-tax" class="quarto-xref"><span>A.4 Tax administration</span></a>: Tax administration</li>
+<li><a href="A_composite_metrics.html#sec-composite-procurement" class="quarto-xref"><span>A.5 Procurement</span></a>: Procurement</li>
+<li><a href="A_composite_metrics.html#sec-composite-crm" class="quarto-xref"><span>A.6 Crisis and risk management</span></a>: Crisis and risk management</li>
 </ul></li>
-<li><a href="B_sensitivity_detailed.html"><span>Appendix&nbsp;B</span></a>: Sensitivity analysis – detailed results</li>
-<li><a href="C_dqa_detailed.html"><span>Appendix&nbsp;C</span></a>: Data quality assessment – detailed results</li>
+<li><a href="B_sensitivity_detailed.html" class="quarto-xref"><span>Appendix B — Sensitivity analysis – detailed results</span></a>: Sensitivity analysis – detailed results</li>
+<li><a href="C_dqa_detailed.html" class="quarto-xref"><span>Appendix C — Data quality assessment – detailed results</span></a>: Data quality assessment – detailed results</li>
 </ul></li>
 </ul>
 </div>
 <section id="changes-compared-to-the-original-2019-publication" class="level3">
 <h3 class="anchored" data-anchor-id="changes-compared-to-the-original-2019-publication">Changes compared to the original 2019 publication</h3>
 <p><a href="./03_00_indicators.html">Chapters 3-14</a> of this web book were presented as a single chapter (Chapter 3) in the original 2019 publication. For improved navigation and readability this part of the report has been split into separate chapters. Footnotes have been added to charts, tables and chapters to indicate the resulting differences in numbering between this web book and the original PDF publication.</p>
-<p><a href="C_dqa_detailed.html"><span>Appendix&nbsp;C</span></a> was not included in the original 2019 publication. It has been added to this web publication of the report to provide more details for stakeholders on the results of the data quality assessment that was used in the 2019 modelling.</p>
+<p><a href="C_dqa_detailed.html" class="quarto-xref"><span>Appendix C — Data quality assessment – detailed results</span></a> was not included in the original 2019 publication. It has been added to this web publication of the report to provide more details for stakeholders on the results of the data quality assessment that was used in the 2019 modelling.</p>
 </section>
 </section>
 <section id="list-of-figures" class="level2">
 <h2 class="anchored" data-anchor-id="list-of-figures">List of figures</h2>
 <div class="custom-toc list-of-figures">
 <ul>
-<li><a href="01_introduction.html#fig-framework">Figure&nbsp;<span>1.1</span></a>: The InCiSE Index Framework</li>
-<li><a href="01_introduction.html#fig-datamodel">Figure&nbsp;<span>1.2</span></a>: The InCiSE data model</li>
-<li><a href="03_03_capabilities.html#fig-edu-levels">Figure&nbsp;<span>5.1</span></a>: Tertiary education levels of adults 25-34 and 55-64, in selected</li>
-<li><a href="05_sensitivity.html#fig-sens-results">Figure&nbsp;<span>16.1</span></a>: Sensitivity analysis results</li>
+<li><a href="01_introduction.html#fig-framework" class="quarto-xref">Figure&nbsp;<span>The InCiSE Index Framework</span></a>: The InCiSE Index Framework</li>
+<li><a href="01_introduction.html#fig-datamodel" class="quarto-xref">Figure&nbsp;<span>The InCiSE data model</span></a>: The InCiSE data model</li>
+<li><a href="03_03_capabilities.html#fig-edu-levels" class="quarto-xref">Figure&nbsp;<span>Tertiary education levels of adults 25-34 and 55-64, in selected countries</span></a>: Tertiary education levels of adults 25-34 and 55-64, in selected</li>
+<li><a href="05_sensitivity.html#fig-sens-results" class="quarto-xref">Figure&nbsp;<span>Sensitivity analysis results</span></a>: Sensitivity analysis results</li>
 </ul>
 </div>
 </section>
@@ -507,96 +508,96 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="list-of-tables">List of tables</h2>
 <div class="custom-toc list-of-tables">
 <ul>
-<li><a href="01_introduction.html#tbl-scope">Table&nbsp;<span>1.1</span></a>: Scope of the InCiSE Framework</li>
+<li><a href="01_introduction.html#tbl-scope" class="quarto-xref">Table&nbsp;<span>Scope of the InCiSE Framework</span></a>: Scope of the InCiSE Framework</li>
 </ul>
 <hr>
 <ul>
-<li><a href="02_index.html#tbl-dqa-all">Table&nbsp;<span>2.1</span></a>: Data quality assessment (DQA) results across the 12 InCiSE indicators and overall, for all 249 countries and territories considered by the InCiSE data model</li>
-<li><a href="02_index.html#tbl-dqa-incise">Table&nbsp;<span>2.2</span></a>: Data quality assessment (DQA) results for the 38 countries included in the 2019 index</li>
-<li><a href="02_index.html#tbl-dqa-countries1">Table&nbsp;<span>2.3</span></a>: Data quality assessment (DQA) results by country</li>
-<li><a href="02_index.html#tbl-dqa-countries2">Table&nbsp;<span>2.4</span></a>: Data quality assessment (DQA) results by country for the next countries after the 38 selected for inclusion in the InCiSE 2019 model</li>
-<li><a href="02_index.html#tbl-ind-weights">Table&nbsp;<span>2.5</span></a>: InCiSE 2019 indicator weightings</li>
-<li><a href="02_index.html#tbl-dqa-meta">Table&nbsp;<span>2.6</span></a>: Summary of data quality metadata for the 38 countries of the InCiSE 2019 Index</li>
-<li><a href="02_index.html#tbl-rag-rating">Table&nbsp;<span>2.7</span></a>: Overall quality assessment ‘RAG’ rating of the 2019 InCiSE indicators</li>
-<li><a href="02_index.html#tbl-dqa-grade">Table&nbsp;<span>2.8</span></a>: Data quality scores by indicator and country</li>
+<li><a href="02_index.html#tbl-dqa-all" class="quarto-xref">Table&nbsp;<span>Data quality assessment (DQA) results across the 12 InCiSE indicators and overall, for all 249 countries and territories considered by the InCiSE data model</span></a>: Data quality assessment (DQA) results across the 12 InCiSE indicators and overall, for all 249 countries and territories considered by the InCiSE data model</li>
+<li><a href="02_index.html#tbl-dqa-incise" class="quarto-xref">Table&nbsp;<span>Data quality assessment (DQA) results for the 38 countries included in the 2019 index</span></a>: Data quality assessment (DQA) results for the 38 countries included in the 2019 index</li>
+<li><a href="02_index.html#tbl-dqa-countries1" class="quarto-xref">Table&nbsp;<span>Data quality assessment (DQA) results by country</span></a>: Data quality assessment (DQA) results by country</li>
+<li><a href="02_index.html#tbl-dqa-countries2" class="quarto-xref">Table&nbsp;<span>Data quality assessment (DQA) results by country for the next countries after the 38 selected for inclusion in the InCiSE 2019 model</span></a>: Data quality assessment (DQA) results by country for the next countries after the 38 selected for inclusion in the InCiSE 2019 model</li>
+<li><a href="02_index.html#tbl-ind-weights" class="quarto-xref">Table&nbsp;<span>InCiSE 2019 indicator weightings</span></a>: InCiSE 2019 indicator weightings</li>
+<li><a href="02_index.html#tbl-dqa-meta" class="quarto-xref">Table&nbsp;<span>Summary of data quality metadata for the 38 countries of the InCiSE 2019 Index</span></a>: Summary of data quality metadata for the 38 countries of the InCiSE 2019 Index</li>
+<li><a href="02_index.html#tbl-rag-rating" class="quarto-xref">Table&nbsp;<span>Overall quality assessment ‘RAG’ rating of the 2019 InCiSE indicators</span></a>: Overall quality assessment ‘RAG’ rating of the 2019 InCiSE indicators</li>
+<li><a href="02_index.html#tbl-dqa-grade" class="quarto-xref">Table&nbsp;<span>Data quality scores by indicator and country</span></a>: Data quality scores by indicator and country</li>
 </ul>
 <hr>
 <ul>
-<li><a href="03_01_integrity.html#tbl-comp-int">Table&nbsp;<span>3.1</span></a>: Composition of the integrity indicator</li>
-<li><a href="03_01_integrity.html#tbl-pemp-2017">Table&nbsp;<span>3.2</span></a>: Coding of post-employment cooling-off in the 2017 Pilot edition of InCiSE</li>
-<li><a href="03_01_integrity.html#tbl-pemp-2019">Table&nbsp;<span>3.3</span></a>: Coding of post-employment cooling-off in the 2019 edition of InCiSE</li>
+<li><a href="03_01_integrity.html#tbl-comp-int" class="quarto-xref">Table&nbsp;<span>Composition of the integrity indicator</span></a>: Composition of the integrity indicator</li>
+<li><a href="03_01_integrity.html#tbl-pemp-2017" class="quarto-xref">Table&nbsp;<span>Coding of post-employment cooling-off in the 2017 Pilot edition of InCiSE</span></a>: Coding of post-employment cooling-off in the 2017 Pilot edition of InCiSE</li>
+<li><a href="03_01_integrity.html#tbl-pemp-2019" class="quarto-xref">Table&nbsp;<span>Coding of post-employment cooling-off in the 2019 edition of InCiSE</span></a>: Coding of post-employment cooling-off in the 2019 edition of InCiSE</li>
 </ul>
 <hr>
 <ul>
-<li><a href="03_02_openness.html#tbl-comp-opn">Table&nbsp;<span>4.1</span></a>: Composition of the openness indicator</li>
+<li><a href="03_02_openness.html#tbl-comp-opn" class="quarto-xref">Table&nbsp;<span>Composition of the openness indicator</span></a>: Composition of the openness indicator</li>
 </ul>
 <hr>
 <ul>
-<li><a href="03_03_capabilities.html#tbl-comp-cap">Table&nbsp;<span>5.1</span></a>: Composition of the capabilities indicator countries</li>
+<li><a href="03_03_capabilities.html#tbl-comp-cap" class="quarto-xref">Table&nbsp;<span>Composition of the capabilities indicator</span></a>: Composition of the capabilities indicator countries</li>
 </ul>
 <hr>
 <ul>
-<li><a href="03_04_inclusiveness.html#tbl-comp-inc">Table&nbsp;<span>6.1</span></a>: Composition of the inclusiveness indicator</li>
+<li><a href="03_04_inclusiveness.html#tbl-comp-inc" class="quarto-xref">Table&nbsp;<span>Composition of the inclusiveness indicator</span></a>: Composition of the inclusiveness indicator</li>
 </ul>
 <hr>
 <ul>
-<li><a href="03_05_policy_making.html#tbl-comp-pol">Table&nbsp;<span>7.1</span></a>: Composition of the policy making indicator</li>
+<li><a href="03_05_policy_making.html#tbl-comp-pol" class="quarto-xref">Table&nbsp;<span>Composition of the policy making indicator</span></a>: Composition of the policy making indicator</li>
 </ul>
 <hr>
 <ul>
-<li><a href="03_06_fiscal_financial.html#tbl-comp-ffm">Table&nbsp;<span>8.1</span></a>: Composition of the fiscal and financial management indicator</li>
+<li><a href="03_06_fiscal_financial.html#tbl-comp-ffm" class="quarto-xref">Table&nbsp;<span>Composition of the fiscal and financial management indicator</span></a>: Composition of the fiscal and financial management indicator</li>
 </ul>
 <hr>
 <ul>
-<li><a href="03_07_regulation.html#tbl-comp-reg">Table&nbsp;<span>9.1</span></a>: Composition of the regulation indicator</li>
+<li><a href="03_07_regulation.html#tbl-comp-reg" class="quarto-xref">Table&nbsp;<span>Composition of the regulation indicator</span></a>: Composition of the regulation indicator</li>
 </ul>
 <hr>
 <ul>
-<li><a href="03_08_crisis_risk.html#tbl-comp-crm">Table&nbsp;<span>10.1</span></a>: Composition of the crisis and risk management indicator</li>
+<li><a href="03_08_crisis_risk.html#tbl-comp-crm" class="quarto-xref">Table&nbsp;<span>Composition of the crisis and risk management indicator</span></a>: Composition of the crisis and risk management indicator</li>
 </ul>
 <hr>
 <ul>
-<li><a href="03_09_procurement.html#tbl-comp-pro">Table&nbsp;<span>11.1</span></a>: Composition of the procurement indicator</li>
+<li><a href="03_09_procurement.html#tbl-comp-pro" class="quarto-xref">Table&nbsp;<span>Composition of the procurement indicator</span></a>: Composition of the procurement indicator</li>
 </ul>
 <hr>
 <ul>
-<li><a href="03_10_hrm.html#tbl-comp-hrm">Table&nbsp;<span>12.1</span></a>: Composition of the HR management indicator</li>
+<li><a href="03_10_hrm.html#tbl-comp-hrm" class="quarto-xref">Table&nbsp;<span>Composition of the HR management indicator</span></a>: Composition of the HR management indicator</li>
 </ul>
 <hr>
 <ul>
-<li><a href="03_11_tax.html#tbl-comp-tax">Table&nbsp;<span>13.1</span></a>: Composition of the tax administration indicator</li>
+<li><a href="03_11_tax.html#tbl-comp-tax" class="quarto-xref">Table&nbsp;<span>Composition of the tax administration indicator</span></a>: Composition of the tax administration indicator</li>
 </ul>
 <hr>
 <ul>
-<li><a href="03_12_digital.html#tbl-comp-dig">Table&nbsp;<span>14.1</span></a>: Composition of the digital services indicator</li>
-<li><a href="03_12_digital.html#tbl-egbr-nat">Table&nbsp;<span>14.2</span></a>: Proportion of eGBR assessed services identified as ‘national’ level services</li>
+<li><a href="03_12_digital.html#tbl-comp-dig" class="quarto-xref">Table&nbsp;<span>Composition of the digital services indicator</span></a>: Composition of the digital services indicator</li>
+<li><a href="03_12_digital.html#tbl-egbr-nat" class="quarto-xref">Table&nbsp;<span>Proportion of eGBR assessed services identified as ‘national’ level services</span></a>: Proportion of eGBR assessed services identified as ‘national’ level services</li>
 </ul>
 <hr>
 <ul>
-<li><a href="05_sensitivity.html#tbl-ref-year">Table&nbsp;<span>16.1</span></a>: Reference year of InCiSE metrics by indicator</li>
-<li><a href="05_sensitivity.html#tbl-sens-summary-country">Table&nbsp;<span>16.2</span></a>: Variation in country ranking across sensitivity analyses</li>
-<li><a href="05_sensitivity.html#tbl-sens-summary-group">Table&nbsp;<span>16.3</span></a>: Summary of variation in ranking changes across sensitivity analysis sets</li>
+<li><a href="05_sensitivity.html#tbl-ref-year" class="quarto-xref">Table&nbsp;<span>Reference year of InCiSE metrics by indicator</span></a>: Reference year of InCiSE metrics by indicator</li>
+<li><a href="05_sensitivity.html#tbl-sens-summary-country" class="quarto-xref">Table&nbsp;<span>Variation in country ranking across sensitivity analyses</span></a>: Variation in country ranking across sensitivity analyses</li>
+<li><a href="05_sensitivity.html#tbl-sens-summary-group" class="quarto-xref">Table&nbsp;<span>Summary of variation in ranking changes across sensitivity analysis sets</span></a>: Summary of variation in ranking changes across sensitivity analysis sets</li>
 </ul>
 <hr>
 <ul>
-<li><a href="06_future_development.html#tbl-indicator-future">Table&nbsp;<span>17.1</span></a>: Potential future improvement of indicators measured in the 2019 edition of InCiSE</li>
+<li><a href="06_future_development.html#tbl-indicator-future" class="quarto-xref">Table&nbsp;<span>Potential future improvement of indicators measured in the 2019 edition of InCiSE</span></a>: Potential future improvement of indicators measured in the 2019 edition of InCiSE</li>
 </ul>
 <hr>
 <ul>
-<li><a href="A_composite_metrics.html#tbl-composite-int">Table&nbsp;<span>A.1</span></a>: Composite metrics in the integrity indicator</li>
-<li><a href="A_composite_metrics.html#tbl-composite-inc">Table&nbsp;<span>A.2</span></a>: Composite metrics in the inclusiveness indicator</li>
-<li><a href="A_composite_metrics.html#tbl-composite-ffm">Table&nbsp;<span>A.3</span></a>: Composite metrics in the fiscal and financial management indicator</li>
-<li><a href="A_composite_metrics.html#tbl-composite-tax">Table&nbsp;<span>A.4</span></a>: Composite metrics in the tax administration indicator</li>
-<li><a href="A_composite_metrics.html#tbl-composite-pro">Table&nbsp;<span>A.5</span></a>: Composite metrics in the procurement indicator</li>
-<li><a href="A_composite_metrics.html#tbl-composite-crm">Table&nbsp;<span>A.6</span></a>: Composite metrics in the crisis and risk management indicator</li>
+<li><a href="A_composite_metrics.html#tbl-composite-int" class="quarto-xref">Table&nbsp;<span>Composite metrics in the integrity indicator</span></a>: Composite metrics in the integrity indicator</li>
+<li><a href="A_composite_metrics.html#tbl-composite-inc" class="quarto-xref">Table&nbsp;<span>Composite metrics in the inclusiveness indicator</span></a>: Composite metrics in the inclusiveness indicator</li>
+<li><a href="A_composite_metrics.html#tbl-composite-ffm" class="quarto-xref">Table&nbsp;<span>Composite metrics in the fiscal and financial management indicator</span></a>: Composite metrics in the fiscal and financial management indicator</li>
+<li><a href="A_composite_metrics.html#tbl-composite-tax" class="quarto-xref">Table&nbsp;<span>Composite metrics in the tax administration indicator</span></a>: Composite metrics in the tax administration indicator</li>
+<li><a href="A_composite_metrics.html#tbl-composite-pro" class="quarto-xref">Table&nbsp;<span>Composite metrics in the procurement indicator</span></a>: Composite metrics in the procurement indicator</li>
+<li><a href="A_composite_metrics.html#tbl-composite-crm" class="quarto-xref">Table&nbsp;<span>Composite metrics in the crisis and risk management indicator</span></a>: Composite metrics in the crisis and risk management indicator</li>
 </ul>
 <hr>
 <ul>
-<li><a href="B_sensitivity_detailed.html#tbl-sens-country">Table&nbsp;<span>B.1</span></a>: Sensitivity tests varying country coverage</li>
-<li><a href="B_sensitivity_detailed.html#tbl-sens-date">Table&nbsp;<span>B.2</span></a>: Sensitivity tests varying reference year</li>
-<li><a href="B_sensitivity_detailed.html#tbl-sens-weight">Table&nbsp;<span>B.3</span></a>: Sensitivity tests with alternative approaches to weighting</li>
-<li><a href="B_sensitivity_detailed.html#tbl-sens-base">Table&nbsp;<span>B.4</span></a>: Sensitivity tests adjusting the base data</li>
-<li><a href="B_sensitivity_detailed.html#tbl-sens-impute">Table&nbsp;<span>B.5</span></a>: Sensitivity tests adjusting the base data</li>
+<li><a href="B_sensitivity_detailed.html#tbl-sens-country" class="quarto-xref">Table&nbsp;<span>Sensitivity tests varying country coverage</span></a>: Sensitivity tests varying country coverage</li>
+<li><a href="B_sensitivity_detailed.html#tbl-sens-date" class="quarto-xref">Table&nbsp;<span>Sensitivity tests varying reference year</span></a>: Sensitivity tests varying reference year</li>
+<li><a href="B_sensitivity_detailed.html#tbl-sens-weight" class="quarto-xref">Table&nbsp;<span>Sensitivity tests with alternative approaches to weighting</span></a>: Sensitivity tests with alternative approaches to weighting</li>
+<li><a href="B_sensitivity_detailed.html#tbl-sens-base" class="quarto-xref">Table&nbsp;<span>Sensitivity tests adjusting the base data</span></a>: Sensitivity tests adjusting the base data</li>
+<li><a href="B_sensitivity_detailed.html#tbl-sens-impute" class="quarto-xref">Table&nbsp;<span>Sensitivity tests adjusting the base data</span></a>: Sensitivity tests adjusting the base data</li>
 </ul>
 </div>
 
@@ -683,10 +684,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -696,8 +696,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -710,6 +719,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -753,6 +881,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -778,6 +907,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -839,17 +994,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link">
+      <a href="./index.html" class="pagination-link  aria-label=" preface"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./00_readers_guide.html" class="pagination-link">
+      <a href="./00_readers_guide.html" class="pagination-link" aria-label="Reader's guide">
         <span class="nav-page-text">Reader’s guide</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 
