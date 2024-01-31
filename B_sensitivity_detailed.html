@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>InCiSE 2019: Technical Report - Appendix B — Sensitivity analysis – detailed results</title>
+<title>InCiSE 2019: Technical Report - Appendix B — Sensitivity analysis: detailed results</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -47,13 +47,7 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -62,7 +56,6 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -74,11 +67,12 @@ ul.task-list li input[type="checkbox"] {
 
 <body class="nav-sidebar floating nav-fixed">
 
+
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
+      <div class="navbar-brand-container">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">InCiSE 2019: Technical Report</span>
     </a>
@@ -90,53 +84,61 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-more" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-more" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">More</span>
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-more">    
         <li>
-    <a class="dropdown-item" href="https://incise-project.github.io/incise2019-results/"><i class="bi bi-book-half" role="img">
+    <a class="dropdown-item" href="https://incise-project.github.io/incise2019-results/" rel="" target=""><i class="bi bi-book-half" role="img">
 </i> 
  <span class="dropdown-text">Read the InCiSE 2019 Results Report</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./incise2019_technical_report.pdf"><i class="bi bi-file-earmark-pdf" role="img">
+    <a class="dropdown-item" href="./incise2019_technical_report.pdf" rel="" target=""><i class="bi bi-file-earmark-pdf" role="img">
 </i> 
  <span class="dropdown-text">Download the PDF of this report</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://github.com/incise-project/incise2019-techreport/"><i class="bi bi-github" role="img">
+    <a class="dropdown-item" href="https://github.com/incise-project/incise2019-techreport/" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="dropdown-text">View the source code of this report</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://incise-project.github.io/"><i class="bi bi-house-fill" role="img">
+    <a class="dropdown-item" href="https://incise-project.github.io/" rel="" target=""><i class="bi bi-house-fill" role="img">
 </i> 
  <span class="dropdown-text">Go to the InCiSE Project homepage</span></a>
   </li>  
     </ul>
   </li>
 </ul>
-          </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
+          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A_composite_metrics.html">Appendices</a></li><li class="breadcrumb-item"><a href="./B_sensitivity_detailed.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Sensitivity analysis – detailed results</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A_composite_metrics.html">Appendices</a></li><li class="breadcrumb-item"><a href="./B_sensitivity_detailed.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Sensitivity analysis: detailed results</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -294,7 +296,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./B_sensitivity_detailed.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Sensitivity analysis – detailed results</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Sensitivity analysis: detailed results</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -308,7 +310,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
@@ -316,9 +318,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A_composite_metrics.html">Appendices</a></li><li class="breadcrumb-item"><a href="./B_sensitivity_detailed.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Sensitivity analysis – detailed results</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-sensitivity-detailed" class="quarto-section-identifier">Appendix B — Sensitivity analysis – detailed results</span></h1>
+<h1 class="title"><span id="sec-sensitivity-detailed" class="quarto-section-identifier">Appendix B — Sensitivity analysis: detailed results</span></h1>
 </div>
 
 
@@ -331,26 +333,24 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
-
 </header>
 
-
-<p>This Annex provides detailed results from the sensitivity analysis described in <a href="05_sensitivity.html" class="quarto-xref"><span>Chapter 16</span></a>. Each table includes the index score and rank for each of the 38 countries included in the 2019 InCiSE Index results for each of the sensitivity tests carried out alongside the results of the 2019 index results.</p>
-<p><a href="#tbl-sens-country" class="quarto-xref">Table&nbsp;<span>B.1</span></a> shows the results of the sensitivity tests varying country coverage (<a href="05_sensitivity.html#sec-sens-country" class="quarto-xref"><span>Section 16.1</span></a>):</p>
+<p>This Annex provides detailed results from the sensitivity analysis described in <a href="05_sensitivity.html"><span>Chapter&nbsp;16</span></a>. Each table includes the index score and rank for each of the 38 countries included in the 2019 InCiSE Index results for each of the sensitivity tests carried out alongside the results of the 2019 index results.</p>
+<p><a href="#tbl-sens-country">Table&nbsp;<span>B.1</span></a> shows the results of the sensitivity tests varying country coverage (<a href="05_sensitivity.html#sec-sens-country"><span>Section&nbsp;16.1</span></a>):</p>
 <ul>
 <li>Using a data quality assessment threshold of 0.55 to determine country inclusion;</li>
 <li>Using a data quality assessment threshold of 0.6 to determine country inclusion;</li>
 <li>Using a threshold of 75% of the available data to determine country inclusion;</li>
 <li>Using only the countries included in the 2017 Pilot edition of the index.</li>
 </ul>
-<p><a href="#tbl-sens-date" class="quarto-xref">Table&nbsp;<span>B.2</span></a> shows the results of the sensitivity tests varying the reference date (<a href="05_sensitivity.html#sec-sens-date" class="quarto-xref"><span>Section 16.2</span></a>):</p>
+<p><a href="#tbl-sens-date">Table&nbsp;<span>B.2</span></a> shows the results of the sensitivity tests varying the reference date (<a href="05_sensitivity.html#sec-sens-date"><span>Section&nbsp;16.2</span></a>):</p>
 <ul>
 <li>Excluding the capabilities indicator;</li>
 <li>Excluding the capabilities indicator and adjusting the weighting accordingly;</li>
 <li>Using only data with a reference year of 2015 or later;</li>
 <li>Using only data with a reference year of 2016 or later.</li>
 </ul>
-<p><a href="#tbl-sens-weight" class="quarto-xref">Table&nbsp;<span>B.3</span></a> shows the results of the sensitivity tests using alternative weighting (<a href="05_sensitivity.html#sec-sens-weight" class="quarto-xref"><span>Section 16.3</span></a>):</p>
+<p><a href="#tbl-sens-weight">Table&nbsp;<span>B.3</span></a> shows the results of the sensitivity tests using alternative weighting (<a href="05_sensitivity.html#sec-sens-weight"><span>Section&nbsp;16.3</span></a>):</p>
 <ul>
 <li>Using a 50:50 split for the equal-share and data-quality based weighting;</li>
 <li>Using only equal indicator weights(i.e.&nbsp;all indicator weights equal 1/12);</li>
@@ -358,13 +358,13 @@ ul.task-list li input[type="checkbox"] {
 <li>Not applying any within-indicator weights;</li>
 <li>Calculating the index as a sum of all metrics.</li>
 </ul>
-<p><a href="#tbl-sens-base" class="quarto-xref">Table&nbsp;<span>B.4</span></a> shows the results of the sensitivity tests adjusting the base data (<a href="05_sensitivity.html#sec-sens-base" class="quarto-xref"><span>Section 16.4</span></a>):</p>
+<p><a href="#tbl-sens-base">Table&nbsp;<span>B.4</span></a> shows the results of the sensitivity tests adjusting the base data (<a href="05_sensitivity.html#sec-sens-base"><span>Section&nbsp;16.4</span></a>):</p>
 <ul>
 <li>Ranking the metrics before imputation;</li>
 <li>Rescaling the metrics before imputation;</li>
 <li>Standardising the metrics before imputation.</li>
 </ul>
-<p><a href="#tbl-sens-impute" class="quarto-xref">Table&nbsp;<span>B.5</span></a> shows the results of the sensitivity tests using alternative imputation methods (<a href="05_sensitivity.html#sec-sens-impute" class="quarto-xref"><span>Section 16.5</span></a>):</p>
+<p><a href="#tbl-sens-impute">Table&nbsp;<span>B.5</span></a> shows the results of the sensitivity tests using alternative imputation methods (<a href="05_sensitivity.html#sec-sens-impute"><span>Section&nbsp;16.5</span></a>):</p>
 <ul>
 <li>Using an ‘all-in-one’ approach for imputation of missing data;</li>
 <li>Using the ‘midas touch’ method for imputation of missing data;</li>
@@ -372,14 +372,10 @@ ul.task-list li input[type="checkbox"] {
 <li>Replacing missing data with the mean of observed values.</li>
 </ul>
 <div class="cell">
-<div id="tbl-sens-country" class="cell quarto-float anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-sens-country-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;B.1: Sensitivity tests varying country coverage
-</figcaption>
-<div aria-describedby="tbl-sens-country-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="table do-not-create-environment cell table-sm table-striped small" data-quarto-postprocess="true">
+<div id="tbl-sens-country" class="anchored">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Table&nbsp;B.1: Sensitivity tests varying country coverage</caption>
 <colgroup>
 <col style="width: 9%">
 <col style="width: 9%">
@@ -414,19 +410,6 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_left" headers="cc_iso3c">========</td>
-<td class="gt_row gt_center" headers="incise_2019">===========</td>
-<td class="gt_row gt_center" headers="sens_55">=======</td>
-<td class="gt_row gt_center" headers="sens_60">=======</td>
-<td class="gt_row gt_center" headers="sens_75">=======</td>
-<td class="gt_row gt_center" headers="sens_2017">=========</td>
-<td class="gt_row gt_center" headers="rank_2019">=========</td>
-<td class="gt_row gt_center" headers="rank_55">=======</td>
-<td class="gt_row gt_center" headers="rank_60">=======</td>
-<td class="gt_row gt_center" headers="rank_75">=======</td>
-<td class="gt_row gt_center" headers="rank_2017">=========</td>
-</tr>
-<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">GBR</td>
 <td class="gt_row gt_center" headers="incise_2019">1.000</td>
 <td class="gt_row gt_center" headers="sens_55">1.000</td>
@@ -439,7 +422,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_75">1</td>
 <td class="gt_row gt_center" headers="rank_2017">1</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">NZL</td>
 <td class="gt_row gt_center" headers="incise_2019">0.980</td>
 <td class="gt_row gt_center" headers="sens_55">0.987</td>
@@ -452,7 +435,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_75">2</td>
 <td class="gt_row gt_center" headers="rank_2017">2</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">CAN</td>
 <td class="gt_row gt_center" headers="incise_2019">0.916</td>
 <td class="gt_row gt_center" headers="sens_55">0.907</td>
@@ -465,7 +448,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_75">3</td>
 <td class="gt_row gt_center" headers="rank_2017">3</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">FIN</td>
 <td class="gt_row gt_center" headers="incise_2019">0.883</td>
 <td class="gt_row gt_center" headers="sens_55">0.887</td>
@@ -478,7 +461,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_75">4</td>
 <td class="gt_row gt_center" headers="rank_2017">4</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">AUS</td>
 <td class="gt_row gt_center" headers="incise_2019">0.863</td>
 <td class="gt_row gt_center" headers="sens_55">0.859</td>
@@ -493,7 +476,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 </td>
 <td class="gt_row gt_center" headers="rank_2017">5</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">DNK</td>
 <td class="gt_row gt_center" headers="incise_2019">0.832</td>
 <td class="gt_row gt_center" headers="sens_55">0.854</td>
@@ -506,7 +489,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_75">5</td>
 <td class="gt_row gt_center" headers="rank_2017">6</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">NOR</td>
 <td class="gt_row gt_center" headers="incise_2019">0.830</td>
 <td class="gt_row gt_center" headers="sens_55">0.832</td>
@@ -519,7 +502,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_75">6</td>
 <td class="gt_row gt_center" headers="rank_2017">7</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">NLD</td>
 <td class="gt_row gt_center" headers="incise_2019">0.794</td>
 <td class="gt_row gt_center" headers="sens_55">0.792</td>
@@ -532,7 +515,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_75">7</td>
 <td class="gt_row gt_center" headers="rank_2017">8</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">KOR</td>
 <td class="gt_row gt_center" headers="incise_2019">0.785</td>
 <td class="gt_row gt_center" headers="sens_55">0.781</td>
@@ -545,7 +528,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_75">8</td>
 <td class="gt_row gt_center" headers="rank_2017">10</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">SWE</td>
 <td class="gt_row gt_center" headers="incise_2019">0.785</td>
 <td class="gt_row gt_center" headers="sens_55">0.773</td>
@@ -558,7 +541,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_75">9</td>
 <td class="gt_row gt_center" headers="rank_2017">9</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">USA</td>
 <td class="gt_row gt_center" headers="incise_2019">0.765</td>
 <td class="gt_row gt_center" headers="sens_55">0.759</td>
@@ -575,7 +558,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 </td>
 <td class="gt_row gt_center" headers="rank_2017">11</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">EST</td>
 <td class="gt_row gt_center" headers="incise_2019">0.674</td>
 <td class="gt_row gt_center" headers="sens_55">0.675</td>
@@ -588,7 +571,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_75">10</td>
 <td class="gt_row gt_center" headers="rank_2017">12</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">CHE</td>
 <td class="gt_row gt_center" headers="incise_2019">0.650</td>
 <td class="gt_row gt_center" headers="sens_55">0.639</td>
@@ -601,7 +584,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_75">11</td>
 <td class="gt_row gt_center" headers="rank_2017">13</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">IRL</td>
 <td class="gt_row gt_center" headers="incise_2019">0.625</td>
 <td class="gt_row gt_center" headers="sens_55">0.623</td>
@@ -614,7 +597,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_75">14</td>
 <td class="gt_row gt_center" headers="rank_2017">16</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">FRA</td>
 <td class="gt_row gt_center" headers="incise_2019">0.619</td>
 <td class="gt_row gt_center" headers="sens_55">0.626</td>
@@ -627,7 +610,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_75">12</td>
 <td class="gt_row gt_center" headers="rank_2017">14</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">AUT</td>
 <td class="gt_row gt_center" headers="incise_2019">0.617</td>
 <td class="gt_row gt_center" headers="sens_55">0.626</td>
@@ -640,7 +623,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_75">13</td>
 <td class="gt_row gt_center" headers="rank_2017">15</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">ESP</td>
 <td class="gt_row gt_center" headers="incise_2019">0.599</td>
 <td class="gt_row gt_center" headers="sens_55">0.596</td>
@@ -653,7 +636,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_75">15</td>
 <td class="gt_row gt_center" headers="rank_2017">17</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">MEX</td>
 <td class="gt_row gt_center" headers="incise_2019">0.507</td>
 <td class="gt_row gt_center" headers="sens_55">0.500</td>
@@ -668,7 +651,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 </td>
 <td class="gt_row gt_center" headers="rank_2017">18</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">DEU</td>
 <td class="gt_row gt_center" headers="incise_2019">0.505</td>
 <td class="gt_row gt_center" headers="sens_55">0.502</td>
@@ -681,7 +664,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_75">16</td>
 <td class="gt_row gt_center" headers="rank_2017">19</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">LTU</td>
 <td class="gt_row gt_center" headers="incise_2019">0.487</td>
 <td class="gt_row gt_center" headers="sens_55">0.490</td>
@@ -696,7 +679,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_2017"><br>
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">BEL</td>
 <td class="gt_row gt_center" headers="incise_2019">0.485</td>
 <td class="gt_row gt_center" headers="sens_55">0.483</td>
@@ -709,7 +692,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_75">19</td>
 <td class="gt_row gt_center" headers="rank_2017">21</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">JPN</td>
 <td class="gt_row gt_center" headers="incise_2019">0.472</td>
 <td class="gt_row gt_center" headers="sens_55">0.485</td>
@@ -722,7 +705,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_75">17</td>
 <td class="gt_row gt_center" headers="rank_2017">20</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">LVA</td>
 <td class="gt_row gt_center" headers="incise_2019">0.466</td>
 <td class="gt_row gt_center" headers="sens_55">0.471</td>
@@ -737,7 +720,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_2017"><br>
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">CHL</td>
 <td class="gt_row gt_center" headers="incise_2019">0.454</td>
 <td class="gt_row gt_center" headers="sens_55">0.451</td>
@@ -750,7 +733,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_75">21</td>
 <td class="gt_row gt_center" headers="rank_2017">22</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">ITA</td>
 <td class="gt_row gt_center" headers="incise_2019">0.419</td>
 <td class="gt_row gt_center" headers="sens_55">0.431</td>
@@ -763,7 +746,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_75">22</td>
 <td class="gt_row gt_center" headers="rank_2017">23</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">SVN</td>
 <td class="gt_row gt_center" headers="incise_2019">0.369</td>
 <td class="gt_row gt_center" headers="sens_55">0.359</td>
@@ -776,7 +759,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_75">23</td>
 <td class="gt_row gt_center" headers="rank_2017">24</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">ISR</td>
 <td class="gt_row gt_center" headers="incise_2019">0.315</td>
 <td class="gt_row gt_center" headers="sens_55">0.322</td>
@@ -795,7 +778,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_2017"><br>
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">POL</td>
 <td class="gt_row gt_center" headers="incise_2019">0.282</td>
 <td class="gt_row gt_center" headers="sens_55">0.277</td>
@@ -808,7 +791,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_75">24</td>
 <td class="gt_row gt_center" headers="rank_2017">25</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">PRT</td>
 <td class="gt_row gt_center" headers="incise_2019">0.259</td>
 <td class="gt_row gt_center" headers="sens_55">0.260</td>
@@ -821,7 +804,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_75">25</td>
 <td class="gt_row gt_center" headers="rank_2017">27</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">CZE</td>
 <td class="gt_row gt_center" headers="incise_2019">0.245</td>
 <td class="gt_row gt_center" headers="sens_55">0.260</td>
@@ -834,7 +817,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_75">26</td>
 <td class="gt_row gt_center" headers="rank_2017">26</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">ISL</td>
 <td class="gt_row gt_center" headers="incise_2019">0.228</td>
 <td class="gt_row gt_center" headers="sens_55">0.233</td>
@@ -853,7 +836,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_2017"><br>
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">TUR</td>
 <td class="gt_row gt_center" headers="incise_2019">0.189</td>
 <td class="gt_row gt_center" headers="sens_55">0.181</td>
@@ -866,7 +849,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_75">27</td>
 <td class="gt_row gt_center" headers="rank_2017">28</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">SVK</td>
 <td class="gt_row gt_center" headers="incise_2019">0.172</td>
 <td class="gt_row gt_center" headers="sens_55">0.178</td>
@@ -879,7 +862,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_75">28</td>
 <td class="gt_row gt_center" headers="rank_2017">29</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">BGR</td>
 <td class="gt_row gt_center" headers="incise_2019">0.147</td>
 <td class="gt_row gt_center" headers="sens_55"><br>
@@ -900,7 +883,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_2017"><br>
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">HRV</td>
 <td class="gt_row gt_center" headers="incise_2019">0.140</td>
 <td class="gt_row gt_center" headers="sens_55"><br>
@@ -921,7 +904,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_2017"><br>
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">ROU</td>
 <td class="gt_row gt_center" headers="incise_2019">0.127</td>
 <td class="gt_row gt_center" headers="sens_55"><br>
@@ -942,7 +925,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_2017"><br>
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">GRC</td>
 <td class="gt_row gt_center" headers="incise_2019">0.107</td>
 <td class="gt_row gt_center" headers="sens_55">0.103</td>
@@ -955,7 +938,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_75">29</td>
 <td class="gt_row gt_center" headers="rank_2017">30</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">HUN</td>
 <td class="gt_row gt_center" headers="incise_2019">0.000</td>
 <td class="gt_row gt_center" headers="sens_55">0.000</td>
@@ -968,7 +951,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 <td class="gt_row gt_center" headers="rank_75">30</td>
 <td class="gt_row gt_center" headers="rank_2017">31</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">MAE</td>
 <td class="gt_row gt_center" headers="incise_2019">—</td>
 <td class="gt_row gt_center" headers="sens_55">0.006</td>
@@ -987,7 +970,7 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 </td>
 </tr>
 </tbody><tfoot class="gt_footnotes">
-<tr class="even">
+<tr class="odd">
 <td colspan="11" class="gt_footnote">Table B.1 in the original PDF publication</td>
 </tr>
 </tfoot>
@@ -995,18 +978,12 @@ Table&nbsp;B.1: Sensitivity tests varying country coverage
 </table>
 </div>
 </div>
-</figure>
-</div>
 </div>
 <div class="cell">
-<div id="tbl-sens-date" class="cell quarto-float anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-sens-date-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;B.2: Sensitivity tests varying reference year
-</figcaption>
-<div aria-describedby="tbl-sens-date-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="table do-not-create-environment cell table-sm table-striped small" data-quarto-postprocess="true">
+<div id="tbl-sens-date" class="anchored">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Table&nbsp;B.2: Sensitivity tests varying reference year</caption>
 <colgroup>
 <col style="width: 9%">
 <col style="width: 9%">
@@ -1041,19 +1018,6 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_left" headers="cc_iso3c">========</td>
-<td class="gt_row gt_center" headers="incise_2019">===========</td>
-<td class="gt_row gt_center" headers="sens_cap1">=========</td>
-<td class="gt_row gt_center" headers="sens_cap2">=========</td>
-<td class="gt_row gt_center" headers="sens_2015">=========</td>
-<td class="gt_row gt_center" headers="sens_2016">=========</td>
-<td class="gt_row gt_center" headers="rank_2019">=========</td>
-<td class="gt_row gt_center" headers="rank_cap1">=========</td>
-<td class="gt_row gt_center" headers="rank_cap2">=========</td>
-<td class="gt_row gt_center" headers="rank_2015">=========</td>
-<td class="gt_row gt_center" headers="rank_2016">=========</td>
-</tr>
-<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">GBR</td>
 <td class="gt_row gt_center" headers="incise_2019">1.000</td>
 <td class="gt_row gt_center" headers="sens_cap1">1.000</td>
@@ -1066,7 +1030,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">1</td>
 <td class="gt_row gt_center" headers="rank_2016">1</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">NZL</td>
 <td class="gt_row gt_center" headers="incise_2019">0.980</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.955</td>
@@ -1079,7 +1043,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">2</td>
 <td class="gt_row gt_center" headers="rank_2016">2</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">CAN</td>
 <td class="gt_row gt_center" headers="incise_2019">0.916</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.906</td>
@@ -1092,7 +1056,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">3</td>
 <td class="gt_row gt_center" headers="rank_2016">3</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">FIN</td>
 <td class="gt_row gt_center" headers="incise_2019">0.883</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.873</td>
@@ -1105,7 +1069,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">4</td>
 <td class="gt_row gt_center" headers="rank_2016">4</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">AUS</td>
 <td class="gt_row gt_center" headers="incise_2019">0.863</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.875</td>
@@ -1118,7 +1082,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">5</td>
 <td class="gt_row gt_center" headers="rank_2016">5</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">DNK</td>
 <td class="gt_row gt_center" headers="incise_2019">0.832</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.817</td>
@@ -1131,7 +1095,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">9</td>
 <td class="gt_row gt_center" headers="rank_2016">8</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">NOR</td>
 <td class="gt_row gt_center" headers="incise_2019">0.830</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.836</td>
@@ -1144,7 +1108,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">6</td>
 <td class="gt_row gt_center" headers="rank_2016">6</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">NLD</td>
 <td class="gt_row gt_center" headers="incise_2019">0.794</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.802</td>
@@ -1157,7 +1121,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">8</td>
 <td class="gt_row gt_center" headers="rank_2016">9</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">KOR</td>
 <td class="gt_row gt_center" headers="incise_2019">0.785</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.799</td>
@@ -1170,7 +1134,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">10</td>
 <td class="gt_row gt_center" headers="rank_2016">11</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">SWE</td>
 <td class="gt_row gt_center" headers="incise_2019">0.785</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.791</td>
@@ -1183,7 +1147,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">7</td>
 <td class="gt_row gt_center" headers="rank_2016">7</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">USA</td>
 <td class="gt_row gt_center" headers="incise_2019">0.765</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.740</td>
@@ -1196,7 +1160,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">11</td>
 <td class="gt_row gt_center" headers="rank_2016">10</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">EST</td>
 <td class="gt_row gt_center" headers="incise_2019">0.674</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.664</td>
@@ -1209,7 +1173,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">12</td>
 <td class="gt_row gt_center" headers="rank_2016">17</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">CHE</td>
 <td class="gt_row gt_center" headers="incise_2019">0.650</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.653</td>
@@ -1222,7 +1186,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">13</td>
 <td class="gt_row gt_center" headers="rank_2016">14</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">IRL</td>
 <td class="gt_row gt_center" headers="incise_2019">0.625</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.622</td>
@@ -1235,7 +1199,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">15</td>
 <td class="gt_row gt_center" headers="rank_2016">15</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">FRA</td>
 <td class="gt_row gt_center" headers="incise_2019">0.619</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.655</td>
@@ -1248,7 +1212,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">14</td>
 <td class="gt_row gt_center" headers="rank_2016">12</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">AUT</td>
 <td class="gt_row gt_center" headers="incise_2019">0.617</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.635</td>
@@ -1261,7 +1225,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">16</td>
 <td class="gt_row gt_center" headers="rank_2016">16</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">ESP</td>
 <td class="gt_row gt_center" headers="incise_2019">0.599</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.608</td>
@@ -1274,7 +1238,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">17</td>
 <td class="gt_row gt_center" headers="rank_2016">13</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">MEX</td>
 <td class="gt_row gt_center" headers="incise_2019">0.507</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.519</td>
@@ -1287,7 +1251,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">19</td>
 <td class="gt_row gt_center" headers="rank_2016">19</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">DEU</td>
 <td class="gt_row gt_center" headers="incise_2019">0.505</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.521</td>
@@ -1300,7 +1264,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">21</td>
 <td class="gt_row gt_center" headers="rank_2016">18</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">LTU</td>
 <td class="gt_row gt_center" headers="incise_2019">0.487</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.534</td>
@@ -1313,7 +1277,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">20</td>
 <td class="gt_row gt_center" headers="rank_2016">20</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">BEL</td>
 <td class="gt_row gt_center" headers="incise_2019">0.485</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.506</td>
@@ -1326,7 +1290,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">18</td>
 <td class="gt_row gt_center" headers="rank_2016">22</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">JPN</td>
 <td class="gt_row gt_center" headers="incise_2019">0.472</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.495</td>
@@ -1339,7 +1303,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">22</td>
 <td class="gt_row gt_center" headers="rank_2016">21</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">LVA</td>
 <td class="gt_row gt_center" headers="incise_2019">0.466</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.474</td>
@@ -1352,7 +1316,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">24</td>
 <td class="gt_row gt_center" headers="rank_2016">26</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">CHL</td>
 <td class="gt_row gt_center" headers="incise_2019">0.454</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.463</td>
@@ -1365,7 +1329,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">23</td>
 <td class="gt_row gt_center" headers="rank_2016">25</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">ITA</td>
 <td class="gt_row gt_center" headers="incise_2019">0.419</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.451</td>
@@ -1378,7 +1342,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">25</td>
 <td class="gt_row gt_center" headers="rank_2016">23</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">SVN</td>
 <td class="gt_row gt_center" headers="incise_2019">0.369</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.363</td>
@@ -1391,7 +1355,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">26</td>
 <td class="gt_row gt_center" headers="rank_2016">28</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">ISR</td>
 <td class="gt_row gt_center" headers="incise_2019">0.315</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.332</td>
@@ -1404,7 +1368,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">27</td>
 <td class="gt_row gt_center" headers="rank_2016">24</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">POL</td>
 <td class="gt_row gt_center" headers="incise_2019">0.282</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.268</td>
@@ -1417,7 +1381,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">30</td>
 <td class="gt_row gt_center" headers="rank_2016">36</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">PRT</td>
 <td class="gt_row gt_center" headers="incise_2019">0.259</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.256</td>
@@ -1430,7 +1394,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">29</td>
 <td class="gt_row gt_center" headers="rank_2016">29</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">CZE</td>
 <td class="gt_row gt_center" headers="incise_2019">0.245</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.240</td>
@@ -1443,7 +1407,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">32</td>
 <td class="gt_row gt_center" headers="rank_2016">27</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">ISL</td>
 <td class="gt_row gt_center" headers="incise_2019">0.228</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.238</td>
@@ -1456,7 +1420,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">31</td>
 <td class="gt_row gt_center" headers="rank_2016">30</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">TUR</td>
 <td class="gt_row gt_center" headers="incise_2019">0.189</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.261</td>
@@ -1469,7 +1433,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">28</td>
 <td class="gt_row gt_center" headers="rank_2016">32</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">SVK</td>
 <td class="gt_row gt_center" headers="incise_2019">0.172</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.156</td>
@@ -1482,7 +1446,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">33</td>
 <td class="gt_row gt_center" headers="rank_2016">31</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">BGR</td>
 <td class="gt_row gt_center" headers="incise_2019">0.147</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.153</td>
@@ -1495,7 +1459,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">34</td>
 <td class="gt_row gt_center" headers="rank_2016">34</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">HRV</td>
 <td class="gt_row gt_center" headers="incise_2019">0.140</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.144</td>
@@ -1508,7 +1472,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">36</td>
 <td class="gt_row gt_center" headers="rank_2016">37</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">ROU</td>
 <td class="gt_row gt_center" headers="incise_2019">0.127</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.128</td>
@@ -1521,7 +1485,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">37</td>
 <td class="gt_row gt_center" headers="rank_2016">35</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">GRC</td>
 <td class="gt_row gt_center" headers="incise_2019">0.107</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.158</td>
@@ -1534,7 +1498,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">35</td>
 <td class="gt_row gt_center" headers="rank_2016">33</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">HUN</td>
 <td class="gt_row gt_center" headers="incise_2019">0.000</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.000</td>
@@ -1547,7 +1511,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 <td class="gt_row gt_center" headers="rank_2015">38</td>
 <td class="gt_row gt_center" headers="rank_2016">38</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">MAE</td>
 <td class="gt_row gt_center" headers="incise_2019">—</td>
 <td class="gt_row gt_center" headers="sens_cap1">0.015</td>
@@ -1566,7 +1530,7 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 </td>
 </tr>
 </tbody><tfoot class="gt_footnotes">
-<tr class="even">
+<tr class="odd">
 <td colspan="11" class="gt_footnote">Table B.2 in the original PDF publication</td>
 </tr>
 </tfoot>
@@ -1574,18 +1538,12 @@ Table&nbsp;B.2: Sensitivity tests varying reference year
 </table>
 </div>
 </div>
-</figure>
-</div>
 </div>
 <div class="cell">
-<div id="tbl-sens-weight" class="cell quarto-float anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-sens-weight-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
-</figcaption>
-<div aria-describedby="tbl-sens-weight-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="table do-not-create-environment cell table-sm table-striped small" data-quarto-postprocess="true">
+<div id="tbl-sens-weight" class="anchored">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting</caption>
 <colgroup>
 <col style="width: 7%">
 <col style="width: 7%">
@@ -1624,21 +1582,6 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_left" headers="cc_iso3c">========</td>
-<td class="gt_row gt_center" headers="incise_2019">===========</td>
-<td class="gt_row gt_center" headers="sens_5050">=========</td>
-<td class="gt_row gt_center" headers="sens_equal">==========</td>
-<td class="gt_row gt_center" headers="sens_dqa">========</td>
-<td class="gt_row gt_center" headers="sens_internal">=============</td>
-<td class="gt_row gt_center" headers="sens_sum">========</td>
-<td class="gt_row gt_center" headers="rank_2019">=========</td>
-<td class="gt_row gt_center" headers="rank_5050">=========</td>
-<td class="gt_row gt_center" headers="rank_equal">==========</td>
-<td class="gt_row gt_center" headers="rank_dqa">========</td>
-<td class="gt_row gt_center" headers="rank_internal">=============</td>
-<td class="gt_row gt_center" headers="rank_sum">========</td>
-</tr>
-<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">GBR</td>
 <td class="gt_row gt_center" headers="incise_2019">1.000</td>
 <td class="gt_row gt_center" headers="sens_5050">1.000</td>
@@ -1653,7 +1596,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">1</td>
 <td class="gt_row gt_center" headers="rank_sum">2</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">NZL</td>
 <td class="gt_row gt_center" headers="incise_2019">0.980</td>
 <td class="gt_row gt_center" headers="sens_5050">0.970</td>
@@ -1668,7 +1611,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">2</td>
 <td class="gt_row gt_center" headers="rank_sum">1</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">CAN</td>
 <td class="gt_row gt_center" headers="incise_2019">0.916</td>
 <td class="gt_row gt_center" headers="sens_5050">0.911</td>
@@ -1683,7 +1626,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">3</td>
 <td class="gt_row gt_center" headers="rank_sum">3</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">FIN</td>
 <td class="gt_row gt_center" headers="incise_2019">0.883</td>
 <td class="gt_row gt_center" headers="sens_5050">0.876</td>
@@ -1698,7 +1641,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">5</td>
 <td class="gt_row gt_center" headers="rank_sum">4</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">AUS</td>
 <td class="gt_row gt_center" headers="incise_2019">0.863</td>
 <td class="gt_row gt_center" headers="sens_5050">0.859</td>
@@ -1713,7 +1656,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">4</td>
 <td class="gt_row gt_center" headers="rank_sum">5</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">DNK</td>
 <td class="gt_row gt_center" headers="incise_2019">0.832</td>
 <td class="gt_row gt_center" headers="sens_5050">0.823</td>
@@ -1728,7 +1671,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">8</td>
 <td class="gt_row gt_center" headers="rank_sum">6</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">NOR</td>
 <td class="gt_row gt_center" headers="incise_2019">0.830</td>
 <td class="gt_row gt_center" headers="sens_5050">0.825</td>
@@ -1743,7 +1686,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">7</td>
 <td class="gt_row gt_center" headers="rank_sum">7</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">NLD</td>
 <td class="gt_row gt_center" headers="incise_2019">0.794</td>
 <td class="gt_row gt_center" headers="sens_5050">0.787</td>
@@ -1758,7 +1701,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">10</td>
 <td class="gt_row gt_center" headers="rank_sum">10</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">KOR</td>
 <td class="gt_row gt_center" headers="incise_2019">0.785</td>
 <td class="gt_row gt_center" headers="sens_5050">0.786</td>
@@ -1773,7 +1716,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">6</td>
 <td class="gt_row gt_center" headers="rank_sum">9</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">SWE</td>
 <td class="gt_row gt_center" headers="incise_2019">0.785</td>
 <td class="gt_row gt_center" headers="sens_5050">0.782</td>
@@ -1788,7 +1731,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">9</td>
 <td class="gt_row gt_center" headers="rank_sum">8</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">USA</td>
 <td class="gt_row gt_center" headers="incise_2019">0.765</td>
 <td class="gt_row gt_center" headers="sens_5050">0.754</td>
@@ -1803,7 +1746,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">11</td>
 <td class="gt_row gt_center" headers="rank_sum">11</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">EST</td>
 <td class="gt_row gt_center" headers="incise_2019">0.674</td>
 <td class="gt_row gt_center" headers="sens_5050">0.667</td>
@@ -1818,7 +1761,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">12</td>
 <td class="gt_row gt_center" headers="rank_sum">12</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">CHE</td>
 <td class="gt_row gt_center" headers="incise_2019">0.650</td>
 <td class="gt_row gt_center" headers="sens_5050">0.647</td>
@@ -1833,7 +1776,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">14</td>
 <td class="gt_row gt_center" headers="rank_sum">14</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">IRL</td>
 <td class="gt_row gt_center" headers="incise_2019">0.625</td>
 <td class="gt_row gt_center" headers="sens_5050">0.616</td>
@@ -1848,7 +1791,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">16</td>
 <td class="gt_row gt_center" headers="rank_sum">17</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">FRA</td>
 <td class="gt_row gt_center" headers="incise_2019">0.619</td>
 <td class="gt_row gt_center" headers="sens_5050">0.618</td>
@@ -1863,7 +1806,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">13</td>
 <td class="gt_row gt_center" headers="rank_sum">16</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">AUT</td>
 <td class="gt_row gt_center" headers="incise_2019">0.617</td>
 <td class="gt_row gt_center" headers="sens_5050">0.608</td>
@@ -1878,7 +1821,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">15</td>
 <td class="gt_row gt_center" headers="rank_sum">13</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">ESP</td>
 <td class="gt_row gt_center" headers="incise_2019">0.599</td>
 <td class="gt_row gt_center" headers="sens_5050">0.593</td>
@@ -1893,7 +1836,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">17</td>
 <td class="gt_row gt_center" headers="rank_sum">15</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">MEX</td>
 <td class="gt_row gt_center" headers="incise_2019">0.507</td>
 <td class="gt_row gt_center" headers="sens_5050">0.511</td>
@@ -1908,7 +1851,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">19</td>
 <td class="gt_row gt_center" headers="rank_sum">24</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">DEU</td>
 <td class="gt_row gt_center" headers="incise_2019">0.505</td>
 <td class="gt_row gt_center" headers="sens_5050">0.503</td>
@@ -1923,7 +1866,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">18</td>
 <td class="gt_row gt_center" headers="rank_sum">18</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">LTU</td>
 <td class="gt_row gt_center" headers="incise_2019">0.487</td>
 <td class="gt_row gt_center" headers="sens_5050">0.489</td>
@@ -1938,7 +1881,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">20</td>
 <td class="gt_row gt_center" headers="rank_sum">22</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">BEL</td>
 <td class="gt_row gt_center" headers="incise_2019">0.485</td>
 <td class="gt_row gt_center" headers="sens_5050">0.482</td>
@@ -1953,7 +1896,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">21</td>
 <td class="gt_row gt_center" headers="rank_sum">21</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">JPN</td>
 <td class="gt_row gt_center" headers="incise_2019">0.472</td>
 <td class="gt_row gt_center" headers="sens_5050">0.471</td>
@@ -1968,7 +1911,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">24</td>
 <td class="gt_row gt_center" headers="rank_sum">19</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">LVA</td>
 <td class="gt_row gt_center" headers="incise_2019">0.466</td>
 <td class="gt_row gt_center" headers="sens_5050">0.460</td>
@@ -1983,7 +1926,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">23</td>
 <td class="gt_row gt_center" headers="rank_sum">20</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">CHL</td>
 <td class="gt_row gt_center" headers="incise_2019">0.454</td>
 <td class="gt_row gt_center" headers="sens_5050">0.451</td>
@@ -1998,7 +1941,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">22</td>
 <td class="gt_row gt_center" headers="rank_sum">23</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">ITA</td>
 <td class="gt_row gt_center" headers="incise_2019">0.419</td>
 <td class="gt_row gt_center" headers="sens_5050">0.419</td>
@@ -2013,7 +1956,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">25</td>
 <td class="gt_row gt_center" headers="rank_sum">26</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">SVN</td>
 <td class="gt_row gt_center" headers="incise_2019">0.369</td>
 <td class="gt_row gt_center" headers="sens_5050">0.360</td>
@@ -2028,7 +1971,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">26</td>
 <td class="gt_row gt_center" headers="rank_sum">25</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">ISR</td>
 <td class="gt_row gt_center" headers="incise_2019">0.315</td>
 <td class="gt_row gt_center" headers="sens_5050">0.309</td>
@@ -2043,7 +1986,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">27</td>
 <td class="gt_row gt_center" headers="rank_sum">27</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">POL</td>
 <td class="gt_row gt_center" headers="incise_2019">0.282</td>
 <td class="gt_row gt_center" headers="sens_5050">0.276</td>
@@ -2058,7 +2001,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">29</td>
 <td class="gt_row gt_center" headers="rank_sum">28</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">PRT</td>
 <td class="gt_row gt_center" headers="incise_2019">0.259</td>
 <td class="gt_row gt_center" headers="sens_5050">0.253</td>
@@ -2073,7 +2016,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">28</td>
 <td class="gt_row gt_center" headers="rank_sum">29</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">CZE</td>
 <td class="gt_row gt_center" headers="incise_2019">0.245</td>
 <td class="gt_row gt_center" headers="sens_5050">0.240</td>
@@ -2088,7 +2031,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">32</td>
 <td class="gt_row gt_center" headers="rank_sum">31</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">ISL</td>
 <td class="gt_row gt_center" headers="incise_2019">0.228</td>
 <td class="gt_row gt_center" headers="sens_5050">0.223</td>
@@ -2103,7 +2046,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">31</td>
 <td class="gt_row gt_center" headers="rank_sum">30</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">TUR</td>
 <td class="gt_row gt_center" headers="incise_2019">0.189</td>
 <td class="gt_row gt_center" headers="sens_5050">0.194</td>
@@ -2118,7 +2061,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">30</td>
 <td class="gt_row gt_center" headers="rank_sum">35</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">SVK</td>
 <td class="gt_row gt_center" headers="incise_2019">0.172</td>
 <td class="gt_row gt_center" headers="sens_5050">0.170</td>
@@ -2133,7 +2076,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">35</td>
 <td class="gt_row gt_center" headers="rank_sum">32</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">BGR</td>
 <td class="gt_row gt_center" headers="incise_2019">0.147</td>
 <td class="gt_row gt_center" headers="sens_5050">0.146</td>
@@ -2148,7 +2091,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">33</td>
 <td class="gt_row gt_center" headers="rank_sum">33</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">HRV</td>
 <td class="gt_row gt_center" headers="incise_2019">0.140</td>
 <td class="gt_row gt_center" headers="sens_5050">0.140</td>
@@ -2163,7 +2106,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">36</td>
 <td class="gt_row gt_center" headers="rank_sum">34</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">ROU</td>
 <td class="gt_row gt_center" headers="incise_2019">0.127</td>
 <td class="gt_row gt_center" headers="sens_5050">0.131</td>
@@ -2178,7 +2121,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">37</td>
 <td class="gt_row gt_center" headers="rank_sum">36</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">GRC</td>
 <td class="gt_row gt_center" headers="incise_2019">0.107</td>
 <td class="gt_row gt_center" headers="sens_5050">0.111</td>
@@ -2193,7 +2136,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">34</td>
 <td class="gt_row gt_center" headers="rank_sum">38</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">HUN</td>
 <td class="gt_row gt_center" headers="incise_2019">0.000</td>
 <td class="gt_row gt_center" headers="sens_5050">0.000</td>
@@ -2208,7 +2151,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 <td class="gt_row gt_center" headers="rank_internal">38</td>
 <td class="gt_row gt_center" headers="rank_sum">37</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">MAE</td>
 <td class="gt_row gt_center" headers="incise_2019">—</td>
 <td class="gt_row gt_center" headers="sens_5050">0.004</td>
@@ -2230,7 +2173,7 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 </td>
 </tr>
 </tbody><tfoot class="gt_footnotes">
-<tr class="even">
+<tr class="odd">
 <td colspan="13" class="gt_footnote">Table B.3 in the original PDF publication</td>
 </tr>
 </tfoot>
@@ -2238,18 +2181,12 @@ Table&nbsp;B.3: Sensitivity tests with alternative approaches to weighting
 </table>
 </div>
 </div>
-</figure>
-</div>
 </div>
 <div class="cell">
-<div id="tbl-sens-base" class="cell quarto-float anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-sens-base-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;B.4: Sensitivity tests adjusting the base data
-</figcaption>
-<div aria-describedby="tbl-sens-base-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="table do-not-create-environment cell table-sm table-striped small" data-quarto-postprocess="true">
+<div id="tbl-sens-base" class="anchored">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Table&nbsp;B.4: Sensitivity tests adjusting the base data</caption>
 <colgroup>
 <col style="width: 11%">
 <col style="width: 11%">
@@ -2280,17 +2217,6 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_left" headers="cc_iso3c">========</td>
-<td class="gt_row gt_center" headers="incise_2019">===========</td>
-<td class="gt_row gt_center" headers="sens_rank">=========</td>
-<td class="gt_row gt_center" headers="sens_rescale">============</td>
-<td class="gt_row gt_center" headers="sens_std">========</td>
-<td class="gt_row gt_center" headers="rank_2019">=========</td>
-<td class="gt_row gt_center" headers="rank_rank">=========</td>
-<td class="gt_row gt_center" headers="rank_rescale">============</td>
-<td class="gt_row gt_center" headers="rank_std">========</td>
-</tr>
-<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">GBR</td>
 <td class="gt_row gt_center" headers="incise_2019">1.000</td>
 <td class="gt_row gt_center" headers="sens_rank">1.000</td>
@@ -2301,7 +2227,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">1</td>
 <td class="gt_row gt_center" headers="rank_std">1</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">NZL</td>
 <td class="gt_row gt_center" headers="incise_2019">0.980</td>
 <td class="gt_row gt_center" headers="sens_rank">0.951</td>
@@ -2312,7 +2238,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">2</td>
 <td class="gt_row gt_center" headers="rank_std">2</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">CAN</td>
 <td class="gt_row gt_center" headers="incise_2019">0.916</td>
 <td class="gt_row gt_center" headers="sens_rank">0.893</td>
@@ -2323,7 +2249,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">3</td>
 <td class="gt_row gt_center" headers="rank_std">3</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">FIN</td>
 <td class="gt_row gt_center" headers="incise_2019">0.883</td>
 <td class="gt_row gt_center" headers="sens_rank">0.883</td>
@@ -2334,7 +2260,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">4</td>
 <td class="gt_row gt_center" headers="rank_std">4</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">AUS</td>
 <td class="gt_row gt_center" headers="incise_2019">0.863</td>
 <td class="gt_row gt_center" headers="sens_rank">0.833</td>
@@ -2345,7 +2271,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">5</td>
 <td class="gt_row gt_center" headers="rank_std">5</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">DNK</td>
 <td class="gt_row gt_center" headers="incise_2019">0.832</td>
 <td class="gt_row gt_center" headers="sens_rank">0.862</td>
@@ -2356,7 +2282,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">7</td>
 <td class="gt_row gt_center" headers="rank_std">7</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">NOR</td>
 <td class="gt_row gt_center" headers="incise_2019">0.830</td>
 <td class="gt_row gt_center" headers="sens_rank">0.789</td>
@@ -2367,7 +2293,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">6</td>
 <td class="gt_row gt_center" headers="rank_std">6</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">NLD</td>
 <td class="gt_row gt_center" headers="incise_2019">0.794</td>
 <td class="gt_row gt_center" headers="sens_rank">0.815</td>
@@ -2378,7 +2304,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">8</td>
 <td class="gt_row gt_center" headers="rank_std">9</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">KOR</td>
 <td class="gt_row gt_center" headers="incise_2019">0.785</td>
 <td class="gt_row gt_center" headers="sens_rank">0.818</td>
@@ -2389,7 +2315,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">10</td>
 <td class="gt_row gt_center" headers="rank_std">11</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">SWE</td>
 <td class="gt_row gt_center" headers="incise_2019">0.785</td>
 <td class="gt_row gt_center" headers="sens_rank">0.802</td>
@@ -2400,7 +2326,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">9</td>
 <td class="gt_row gt_center" headers="rank_std">8</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">USA</td>
 <td class="gt_row gt_center" headers="incise_2019">0.765</td>
 <td class="gt_row gt_center" headers="sens_rank">0.775</td>
@@ -2411,7 +2337,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">11</td>
 <td class="gt_row gt_center" headers="rank_std">10</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">EST</td>
 <td class="gt_row gt_center" headers="incise_2019">0.674</td>
 <td class="gt_row gt_center" headers="sens_rank">0.680</td>
@@ -2422,7 +2348,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">12</td>
 <td class="gt_row gt_center" headers="rank_std">12</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">CHE</td>
 <td class="gt_row gt_center" headers="incise_2019">0.650</td>
 <td class="gt_row gt_center" headers="sens_rank">0.681</td>
@@ -2433,7 +2359,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">15</td>
 <td class="gt_row gt_center" headers="rank_std">13</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">IRL</td>
 <td class="gt_row gt_center" headers="incise_2019">0.625</td>
 <td class="gt_row gt_center" headers="sens_rank">0.588</td>
@@ -2444,7 +2370,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">14</td>
 <td class="gt_row gt_center" headers="rank_std">14</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">FRA</td>
 <td class="gt_row gt_center" headers="incise_2019">0.619</td>
 <td class="gt_row gt_center" headers="sens_rank">0.632</td>
@@ -2455,7 +2381,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">13</td>
 <td class="gt_row gt_center" headers="rank_std">15</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">AUT</td>
 <td class="gt_row gt_center" headers="incise_2019">0.617</td>
 <td class="gt_row gt_center" headers="sens_rank">0.573</td>
@@ -2466,7 +2392,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">16</td>
 <td class="gt_row gt_center" headers="rank_std">16</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">ESP</td>
 <td class="gt_row gt_center" headers="incise_2019">0.599</td>
 <td class="gt_row gt_center" headers="sens_rank">0.577</td>
@@ -2477,7 +2403,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">17</td>
 <td class="gt_row gt_center" headers="rank_std">17</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">MEX</td>
 <td class="gt_row gt_center" headers="incise_2019">0.507</td>
 <td class="gt_row gt_center" headers="sens_rank">0.461</td>
@@ -2488,7 +2414,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">18</td>
 <td class="gt_row gt_center" headers="rank_std">18</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">DEU</td>
 <td class="gt_row gt_center" headers="incise_2019">0.505</td>
 <td class="gt_row gt_center" headers="sens_rank">0.506</td>
@@ -2499,7 +2425,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">19</td>
 <td class="gt_row gt_center" headers="rank_std">21</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">LTU</td>
 <td class="gt_row gt_center" headers="incise_2019">0.487</td>
 <td class="gt_row gt_center" headers="sens_rank">0.495</td>
@@ -2510,7 +2436,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">21</td>
 <td class="gt_row gt_center" headers="rank_std">20</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">BEL</td>
 <td class="gt_row gt_center" headers="incise_2019">0.485</td>
 <td class="gt_row gt_center" headers="sens_rank">0.514</td>
@@ -2521,7 +2447,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">20</td>
 <td class="gt_row gt_center" headers="rank_std">19</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">JPN</td>
 <td class="gt_row gt_center" headers="incise_2019">0.472</td>
 <td class="gt_row gt_center" headers="sens_rank">0.521</td>
@@ -2532,7 +2458,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">23</td>
 <td class="gt_row gt_center" headers="rank_std">22</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">LVA</td>
 <td class="gt_row gt_center" headers="incise_2019">0.466</td>
 <td class="gt_row gt_center" headers="sens_rank">0.432</td>
@@ -2543,7 +2469,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">24</td>
 <td class="gt_row gt_center" headers="rank_std">24</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">CHL</td>
 <td class="gt_row gt_center" headers="incise_2019">0.454</td>
 <td class="gt_row gt_center" headers="sens_rank">0.465</td>
@@ -2554,7 +2480,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">22</td>
 <td class="gt_row gt_center" headers="rank_std">23</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">ITA</td>
 <td class="gt_row gt_center" headers="incise_2019">0.419</td>
 <td class="gt_row gt_center" headers="sens_rank">0.402</td>
@@ -2565,7 +2491,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">25</td>
 <td class="gt_row gt_center" headers="rank_std">25</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">SVN</td>
 <td class="gt_row gt_center" headers="incise_2019">0.369</td>
 <td class="gt_row gt_center" headers="sens_rank">0.386</td>
@@ -2576,7 +2502,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">26</td>
 <td class="gt_row gt_center" headers="rank_std">26</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">ISR</td>
 <td class="gt_row gt_center" headers="incise_2019">0.315</td>
 <td class="gt_row gt_center" headers="sens_rank">0.322</td>
@@ -2587,7 +2513,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">27</td>
 <td class="gt_row gt_center" headers="rank_std">27</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">POL</td>
 <td class="gt_row gt_center" headers="incise_2019">0.282</td>
 <td class="gt_row gt_center" headers="sens_rank">0.242</td>
@@ -2598,7 +2524,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">28</td>
 <td class="gt_row gt_center" headers="rank_std">28</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">PRT</td>
 <td class="gt_row gt_center" headers="incise_2019">0.259</td>
 <td class="gt_row gt_center" headers="sens_rank">0.223</td>
@@ -2609,7 +2535,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">31</td>
 <td class="gt_row gt_center" headers="rank_std">31</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">CZE</td>
 <td class="gt_row gt_center" headers="incise_2019">0.245</td>
 <td class="gt_row gt_center" headers="sens_rank">0.275</td>
@@ -2620,7 +2546,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">29</td>
 <td class="gt_row gt_center" headers="rank_std">30</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">ISL</td>
 <td class="gt_row gt_center" headers="incise_2019">0.228</td>
 <td class="gt_row gt_center" headers="sens_rank">0.230</td>
@@ -2631,7 +2557,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">30</td>
 <td class="gt_row gt_center" headers="rank_std">29</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">TUR</td>
 <td class="gt_row gt_center" headers="incise_2019">0.189</td>
 <td class="gt_row gt_center" headers="sens_rank">0.185</td>
@@ -2642,7 +2568,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">32</td>
 <td class="gt_row gt_center" headers="rank_std">32</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">SVK</td>
 <td class="gt_row gt_center" headers="incise_2019">0.172</td>
 <td class="gt_row gt_center" headers="sens_rank">0.170</td>
@@ -2653,7 +2579,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">33</td>
 <td class="gt_row gt_center" headers="rank_std">33</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">BGR</td>
 <td class="gt_row gt_center" headers="incise_2019">0.147</td>
 <td class="gt_row gt_center" headers="sens_rank">0.122</td>
@@ -2664,7 +2590,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">35</td>
 <td class="gt_row gt_center" headers="rank_std">35</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">HRV</td>
 <td class="gt_row gt_center" headers="incise_2019">0.140</td>
 <td class="gt_row gt_center" headers="sens_rank">0.131</td>
@@ -2675,7 +2601,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">34</td>
 <td class="gt_row gt_center" headers="rank_std">34</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">ROU</td>
 <td class="gt_row gt_center" headers="incise_2019">0.127</td>
 <td class="gt_row gt_center" headers="sens_rank">0.107</td>
@@ -2686,7 +2612,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">36</td>
 <td class="gt_row gt_center" headers="rank_std">36</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">GRC</td>
 <td class="gt_row gt_center" headers="incise_2019">0.107</td>
 <td class="gt_row gt_center" headers="sens_rank">0.072</td>
@@ -2697,7 +2623,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">37</td>
 <td class="gt_row gt_center" headers="rank_std">37</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">HUN</td>
 <td class="gt_row gt_center" headers="incise_2019">0.000</td>
 <td class="gt_row gt_center" headers="sens_rank">0.000</td>
@@ -2708,7 +2634,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rescale">38</td>
 <td class="gt_row gt_center" headers="rank_std">38</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">MAE</td>
 <td class="gt_row gt_center" headers="incise_2019">—</td>
 <td class="gt_row gt_center" headers="sens_rank">0.021</td>
@@ -2724,7 +2650,7 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 </td>
 </tr>
 </tbody><tfoot class="gt_footnotes">
-<tr class="even">
+<tr class="odd">
 <td colspan="9" class="gt_footnote">Table B.4 in the original PDF publication</td>
 </tr>
 </tfoot>
@@ -2732,18 +2658,12 @@ Table&nbsp;B.4: Sensitivity tests adjusting the base data
 </table>
 </div>
 </div>
-</figure>
-</div>
 </div>
 <div class="cell">
-<div id="tbl-sens-impute" class="cell quarto-float anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-sens-impute-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;B.5: Sensitivity tests adjusting the base data
-</figcaption>
-<div aria-describedby="tbl-sens-impute-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="table do-not-create-environment cell table-sm table-striped small" data-quarto-postprocess="true">
+<div id="tbl-sens-impute" class="anchored">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Table&nbsp;B.5: Sensitivity tests adjusting the base data</caption>
 <colgroup>
 <col style="width: 9%">
 <col style="width: 9%">
@@ -2778,19 +2698,6 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_left" headers="cc_iso3c">========</td>
-<td class="gt_row gt_center" headers="incise_2019">===========</td>
-<td class="gt_row gt_center" headers="sens_allin">==========</td>
-<td class="gt_row gt_center" headers="sens_midas">==========</td>
-<td class="gt_row gt_center" headers="sens_rf">=======</td>
-<td class="gt_row gt_center" headers="sens_mean">=========</td>
-<td class="gt_row gt_center" headers="rank_2019">=========</td>
-<td class="gt_row gt_center" headers="rank_allin">==========</td>
-<td class="gt_row gt_center" headers="rank_midas">==========</td>
-<td class="gt_row gt_center" headers="rank_rf">=======</td>
-<td class="gt_row gt_center" headers="rank_mean">=========</td>
-</tr>
-<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">GBR</td>
 <td class="gt_row gt_center" headers="incise_2019">1.000</td>
 <td class="gt_row gt_center" headers="sens_allin">0.989</td>
@@ -2803,7 +2710,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">1</td>
 <td class="gt_row gt_center" headers="rank_mean">1</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">NZL</td>
 <td class="gt_row gt_center" headers="incise_2019">0.980</td>
 <td class="gt_row gt_center" headers="sens_allin">1.000</td>
@@ -2816,7 +2723,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">2</td>
 <td class="gt_row gt_center" headers="rank_mean">2</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">CAN</td>
 <td class="gt_row gt_center" headers="incise_2019">0.916</td>
 <td class="gt_row gt_center" headers="sens_allin">0.862</td>
@@ -2829,7 +2736,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">3</td>
 <td class="gt_row gt_center" headers="rank_mean">3</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">FIN</td>
 <td class="gt_row gt_center" headers="incise_2019">0.883</td>
 <td class="gt_row gt_center" headers="sens_allin">0.881</td>
@@ -2842,7 +2749,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">4</td>
 <td class="gt_row gt_center" headers="rank_mean">4</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">AUS</td>
 <td class="gt_row gt_center" headers="incise_2019">0.863</td>
 <td class="gt_row gt_center" headers="sens_allin">0.872</td>
@@ -2855,7 +2762,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">5</td>
 <td class="gt_row gt_center" headers="rank_mean">6</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">DNK</td>
 <td class="gt_row gt_center" headers="incise_2019">0.832</td>
 <td class="gt_row gt_center" headers="sens_allin">0.833</td>
@@ -2868,7 +2775,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">6</td>
 <td class="gt_row gt_center" headers="rank_mean">7</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">NOR</td>
 <td class="gt_row gt_center" headers="incise_2019">0.830</td>
 <td class="gt_row gt_center" headers="sens_allin">0.834</td>
@@ -2881,7 +2788,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">7</td>
 <td class="gt_row gt_center" headers="rank_mean">5</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">NLD</td>
 <td class="gt_row gt_center" headers="incise_2019">0.794</td>
 <td class="gt_row gt_center" headers="sens_allin">0.791</td>
@@ -2894,7 +2801,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">9</td>
 <td class="gt_row gt_center" headers="rank_mean">9</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">KOR</td>
 <td class="gt_row gt_center" headers="incise_2019">0.785</td>
 <td class="gt_row gt_center" headers="sens_allin">0.738</td>
@@ -2907,7 +2814,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">10</td>
 <td class="gt_row gt_center" headers="rank_mean">10</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">SWE</td>
 <td class="gt_row gt_center" headers="incise_2019">0.785</td>
 <td class="gt_row gt_center" headers="sens_allin">0.799</td>
@@ -2920,7 +2827,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">8</td>
 <td class="gt_row gt_center" headers="rank_mean">8</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">USA</td>
 <td class="gt_row gt_center" headers="incise_2019">0.765</td>
 <td class="gt_row gt_center" headers="sens_allin">0.691</td>
@@ -2933,7 +2840,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">11</td>
 <td class="gt_row gt_center" headers="rank_mean">11</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">EST</td>
 <td class="gt_row gt_center" headers="incise_2019">0.674</td>
 <td class="gt_row gt_center" headers="sens_allin">0.639</td>
@@ -2946,7 +2853,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">12</td>
 <td class="gt_row gt_center" headers="rank_mean">15</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">CHE</td>
 <td class="gt_row gt_center" headers="incise_2019">0.650</td>
 <td class="gt_row gt_center" headers="sens_allin">0.621</td>
@@ -2959,7 +2866,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">14</td>
 <td class="gt_row gt_center" headers="rank_mean">13</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">IRL</td>
 <td class="gt_row gt_center" headers="incise_2019">0.625</td>
 <td class="gt_row gt_center" headers="sens_allin">0.562</td>
@@ -2972,7 +2879,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">16</td>
 <td class="gt_row gt_center" headers="rank_mean">17</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">FRA</td>
 <td class="gt_row gt_center" headers="incise_2019">0.619</td>
 <td class="gt_row gt_center" headers="sens_allin">0.629</td>
@@ -2985,7 +2892,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">15</td>
 <td class="gt_row gt_center" headers="rank_mean">12</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">AUT</td>
 <td class="gt_row gt_center" headers="incise_2019">0.617</td>
 <td class="gt_row gt_center" headers="sens_allin">0.621</td>
@@ -2998,7 +2905,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">13</td>
 <td class="gt_row gt_center" headers="rank_mean">14</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">ESP</td>
 <td class="gt_row gt_center" headers="incise_2019">0.599</td>
 <td class="gt_row gt_center" headers="sens_allin">0.609</td>
@@ -3011,7 +2918,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">17</td>
 <td class="gt_row gt_center" headers="rank_mean">16</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">MEX</td>
 <td class="gt_row gt_center" headers="incise_2019">0.507</td>
 <td class="gt_row gt_center" headers="sens_allin">0.460</td>
@@ -3024,7 +2931,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">19</td>
 <td class="gt_row gt_center" headers="rank_mean">19</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">DEU</td>
 <td class="gt_row gt_center" headers="incise_2019">0.505</td>
 <td class="gt_row gt_center" headers="sens_allin">0.488</td>
@@ -3037,7 +2944,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">20</td>
 <td class="gt_row gt_center" headers="rank_mean">18</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">LTU</td>
 <td class="gt_row gt_center" headers="incise_2019">0.487</td>
 <td class="gt_row gt_center" headers="sens_allin">0.431</td>
@@ -3050,7 +2957,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">21</td>
 <td class="gt_row gt_center" headers="rank_mean">22</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">BEL</td>
 <td class="gt_row gt_center" headers="incise_2019">0.485</td>
 <td class="gt_row gt_center" headers="sens_allin">0.465</td>
@@ -3063,7 +2970,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">18</td>
 <td class="gt_row gt_center" headers="rank_mean">20</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">JPN</td>
 <td class="gt_row gt_center" headers="incise_2019">0.472</td>
 <td class="gt_row gt_center" headers="sens_allin">0.421</td>
@@ -3076,7 +2983,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">23</td>
 <td class="gt_row gt_center" headers="rank_mean">21</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">LVA</td>
 <td class="gt_row gt_center" headers="incise_2019">0.466</td>
 <td class="gt_row gt_center" headers="sens_allin">0.367</td>
@@ -3089,7 +2996,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">24</td>
 <td class="gt_row gt_center" headers="rank_mean">25</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">CHL</td>
 <td class="gt_row gt_center" headers="incise_2019">0.454</td>
 <td class="gt_row gt_center" headers="sens_allin">0.447</td>
@@ -3102,7 +3009,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">22</td>
 <td class="gt_row gt_center" headers="rank_mean">23</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">ITA</td>
 <td class="gt_row gt_center" headers="incise_2019">0.419</td>
 <td class="gt_row gt_center" headers="sens_allin">0.426</td>
@@ -3115,7 +3022,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">25</td>
 <td class="gt_row gt_center" headers="rank_mean">24</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">SVN</td>
 <td class="gt_row gt_center" headers="incise_2019">0.369</td>
 <td class="gt_row gt_center" headers="sens_allin">0.395</td>
@@ -3128,7 +3035,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">26</td>
 <td class="gt_row gt_center" headers="rank_mean">26</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">ISR</td>
 <td class="gt_row gt_center" headers="incise_2019">0.315</td>
 <td class="gt_row gt_center" headers="sens_allin">0.246</td>
@@ -3141,7 +3048,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">27</td>
 <td class="gt_row gt_center" headers="rank_mean">27</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">POL</td>
 <td class="gt_row gt_center" headers="incise_2019">0.282</td>
 <td class="gt_row gt_center" headers="sens_allin">0.302</td>
@@ -3154,7 +3061,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">29</td>
 <td class="gt_row gt_center" headers="rank_mean">28</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">PRT</td>
 <td class="gt_row gt_center" headers="incise_2019">0.259</td>
 <td class="gt_row gt_center" headers="sens_allin">0.294</td>
@@ -3167,7 +3074,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">31</td>
 <td class="gt_row gt_center" headers="rank_mean">30</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">CZE</td>
 <td class="gt_row gt_center" headers="incise_2019">0.245</td>
 <td class="gt_row gt_center" headers="sens_allin">0.219</td>
@@ -3180,7 +3087,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">30</td>
 <td class="gt_row gt_center" headers="rank_mean">31</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">ISL</td>
 <td class="gt_row gt_center" headers="incise_2019">0.228</td>
 <td class="gt_row gt_center" headers="sens_allin">0.207</td>
@@ -3193,7 +3100,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">28</td>
 <td class="gt_row gt_center" headers="rank_mean">29</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">TUR</td>
 <td class="gt_row gt_center" headers="incise_2019">0.189</td>
 <td class="gt_row gt_center" headers="sens_allin">0.184</td>
@@ -3206,7 +3113,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">32</td>
 <td class="gt_row gt_center" headers="rank_mean">32</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">SVK</td>
 <td class="gt_row gt_center" headers="incise_2019">0.172</td>
 <td class="gt_row gt_center" headers="sens_allin">0.203</td>
@@ -3219,7 +3126,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">33</td>
 <td class="gt_row gt_center" headers="rank_mean">34</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">BGR</td>
 <td class="gt_row gt_center" headers="incise_2019">0.147</td>
 <td class="gt_row gt_center" headers="sens_allin">0.138</td>
@@ -3232,7 +3139,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">36</td>
 <td class="gt_row gt_center" headers="rank_mean">35</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">HRV</td>
 <td class="gt_row gt_center" headers="incise_2019">0.140</td>
 <td class="gt_row gt_center" headers="sens_allin">0.144</td>
@@ -3245,7 +3152,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">34</td>
 <td class="gt_row gt_center" headers="rank_mean">33</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">ROU</td>
 <td class="gt_row gt_center" headers="incise_2019">0.127</td>
 <td class="gt_row gt_center" headers="sens_allin">0.095</td>
@@ -3258,7 +3165,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">35</td>
 <td class="gt_row gt_center" headers="rank_mean">36</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">GRC</td>
 <td class="gt_row gt_center" headers="incise_2019">0.107</td>
 <td class="gt_row gt_center" headers="sens_allin">0.119</td>
@@ -3271,7 +3178,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">37</td>
 <td class="gt_row gt_center" headers="rank_mean">37</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="cc_iso3c">HUN</td>
 <td class="gt_row gt_center" headers="incise_2019">0.000</td>
 <td class="gt_row gt_center" headers="sens_allin">0.000</td>
@@ -3284,7 +3191,7 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 <td class="gt_row gt_center" headers="rank_rf">38</td>
 <td class="gt_row gt_center" headers="rank_mean">38</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="cc_iso3c">MAE</td>
 <td class="gt_row gt_center" headers="incise_2019">—</td>
 <td class="gt_row gt_center" headers="sens_allin">0.026</td>
@@ -3303,15 +3210,13 @@ Table&nbsp;B.5: Sensitivity tests adjusting the base data
 </td>
 </tr>
 </tbody><tfoot class="gt_footnotes">
-<tr class="even">
+<tr class="odd">
 <td colspan="11" class="gt_footnote">Table B.5 in the original PDF publication</td>
 </tr>
 </tfoot>
 
 </table>
 </div>
-</div>
-</figure>
 </div>
 </div>
 
@@ -3397,9 +3302,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -3409,17 +3315,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -3432,125 +3329,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -3594,7 +3372,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -3620,32 +3397,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -3707,18 +3458,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./A_composite_metrics.html" class="pagination-link  aria-label=" &lt;span="" metrics&lt;="" span&gt;"="">
+      <a href="./A_composite_metrics.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Composite metrics</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./C_dqa_detailed.html" class="pagination-link" aria-label="<span class='chapter-number'>C</span>&nbsp; <span class='chapter-title'>Data quality assessment &amp;ndash; detailed results</span>">
+      <a href="./C_dqa_detailed.html" class="pagination-link">
         <span class="nav-page-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Data quality assessment – detailed results</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-
 
 
 
