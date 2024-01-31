@@ -8,24 +8,19 @@ execute:
 
 source("R/tbl_helpers.R")
 
-tbl_sens_country <- readr::read_delim("tables/table_B-1.txt",
-                                      delim = "|", trim_ws = TRUE)
+tbl_sens_country <- read_md_tbl("tables/table_B-1.txt")
 
-tbl_sens_date <- readr::read_delim("tables/table_B-2.txt",
-                                   delim = "|", trim_ws = TRUE)
+tbl_sens_date <- read_md_tbl("tables/table_B-2.txt")
 
-tbl_sens_wght <- readr::read_delim("tables/table_B-3.txt",
-                                   delim = "|", trim_ws = TRUE)
+tbl_sens_wght <- read_md_tbl("tables/table_B-3.txt")
 
-tbl_sens_base <- readr::read_delim("tables/table_B-4.txt",
-                                  delim = "|", trim_ws = TRUE)
+tbl_sens_base <- read_md_tbl("tables/table_B-4.txt")
 
-tbl_sens_imp <- readr::read_delim("tables/table_B-5.txt",
-                                  delim = "|", trim_ws = TRUE)
+tbl_sens_imp <- read_md_tbl("tables/table_B-5.txt")
 
 ```
 
-# Sensitivity analysis &ndash; detailed results {#sec-sensitivity-detailed}
+# Sensitivity analysis: detailed results {#sec-sensitivity-detailed}
 
 This Annex provides detailed results from the sensitivity analysis described
 in @sec-sensitivity. Each table includes the index score and rank for each of
