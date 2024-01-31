@@ -307,11 +307,13 @@ svg text {
 
 /* table formatting */
 
-table.table caption, figcaption.figure-caption, .quarto-dt-caption {
+table.table caption, figcaption.figure-caption, .quarto-dt-caption, figure.quarto-float-tbl figcaption.quarto-float-caption-top, figcaption {
   color: $bsg-mid-blue;
   text-align: left;
   font-size: 1rem;
   font-weight: 400;
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
 table.table td {
@@ -712,7 +714,7 @@ div.cell.quarto-layout-cell {
 #tbl-sens-country table tbody tr:last-child td,
 #tbl-sens-date table tbody tr:last-child td,
 #tbl-sens-weight table tbody tr:last-child td,
-#tbl-sens-adjust table tbody tr:last-child td,
+#tbl-sens-base table tbody tr:last-child td,
 #tbl-sens-impute table tbody tr:last-child td, {
   color: $bsg-mid-blue;
   font-weight: 600;
