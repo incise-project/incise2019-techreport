@@ -44,12 +44,17 @@ book:
           - text: "Read the InCiSE 2019 Results Report"
             icon: book-half
             href: https://incise-project.github.io/incise2019-results/
+          - text: "View the InCiSE 2019 results dashboard"
+            icon: bar-chart-fill
+            href: https://incise-project.github.io/incise2019-dashboard/
+          - text: "---"
           - text: "Download the PDF of this report"
             icon: file-earmark-pdf
             href: incise2019_technical_report.pdf
           - text: "View the source code of this report"
             icon: github
             href: https://github.com/incise-project/incise2019-techreport/
+          - text: "---"
           - text: "Go to the InCiSE Project homepage"
             icon: house-fill
             href: https://incise-project.github.io/
