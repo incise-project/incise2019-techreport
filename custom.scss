@@ -1,43 +1,6 @@
 /*-- font import --*/
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300&family=Inter:wght@300;400;600;800');
-
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-
-/*-- Blavatnik corporate font --*/
-@font-face {
-    font-family: "Brandon Text";
-    src: url(https://www.bsg.ox.ac.uk/themes/custom/olamalu_bsg_emulsify/font/bsg/fonts/Brandon-Text-Web-Regular.eot) format("eot"), url(https://www.bsg.ox.ac.uk/themes/custom/olamalu_bsg_emulsify/font/bsg/fonts/Brandon-Text-Web-Regular.woff) format("woff"), url(https://www.bsg.ox.ac.uk/themes/custom/olamalu_bsg_emulsify/font/bsg/fonts/Brandon-Text-Web-Regular.woff2) format("woff2");
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Brandon Text";
-    src: url(https://www.bsg.ox.ac.uk/themes/custom/olamalu_bsg_emulsify/font/bsg/fonts/Brandon-Text-Web-Thin.eot) format("eot"), url(https://www.bsg.ox.ac.uk/themes/custom/olamalu_bsg_emulsify/font/bsg/fonts/Brandon-Text-Web-Thin.woff) format("woff"), url(https://www.bsg.ox.ac.uk/themes/custom/olamalu_bsg_emulsify/font/bsg/fonts/Brandon-Text-Web-Thin.woff2) format("woff2");
-    font-weight: 100;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Brandon Text";
-    src: url(https://www.bsg.ox.ac.uk//themes/custom/olamalu_bsg_emulsify/font/bsg/fonts/Brandon-Text-Web-Light.eot) format("eot"), url(https://www.bsg.ox.ac.uk//themes/custom/olamalu_bsg_emulsify/font/bsg/fonts/Brandon-Text-Web-Light.woff) format("woff"), url(https://www.bsg.ox.ac.uk//themes/custom/olamalu_bsg_emulsify/font/bsg/fonts/Brandon-Text-Web-Light.woff2) format("woff2");
-    font-weight: 300;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Brandon Text";
-    src: url(https://www.bsg.ox.ac.uk/themes/custom/olamalu_bsg_emulsify/font/bsg/fonts/Brandon-Text-Web-Medium.eot) format("eot"), url(https://www.bsg.ox.ac.uk/themes/custom/olamalu_bsg_emulsify/font/bsg/fonts/Brandon-Text-Web-Medium.woff) format("woff"), url(https://www.bsg.ox.ac.uk/themes/custom/olamalu_bsg_emulsify/font/bsg/fonts/Brandon-Text-Web-Medium.woff2) format("woff2");
-    font-weight: 500;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Brandon Text";
-    src: url(https://www.bsg.ox.ac.uk/themes/custom/olamalu_bsg_emulsify/font/bsg/fonts/Brandon-Text-Web-Regular-Italic.eot) format("eot"), url(https://www.bsg.ox.ac.uk/themes/custom/olamalu_bsg_emulsify/font/bsg/fonts/Brandon-Text-Web-Regular-Italic.woff) format("woff"), url(https://www.bsg.ox.ac.uk/themes/custom/olamalu_bsg_emulsify/font/bsg/fonts/Brandon-Text-Web-Regular-Italic.woff2) format("woff2");
-    font-weight: normal;
-    font-style: italic;
-}
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 /*-- scss:defaults --*/
 
@@ -71,7 +34,7 @@ $h3-font-size:            1.1rem !default;
 $headings-font-weight:    400 !default;
 $body-color:              #444444 !default;
 
-$headings-font-family:    "Brandon Text", "Open Sans", "Lato", "Helvetica Neue", Helvetica, sans-serif !default;
+$headings-font-family:    "Jost", "Open Sans", "Lato", "Helvetica Neue", Helvetica, sans-serif !default;
 $headings-font-style:     null !default;
 $headings-font-weight:    600 !default;
 $headings-line-height:    1.2 !default;
