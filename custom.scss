@@ -470,6 +470,7 @@ nav.navbar .dropdown-menu {
 .callout .callout-title-container {
   font-size: 0.75rem;
   text-transform: uppercase;
+  font-family: $headings-font-family;
 }
 
 .callout {
@@ -505,9 +506,20 @@ div.callout-tip.callout .callout-header {
 }
 
 div.callout-important.callout {
-  border-left-color: $bsg-mid-blue;
+  border-left-color: $bsg-orange;
   background-color: unset;
-  color: $bsg-mid-blue;
+  color: $bsg-orange;
+  font-weight: 400;
+}
+
+div.callout-important.callout .callout-header {
+  background-color: $bsg-orange;
+  color: #fff;
+}
+
+div.callout-important.callout .callout-body,
+div.callout-important.callout .callout-title-container {
+  font-size: 1em;
 }
 
 .crf {
@@ -685,4 +697,31 @@ div.cell.quarto-layout-cell {
 
 table.table.composite-metrics-tbl td {
   vertical-align: top !important;
+}
+
+/*-- bipa banner --*/
+
+div.bipa-banner {
+  background-color: $bsg-orange;
+  font-family: $headings-font-family;
+  font-weight: 400;
+  font-size: 10;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+  padding: 5px;
+}
+
+div.bipa-banner a {
+  color: #fff;
+}
+
+div.bipa-banner p {
+  padding: 0px;
+  margin: 0px;
+}
+
+div.bipa-banner strong {
+  font-weight: 600;
+  color: #fff;
+  text-transform: uppercase;
 }

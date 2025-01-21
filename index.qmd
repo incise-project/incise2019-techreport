@@ -3,6 +3,20 @@ title-block-banner: true
 format: html
 ---
 
+:::{.callout-important icon="false"}
+
+## Project news
+
+The International Civil Service Effectiveness (InCiSE) Index has been
+archived. The InCiSE Index has been succeeded by the
+[Blavatnik Index of Public Administration](https://index.bsg.ox.ac.uk), the
+first edition of the Blavatnik Index was launched in December 2024.
+
+Visit the Blavatnik Index [website](https://index.bsg.ox.ac.uk) to view the
+results and learn more.
+
+:::
+
 This is an HTML version of the InCiSE 2019 Technical Report, originally
 published in [April 2019](https://www.bsg.ox.ac.uk/news/new-index-ranks-uk-civil-service-top-followed-new-zealand-and-canada).
 

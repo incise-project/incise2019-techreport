@@ -1,0 +1,17 @@
+<script>
+    
+    document.body.onload = addBanner();
+
+    function addBanner() {
+        const newDiv = document.createElement("div");
+        newDiv.classList.add("bipa-banner");
+        const newContent = document.createElement("p");
+        newContent.innerHTML = "<strong>The Blavatnik Index of Public " +
+            "Administration is now live</strong> &ndash; to view the results " +
+            "and learn more visit the " +
+            "<a href=\"https://index.bsg.ox.ac.uk\">website</a>.";
+        newDiv.append(newContent);
+        document.getElementById("quarto-header").prepend(newDiv);
+    }
+
+</script>
